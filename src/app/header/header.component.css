@@ -1,0 +1,56 @@
+ /* #fondo {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg);
+  padding: 90px;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+} */
+.bg-color{
+background-color: red;
+}
+a{
+  color:white;
+}
+.d-flex-center{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.relativo{
+  position: relative;
+  }
+  .absoluto{
+      position: absolute;
+  }
+  .li {
+    float: left;
+  }
+  li > ul{
+    display: none;
+    position: absolute;
+  }
+  li:hover > ul {
+  padding-top:0px;
+    display: flex;
+  }
+
+  .navigation li {
+    padding: 0px;
+    display: inline-block;
+    font-size: 15px;
+    white-space: normal;
+    font-weight: 500;
+    font-family: 'Quicksand';
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: background-color 0.5s ease;
+    font-display: block;
+  }
+  .navigation li:first-of-type {
+    border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  }
+  .navigation li:last-of-type {
+    border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  }

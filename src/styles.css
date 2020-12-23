@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+header {
+    line-height : 25px;
+      border-width:1px 0;
+      list-style:none;
+      text-align:center;
+      position:relative;
+      height:250px;
+      top:0;
+      width:100%;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+     
+
+    z-index: 11;
+    padding: 20px 0px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 4px 4px 0 rgba(23,23,23,.06);
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+a {
+    padding: 15px;
+    display: inline-block;
+    font-size: 15px;
+    white-space: normal;
+    font-weight: 500;
+    font-family: 'Quicksand', 'Helvetica', sans-serif;
+    background-color: transparent;
+}
+li{
+    font-family: 'Quicksand', 'Helvetica', sans-serif;
+    font-size: 15px;
+}
+.navigation li {
+    padding: 15px;
+    display: inline-block;
+    font-size: 15px;
+    white-space: normal;
+    font-weight: 500;
+    font-family: 'Quicksand';
+}
+
+.navigation li.current-menu-ancestor > a, .navigation li.current_page_ancestor > a, .navigation li.current_page_ancestor > a:visited, .navigation li.current_page_item > a, .navigation li.current_page_item > a:visited, .navigation li.current-menu-item > a, .navigation li.current-menu-item > a:visited 
+{
+    color: #00a591;}
+     .kc-col-container, .kc-container, .kc-elm {
+        box-sizing: border-box;
+    }
+    .flex-wrap {
+        display: inline-block;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    h3{
+        color: #333333;
+        font-size: 30px;
+        font-family: 'Quicksand';
+        line-height: 1.3;
+    }

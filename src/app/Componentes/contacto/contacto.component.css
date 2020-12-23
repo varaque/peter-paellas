@@ -1,0 +1,42 @@
+.form-control{
+    border: 0;
+    border-radius: 5px;
+    background-color: #000000;
+    font: #ffffff;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+   }
+  
+.letra{
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+
+   .d-flex{
+       display: flex;
+   }
+
+   .ld-input{
+       height: 100px;
+       min-height: 100px;
+   }
+
+   #fondo {
+    background-image: url(https://lh3.googleusercontent.com/proxy/T8S-8C-koENRdCIMbYX0ccw6N4UfJTibAtEf7pdOvnZE3FyjyJJS9kt3C8jg0pdAXSeHf7O-J22OcBI6067Ujn274P9q7unMYSoLK-PtWdWlNRs7-_sarqQVCBdV9byGuUyp3TTdVU6fPfo);
+    padding: 90px;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  #fondo:before {
+    content:'';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+  }

@@ -1,0 +1,257 @@
+<link rel="preconnect" href="https://fonts.gstatic.com"><!--letra font-->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--estrellitas-->
+
+<div class="container-fluid p-0">
+  <div id="fondo">
+
+    <div class="letra">
+    
+   
+    
+    <div class="row align-items-center justify-content-center ">
+    
+        <div class="col-lg-4" >
+         <input type="text" class="form-control placeholders" name="keyword" placeholder="Busco...">
+        
+
+      
+           <input type="text" class="form-control placeholders" name="location" placeholder="En el lugar...">
+
+ 
+
+          <select style="color: rgb(255, 255, 255)" class="form-control placeholders" style="width: 300px; height: 40px;">
+             <option value="" data-no-translation="" data-trp-gettext="">Categorias</option>
+             <option value="180">LUNES</option>
+             <option value="185">SABADO</option>
+             <option value="183">JUEVES</option>
+          </select>
+
+           <a type="submit" href="" class="d-block sb btn btn-sm btn-outline-secondary">Buscar</a>
+
+        </div>
+
+        <div class="col-xl-4" >
+          
+
+          <h3> <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur culpa quidem voluptatibus similique expedita. 
+            Exercitationem quidem, incidunt blanditiis laudantium fugit quasi itaque error voluptates qui recusandae illo voluptatibus reiciendis nemo.<br> </strong> </h3>
+
+          <p class="h4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto totam animi maxime necessitatibus laudantium commodi tempore doloribus, 
+            quibusdam id eaque officia modi qui assumenda voluptatibus magnam soluta consequatur nobis voluptate.</p>
+
+
+         </div>
+
+
+      </div>
+ 
+</div>
+
+
+</div>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+ 
+      <div class="row">
+        <div class ="col-md-12 h3">
+         Paellas destacadas
+        </div>
+        <div class ="col-md-12 h2">
+          La mejor selección de paellas solo para ti
+         </div>
+        <div class="col-md-4" *ngFor="let Paella of paellas">
+          <div class="card mb-4 shadow-sm">
+
+            <img src="https://img-global.cpcdn.com/recipes/152d87bfdfda7dfb/1200x630cq70/photo.jpg" width="100%" height="225">
+            <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <text x="50%" y="50%" fill="#eceeef"
+                dy=".3em">Thumbnail</text>
+            </svg> -->
+            <div class="card-body">
+              <p class="card-text h2">{{Paella.name}}, en {{Paella.lugar}} hecha por {{Paella.cocinero}} por tan solo {{Paella.precio}}€ la unidad. ¡Quedan {{Paella.plazas}} plazas!</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a type="button" routerLink="/reserva" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary ml-1">Reserva</a></div>
+                </div>
+
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+
+
+
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>         
+        <!--
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+           <!-- <img src="https://estoyhechouncocinillas.com/wp-content/uploads/2017/07/arroz-con-conejo.jpg" width="325" height="225">-->
+            <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Paella de conejo</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">Reserva</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <text x="50%" y="50%" fill="#eceeef"dy=".3em">Thumbnail</text>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Paella con piña</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">Reserva</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <text x="50%" y="50%" fill="#eceeef"
+                dy=".3em">Thumbnail</text>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Paella de costillas</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">Reserva</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <text x="50%" y="50%" fill="#eceeef"
+                dy=".3em">Thumbnail</text>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Arroz al horno</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">Reserva</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <text x="50%" y="50%" fill="#eceeef"
+                dy=".3em">Thumbnail</text>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Paella de ...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">Reserva</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <text x="50%" y="50%" fill="#eceeef"
+                dy=".3em">Thumbnail</text>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Paella de ...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">Reserva</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <text x="50%" y="50%" fill="#eceeef"
+                dy=".3em">Thumbnail</text>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Paella de ...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">Reserva</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <text x="50%" y="50%" fill="#eceeef"
+                dy=".3em">Thumbnail</text>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Paella de ...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella" onclick="scroll(-10000,0)" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">View</a></div>
+                  <a type="button" href="" class="btn btn-sm btn-outline-secondary">Reserva</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

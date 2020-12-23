@@ -1,0 +1,26 @@
+.bg-negro{
+    background-color: black;
+    height: 250px;
+}
+.letra-footer{
+    color: rgb(161, 161, 161);
+}
+.letra-footer2{
+    color: rgb(255, 255, 255);
+    font-family: 'Quicksand', sans-serif;
+ 
+}
+
+.d-flex{
+    display: flex;
+}
+.d-block{
+    display: block;
+}
+.bg-amarillo{
+    background-color: rgb(133, 133, 0);
+    height: 10px;
+}
+.bg-cyan{
+    background-color: cyan;
+}
