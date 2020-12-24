@@ -2,7 +2,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Paella } from './paella';
 import { PAELLAS } from '../paellasprueba';
-
 @Component({
   selector: 'app-paella',
   templateUrl: './paella.component.html',
