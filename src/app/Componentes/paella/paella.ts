@@ -5,8 +5,11 @@ export interface Paella {
     name: string;
     cocinero: string;
     dias: string;
+    plazasT: number;
     plazas: number;
     lugar: string;
     precio: number;
+    mascota: boolean;
+    ver: boolean;
   }
 

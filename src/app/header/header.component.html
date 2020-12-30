@@ -1,62 +1,75 @@
+
+<link rel="preconnect" href="https://fonts.gstatic.com"><!--letra font-->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap" rel="stylesheet">
 <div id="fondo">
   <div class="container-fluid">
-      <div class="row">
-          <div class="col-xl-4 d-flex-center ">
+      <div class="row justify-content-center">
+          <div class="col-md-1 ">
         <a href="" routerLink="" routerLinkActive="active" class="logo">
-            <img src="https://peterpaellas.com/wp-content/uploads/2019/11/logo-peterpaellas.jpg" alt="logo" width="200" height="156">
+            <img src="../../assets/images/Logorecortado.JPG" alt="logo" class="img-fluid">
           </a>
           </div>
 
-          <div class="col-xl-4 d-flex-center ">
-                  <ul class="navigation list-inline list-unstyled">
-                    <li>
-                      <a class="home" routerLink="" routerLinkActive="active" title="Home" href=""> <strong>Home</strong></a>                       
-                      
-                    </li>
-          
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1662 dropdown">
-                      <a title="Pages" href="#" class="dropdown-toggle" data-hover="dropdown" aria-haspopup="true">
-                        <strong>Paginas</strong> 
+          <div class="col-xl-8 d-flex-center justify-content-end "> 
+
+            <a href="login" routerLinkActive="active" class="letra-header"> LOGIN </a>
+/
+             <a href="register" routerLinkActive="active" class="letra-header"> REGISTER </a> 
+
+          </div>
+
+
+        </div>
+<hr/>
+         
+
+
+
+
+
+
+
+
+
+                <nav class="navbar d-flex-center navbar-expand-lg navbar-light bg-white">
+                
+                    <div class="row">
+                    <div class="col-xl-12"> 
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link" href=""><strong class="letranegra">Home</strong></a>
+                        </li>
+                    
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <strong class="letranegra">Paginas</strong> 
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="faq"><strong class="letranegra">FAQs</strong></a></li>
+                           
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="cocineros"> <strong class="letranegra">Cocineros</strong></a></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="contacto"><strong class="letranegra">Contacto</strong></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="login"> <strong class="letranegra">Anunciar mi paella</strong>
+                          </a>
+                        </li>
                         
-                      </a>
-                      <ul role="menu">
-                      
-                        <li>
-                          <a title="FAQ" routerLink="/faq" routerLinkActive="active" href="">
-                            <strong>FAQs</strong>
-                          </a>
-                        </li>
-                        <li>
-                          <a title="Como funciona" routerLink="/comofunciona" routerLinkActive="active" href="">
-                            <strong>Como funciona</strong>
-                          </a>
-                        </li>
-                        <li>
-                          <a title="Cocineros" routerLink="/cocineros" routerLinkActive="active" href="">
-                            <strong>Cocineros</strong>
-                          </a>
-                        </li>
                       </ul>
-
-                      
-                    </li>
-
-
-                    <li>
-                      <a title="Contact" routerLink="/contacto" routerLinkActive="active" href="">
-                        <strong>Contacto</strong>
-                      </a>
-                    </li>
-          
-                    <li>
-                      <a href="#" data-toggle="modal" data-target="#login" class="submit-btn-wrap submit-btn submit-redirect">
-                        <i class="aficon-add-ad"></i>
-                        <span class="anunciapaella" routerLink="/login" routerLinkActive="active" data-no-translation="" data-trp-gettext=""><strong>Anunciar mi Paella</strong></span>
-                      </a> 
-                    </li>
-                  </ul>
+                  
+                    </div>
+                  </div>
                 </div>
-            </div>
+                </nav>
+            
                </div>
         
         

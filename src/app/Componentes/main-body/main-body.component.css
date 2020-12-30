@@ -3,22 +3,15 @@
   display: inherit;
 }
 #fondo {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg);
+  background-image: url();
+  background:linear-gradient(to right, rgb(255 255 255 / 50%),rgb(255 255 255 / 50%)), url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg");
   padding: 90px;
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
 }
-#fondo:before {
-  content:'';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.6);
-}
+
 .article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }

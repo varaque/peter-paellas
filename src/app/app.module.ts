@@ -50,6 +50,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AvisoLegalComponent } from './Componentes/aviso-legal/aviso-legal.component';
 import { CookiesComponent } from './Componentes/cookies/cookies.component';
+import { PanelUsuarioComponent } from './Componentes/panel-usuario/panel-usuario.component';
 
 
 
@@ -73,6 +74,7 @@ import { CookiesComponent } from './Componentes/cookies/cookies.component';
     FooterComponent,
     AvisoLegalComponent,
     CookiesComponent,
+    PanelUsuarioComponent,
 
   ],
   imports: [

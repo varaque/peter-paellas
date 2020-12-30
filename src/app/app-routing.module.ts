@@ -25,6 +25,7 @@ import { ForgotpassComponent} from './login/forgotpass/forgotpass.component';
 import { LoguserComponent} from './login/loguser/loguser.component';
 import { AvisoLegalComponent} from './Componentes/aviso-legal/aviso-legal.component';
 import { CookiesComponent} from './Componentes/cookies/cookies.component';
+import { PanelUsuarioComponent} from './Componentes/panel-usuario/panel-usuario.component';
 
 
 
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
   { path: 'loguser', component: LoguserComponent },
   { path: 'avisolegal', component: AvisoLegalComponent },
   { path: 'cookies', component: CookiesComponent },
+  { path: 'panel-usuario', component: PanelUsuarioComponent },
 
 
   

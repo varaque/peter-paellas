@@ -2,11 +2,21 @@
   .bg-general{
     background-color: beige;
 }
+.bg-cyan{
+  background-color: cyan;
+}
+
 .d-flex{
   display: flex;
 }
 
-img{
+.d-block{
+  display: block;
+}
+
+
+
+.paella{
   border-radius: 15px;
   max-height: 800px;
   max-width: 800px;
