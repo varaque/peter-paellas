@@ -1,0 +1,36 @@
+.d-flex{
+    display: flex;
+}
+.letra{
+  color: rgb(0, 0, 0);
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+#fondo {
+    background-image: url(https://azulsunsetpoint.es/wp-content/uploads/2019/07/73-min.jpg);
+    padding: 90px;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  #fondo:before {
+    content:'';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  form{
+      margin-left: 25%;
+      margin-right: 25%;
+      margin-bottom: 5%;
+  }
+  p{
+    margin-left: 25%;
+    margin-right: 25%;
+}

@@ -1,0 +1,136 @@
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=EUR"></script>
+
+<div class="container-fluid bg-light">
+
+  <div class="row pt-3 align-items-center justify-content-center">
+    
+    <p class="h4"><strong>{{selectedPaella.name}}</strong></p>
+  
+
+    <div class="col-md-6 pt-3 d-flex align-items-center justify-content-center">
+
+    </div>
+
+  </div>
+
+
+    <div class="row ml-4 mr-4 pr-4 pl-4">
+
+       <div class="col-md-6 mt-3 align-items-start justify-content-start">
+         <img src="https://img-global.cpcdn.com/recipes/152d87bfdfda7dfb/1200x630cq70/photo.jpg" class="ml-4 mb-4 paella">
+        <div class="row">
+
+          <div class="col-md-3 cliente borde d-flex align-items-center justify-content-center">
+
+            <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/1980/1980708.svg" width="20" height="20"> Cocinero: {{selectedPaella.cocinero}}</p>
+
+          </div>
+
+
+          <div  style="border-left: 2px solid black;" class="col-md-3 borde d-flex align-items-center justify-content-center">
+
+            <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/633/633898.svg" width="20" height="20"> En {{selectedPaella.lugar}}</p>
+
+          </div>
+
+          <div style="border-left: 2px solid black;" class="col-md-3 borde d-flex align-items-center justify-content-center">
+
+          <p class="h4">  <img src="https://www.flaticon.es/svg/static/icons/svg/846/846066.svg" width="20" height="20" class="mr-1">Precio: {{selectedPaella.precio}}€ / ración</p>
+
+          </div>
+
+          <div style="border-left: 2px solid black;" class="col-md-3 borde d-flex align-items-center justify-content-center">
+
+            <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/747/747310.svg" width="20" height="20" class="mr-1">Día: 30/3/21</p>
+
+          </div>
+
+          <hr/>
+          
+
+            <div class="col-md-4 borde d-flex align-items-center justify-content-center">
+
+              <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/1189/1189357.svg" width="20" height="20" class="mr-1">¡Quedan {{selectedPaella.plazas}} plazas!</p>
+  
+            </div>
+
+            <div style="border-left: 2px solid black;" class="col-md-4 borde d-flex align-items-center justify-content-center">
+
+
+              <div *ngIf="selectedPaella.mascota == true">
+                <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/1076/1076928.svg" width="20" height="20" class="mr-1">Se permite traer mascotas</p>
+
+              </div>
+              <div *ngIf="selectedPaella.mascota == false">
+                <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/1076/1076928.svg" width="20" height="20" class="mr-1">No se permiten mascotas</p>
+
+              </div>
+            
+  
+            </div>
+
+            <div style="border-left: 2px solid black;" class="col-md-4 borde d-flex align-items-center justify-content-center">
+
+              <div *ngIf="selectedPaella.ver == true">
+                <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/2466/2466663.svg" width="30" height="30" class="mr-1">Se permite ver hacer la paella</p>
+
+              </div>
+              <div *ngIf="selectedPaella.ver == false">
+                <p class="h4"></p>
+
+              </div>
+  
+            </div>
+
+       
+          
+
+
+        </div>
+
+       </div>
+
+
+      <div class="col-md-6 mt-3 align-items-center justify-content-center">
+             <p class="h4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia voluptatibus impedit animi tempora corporis, sequi dignissimos, architecto nihil quae facere, eum numquam eius quasi nostrum fugit veniam facilis doloribus natus?</p>
+
+
+             <p class="h4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia voluptatibus impedit animi tempora corporis, sequi dignissimos, architecto nihil quae facere, eum numquam eius quasi nostrum fugit veniam facilis doloribus natus?</p>
+
+        
+
+   <app-reserva></app-reserva>
+
+   <div #paypal></div>
+
+      </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!--<ul class="paellas">
+  <li *ngFor="let paella of paellas"
+    [class.selected]="paella === selectedPaella"
+    (click)="onSelect(paella)">
+    <span class="badge">{{paella.id}}</span> {{paella.name}} {{paella.cocinero}}
+  </li>
+</ul>
+
+<div *ngIf="selectedPaella" class="container">
+
+  <h2>{{selectedPaella.name}} de </h2>
+  <div><span>id: </span>{{selectedPaella.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedPaella.name" placeholder="Tipo de paella..."/>
+    </label>
+  </div>
+</div> -->
