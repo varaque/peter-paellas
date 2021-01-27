@@ -26,7 +26,7 @@ import { LoguserComponent} from './login/loguser/loguser.component';
 import { AvisoLegalComponent} from './Componentes/aviso-legal/aviso-legal.component';
 import { CookiesComponent} from './Componentes/cookies/cookies.component';
 import { PanelUsuarioComponent} from './Componentes/panel-usuario/panel-usuario.component';
-
+import { PublicaPaellaComponent} from './Componentes/publica-paella/publica-paella.component';
 
 
 
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
   { path: 'avisolegal', component: AvisoLegalComponent },
   { path: 'cookies', component: CookiesComponent },
   { path: 'panel-usuario', component: PanelUsuarioComponent },
-
+  { path: 'publica-paella', component: PublicaPaellaComponent },
 
   
 ];

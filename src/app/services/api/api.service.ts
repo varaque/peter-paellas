@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ApiService {
 
-  URL: string = 'http://127.0.0.1:8000'; //pruebas
+  //URL: string = 'http://127.0.0.1:8000'; //pruebas DE MOMENTO ESTO VALE VERGA
   // URL: string = 'https://dev.bipeek.com/api'; //pruebasejemplo
   //URL: string = 'https://app.bipeek.com/api'; //realejemplo
 

@@ -1,16 +1,25 @@
 import { PAELLAS } from "../paellasprueba";
 
 export interface Paella {
+
     id: number;
     nombre: string;
-    foto: string;
+    descripcion: string;
     cocinero: string;
-    dias: string;
-    plazasT: number;
+    foto: string;
+    ubicacion: string;
+    dias: number;
     plazas: number;
-    lugar: string;
+    plazas_libres: number;
     precio: number;
+    fecha: string;
+    ver_hacer_paella: boolean;
+    ninos: boolean;
     mascota: boolean;
-    ver: boolean;
+    categoria: number;
+    usuario_id: number;
+    created_at?: string;
+    updated_at?: string;
+
   }
 

@@ -11,7 +11,7 @@ export class ReservaComponent implements OnInit {
 
   @ViewChild('paypal', {static: true}) paypalElement : ElementRef;
 
-  producto = {
+  producto = { //OJO ESTO ES UN PRODUCTO DE PRUEBA, HAY QUE HACER QUE COJA EL VALOR DE LA PAELLA DE LA BBDD 
 
     descripcion : 'producto en venta',
     precio      : 19.99,

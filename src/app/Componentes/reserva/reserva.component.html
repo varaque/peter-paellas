@@ -5,20 +5,21 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xl-12 mt-4 mb-4 d-flex align-items-center justify-content-center">
+    <div class="col-md-12 mt-4 mb-4 d-flex align-items-center justify-content-center">
       <form action="reserva.php" method="get">
         <h3>¡Reserva ya tu paella!    </h3>
         <hr/>
 
 <p class="d-flex mt-4"> Nombre: <input class="d-flex ml-4" type="text" name="nombre" size="40" placeholder="Name..."></p>
 <p class="d-flex mt-4"> Apellidos: <input  class="d-flex ml-3" type="text" name="apellido" size="40" placeholder="Surname..."></p>
+<p class="d-flex mt-4"> Email: <input  class="d-flex ml-4" type="text" name="email" size="40" placeholder="Email..."></p>
 <p class="d-flex mt-4"> Telefono: <input class="d-flex ml-4" type="tel" name="telefono" size="40" pattern="[0-9]{9}" placeholder="Telephone..."></p>
 <hr/>
 
 
-
-
-<p>Personas (incluyendo niños): 
+<div class="row">
+ <div class="col-md-4">
+<p>Personas: 
     <select name="menu">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -31,8 +32,12 @@
         <option value="9">9</option>
         <option value="10">10</option>
 
-      </select> </p>
-      <label>¿Mascota? <input type="checkbox" id="mascota_checkbox" value="mascota_checkbox"> </label><br>
+      </select> </p></div>
+      <div class="col-md-3">
+      <label>¿Mascota? <input type="checkbox" id="mascota_checkbox" value="mascota_checkbox"> </label><br></div>
+      <div class="col-md-3"><label>¿Niños? <input type="checkbox" id="nino_checkbox" value="nino_checkbox"> </label><br></div>
+      <div class="col-md-6"><label>¿Ver hacer la paella? <input type="checkbox" id="ver_hacer_paella_checkbox" value="ver_hacer_paella_checkbox"> </label><br></div>
+    </div>
       <hr/>
       <div class="row">
         <div class="col-xl-12 d-flex align-items-center justify-content-center ">
