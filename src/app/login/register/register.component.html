@@ -19,43 +19,41 @@
 					<h6 class="letra"><strong>Nombre:</strong></h6>
 					<div class="input-group">
 						<span class="input-group-addon"><span class="fa fa-user"></span></span>
-						<input type="text" class="form-control" name="username" placeholder="Username">
+						<input [(ngModel)]="usuario.nombre" type="text" class="form-control" name="username" placeholder="Username">
 					</div>
                     <hr />
 					<h6 class="letra"><strong>Contraseña:</strong></h6>	
 					<div class="input-group">
 						<span class="input-group-addon"></span>
-						<input  type="password" class="form-control" name="password" placeholder="Password">
+						<input  [(ngModel)]="usuario.contrasena"  type="password" class="form-control" name="password" placeholder="Password">
                     </div>
                     <hr />
 					<h6 class="letra"><strong>Repite la contraseña:</strong></h6>
                     <div class="input-group">
 						<span class="input-group-addon"></span>
-						<input  type="password" class="form-control" name="rpassword" placeholder="Repeat password">
+						<input  [(ngModel)]="contrasena2"  type="password" class="form-control" name="rpassword" placeholder="Repeat password">
 					</div>
 
                     <hr />
 					<h6 class="letra"><strong>Email:</strong></h6>
                     <div class="input-group">
 						<span class="input-group-addon"></span>
-						<input  type="email" class="form-control" name="email" placeholder="Email">
+						<input  [(ngModel)]="usuario.email"  type="email" class="form-control" name="email" placeholder="Email">
                     </div>
                     <hr />
-					<h6 class="letra"><strong>Telefono:</strong></h6>
-                    <div class="input-group">
-						<span class="input-group-addon"></span>
-						<input  type="number" class="form-control" name="telefono" placeholder="Phone number">
-					</div>
-					<hr />
+					
 					<h6 class="letra"><strong>Localizacion:</strong></h6>
 					<div class="input-group">
 						<span class="input-group-addon"></span>
-						<input  type="ubication" class="form-control" name="ubicacion" placeholder="location">
+						<input  [(ngModel)]="usuario.ubicacion"  type="ubication" class="form-control" name="ubicacion" placeholder="location">
                     </div>
 					<hr />
 
-                    
-					<button class="btn btn-lg btn-outline-primary btn-block" type="submit"><i class="fa fa-sign-in"></i> Register</button>
+
+							<div class="d-none" value="0"  [(ngModel)]="usuario.baneado" [(ngModel)]="usuario.email_verified" ></div> <!--esto es para inciializar baneado y email verificado a 0 porque en angulkar me pide false pero la bbdd solo entiende 0 o 1-->
+
+
+					<button (click)="saveUsuario()"  href="panel-usuario" class="btn btn-lg btn-outline-primary btn-block" type="submit"><i class="fa fa-sign-in"></i> Register</button>
 				</form>
 				
 				<p>

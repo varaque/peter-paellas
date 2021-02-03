@@ -114,6 +114,7 @@ import {
   NgxMatNativeDateModule, 
   NgxMatTimepickerModule 
 } from '@angular-material-components/datetime-picker';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -139,6 +140,7 @@ import {
     CookiesComponent,
     PanelUsuarioComponent,
     PublicaPaellaComponent,
+    FilterPipe,
 
   ],
   imports: [

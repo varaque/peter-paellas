@@ -1,6 +1,11 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+      $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd hh:mm:ss' });
+  });
+</script>
 <!------ Include the above in your HEAD tag ---------->
 <link rel="preconnect" href="https://fonts.gstatic.com"><!--letra font-->
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap" rel="stylesheet">
@@ -67,13 +72,15 @@
 
 
                 <mat-form-field>
-    <input [(ngModel)]="paella.fecha" matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date">
+    <input [(ngModel)]="paella.fecha" matInput [ngxMatDatetimePicker]="picker" id="fechafea" placeholder="Choose a date">
   <mat-datepicker-toggle matSuffix [for]="picker">
   </mat-datepicker-toggle>
   <ngx-mat-datetime-picker #picker 
     [showSpinners]="true" 
     [showSeconds]="true">
   </ngx-mat-datetime-picker>
+
+
 
 </mat-form-field>
                    

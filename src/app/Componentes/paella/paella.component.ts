@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {Paella} from '../../Interfaces/paella';
+import { Paella } from '../../Interfaces/paella';
 //import { PAELLAS } from '../paellasprueba';
 import { PaellasService } from 'src/app/services/paellas.service';
 import { HttpClient } from '@angular/common/http';

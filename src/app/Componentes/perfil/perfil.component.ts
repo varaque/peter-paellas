@@ -1,7 +1,9 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { COCINEROS } from '../cocinerosprueba';
-import { Cocinero } from '../cocineros/cocinero';
+import { Usuario } from '../../Interfaces/usuario';
+//import { COCINEROS } from '../cocinerosprueba';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-perfil',
@@ -9,15 +11,40 @@ import { Cocinero } from '../cocineros/cocinero';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  
+  usuario: Usuario ={
+    id: null,
+    nombre: null,
+    email: null,
+    email_verified: false,
+    contrasena: null,
+    foto: null,
+    ubicacion: null,
+    calificacion: 0,
+    baneado: false,
+    tipo: 0,
 
-  cocineros = COCINEROS;
-  selectedCocinero: Cocinero;
+  };
+id:any;
+  //cocineros = COCINEROS;
+  //selectedUsuario: Usuario;
+usuarios: Usuario[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private usuariosService:UsuarioService , private route: ActivatedRoute, private httpClient:HttpClient) { 
+    this.id = this.route.snapshot.params['id'];
+    this.usuariosService.get().subscribe((data: Usuario[]) => {
+      this.usuarios = data;
+ this.usuario = this.usuarios.find((n) => { return n.id == this.id})
+    console.log(this.usuario);
 
-value: number;
+    })
+   
+  }
 
-  ngOnInit(){
+  value: null;
+  ngOnInit(){}
+
+ /* ngOnInit(){
     
     this.route.params.subscribe(params => {
 
@@ -25,10 +52,10 @@ value: number;
       console.log(params.id)
 
     });
-  }
+  }*/
 
-  onSelect(cocinero: Cocinero): void {
-    this.selectedCocinero = cocinero;
+  onSelect(usuario: Usuario): void {
+    this.usuario = usuario;
   }
  
 }

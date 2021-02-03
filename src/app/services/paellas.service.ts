@@ -6,17 +6,17 @@ import {Paella} from '../interfaces/paella';
   providedIn: 'root'
 })
 export class PaellasService {
-API_ENDPOINT = 'http://localhost:8000/api/paellas';
+API_ENDPOINT = 'http://localhost:8000/api/';
 
   constructor(private httpClient:HttpClient) {}
 
+
   save(paella:Paella){
     const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.post(this.API_ENDPOINT, paella, {headers:headers});
+    return this.httpClient.post(this.API_ENDPOINT + 'paellas', paella, {headers:headers});
   }
 
   get(){
-    return this.httpClient.get(this.API_ENDPOINT);
+    return this.httpClient.get(this.API_ENDPOINT + 'paellas');
   }
-  
 }
