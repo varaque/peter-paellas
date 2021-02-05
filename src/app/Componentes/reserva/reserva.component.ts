@@ -1,4 +1,14 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
+import { Paella } from '../../Interfaces/paella';
+//import { PAELLAS } from '../paellasprueba';
+import { ReservaService } from 'src/app/services/reserva.service';
+import { HttpClient } from '@angular/common/http';
+import {PaellaComponent } from '../paella/paella.component';
+import { Reserva } from '../../Interfaces/reserva';
+import { getLocaleTimeFormat } from '@angular/common';
+import { PaellasService } from 'src/app/services/paellas.service';
+
 
 declare var paypal;
 
@@ -10,30 +20,44 @@ declare var paypal;
 export class ReservaComponent implements OnInit {
 
   @ViewChild('paypal', {static: true}) paypalElement : ElementRef;
+  @Input() selectedPaella: Paella;
 
-  producto = { //OJO ESTO ES UN PRODUCTO DE PRUEBA, HAY QUE HACER QUE COJA EL VALOR DE LA PAELLA DE LA BBDD 
+  reserva: Reserva = { //OJO ESTO ES UN PRODUCTO DE PRUEBA, HAY QUE HACER QUE COJA EL VALOR DE LA PAELLA DE LA BBDD 
 
-    descripcion : 'producto en venta',
-    precio      : 19.99,
-    img         : 'imagen de tu producto',
+    nombre : null,
+    email      : null,
+    telefono: null,
+    personas: null,
+    mascota: false,
+    mensaje: null,
+    ver_hacer_paella: false,
+    ninos: false,
+    fecha: '1991-07-12 13:55:42',
+    paella_id: null,
+    usuario_id: 0,
+
 
   }
+
+
+
   title = 'angular-paypal-payment';
 
 	iframe: boolean = false
 
-  constructor() { }
+  constructor(private reservaService: ReservaService) { }
 
+  
   ngOnInit(){
 
     paypal.Buttons({createOrder: (data, actions) => {
       return actions.order.create({
         purchase_units: [
           {
-            description: this.producto.descripcion,
+            description: this.selectedPaella.nombre,
             amount     :{
               currency_code: 'EUR',
-              value        : this.producto.precio
+              value        : this.selectedPaella.precio,
             }
           }
         ]
@@ -51,5 +75,38 @@ export class ReservaComponent implements OnInit {
     .render ( this.paypalElement.nativeElement );
 
   }
+  saveReserva(){ //guardamos la reserva, habra que comprobar que hay plazas, que el email bien, etc
+
+    
+    console.log(this.reserva);
+
+if( this.reserva.personas < this.selectedPaella.plazas_libres){  //comprobar que hay plazas suficientes libres
+  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.reserva.email)) //chequeamos que el mail sea de verdad y esté gucci
+  {
+    this.reserva.paella_id = this.selectedPaella.id;
+    this.selectedPaella.plazas_libres
+
+     this.reservaService.save(this.reserva).subscribe((data) => {     //esto para guardar la reserva
+      this.selectedPaella.plazas_libres = (this.selectedPaella.plazas_libres - this.reserva.personas)
+      alert('¡Reserva enviada!');
+      location.href ="http://localhost:4200/";
+      console.log(data);
+        }, (error) => {
+      console.log("error en reserva.component.ts");
+    })
+
+  }
+  else{
+    alert('¡Este email no es valido!'); //si el email no es gucci
+  }  
+
+}
+  else{
+    alert('¡Lo sentimos, hay tantas plazas libres!');
+  }
+
+
+  }
+
 
 }

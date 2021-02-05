@@ -5,8 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: any, arg: any): any {
+    if (arg === '' || arg.length < 3) return value;
+   const resultPaellas = [];
+   for(const paella of value){
+
+      if(paella.nombre.toLowerCase().indexOf(arg.toLowerCase()) > -1){
+resultPaellas.push(paella);
+      };
+      
+   };
+    return resultPaellas;
   }
 
 }

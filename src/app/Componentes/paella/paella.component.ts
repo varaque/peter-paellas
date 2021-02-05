@@ -34,8 +34,10 @@ export class PaellaComponent implements OnInit {
 
   id:any;
   //paellas = PAELLAS;
- // selectedPaella: Paella;
+//exportedPaella=[this.paella.id, this.paella.nombre, this.paella.descripcion, this.paella.cocinero, this.paella.foto, this.paella.ubicacion, this.paella.plazas, this.paella.plazas_libres, this.paella.precio, this.paella.fecha, this.paella.ver_hacer_paella, this.paella.ninos, this.paella.mascota, this.paella.categoria, this.paella.usuario_id];
+//exportedPaella[];
 paellas: Paella[];
+
 
   constructor(private paellasService:PaellasService , private route: ActivatedRoute, private httpClient:HttpClient) { 
     this.id = this.route.snapshot.params['id'];
@@ -44,12 +46,16 @@ paellas: Paella[];
  this.paella = this.paellas.find((m) => { return m.id == this.id})
     console.log(this.paella);
 
+
     })
    
   }
 
+
+
 value: null;
-ngOnInit(){}
+ngOnInit(){
+}
  /* ngOnInit(){
    
     this.route.params.subscribe(params => {
@@ -66,6 +72,8 @@ ngOnInit(){}
   onSelect(paella: Paella): void {
     this.paella = paella;
   }
- 
+
 }
+
+
 

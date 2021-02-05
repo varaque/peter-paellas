@@ -49,7 +49,7 @@
 
             <div class="col-md-3 borde d-flex align-items-center justify-content-center">
 
-              <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/1189/1189357.svg" width="20" height="20" class="mr-1">¡Quedan {{paella.plazas}} plazas!</p>
+              <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/1189/1189357.svg" width="20" height="20" class="mr-1">¡Quedan {{paella.plazas_libres}} plazas!</p>
   
             </div>
 
@@ -111,7 +111,7 @@
 
         
 
-   <app-reserva></app-reserva>
+   <app-reserva [selectedPaella]='this.paella'></app-reserva>
 
    <div #paypal></div>
 

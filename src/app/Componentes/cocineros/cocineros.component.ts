@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { COCINEROS } from '../cocinerosprueba';
+//import { COCINEROS } from '../cocinerosprueba';
 import { Cocinero } from './cocinero';
 
 import { UsuarioService } from 'src/app/services/usuario.service';

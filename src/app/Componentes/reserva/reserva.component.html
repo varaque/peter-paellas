@@ -6,21 +6,21 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 mt-4 mb-4 d-flex align-items-center justify-content-center">
-      <form action="reserva.php" method="get">
+      <form action="reserva.php" method="POST">
         <h3>¡Reserva ya tu paella!    </h3>
         <hr/>
 
-<p class="d-flex mt-4"> Nombre: <input class="d-flex ml-4" type="text" name="nombre" size="40" placeholder="Name..."></p>
-<p class="d-flex mt-4"> Apellidos: <input  class="d-flex ml-3" type="text" name="apellido" size="40" placeholder="Surname..."></p>
-<p class="d-flex mt-4"> Email: <input  class="d-flex ml-4" type="text" name="email" size="40" placeholder="Email..."></p>
-<p class="d-flex mt-4"> Telefono: <input class="d-flex ml-4" type="tel" name="telefono" size="40" pattern="[0-9]{9}" placeholder="Telephone..."></p>
+<p class="d-flex mt-4"> Nombre: <input [(ngModel)]="reserva.nombre"  class="d-flex ml-4" type="text" name="nombre" size="40" placeholder="Name..."></p>
+
+<p class="d-flex mt-4"> Email: <input  [(ngModel)]="reserva.email"  class="d-flex ml-4" type="text" name="email" size="40" placeholder="Email..."></p>
+<p class="d-flex mt-4"> Telefono: <input [(ngModel)]="reserva.telefono"  class="d-flex ml-4" type="tel" name="telefono" size="40" pattern="[0-9]{9}" placeholder="Telephone..."></p>
 <hr/>
 
 
 <div class="row">
  <div class="col-md-4">
-<p>Personas: 
-    <select name="menu">
+<p>Raciones totales: 
+    <select [(ngModel)]="reserva.personas" name="menu">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -33,15 +33,33 @@
         <option value="10">10</option>
 
       </select> </p></div>
-      <div class="col-md-3">
-      <label>¿Mascota? <input type="checkbox" id="mascota_checkbox" value="mascota_checkbox"> </label><br></div>
-      <div class="col-md-3"><label>¿Niños? <input type="checkbox" id="nino_checkbox" value="nino_checkbox"> </label><br></div>
-      <div class="col-md-6"><label>¿Ver hacer la paella? <input type="checkbox" id="ver_hacer_paella_checkbox" value="ver_hacer_paella_checkbox"> </label><br></div>
+
+
+      <div class="col-md-3"*ngIf="selectedPaella.mascota == true">
+      <label>¿Mascota?   <select [(ngModel)]="reserva.mascota" name="menu">
+        <option value="0">No</option>
+        <option value="1">Si</option> </select> </label><br></div>
+
+
+
+      <div class="col-md-3" *ngIf="selectedPaella.ninos == true">
+        <label>¿Niños? 
+        <select [(ngModel)]="reserva.ninos" name="menu">
+        <option value="0">No</option>
+        <option value="1">Si</option> </select> </label><br></div>
+      
+      
+      
+      <div class="col-md-6" *ngIf="selectedPaella.ver_hacer_paella == true">
+        <label>¿Ver hacer la paella? 
+          <select [(ngModel)]="reserva.ver_hacer_paella" name="menu">
+            <option value="0">No</option>
+            <option value="1">Si</option> </select> </label><br></div>
     </div>
       <hr/>
       <div class="row">
         <div class="col-xl-12 d-flex align-items-center justify-content-center ">
-          <p class="mt-4 letra txt-top"> Información adicional (mascotas, alguna alergia, hora de llegada...): <textarea  class="l-input d-flex align-items-center justify-content-center" type="text" name="mensaje" cols="43" rows="3" placeholder="Message (pets, allergies, arrival time)..."></textarea> </p>
+          <p class="mt-4 letra txt-top"> Información adicional (mascotas, alguna alergia, hora de llegada...): <textarea  [(ngModel)]="reserva.mensaje"  class="l-input d-flex align-items-center justify-content-center" type="text" name="mensaje" cols="43" rows="3" placeholder="Message (pets, allergies, arrival time)..."></textarea> </p>
         </div>    
       </div>
       <hr/>
@@ -50,8 +68,9 @@
       <a type="button" class="d-flex justify-content-between align-items-center mb-4" routerLink="" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">Cerrar</a>
     
       
-     <!-- <a type="submit" class="d-flex justify-content-between align-items-center mb-4" href="" class="btn btn-sm btn-outline-secondary">Reservar plaza</a>     
+     <!-- <a (click)="saveReserva()" type="submit" class="d-flex justify-content-between align-items-center mb-4" href="" class="btn btn-sm btn-outline-secondary">Reservar plaza</a>     
     /ANTIGUO BOTON DE RESERVAR HAY QUE GASTAR EL DE PAYPAL O TRAJETA DE CREDITO   --> 
+    <button (click)="saveReserva()" type="submit" class="btn btn-lg btn-outline-primary btn-block" >	RESERVA PAELLA</button>
       </form>
 
     </div>

@@ -3,8 +3,8 @@ import { Observable, Subject } from 'rxjs';
 import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
-import { PAELLAS } from '../paellasprueba';
-import { Paella } from '../paella/paella'
+//import { PAELLAS } from '../paellasprueba';
+import { Paella } from '../../Interfaces/paella';
 
 @Component({
   selector: 'app-paella-search',

@@ -10,6 +10,9 @@
     font-family: 'Quicksand', sans-serif;
  
 }
+button{
+    background-color: black;
+}
 
 .d-flex{
     display: flex;
