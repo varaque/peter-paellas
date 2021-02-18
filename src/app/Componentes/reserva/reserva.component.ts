@@ -4,7 +4,7 @@ import { Paella } from '../../Interfaces/paella';
 //import { PAELLAS } from '../paellasprueba';
 import { ReservaService } from 'src/app/services/reserva.service';
 import { HttpClient } from '@angular/common/http';
-import {PaellaComponent } from '../paella/paella.component';
+import { PaellaComponent } from '../paella/paella.component';
 import { Reserva } from '../../Interfaces/reserva';
 import { getLocaleTimeFormat } from '@angular/common';
 import { PaellasService } from 'src/app/services/paellas.service';
