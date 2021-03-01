@@ -1,153 +1,56 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com"><!--letra font-->
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<!--letra font-->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap"
+	rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container-fluid p-0">
-	<div id="fondo">
-
-		
-
-		<div class="row d-flex align-items-center justify-content-center">
-			<div class="col-xs-12 col-sm-6">	
-
-
-
-			    <form class="" action="" autocomplete="off" method="POST">
-					<h6 class="letra"><strong>Nombre:</strong></h6>
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h5>¡BIENVENIDO DE NUEVO!</h5>
+				<form class="" action="" autocomplete="off" method="POST">
 					<div class="input-group">
 						<span class="input-group-addon"><span class="fa fa-user"></span></span>
-						<input [(ngModel)]="usuario.nombre" [(ngModel)]="user.name" type="text" class="form-control" name="username" placeholder="Username">
+						<input [(ngModel)]="usuario.nombre" [(ngModel)]="user.name" type="text" class="form-control"
+							name="username" placeholder="Username">
 					</div>
-                    <hr />
-					<h6 class="letra"><strong>Contraseña:</strong></h6>	
 					<div class="input-group">
 						<span class="input-group-addon"></span>
-						<input  [(ngModel)]="usuario.contrasena" [(ngModel)]="user.password"  type="password" class="form-control" name="password" placeholder="Password">
-                    </div>
-                    <hr />
-					<h6 class="letra"><strong>Repite la contraseña:</strong></h6>
-                    <div class="input-group">
-						<span class="input-group-addon"></span>
-						<input  [(ngModel)]="contrasena2"  type="password" class="form-control" name="rpassword" placeholder="Repeat password">
+						<input [(ngModel)]="usuario.email" [(ngModel)]="user.email" type="email" class="form-control"
+							name="email" placeholder="E-mail">
 					</div>
-
-                    <hr />
-					<h6 class="letra"><strong>Email:</strong></h6>
-                    <div class="input-group">
-						<span class="input-group-addon"></span>
-						<input  [(ngModel)]="usuario.email" [(ngModel)]="user.email"  type="email" class="form-control" name="email" placeholder="Email">
-                    </div>
-                    <hr />
-					
-					<h6 class="letra"><strong>Ubicacion:</strong></h6>
 					<div class="input-group">
 						<span class="input-group-addon"></span>
-						<input  [(ngModel)]="usuario.ubicacion" [(ngModel)]="user.ubicacion"  type="ubication" class="form-control" name="ubicacion" placeholder="location">
-                    </div>
-					<hr />
+						<input [(ngModel)]="usuario.contrasena" [(ngModel)]="user.password" type="password"
+							class="form-control" name="password" placeholder="Contraseña">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"></span>
+						<input [(ngModel)]="contrasena2" type="password" class="form-control" name="rpassword"
+							placeholder="Repetir contraseña">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"></span>
+						<input [(ngModel)]="usuario.ubicacion" [(ngModel)]="user.ubicacion" type="ubication"
+							class="form-control" name="ubicacion" placeholder="Ubicaión">
+					</div>
 
 
-							<div class="d-none" value="0"  [(ngModel)]="usuario.baneado" [(ngModel)]="usuario.email_verified" [(ngModel)]="user.baneado" [(ngModel)]="user.email_verified_at" ></div> <!--esto es para inciializar baneado y email verificado a 0 porque en angulkar me pide false pero la bbdd solo entiende 0 o 1-->
+					<div class="d-none" value="0" [(ngModel)]="usuario.baneado" [(ngModel)]="usuario.email_verified"
+						[(ngModel)]="user.baneado" [(ngModel)]="user.email_verified_at"></div>
 
-							<!-- <label><input type="checkbox" id="terminos" value="1"> He leido y acepto terminos y condiciones. </label><br>
+					<a [routerLink]="['/login']">Acceder</a>
 
-
-
-							terminos<input type="checkbox" id="terminos" required> <br>
-
-
-							newsletter<input type="checkbox" value="true" [(ngModel)]="data.newsletter" id="newsletter"> -->
-
-
-
-<script>
-
-function checkCheckbox() {  
-
-  var nLetter= document.getElementById("newsletter");  
-
-  if (nLetter.checked == true){ 
-	var y = document.getElementById("newsletter").value;   
-    return document.getElementById("nLetter").innerHTML = y;  
-  } 
-   
-}
-
-
-	 /* saveSuscripcion(){
-
-
-
-this.suscripcionService.save(this.suscripcion).subscribe((data) => {
-alert('¡Te has suscrito correctamente!');
-console.log(data);
-
-window.location.href = "http://localhost:4200";
-
-
-  }, (error) => {
-console.log("error en footer.ts suscripcion");
-})
-			
-
-function newsletter() {
-  var nLetter = document.getElementById("newsletter");
-
-
-  if (nLetter.checked == true){
-    
-  } 
-
-}
-}  */
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<button (click)="saveUsuario()" (click)="saveUser()"  href="panel-usuario" class="btn btn-lg btn-outline-primary btn-block" type="submit"><i class="fa fa-sign-in"></i> Register</button>
+					<button (click)="saveUsuario()" (click)="saveUser()" href="panel-usuario" class="" type="submit"><i
+							class="fa fa-sign-in"></i>
+						Registrarme</button>
 				</form>
-				
-				<p>
-					<a href="login">Login</a>
-				</p>
 
 			</div>
-    	</div>
-		<div class="row">
-		
-			<div class="col-xs-12 col-sm-3">
-			
-			</div>        
-		</div>	 
-		
-		
+		</div>
 	</div>
-
-
-
-	</div>
-    
-
-
-
-      
-<script>
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
+</div>

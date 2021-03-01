@@ -2,31 +2,32 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
-<div class="container">
-	<div class="row d-flex align-items-center justify-content-center">
-		<div class="col-xs-12 col-sm-4" id="caja-login">
-			<h5>¡BIENVENIDO DE NUEVO!</h5>
-			<form [formGroup]="form" (submit)="login()" method="POST">
-				<div class="row" *ngIf="errors">
-					<div class="col">
-						<div class="alert alert-danger">
-							<strong>Oops!</strong> You have entered invalid credentials
+<div class="container-fuid" id="cajara-exterior-login">
+	<div class="container">
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="col-xs-12 col-sm-4" id="caja-login">
+				<h5>¡BIENVENIDO DE NUEVO!</h5>
+				<form [formGroup]="form" (submit)="login()" method="POST">
+					<div class="row" *ngIf="errors">
+						<div class="col">
+							<div class="alert alert-danger">
+								<strong>Oops!</strong> You have entered invalid credentials
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon"></span>
-					<input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon"></span>
-					<input type="password" class="form-control" formControlName="password" placeholder="Password">
-				</div>
-				<a [routerLink]="['/forgotpass']">He olvidado mi contraseña</a>
-				<button type="submit" type="submit"><i class="fa fa-sign-in"></i>Acceder</button>
-			</form>
-			<a id="btn-register" [routerLink]="['/register']">Registarme</a>
+					<div class="input-group">
+						<span class="input-group-addon"></span>
+						<input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"></span>
+						<input type="password" class="form-control" formControlName="password" placeholder="Password">
+					</div>
+					<a [routerLink]="['/forgotpass']">He olvidado mi contraseña</a>
+					<button type="submit" type="submit"><i class="fa fa-sign-in"></i>Acceder</button>
+				</form>
+				<a id="btn-register" [routerLink]="['/register']">Registarme</a>
+			</div>
 		</div>
 	</div>
 </div>
