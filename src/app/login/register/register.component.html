@@ -42,7 +42,7 @@
                     </div>
                     <hr />
 					
-					<h6 class="letra"><strong>Localizacion:</strong></h6>
+					<h6 class="letra"><strong>Ubicacion:</strong></h6>
 					<div class="input-group">
 						<span class="input-group-addon"></span>
 						<input  [(ngModel)]="usuario.ubicacion" [(ngModel)]="user.ubicacion"  type="ubication" class="form-control" name="ubicacion" placeholder="location">
@@ -50,7 +50,73 @@
 					<hr />
 
 
-							<div class="d-none" value="0"  [(ngModel)]="usuario.baneado" [(ngModel)]="usuario.email_verified" [(ngModel)]="user.baneado" [(ngModel)]="user.email_verified" ></div> <!--esto es para inciializar baneado y email verificado a 0 porque en angulkar me pide false pero la bbdd solo entiende 0 o 1-->
+							<div class="d-none" value="0"  [(ngModel)]="usuario.baneado" [(ngModel)]="usuario.email_verified" [(ngModel)]="user.baneado" [(ngModel)]="user.email_verified_at" ></div> <!--esto es para inciializar baneado y email verificado a 0 porque en angulkar me pide false pero la bbdd solo entiende 0 o 1-->
+
+							<!-- <label><input type="checkbox" id="terminos" value="1"> He leido y acepto terminos y condiciones. </label><br>
+
+
+
+							terminos<input type="checkbox" id="terminos" required> <br>
+
+
+							newsletter<input type="checkbox" value="true" [(ngModel)]="data.newsletter" id="newsletter"> -->
+
+
+
+<script>
+
+function checkCheckbox() {  
+
+  var nLetter= document.getElementById("newsletter");  
+
+  if (nLetter.checked == true){ 
+	var y = document.getElementById("newsletter").value;   
+    return document.getElementById("nLetter").innerHTML = y;  
+  } 
+   
+}
+
+
+	 /* saveSuscripcion(){
+
+
+
+this.suscripcionService.save(this.suscripcion).subscribe((data) => {
+alert('¡Te has suscrito correctamente!');
+console.log(data);
+
+window.location.href = "http://localhost:4200";
+
+
+  }, (error) => {
+console.log("error en footer.ts suscripcion");
+})
+			
+
+function newsletter() {
+  var nLetter = document.getElementById("newsletter");
+
+
+  if (nLetter.checked == true){
+    
+  } 
+
+}
+}  */
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 					<button (click)="saveUsuario()" (click)="saveUser()"  href="panel-usuario" class="btn btn-lg btn-outline-primary btn-block" type="submit"><i class="fa fa-sign-in"></i> Register</button>

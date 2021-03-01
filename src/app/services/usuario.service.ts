@@ -21,10 +21,8 @@ export class UsuarioService {
   }
 
   
-  login(email: string, password: string, token: string) {
-    const httpHeaders = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
+  login(email: string, password: string) {
+    const httpHeaders = new HttpHeaders();
     return this.httpClient.post(`${this.API_ENDPOINT}/login`, { email: email, password: password }, { headers: httpHeaders });
   }
 }

@@ -5,7 +5,7 @@ export interface User{
     id?: number;
     name: string;
     email: string;
-    email_verified: string;
+    email_verified_at: string;
     password: string;
     foto: string;
     ubicacion: string;

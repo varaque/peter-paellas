@@ -23,6 +23,7 @@ export class PaellaComponent implements OnInit {
     plazas: null,
     plazas_libres: null,
     precio: null,
+    telefono: null,
     fecha: null,
     ver_hacer_paella: null,
     ninos: null,

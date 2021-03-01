@@ -21,7 +21,9 @@ paellas: Paella[];
     httpClient.get( this.API_ENDPOINT).subscribe((data: Paella[]) => {
       this.paellas = data;
       console.log(data)
+     
     })
+
 
   }
 

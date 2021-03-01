@@ -5,39 +5,42 @@
 <div class="container-fluid p-0">
   <div id="fondo">
 
-    <div class="letra">
+    <div class="roboto">
     
     
     <div class="row align-items-center justify-content-center ">
     
         <div class="col-lg-4" >
-         <input type="search" value="" class="form-control placeholders" name="filterPaella" placeholder="Busco..." [(ngModel)]="filterPaella" >
-        
+
+         <h3 class="letra-blanca"> <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur culpa quidem voluptatibus similique expedita. 
+            Exercitationem quidem, incidunt blanditiis laudantium fugit quasi itaque error voluptates qui recusandae illo voluptatibus reiciendis nemo.<br> </strong> </h3>
+
+          <p class="h4 letra-blanca">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto totam animi maxime necessitatibus laudantium commodi tempore doloribus, 
+            quibusdam id eaque officia modi qui assumenda voluptatibus magnam soluta consequatur nobis voluptate.</p>
 <!--<app-paella-search></app-paella-search>-->
       
-           <input type="search" class="form-control placeholders" name="location" placeholder="En el lugar...">
-
+<!--            <input type="search" class="form-control placeholders" name="location" placeholder="En el lugar...">
+ -->
  
-
+<!-- 
           <select style="color: rgb(255, 255, 255)" class="form-control placeholders" style="width: 300px; height: 40px;">
              <option value="" data-no-translation="" data-trp-gettext="">Categorias</option>
              <option value="180">LUNES</option>
              <option value="185">SABADO</option>
              <option value="183">JUEVES</option>
-          </select>
+          </select> -->
 
-           <a type="submit" href="" class="d-block sb btn btn-sm btn-outline-secondary">Buscar</a>
-
+<!--            <a type="submit" href="" class="d-block sb btn btn-sm btn-outline-secondary">Buscar</a>
+ -->
         </div>
 
         <div class="col-xl-4" >
           
-
-          <h3> <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur culpa quidem voluptatibus similique expedita. 
-            Exercitationem quidem, incidunt blanditiis laudantium fugit quasi itaque error voluptates qui recusandae illo voluptatibus reiciendis nemo.<br> </strong> </h3>
-
-          <p class="h4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto totam animi maxime necessitatibus laudantium commodi tempore doloribus, 
-            quibusdam id eaque officia modi qui assumenda voluptatibus magnam soluta consequatur nobis voluptate.</p>
+ <h3 class="letra-blanca letra1"> <strong>BUSCA AQUI POR COCINERO NOMBRE O LOCALIZACION:<br> </strong> </h3>
+          
+         <input type="search" value="" class="form-control placeholders mt-4" name="filterPaella" placeholder="Busco..." [(ngModel)]="filterPaella" >
+        
+          
 
 
          </div>
@@ -55,8 +58,8 @@
     <div class="container">
  
       <div class="row">
-        <div class ="col-md-12 h3">
-         Paellas destacadas
+        <div class ="roboto col-md-12 h3">
+         PAELLAS DESTACADAS
         </div>
         <div class ="col-md-12 h2">
           La mejor selección de paellas solo para ti
@@ -73,18 +76,24 @@
             </svg> -->
              <div class="card-body">
               <p class="card-text h2">{{Paella.nombre}}, en {{Paella.ubicacion}} hecha por {{Paella.cocinero}} por tan solo {{Paella.precio}}€ la unidad. ¡Quedan {{Paella.plazas}} plaza(s)!</p>
+              <p class="card-text h2"> ¡Esta paella se hará el dia {{Paella.fecha | date:"dd" }} del {{Paella.fecha | date:"MM" }}, para saber mas pulsa en el boton! </p>
+              
+              <!-- WOW, EL | date: {{Paella.fecha | date:"MM/dd/yy" }} SIMPLEMENTE CONVIERTE LA FECHA EN EL FORMATO QUE TOCA, AIN'T THAT CRAZY? HABRA QUE COMPROBAR CON HORAS  -->
+
+
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary mr-1">Reserva</a>
+                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary mr-1">Mas info</a>
                   <!--<a type="button" routerLink="/" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary ml-1">Reserva</a></div> -->
                 </div>
 
+               <!--  <span class="fa ml-1 fa-star checked"></span>
                 <span class="fa ml-1 fa-star checked"></span>
                 <span class="fa ml-1 fa-star checked"></span>
                 <span class="fa ml-1 fa-star checked"></span>
-                <span class="fa ml-1 fa-star checked"></span>
-                <span class="fa ml-1 fa-star"></span>
-
+                <span class="fa ml-1 fa-star"></span>                                   VOY A COMENTAR LAS ESTRELLAS DE LA PAELLA, PORQUE REALMENTE NO TIENE SENTIDO QUE UNA PAELLA
+                                                                                        QUE NO ESTA HECHA TENGA VALORACIONES, LAS TENDRÁ EL COCINERO, ASI QUE SE PONDRÁ EN MAS INFO
+ -->
 
 
 
@@ -253,4 +262,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

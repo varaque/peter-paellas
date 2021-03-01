@@ -4,7 +4,7 @@
 }
 #fondo {
   background-image: url();
-  background:linear-gradient(to right, rgb(255 255 255 / 50%),rgb(255 255 255 / 50%)), url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg");
+  background:linear-gradient(to right, rgb(0 0 0 / 50%),rgb(0 0 0 / 50%)), /* url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg") */ url("https://uc477593481e057f5865718fcfed.previews.dropboxusercontent.com/p/thumb/ABELC4wZJT3HeFCByWkBl3XpwUT_8wNjgi3c0JDE1YC3r6wFNUTWkbHp476OhWoyXVu2Z8o8b57wFV9uMxSdBUpcUQDdRO56Q3CdjmgSzebIvze1XzproT7xsVDhIaRnCWWXYiqVjn7FAMWKYEXpvK7aE7YF6MxSWdI6jHOPEpjI3Bb7Cl3JsK-UYDfEleRbmkOjiUtL-trrHwll_WHII6JftWV49K1uUEmv-4RQpbpNBscCip4mg8-DFR4s9mTZDWTAuXql5fNCjl_Uulk0qLVdZKFRWMvhJBWNJRk5f2jIX2X92XZu4oaAl8u99JePlW9Pc8kioLld2iLdGHuoChHh0lIJnD58IGCl5raU0PKFCg/p.jpeg?fv_content=true&size_mode=5");
   padding: 90px;
   text-align: center;
   background-size: cover;
@@ -31,7 +31,7 @@ img{
 .h2{
   color: #000000;
   font-size: 15px;
-  font-family: 'Quicksand', sans-serif;
+/*   font-family: 'Quicksand', sans-serif; */
   line-height: 1.3;
   font-weight: 400;
   text-align: center;
@@ -42,7 +42,7 @@ img{
 .h4{
   color: #000000;
   font-size: 20px;
-  font-family: 'Quicksand', sans-serif;
+/*   font-family: 'Quicksand', sans-serif; */
   line-height: 1.3;
   font-weight: 400;
   text-align: center;
@@ -57,7 +57,7 @@ img{
 .h3{
   color: #000000;
   font-size: 30px;
-  font-family: 'Quicksand', sans-serif;
+/*   font-family: 'Quicksand', sans-serif; */
   line-height: 1.3;
   font-weight: 500;
   text-align: center;
@@ -76,7 +76,7 @@ img{
 .placeholders{
 background-color: #000000;
 color: white;
-font-family: 'Quicksand', sans-serif;
+/* font-family: 'Quicksand', sans-serif; */
 font-size: 20px;
 width: 300px;
 height: 40px;
@@ -101,6 +101,31 @@ border-radius: 10px;
   font-family: 'Quicksand', sans-serif;
   font-family: 'Roboto', sans-serif;
 }
+
+.roboto{
+  font-family: 'Roboto', sans-serif;
+}
+
+.cabin{
+  font-family: '';
+}
+
+.letra1{
+  font-family: 'Roboto';
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  color: #e2e2e2;
+
+}
+
+.letra-blanca{
+  color: #e2e2e2;
+}
+
 ul{
   list-style:none
 }

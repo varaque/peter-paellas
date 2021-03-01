@@ -11,22 +11,28 @@ import * as moment from 'moment-timezone';
 })
 export class PublicaPaellaComponent implements OnInit {
 
+  user = localStorage.getItem('userData');
+  userData = JSON.parse(this.user);
+
 paella:Paella = {
+
 
   nombre: null,
   descripcion: null,
-  cocinero: "cocineroquetoque",
-  foto:"añadir el coger fotos",
+  cocinero: this.userData.name,
+  foto:this.userData.foto,
   ubicacion: null,
   plazas: null,
   plazas_libres: null,
-  precio:null,
+  precio: null,
+  telefono: null,
   fecha: null,
   ver_hacer_paella: false,
   ninos: false,
   mascota: false,
-  categoria: 2,
-  usuario_id: 5, 
+  categoria: 0,
+  usuario_id: this.userData.id, 
+  
 
 
 }
@@ -40,7 +46,7 @@ paella:Paella = {
 
   
 
-    console.log(this.paella.fecha);
+    console.log('fecha antes del moment: ' + this.paella.fecha);
 
 //tratamos la hora porque el datepicker de angular saca la hora en formato ISO y eso no le gusta a la bbdd, asi que vamos a hacer un poco de malabares para ver que dia es y darle
 //categoría y que la bbdd guarde la fecha como toca 
@@ -55,7 +61,7 @@ this.paella.fecha = fechabbdd.tz(moment.tz.guess(true)).format('YYYY-MM-DD HH:mm
 
 
 
-console.log(this.paella.fecha);
+console.log('fecha despues del moment: ' + this.paella.fecha);
 
 
 
@@ -73,7 +79,14 @@ sesion.fin = fechabbdd_sesion_fin.tz(moment.tz.guess(true)).format();*/
 
 
     
+    console.log('la paella antes de salvarla: ');
     console.log(this.paella);
+
+    var user =localStorage.getItem('user');   //de aqui obtenemos el token del user que haya en el localstorage
+
+    console.log(user);
+
+
 
     this.paellaService.save(this.paella).subscribe((data) => {
       alert('¡Paella guardada!');

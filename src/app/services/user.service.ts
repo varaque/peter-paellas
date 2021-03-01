@@ -23,9 +23,9 @@ export class UserService {
     var atoken = user.access_token;
     var rtoken = user.refresh_token;
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${atoken}`});
-    var patata = this.httpClient.get(this.API_ENDPOINT +'users', {headers:headers});
-    console.log(patata);
-    return patata;
+    var usuario = this.httpClient.get(this.API_ENDPOINT +'users', {headers:headers});
+    console.log(usuario);
+    return usuario;
   }
 
   

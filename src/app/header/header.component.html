@@ -12,7 +12,10 @@
 
           <div class="col-xl-8 d-flex-center justify-content-end "> 
 
-            <a href="login" routerLinkActive="active" class="letra-header"> LOGIN </a>
+            <a href="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==false" class="letra-header"> LOGIN </a>
+            <a href="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==true" (click)="logout()" class="letra-header"> LOGOUT </a>
+
+
 
              <a href="register" routerLinkActive="active" class="letra-header"> REGISTER </a> 
 
@@ -62,7 +65,11 @@
                           <a class="nav-link" href="contacto"><strong class="letranegra">Contacto</strong></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="publica-paella"> <strong class="letranegra">Anunciar mi paella</strong>
+                          <a class="nav-link" href="publica-paella" *ngIf="this.guard.loggedIn==true"> <strong class="letranegra">Anunciar mi paella</strong>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="panel-usuario" *ngIf="this.guard.loggedIn==true"> <strong class="letranegra">Mi perfil</strong>
                           </a>
                         </li>
                         

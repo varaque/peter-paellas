@@ -40,7 +40,7 @@
 
           <div style="border-left: 2px solid black;" class="col-md-3 borde d-flex align-items-center justify-content-center">
 
-            <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/747/747310.svg" width="20" height="20" class="mr-1">Día: 30/3/21</p>
+            <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/747/747310.svg" width="20" height="20" class="mr-1">Día: {{paella.fecha}}</p>
 
           </div>
 
@@ -81,6 +81,7 @@
   
             </div>
 
+
             <div style="border-left: 2px solid black;" class="col-md-3 borde d-flex align-items-center justify-content-center">
 
               <div *ngIf="paella.ninos == true">
@@ -94,6 +95,13 @@
   
             </div>
 
+
+            
+            <div *ngIf="paella.telefono != '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
+              
+            <p class="h4">Telefono: {{paella.telefono}}</p>
+
+            </div>
        
           
 

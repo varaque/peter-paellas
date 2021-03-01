@@ -15,35 +15,42 @@ a{
 .letra-header{
   color: rgb(0, 0, 0);
   font-family: 'Quicksand', sans-serif;
-
 }
+
 .d-flex-center{
 display: flex;
 align-items: center;
 justify-content: center;
 }
+
 .relativo{
   position: relative;
   }
+
   .absoluto{
       position: absolute;
   }
+
   .li {
     float: left;
   }
+
   li > ul{
     display: none;
     position: absolute;
     transition: 1s 1s;
   }
+
   li:hover > ul {
   padding-top:0px;
     display: flex;
     transition: 1s 1s;
   }
+
 .letranegra{
   color: black;
 }
+
   .navigation li {
     padding: 0px;
     display: inline-block;
@@ -57,10 +64,12 @@ justify-content: center;
     font-display: block;
 
   }
+
   .navigation li:first-of-type {
     border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   }
+  
   .navigation li:last-of-type {
     border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;

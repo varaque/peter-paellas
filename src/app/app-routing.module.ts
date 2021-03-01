@@ -27,6 +27,7 @@ import { AvisoLegalComponent} from './Componentes/aviso-legal/aviso-legal.compon
 import { CookiesComponent} from './Componentes/cookies/cookies.component';
 import { PanelUsuarioComponent} from './Componentes/panel-usuario/panel-usuario.component';
 import { PublicaPaellaComponent} from './Componentes/publica-paella/publica-paella.component';
+import { EditaPerfilComponent} from './Componentes/edita-perfil/edita-perfil.component';
 
 
 
@@ -49,7 +50,7 @@ const appRoutes: Routes = [
   { path: 'cookies', component: CookiesComponent },
   { path: 'panel-usuario', component: PanelUsuarioComponent },
   { path: 'publica-paella', component: PublicaPaellaComponent },
-
+  { path: 'edita-perfil', component: EditaPerfilComponent },
   
 ];
 

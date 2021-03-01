@@ -32,7 +32,7 @@ export class AuthService {
     var user = localStorage.getItem('user');
     var prueba = this.http.post(this.authUrl, {
       grant_type: 'password',
-      client_id: '2',
+      client_id: 3,
       client_secret: 'GXuw6I9Ky0ilsZaoMZJL964K3NTgVYCXWWrlQ2tx',
       username: e,
       password: p,

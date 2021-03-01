@@ -8,7 +8,7 @@ import { PaellaComponent } from '../paella/paella.component';
 import { Reserva } from '../../Interfaces/reserva';
 import { getLocaleTimeFormat } from '@angular/common';
 import { PaellasService } from 'src/app/services/paellas.service';
-
+import * as moment from 'moment-timezone';
 
 declare var paypal;
 
@@ -32,7 +32,7 @@ export class ReservaComponent implements OnInit {
     mensaje: null,
     ver_hacer_paella: false,
     ninos: false,
-    fecha: '1991-07-12 13:55:42',
+    fecha: '',
     paella_id: null,
     usuario_id: 0,
 
@@ -49,6 +49,10 @@ export class ReservaComponent implements OnInit {
 
   
   ngOnInit(){
+
+
+
+
 
     paypal.Buttons({createOrder: (data, actions) => {
       return actions.order.create({
@@ -76,11 +80,18 @@ export class ReservaComponent implements OnInit {
 
   }
   saveReserva(){ //guardamos la reserva, habra que comprobar que hay plazas, que el email bien, etc
+    
+    const fechahoy = moment.tz(moment().toString());   //aqui y en las dos lineas de abajo estoy formateando la fecha para poder guardarla bien en la bbdd con fecha de hoy
+    console.log('lafechahoy: ' + fechahoy);
+    this.reserva.fecha = fechahoy.tz(moment.tz.guess(true)).format('YYYY-MM-DD HH:mm:ss');
+
 
     
+
+
     console.log(this.reserva);
 
-if( this.reserva.personas < this.selectedPaella.plazas_libres){  //comprobar que hay plazas suficientes libres
+if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar que hay plazas suficientes libres
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.reserva.email)) //chequeamos que el mail sea de verdad y esté gucci
   {
     this.reserva.paella_id = this.selectedPaella.id;

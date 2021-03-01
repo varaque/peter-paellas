@@ -4,9 +4,9 @@
       
       <div id="fondo">
       <div class="row">
-        <div class="col-md-4" *ngFor="let usuario of usuarios">
+        <div class="col-md-4" *ngFor="let user of users">
 
-          <div *ngIf="usuario.tipo == 1">
+          <div *ngIf="user.tipo == 1">
 
           <div class="card mb-4 shadow-sm">
             <img src="https://www.flaticon.es/svg/static/icons/svg/206/206898.svg" width="100%" height="225" class="mt-1">
@@ -17,10 +17,10 @@
                 dy=".3em">Thumbnail</text>
             </svg> -->
             <div class="card-body">
-              <p class="card-text">{{usuario.nombre}}. De {{usuario.ubicacion}}.</p>
+              <p class="card-text">{{user.name}}. De {{user.ubicacion}}.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/perfil/{{usuario.id}}" onclick="scroll(-10000,0)" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">Perfil</a></div>
+                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/perfil/{{user.id}}" onclick="scroll(-10000,0)" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">Perfil</a></div>
 
                 </div>
 
@@ -37,7 +37,7 @@
           </div>
 
         </div>
-        <div *ngIf="usuario.tipo != 1"></div>
+        <div *ngIf="user.tipo != 1"></div>
 
 
 

@@ -115,6 +115,7 @@ import {
   NgxMatTimepickerModule 
 } from '@angular-material-components/datetime-picker';
 import { FilterPipe } from './pipes/filter.pipe';
+import { EditaPerfilComponent } from './Componentes/edita-perfil/edita-perfil.component';
 
 
 
@@ -141,6 +142,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     PanelUsuarioComponent,
     PublicaPaellaComponent,
     FilterPipe,
+    EditaPerfilComponent,
 
   ],
   imports: [

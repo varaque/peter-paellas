@@ -24,67 +24,97 @@
                           <tr class="fila-par pt-4">
                               <td class="py-4">
                                   <p><strong>Nombre:</strong> </p>
+                                <p> {{this.userData.name}} </p> 
                               </td>
                               <td class="py-4">
-                                  <p><strong>Apellidos:</strong> </p>
+                                  <p><strong>Email:</strong> </p>
+                                  <p> {{this.userData.Email}} </p> 
+ 
+                                   
                               </td>
                           </tr>
                           <tr class="fila-impar">
                               <td class="py-4">
-                                  <p><strong>Email:</strong> 
+                                  <p><strong>Calificación:</strong> </p>
+                                  <p> {{this.userData.calificacion}} /10</p> 
+ 
+
                               </td>
-                              <td class="py-4">
-                                  <p><strong>Phone number:</strong> </p>
-                              </td>
-                          </tr>
-                          <tr class="fila-par">
-                              <td class="py-4">
-                                  <p><strong>Nickname:</strong>                             </p> 
-                                </td>
-                              <td class="py-4">
+                               <td class="py-4">
                                   <p><strong>Direccion:</strong> </p>
-                              </td>
-                          </tr>
-                          <tr class="fila-impar">
-                              <td class="py-4">
-                                  <p><strong>Codigo postal:</strong> </p>
-                              </td>
-                              <td class="py-4">
-                                  <p><strong>Localizacion:</strong> </p>
+                                  {{this.userData.ubicacion}}
                               </td>
                           </tr>
 
-                          <tr class="fila-par">
-                              <td class="py-4">
-                                  <p><strong>Pais:</strong>                               </td>
-                              <td class="py-4">
-                                <p><strong>Contraseña:</strong> ***********</p>
-                              </td>
+
+
+                          <!-- <tr class="fila-par"> 
                           </tr>
                           <tr class="fila-impar">
-                              <td class="py-4">
-                                  
-                              </td>
-                              <td class="py-4 text-center"><a class="button-download" data-fancybox data-src="#changePassword" href="javascript:;">Change password</a></td>
-                              <div style="display: none; max-width: 500px;" id="changePassword">holaholahola</div>
                           </tr>
+                          <tr class="fila-par">
+                          </tr>
+                          <tr class="fila-impar">
+                          </tr> -->
+
+
+
                           
                       </tbody>
-                      <div style="display: none; max-width: 500px;" id="changePassword">holaholahola</div>
+
                   </table>
  
               </div>
-              <div class="col-sm-3  my-3  pt-3">
-                  <a class="button-download">Edit data</a>
-                  <div style="display: none; max-width: 500px;" id="changePassword">holaholahola</div>
-              </div>
-              <div style="display: none; max-width: 500px;" id="changePassword">holaholahola</div>
+
+              <div><a type="button" routerLink="/edita-perfil" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary mr-1">Editar mi informacion</a></div>
+
+              <p><strong>TUS PAELLAS ACTIVAS:</strong> </p>
+
+              <div class="col-md-4" *ngFor="let Paella of paellas">
+                <div *ngIf="Paella.usuario_id == userData.id" class="card mb-4 shadow-sm">
+      
+                  <img src="https://img-global.cpcdn.com/recipes/152d87bfdfda7dfb/1200x630cq70/photo.jpg" width="100%" height="225">
+                  <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                    <title>Placeholder</title>
+                    <text x="50%" y="50%" fill="#eceeef"
+                      dy=".3em">Thumbnail</text>
+                  </svg> -->
+                   <div class="card-body">
+                    <p class="card-text h2">{{Paella.nombre}}, en {{Paella.ubicacion}} hecha por {{Paella.cocinero}} por tan solo {{Paella.precio}}€ la unidad. ¡Quedan {{Paella.plazas}} plaza(s)!</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary mr-1">Reserva</a>
+                        <!--<a type="button" routerLink="/" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary ml-1">Reserva</a></div> -->
+                      </div>
+      
+                      <span class="fa ml-1 fa-star checked"></span>
+                      <span class="fa ml-1 fa-star checked"></span>
+                      <span class="fa ml-1 fa-star checked"></span>
+                      <span class="fa ml-1 fa-star checked"></span>
+                      <span class="fa ml-1 fa-star"></span>
+      
+      
+      
+      
+                    </div>
+                  </div>      
+                </div>      
+              </div>         
+            </div>   
+
+
+
+
+
+
+
+
+
+
+
+
           </div>
-
-          <div style="display: none; max-width: 500px;" id="changePassword">holaholahola</div>
       </div>
-      <div style="display: none; max-width: 500px;" id="changePassword">holaholahola</div>
-
   </div>
 </div>
-<div style="display: none; max-width: 500px;" id="changePassword">holaholahola</div>

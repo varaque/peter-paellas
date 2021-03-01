@@ -10,6 +10,14 @@ export class FilterPipe implements PipeTransform {
    const resultPaellas = [];
    for(const paella of value){
 
+    if(paella.cocinero.toLowerCase().indexOf(arg.toLowerCase()) > -1){
+      resultPaellas.push(paella);
+            };
+
+            if(paella.ubicacion.toLowerCase().indexOf(arg.toLowerCase()) > -1){
+              resultPaellas.push(paella);
+                    };
+
       if(paella.nombre.toLowerCase().indexOf(arg.toLowerCase()) > -1){
 resultPaellas.push(paella);
       };

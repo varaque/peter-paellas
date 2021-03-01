@@ -5,6 +5,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { PaellasService } from 'src/app/services/paellas.service';
+import {Paella} from '../../Interfaces/paella';
+
 
 
 @Component({
@@ -14,7 +17,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PanelUsuarioComponent implements OnInit {
 
-  user:User = {
+
+  API_ENDPOINT ='http://localhost:8000/api/paellas'; 
+  user = localStorage.getItem('userData');
+  userData = JSON.parse(this.user);
+  /* user:User = {      antiguo data del usuario rollo modelo --23/2/21--
 
     id: null,
     name: null,
@@ -27,17 +34,32 @@ export class PanelUsuarioComponent implements OnInit {
     baneado: false,
     tipo: 0,
   
-  }
-  users: Users[];
+  } */
+  users: User[];
+  //user = localStorage.getItem('userData'); coger data de localstorage
+  paellas: Paella[];
 
-  constructor(private usuariosService:UsuarioService , private usersService:UserService, private route: ActivatedRoute, private httpClient:HttpClient) { 
-    this.id = this.route.snapshot.params['id'];
-    this.usersService.get().subscribe((data: Usuario[]) => {
-      this.users = data;
- this.user = this.users.find((n) => { return n.id == this.id})
-    console.log(this.user);
+  constructor(private usuariosService:UsuarioService , private paellaService:PaellasService , private usersService:UserService, private route: ActivatedRoute, private httpClient:HttpClient) { 
+ 
+    //cogemos las paellas
 
+    httpClient.get( this.API_ENDPOINT).subscribe((data: Paella[]) => {
+      this.paellas = data;
+      console.log(data)
     })
+ 
+ 
+ 
+  //aqui abajo la teoría es que cogíamos los datos del usuario, pero al final los cogeremos del localstorage y au asi que no hay que calentarse la cabeza, podría borrarse
+ 
+      // this.id = this.route.snapshot.params['id'];
+    this.usersService.get().subscribe((data: Usuario[]) => {
+     // this.users = data;
+ //this.user = this.users.find((n) => { return n.id == this.id})
+    console.log('el user que tenemos' );
+    console.log(this.userData);
+
+    }) 
   } 
   
 

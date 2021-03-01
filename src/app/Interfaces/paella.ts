@@ -11,6 +11,7 @@ export interface Paella{
     plazas: number;
     plazas_libres: number;
     precio: number; 
+    telefono: string;
     fecha: string;
     ver_hacer_paella: boolean;
     ninos: boolean;

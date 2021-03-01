@@ -9,12 +9,16 @@ export class LoginService {
   API_ENDPOINT = 'http://localhost:8000/api/';
 headers:HttpHeaders
   constructor(private http:HttpClient) {
-
+    console.log('cambiamos a false en login service');
+  var loggedIn = false;
+  loggedIn = localStorage.getItem('atoken') !== null;
 
    /* this.headers=new HttpHeaders({headers:{"Accept":"application/json", "Authorization":""}}) */
 
   
   }  
+
+
 
    /* inicial(){
 this.http.get<any>(environment.).pipe(

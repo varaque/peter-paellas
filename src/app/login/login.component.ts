@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { LoginService } from '../services/login.service';
 
 //SI TE DA PROBLEMA DE CORS AL LOGEAR O LO QUE SEA, TIENES DOS OPCIONES. 1-SI ES SOLO PARA TESTEOS PUEDES PILLAR UNA EXTENSION DE CHROME LLAMADA ALLOW CORS O ALGO ASI, LA ACTIVAS 
@@ -20,33 +21,43 @@ export class LoginComponent implements OnInit {
   errors: boolean;
 
   constructor(
-    fb: FormBuilder,
+    private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    private guard:AuthGuardService,
     private loginService: LoginService,
     private http: HttpClient
   ) {
 
     this.form = fb.group({
-      email: [
-        '',
-        [Validators.required, Validators.email]
-      ],
-      password: [
-        '',
-        Validators.required
-      ]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required ]
     });
 
   }
 
-  ngOnInit(): void { }
+  ngOnInit(){
+if(localStorage.getItem('atoken')!=null){           //para limpiar el atoken por si va lento y tarda en hacerlo, para que no se guarde el del usuario anterior
+  localStorage.setItem('atoken', '');
+  console.log('en el primer if del login component se ha limpiado atoken, hacemos console log');
+  console.log(localStorage.getItem('atoken'));
+}
+    this.form = this.fb.group({
+
+      email: '',
+      password: ''
+
+    })
+
+   }
 
   /**
    * Login the user based on the form values
    */
-  login(id: number, token: string) {    //este es el submit del video de angular y laravel
+  login() {    //este es el submit del video de angular y laravel
+    
 
+console.log('hemos entrado en el login() del login.component.ts')
     const formData = this.form.getRawValue();
 
    /* console.log(this.form.getRawValue());*/
@@ -58,30 +69,102 @@ export class LoginComponent implements OnInit {
       client_id: 2,
       client_secret: '7Tx61ZtIbnuNVombIn0rmpYKDyC1OIvuYy0DmACb',
       scope: '*'
+    };
 
-    }
+    console.log('aqui el data que hemos puesto, osea email pass y tal: ')
+    console.log(data);
 
-this.http.post('http://localhost:8000/oauth/token', data).subscribe(
+this.http.post('http://localhost:8000/oauth/token', data).subscribe( //AQUI RECIBIMOS EL TOKEN DE REFRESH Y DE AUTHENTICATION, EL CUAL VAMOS A ENVIAR EN UN HEADER PARA RECIBIR LA INFO DEL USER
   result =>{
+
     var user = null;
     var atoken = null;
     var rtoken = null;
     console.log('success'); //
-    console.log(result);    //
+    console.log('esto es el primer result del login.ts: ');  
+    console.log(result);   //
     localStorage.setItem('user',JSON.stringify(result));
     user = localStorage.getItem('user');
     user = JSON.parse(user);
+    localStorage.setItem('atoken',user.access_token); 
+    console.log('acabamos de poner el atoken del localstorage, lo mostramos' + localStorage.getItem('atoken'))  //aqui guardamos en localstorage el access y refresh token
+    localStorage.setItem('rtoken',user.access_token);
     atoken = user.access_token;
-    rtoken = user.refresh_token;
-    console.log(user);
+    rtoken = user.refresh_token; 
+    console.log('esto es el user del login.ts: ');
+    console.log(user);   //
+
+
+
+//esto y lo de abajo antes estaba fuera del primer http
+
+
+    var headers = new HttpHeaders({ 'Authorization': `Bearer ${localStorage.getItem('atoken')}`});
+
+    console.log('el atoken ' + localStorage.getItem('atoken'));
+    console.log('el header '); 
+    console.log(headers);
+
+
+
+
+
+
+
+
+
+    this.http.get('http://localhost:8000/api/user', {headers: headers}).subscribe(
+
+result => {
+  var userData = result;
+  var veamosaver = JSON.stringify(result);
+  console.log('el userData veamos a ver: ' + veamosaver);
+  localStorage.setItem('userData',JSON.stringify(result));
+
+/*  this.guard.loggedIn=true;                    AQUI SE SUPONE QUE SE SETEARIA A TRUE EL LOGGEDIN DEL GUARD */
+
+  location.href ="http://localhost:4200/panel-usuario";
+},
+error=> {
+  console.log('error');
+  console.log(error);
+}
+
+)
 
   },
   
   error=> {
+    alert('¡Email o contraseña incorrectos!')
     console.log('error');
     console.log(error);
   }
 )
+
+
+var atoken = localStorage.getItem('atoken');
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    /* this.loading = true;
     this.errors = false;
     this.authService.login(this.controls.email.value, this.controls.password.value)
@@ -98,7 +181,11 @@ this.http.post('http://localhost:8000/oauth/token', data).subscribe(
         this.errors = true;
       });*/
       
-  }
+
+
+
+  } //hasta aqui el login
+
 
   /**
    * Getter for the form controls
