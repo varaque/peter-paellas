@@ -44,10 +44,4 @@ export class ContactoComponent implements OnInit {
       alert('¡Este email no es valido!');
     }
   }
-
-
-
-
-
-
 }
