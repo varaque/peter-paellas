@@ -1,34 +1,48 @@
-.d-flex{
-    display: flex;
+#caja-login {
+    background-color: burlywood;
+    border-radius: 5px;
 }
 
-#fondo {
-    background-image: url(https://azulsunsetpoint.es/wp-content/uploads/2019/07/73-min.jpg);
-    padding: 90px;
+#caja-login h5 {
+    color: darkgoldenrod;
     text-align: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-  }
-  #fondo:before {
-    content:'';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.6);
-  }
-
-  form{
-      margin-left: 25%;
-      margin-right: 25%;
-      margin-bottom: 10%;
-  }
-  p{
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-a{
-  color: black;
+
+form button,
+form a {
+    margin-top: 20px;
+}
+
+form button,
+#btn-register {
+    margin-right: 8%;
+}
+
+form button {
+    border-radius: 15px;
+    border-style: none;
+    font-weight: bold;
+    color: darkgoldenrod;
+    padding: 5px 15px 5px 15px;
+    float: right;
+}
+
+form input {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 20px;
+}
+
+form a {
+    font-size: 12px;
+    color: black;
+    margin-left: 5%;
+    text-decoration: underline;
+}
+
+#btn-register {
+    color: black;
+    float: right;
 }
