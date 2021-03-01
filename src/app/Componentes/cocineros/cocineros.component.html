@@ -1,52 +1,36 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--estrellitas-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--estrellitas-->
 
-    <div class="container-fluid p-0">
-      
-      <div id="fondo">
-      <div class="row">
-        <div class="col-md-4" *ngFor="let user of users">
+<div class="container-fluid">
+  <div class="container">
+    <h3 class="text-center">COCINEROS</h3>
+    <p class="text-center">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+      classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+      Hampden-Sydney College in Virginia</p>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let user of users;index as i;">
+        <div class="cocinero">
+          <p class="nombre-cocinero">{{user.name}}</p>
+          <div class="caja-foto-cocinero">
+            <img src="../../../assets/images/244772.jpg" class="rounded-circle">
+          </div>
+          <p class="ubicacion-cocinero">{{user.ubicacion}}</p>
 
-          <div *ngIf="user.tipo == 1">
-
-          <div class="card mb-4 shadow-sm">
-            <img src="https://www.flaticon.es/svg/static/icons/svg/206/206898.svg" width="100%" height="225" class="mt-1">
-            <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-              <title>Placeholder</title>
-              <text x="50%" y="50%" fill="#eceeef"
-                dy=".3em">Thumbnail</text>
-            </svg> -->
-            <div class="card-body">
-              <p class="card-text">{{user.name}}. De {{user.ubicacion}}.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/perfil/{{user.id}}" onclick="scroll(-10000,0)" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">Perfil</a></div>
-
-                </div>
-
-                <div class="d-flex justify-content-start align-items-center">
-                  <span class="ml-2 mb-2 fa fa-star checked"></span>
-                  <span class="ml-2 mb-2 fa fa-star checked"></span>
-                  <span class="ml-2 mb-2 fa fa-star checked"></span>
-                  <span class="ml-2 mb-2 fa fa-star "></span>
-                  <span class="ml-2 mb-2 fa fa-star"></span> 
-                  </div>
-
-              </div>
+          <div class="ultima-caja-cocinero">
+            <div class="link-perfil-cocinero">
+              <a type="button" routerLink="/perfil/{{user.id}}" onclick="scroll(-10000,0)" routerLinkActive="active"
+                href="">Perfil</a>
+            </div>
+            <div class="caja-estrellas">
+              <i class="fa fa-star checked"></i>
+              <i class="fa fa-star checked"></i>
+              <i class="fa fa-star checked"></i>
+              <i class="fa fa-star "></i>
+              <i class="fa fa-star"></i>
             </div>
           </div>
-
         </div>
-        <div *ngIf="user.tipo != 1"></div>
-
-
-
-
-
-
-
-        
-        </div>         
+      </div>
     </div>
-</div></div>
-
+  </div>
+</div>

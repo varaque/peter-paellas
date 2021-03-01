@@ -1,22 +1,67 @@
+div.container-fluid,
+.col-md-4,
+.caja-foto-cocinero,
+.ultima-caja-cocinero,
+.caja-estrellas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-#fondo {
-    background-image: url(https://s1.eestatic.com/2019/07/05/cocinillas/recetas/Caldo-Pescado-Verdura-Recetas_411471484_127412628_1706x960.jpg);
-    padding: 90px;
+div.container-fluid {
+    background-color: sandybrown;
+}
+
+div.container {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.col-md-4 {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 50px;
+}
+
+.cocinero {
+    background-color: #FFF;
+    height: 375px;
+    width: 100%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.cocinero .nombre-cocinero {
     text-align: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-  }
-  #fondo:before {
-    content:'';
+    margin-top: 25px;
+}
+
+img.rounded-circle {
+    width: 150px;
+    height: 150px;
+}
+
+.ubicacion-cocinero {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ultima-caja-cocinero {
     position: absolute;
-    top: 0;
     bottom: 0;
-    left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.6);
-  }
-  .checked {
-    color: rgb(248, 223, 0);
-  }
-  
+    left: 0;
+    flex-grow: 1.6;
+}
+
+.link-perfil-cocinero {
+    margin-right: 20%;
+}
+
+.link-perfil-cocinero a {
+    text-decoration: none;
+    color: saddlebrown;
+    font-weight: bold;
+}
