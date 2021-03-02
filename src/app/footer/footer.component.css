@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-.bg-gris{
-    background-color: 
-    #585757;
-    height: 300px;
-}
-.letra-footer{
-    color: #d3d3d3;
-}
- .letra-footer2{
-    color: rgb(255, 255, 255);
-/*     font-family: 'Quicksand', sans-serif; */
- 
-}
-.buscador{
-    border: 0;
-    border-radius: 5px;
-    background-color: #d3d3d3;
-    color:#222222;
-    display: inline;
-    height: 50px;
-    width: 400px;
-   }
-button{
-    background-color: black;
-=======
 
 #caja-footer,
 .caja-footer-izquierdo,
@@ -39,7 +13,6 @@ button{
 .caja-footer-centro,
 .caja-footer-derecho {
     flex-direction: column;
->>>>>>> 5a1900d5c91648c37933d995fdecf174bb1795f9
 }
 
 .caja-footer-derecho input {
@@ -56,28 +29,7 @@ button{
 .caja-footer-izquierdo div:nth-child(1) {
     width: 150px;
 }
-<<<<<<< HEAD
-.bg-cyan{
-    background-color: cyan;
-}
-.lres{
-    color: #000000;
-    font-weight: 700;
-  }
-  
-  .res{
-    text-decoration: none;
-    padding: 8px;
-    padding-left: 25px;
-    padding-right: 25px;
-    font-weight: 300;
-    background-color: #bdbdbd;
-    border-radius: 20px;
-  
-  }
-=======
 
 .caja-footer-centro {
     padding-top: 20px;
 }
->>>>>>> 5a1900d5c91648c37933d995fdecf174bb1795f9
