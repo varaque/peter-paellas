@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Suscripcion } from '../Interfaces/suscripcion';
 import { SuscripcionService } from 'src/app/services/suscripcion.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -15,7 +16,7 @@ export class FooterComponent implements OnInit {
 
   }
 
-  constructor(private suscripcionService: SuscripcionService) { }
+  constructor(private suscripcionService: SuscripcionService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +30,7 @@ export class FooterComponent implements OnInit {
         alert('¡Te has suscrito correctamente!');
         console.log(data);
 
-        window.location.href = "http://localhost:4200";
+        this.router.navigate(['/'])
 
 
       }, (error) => {
