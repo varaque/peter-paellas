@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./faq.component.css']
 })
 export class FaqComponent implements OnInit {
+  modal_activated: boolean
 
-  constructor() { }
+  constructor() {
+    this.modal_activated = false
+  }
 
   ngOnInit(): void {
+  }
+
+  toggleModal() {
+    this.modal_activated ? this.modal_activated = false : this.modal_activated = true;
   }
 
 }
