@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Suscripcion} from '../Interfaces/suscripcion';
+import { Suscripcion } from '../Interfaces/suscripcion';
 import { SuscripcionService } from 'src/app/services/suscripcion.service';
 @Component({
   selector: 'app-footer',
@@ -8,11 +8,11 @@ import { SuscripcionService } from 'src/app/services/suscripcion.service';
 })
 export class FooterComponent implements OnInit {
 
-  suscripcion:Suscripcion = {
+  suscripcion: Suscripcion = {
 
-   email: null,
-  
-  
+    email: null,
+
+
   }
 
   constructor(private suscripcionService: SuscripcionService) { }
@@ -20,27 +20,27 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveSuscripcion(){
+  saveSuscripcion() {
 
     if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.suscripcion.email)) //chequeamos que el mail sea de verdad y esté gucci
-  {
+    {
 
-  this.suscripcionService.save(this.suscripcion).subscribe((data) => {
-    alert('¡Te has suscrito correctamente!');
-    console.log(data);
+      this.suscripcionService.save(this.suscripcion).subscribe((data) => {
+        alert('¡Te has suscrito correctamente!');
+        console.log(data);
 
-    window.location.href = "http://localhost:4200";
+        window.location.href = "http://localhost:4200";
 
 
       }, (error) => {
-    console.log("error en footer.ts suscripcion");
-  })
-                } 
-                
-  else{
-   alert('¡Este email no es valido!');
-      }
+        console.log("error en footer.ts suscripcion");
+      })
+    }
 
-              }
-             
+    else {
+      alert('¡Este email no es valido!');
+    }
+
+  }
+
 }
