@@ -14,6 +14,8 @@ export class MainBodyComponent implements OnInit {
 
  // paellas = PAELLAS;
 filterPaella=""
+filterCocinero=""
+filterUbicacion=""
   API_ENDPOINT ='http://localhost:8000/api/paellas'; // SI TE DA PROBLEMA AL CARGARLAS O ALGO PUEDE SER POR EL CORS ESE QUE PONE EN EL F12, QUE ES QUENO ESTAS EN WHITE LIST PARA EL SERVER, GASTA LA EXTENSION DE CHROME ALLOW CORS Y AU
 paellas: Paella[];
   constructor(private paellaService: PaellasService, private httpClient: HttpClient) { 

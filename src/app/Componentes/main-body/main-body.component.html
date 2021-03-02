@@ -10,13 +10,13 @@
     
     <div class="row align-items-center justify-content-center ">
     
-        <div class="col-lg-4" >
+        <div class="col-lg-4 " >
 
          <h3 class="letra-blanca"> <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur culpa quidem voluptatibus similique expedita. 
-            Exercitationem quidem, incidunt blanditiis laudantium fugit quasi itaque error voluptates qui recusandae illo voluptatibus reiciendis nemo.<br> </strong> </h3>
+            Exercitationem quidem, incidunt blanditiis reiciendis nemo.<br> </strong> </h3>
 
           <p class="h4 letra-blanca">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto totam animi maxime necessitatibus laudantium commodi tempore doloribus, 
-            quibusdam id eaque officia modi qui assumenda voluptatibus magnam soluta consequatur nobis voluptate.</p>
+            quibusdam id eaque nobis voluptate.</p>
 <!--<app-paella-search></app-paella-search>-->
       
 <!--            <input type="search" class="form-control placeholders" name="location" placeholder="En el lugar...">
@@ -32,15 +32,24 @@
 
 <!--            <a type="submit" href="" class="d-block sb btn btn-sm btn-outline-secondary">Buscar</a>
  -->
+
+<img src="../../../assets/images/paellaMain.png">
+
         </div>
 
         <div class="col-xl-4" >
           
- <h3 class="letra-blanca letra1"> <strong>BUSCA AQUI POR COCINERO NOMBRE O LOCALIZACION:<br> </strong> </h3>
+<!--  <h3 class="letra-blanca letra1"> <strong>BUSCA AQUI POR COCINERO NOMBRE O LOCALIZACION:<br> </strong> </h3> -->
+
+
+<!-- REALMENTE LOS TRES BUSCADORES BUSCAN DE TODO, PERO SI QUEREMOS TRES BUSCADORES SI O SI PUES MIRA HACEMOS ESTO Y AU, Y DARÁ IGUAL, EN NOMBRE PODRAS PONER COCINERO O LO QUE SEA -->
+
           
-         <input type="search" value="" class="form-control placeholders mt-4" name="filterPaella" placeholder="Busco..." [(ngModel)]="filterPaella" >
+         <input type="search" value="" class="form-control buscador" name="filterPaella" placeholder="¿Qué paella buscas?" [(ngModel)]="filterPaella" >
         
-          
+         <input type="search" value="" class="form-control buscador mt-4" name="filterCocinero" placeholder="¿Buscas algun cocinero?" [(ngModel)]="filterCocinero" >
+
+         <input type="search" value="" class="form-control buscador mt-4" name="filterUbicacion" placeholder="Ubicación" [(ngModel)]="filterUbicacion" >
 
 
          </div>
@@ -54,20 +63,44 @@
 </div>
 
 
-  <div class="album py-5 bg-light">
+  <div class="bg-paellas">
     <div class="container">
  
       <div class="row">
-        <div class ="roboto col-md-12 h3">
+        <div class ="roboto col-md-12 mt-4 h3">
          PAELLAS DESTACADAS
         </div>
-        <div class ="col-md-12 h2">
-          La mejor selección de paellas solo para ti
-         </div>
-       <div class="col-md-4" *ngFor="let Paella of paellas | filter:filterPaella">
-          <div class="card mb-4 shadow-sm">
 
-            <img src="https://img-global.cpcdn.com/recipes/152d87bfdfda7dfb/1200x630cq70/photo.jpg" width="100%" height="225">
+
+
+        <div class ="col-md-4" ></div>
+        <div class ="col-md-4 align-items-center justify-content-center mb-4 h2">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur laudantium, autem adipisci nesciunt distinctio voluptates. Numquam dicta fuga et incidunt. Laudantium, quia esse? Non reiciendis doloremque, nemo molestiae nostrum praesentium?
+         </div>
+         <div class ="col-md-4" ></div>
+
+
+
+       <div class="col-md-4 mt-4" *ngFor="let Paella of paellas | filter:filterPaella | filter: filterCocinero | filter: filterUbicacion">
+
+
+          <div class="card mb-4 shadow-sm">
+<div class="row">
+<div class="col-md-3"><img src="../../../assets/images/avatar simbolo.png" class="mt-3 mb-3 ml-3 mr-3"></div>
+
+<div class="col-md-9"><p class="mt-2  mr-2"><strong>{{Paella.nombre}}</strong></p>
+
+  <p class="mt-2  mr-2">{{Paella.cocinero}}</p>
+
+</div>
+</div>
+
+
+
+
+
+<!-- https://img-global.cpcdn.com/recipes/152d87bfdfda7dfb/1200x630cq70/photo.jpg -->
+            <img src="../../../assets/images/paella.jpg" width="100%" height="225">
             <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
               <title>Placeholder</title>
@@ -75,15 +108,15 @@
                 dy=".3em">Thumbnail</text>
             </svg> -->
              <div class="card-body">
-              <p class="card-text h2">{{Paella.nombre}}, en {{Paella.ubicacion}} hecha por {{Paella.cocinero}} por tan solo {{Paella.precio}}€ la unidad. ¡Quedan {{Paella.plazas}} plaza(s)!</p>
+              <!-- <p class="card-text h2">{{Paella.nombre}}, en {{Paella.ubicacion}} hecha por {{Paella.cocinero}} por tan solo {{Paella.precio}}€ la unidad. ¡Quedan {{Paella.plazas}} plaza(s)!</p>
               <p class="card-text h2"> ¡Esta paella se hará el dia {{Paella.fecha | date:"dd" }} del {{Paella.fecha | date:"MM" }}, para saber mas pulsa en el boton! </p>
-              
+ -->              <p class="card-text h2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia corporis in et corrupti natus cupiditate mollitia sed esse molestias, quisquam itaque. Unde dolore non corrupti cupiditate amet nobis deleniti earum! </p>
               <!-- WOW, EL | date: {{Paella.fecha | date:"MM/dd/yy" }} SIMPLEMENTE CONVIERTE LA FECHA EN EL FORMATO QUE TOCA, AIN'T THAT CRAZY? HABRA QUE COMPROBAR CON HORAS  -->
 
 
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary mr-1">Mas info</a>
+                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" href="" class=" btn-sm btn-outline-secondary res mr-1"><div class="lres">Reservar</div></a>
                   <!--<a type="button" routerLink="/" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary ml-1">Reserva</a></div> -->
                 </div>
 

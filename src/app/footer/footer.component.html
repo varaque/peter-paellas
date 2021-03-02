@@ -1,61 +1,89 @@
 <link rel="preconnect" href="https://fonts.gstatic.com"><!--letra font-->
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap" rel="stylesheet">
-<div class="container-fluid">
-    <div class="row bg-amarillo">
 
-    </div>
-</div>
 
 <div class="container-fluid">
-    <div class="row bg-negro">
+    <div class="row bg-gris">
 
-        <div class="col-xl-3 d-flex align-items-center justify-content-center">
-
-            <h3 class="letra-footer2"><strong>Peter Paellas</strong></h3>
-   
-   
-           </div>
-
-        <div class="col-xl-3 d-flex align-items-center justify-content-center">
+     
+        <div class="col-xl-4 d-flex align-items-center justify-content-center">
 
 
         
-         <p class="letra-footer2">Peter paellas es una pagina web en la que podrás elegir y comer la paella que mas te guste de nuestra amplia selección. <br><br>
-         En solo un par de clicks puedes reservar tu plaza ¡no te quedes sin comer! </p>
+         
 
 
 
         </div>
 
-        <div class="col-xl-3 d-flex align-items-center justify-content-center">
+        <div class="col-xl-4 d-flex align-items-center justify-content-center">
+<div class="row">         
+  
+  <p class="letra-footer2 mr-4 mb-3">
+    
+    <strong class="letra-footer ml-2 mr-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+      Accusantium aliquid porro possimus rerum exercitationem facere architecto quos quam amet dolorem illum ut recusandae rem aspernatur explicabo, 
+      sit totam? Velit, similique?</strong> 
+    
+    </p>
 
-            <a title="Contact" routerLink="/contacto" routerLinkActive="active" href="/contacto">
-                <strong class="letra-footer2">Contacta con nosotros</strong>
-              </a>
 
 
               <a title="Aviso" routerLink="/avisolegal" routerLinkActive="active" href="/avisolegal">
-                <strong class="letra-footer2">Aviso Legal</strong>
+                <div class="letra-footer ml-3 mr-3">Aviso Legal</div>
               </a>
 
 
               <a title="Cookies" routerLink="/cookies" routerLinkActive="active" href="/cookies">
-                <strong class="letra-footer2">Politica de cookies</strong>
+                <div class="letra-footer ml-3 mr-3">Politica de cookies</div>
               </a>
 
-              
+              <a title="Contact" routerLink="/faqs" routerLinkActive="active" href="/contacto">
+                <div class="letra-footer ml-3 mr-3">Preguntas Frecuentes</div>
+              </a>
+
+</div>
+            
 
        </div>  
        
       
-       <div class="col-xl-3 bg-negro d-flex align-items-center justify-content-center">
-               
+       <div class="col-xl-4 bg-negro align-items-center justify-content-center">
+
+
+        <div class="row pt-4 mt-4 pl-3 ml-3">
+
+          <a routerLink="/contacto" routerLinkActive="active" href="" class=" btn-sm btn-outline-secondary res mr-1"><div class="lres">Contactar</div></a>
+
+        </div>
+
+
+
+
+
+
+        <div class="row pt-4 mt-0 pl-3 ml-3">
+        
        
-        <button (click)="saveSuscripcion()" title="Suscrito" routerLinkActive="active" href=""><h3 class="letra-footer2"><strong>¡SUSCRÍBETE!</strong></h3></button>
+        <p ><a (click)="saveSuscripcion()" title="Suscrito" routerLinkActive="active" class="letra-footer align-items-center justify-content-center" href="">SUSCRÍBETE A NUESTRA NEWSLETTER*</a></p>
 
-                <p> <input [(ngModel)]="suscripcion.email" class="ml-4" type="text" name="email" size="25" placeholder="e-mail..."></p>
+       </div>
 
-          
+
+       <div class="row ml-2">
+
+                <p> <input [(ngModel)]="suscripcion.email" class="ml-4 pl-4 buscador" type="text" name="email" size="25" placeholder="Email"></p>
+
+              </div>
+
+
+              <div class="row ml-2">
+
+                <p> <label class="ml-2 letra-footer2" for="cbox2">* Al suscribirme acepto que quiero recibir notificaciones de este sitio web</label></p>
+
+              </div>
+
+
 
          </div>  
 
