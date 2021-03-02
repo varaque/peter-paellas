@@ -22,10 +22,9 @@ export class FooterComponent implements OnInit {
   }
 
   saveSuscripcion() {
-
+    /* esto con validators se arregla */
     if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.suscripcion.email)) //chequeamos que el mail sea de verdad y esté gucci
     {
-
       this.suscripcionService.save(this.suscripcion).subscribe((data) => {
         alert('¡Te has suscrito correctamente!');
         console.log(data);
