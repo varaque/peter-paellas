@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 .bg-gris{
     background-color: 
     #585757;
-    height: 300px;
+    height: 265px;
 }
 .letra-footer{
     color: #d3d3d3;
@@ -23,23 +22,6 @@
    }
 button{
     background-color: black;
-=======
-
-#caja-footer,
-.caja-footer-izquierdo,
-.caja-footer-derecho,
-.caja-footer-centro,
-.caja-debajo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.caja-footer-izquierdo,
-.caja-footer-centro,
-.caja-footer-derecho {
-    flex-direction: column;
->>>>>>> 5a1900d5c91648c37933d995fdecf174bb1795f9
 }
 
 .caja-footer-derecho input {
@@ -56,7 +38,6 @@ button{
 .caja-footer-izquierdo div:nth-child(1) {
     width: 150px;
 }
-<<<<<<< HEAD
 .bg-cyan{
     background-color: cyan;
 }
@@ -75,9 +56,3 @@ button{
     border-radius: 20px;
   
   }
-=======
-
-.caja-footer-centro {
-    padding-top: 20px;
-}
->>>>>>> 5a1900d5c91648c37933d995fdecf174bb1795f9

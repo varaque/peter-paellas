@@ -6,14 +6,19 @@
     justify-content: center;
     align-items: center;
 }
-
+.margen-caja-login{
+    margin-top: 300px;
+}
 #caja-login {
     background-color: burlywood;
     border-radius: 5px;
+    width: 500px;
+    height: 500px;
+    padding-top: 200px;
 }
 
 #caja-login h5 {
-    color: darkgoldenrod;
+    color: #8b5a17;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;

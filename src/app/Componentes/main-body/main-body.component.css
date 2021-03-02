@@ -7,7 +7,7 @@
 }
 #fondo {
   background-image: url();
-  background:linear-gradient(to right, rgb(0 0 0 / 50%),rgb(0 0 0 / 50%)), /* url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg") */ url("https://uc062628041e12d33c669ab6c8a9.previews.dropboxusercontent.com/p/thumb/ABGox6ftH8IbtTA3N4FMxZssbI58zp-su2dY4V2X0Hgxf_ym7rqrwlnkvP6KOXVZyFvA-kqd0_APgp7-iUV92ez9CTRBEp5veBEUfPnSaAJZEGiCMd7Ntyu8sQqIeCcI05eFXbgp4xj6Yu_7WvUFfSRwWjX2dcCPheCMfjavJ1nZ2xrU0sNlopyW42WAYW_Mv7z6BLNiEoq1dto4qhv1AvPXwBQsG2o8cl8TT9VzaIBEgpL-02ogmt9dM-6iWDJt5_0hglt352Y3QUUVffxj4PYjAFZF7wnoGH_4DcAMh2S1otYZ9j1vOHbO7ijSHJTiAW2aqneDi1a2FpD80HKL-LJ8fPT-P-AP4Nk5qu6iUU6tMw/p.jpeg?fv_content=true&size_mode=5");
+  background:linear-gradient(to right, rgb(0 0 0 / 50%),rgb(0 0 0 / 50%)), /* url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg") */ url("../../../assets/images/1551251263737.jpg");
   padding: 90px;
   text-align: center;
   background-size: cover;
