@@ -1,36 +1,50 @@
-.d-flex{
-    display: flex;
-}
-.letra{
-  color: rgb(0, 0, 0);
-  font-family: 'Quicksand', sans-serif;
-
-}
-
-#fondo {
-    background-image: url(https://azulsunsetpoint.es/wp-content/uploads/2019/07/73-min.jpg);
-    padding: 90px;
-    text-align: center;
+div.container-fluid {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../assets/images/1551251263737.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-  }
-  #fondo:before {
-    content:'';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.6);
-  }
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h5{
+    color: darkgoldenrod;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 20px;
 
-  form{
-      margin-left: 25%;
-      margin-right: 25%;
-      margin-bottom: 5%;
-  }
-  p{
-    margin-left: 25%;
-    margin-right: 25%;
+}
+
+div.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input {
+    margin-top: 20px;
+}
+
+div.col-md-4 {
+    background-color: sandybrown;
+    border-radius: 5px;
+}
+form{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+}
+form button {
+    border-radius: 15px;
+    border-style: none;
+    font-weight: bold;
+    color: darkgoldenrod;
+    padding: 5px 15px 5px 15px;
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+form a{
+    color: black;
+    margin-top: 13px;
+    text-decoration: underline;
 }

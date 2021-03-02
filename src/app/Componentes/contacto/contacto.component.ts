@@ -9,15 +9,13 @@ import { MensajeService } from 'src/app/services/mensaje.service';
 })
 export class ContactoComponent implements OnInit {
 
-  mensaje:Mensaje = {
+  mensaje: Mensaje = {
 
     nombre: null,
     apellido: null,
     telefono: null,
     email: null,
     mensaje: null,
-
-  
   }
 
   constructor(private mensajeService: MensajeService) { }
@@ -25,34 +23,25 @@ export class ContactoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveMensaje(){
+  saveMensaje() {
 
-    
-    console.log(this.mensaje);
-
-
-  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.mensaje.email)) //chequeamos que el mail sea de verdad y esté gucci
-  {
+    //con validator esto no es necesario
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.mensaje.email)) //chequeamos que el mail sea de verdad y esté gucci
+    {
 
 
-     this.mensajeService.save(this.mensaje).subscribe((data) => {
+      this.mensajeService.save(this.mensaje).subscribe((data) => {
 
-      alert('¡Mensaje enviado!');
-      location.href ="http://localhost:4200/";
-      console.log(data);
-        }, (error) => {
-      console.log("error en contacto.component.ts");
-    })
+        alert('¡Mensaje enviado!');
+        location.href = "http://localhost:4200/";
+        console.log(data);
+      }, (error) => {
+        console.log("error en contacto.component.ts");
+      })
 
+    }
+    else {
+      alert('¡Este email no es valido!');
+    }
   }
-  else{
-    alert('¡Este email no es valido!');
-  }
-  }
-
-
-
-
-
-
 }
