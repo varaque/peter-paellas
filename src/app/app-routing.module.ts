@@ -30,6 +30,7 @@ import { PublicaPaellaComponent } from './Componentes/publica-paella/publica-pae
 import { EditaPerfilComponent } from './Componentes/edita-perfil/edita-perfil.component';
 import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
 import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambiadas/credenciales-cambiadas.component';
+import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
 
 
 
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
   { path: 'edita-perfil', component: EditaPerfilComponent },
   { path: 'activar-cuenta', component: ActivarCuentaComponent },
   { path: 'credenciales-cambiadas', component: CredencialesCambiadasComponent },
+  { path: 'paella-reservada', component: PaellaReservadaComponent },
 
 ];
 
