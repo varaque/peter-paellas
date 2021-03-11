@@ -55,6 +55,7 @@ usuarios: Usuario[];
 users: User[];
 paellas: Paella[];
 
+numpaellas = 0;
 
   constructor(private usuariosService:UsuarioService , private paellasService:PaellasService, private usersService:UserService , private route: ActivatedRoute, private httpClient:HttpClient) { 
 
@@ -68,17 +69,36 @@ paellas: Paella[];
 
 
 
-    httpClient.get( this.API_ENDPOINT).subscribe((data: Paella[]) => {
-      this.paellas = data;
+    httpClient.get( this.API_ENDPOINT).subscribe((data2: Paella[]) => { //aqui vemos todas las paellas, de las cuales mostraremos solo las que tengan el mismo id del usuario
+      this.paellas = data2;
       console.log(data)
+      for (var i = 0; i < data.length; i++) {       //esto es para saber el numero de paellas de cada usuario y poder sacarlo por pantalla
+        if(data2[i].usuario_id == this.user.id){
+          this.numpaellas++;       }
+        }
+
     })
 
-
+/*     for (var i = 0; i < data.length; i++) {
+      if(this.paellas[i].usuario_id == this.usuario.id){
+        this.numpaellas++;
+      }
+     
+     
+   }
+console.log ('numpaellas: ' + this.numpaellas); */
 
 
 
     })
    
+
+
+
+
+
+
+
   }
 
   value: null;
@@ -101,5 +121,8 @@ paellas: Paella[];
   onSelect(user: User): void {
     this.user = user;
   }
+
+
+  
  
 }

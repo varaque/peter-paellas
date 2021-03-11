@@ -1,0 +1,48 @@
+.bg-color{
+    background-color: #f7eddf;
+}
+
+.bg-blanco{
+    background-color: white;
+}
+
+.img-round{
+    width:150px;
+    height:150px;
+    border-radius:150px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.letra-intro{
+    color:#8b5a17;
+    font-weight: 700;
+    margin-top:50px;
+}
+.edita-info{
+    color:grey;
+    margin-top: 10px;
+}
+
+.letra-base{
+    color:lightgray;
+}
+
+.inoutl{
+    color:#ffffff;
+    font-weight: 700;
+  }
+
+.inout{
+    text-decoration: none;
+    padding: 8px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: 300;
+    background-color: #d3b791;
+    border-radius: 20px;
+  }
+
+.p-paella-margin{
+    margin-top: 20px;
+
+}

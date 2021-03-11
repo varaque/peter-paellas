@@ -27,7 +27,12 @@ export class UserService {
     console.log(usuario);
     return usuario;
   }
+  put(user){
 
+    const headers = new HttpHeaders({ 'Content-Type':'application/json'});
+    return this.httpClient.put(this.API_ENDPOINT + 'users/' + user.id, user, {headers:headers});
+
+  }
   
   /*login(email: string, password: string, token: string) {
 

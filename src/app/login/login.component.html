@@ -1,54 +1,57 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<div class="container-fuid" id="cajara-exterior-login">
-	<div class="container">
-		<div class="row d-flex align-items-center justify-content-center">
-			
-			
-			
-			
-			<div class="col-xs-12 col-sm-4 mt-4 mb-4 pt-4 pb-4 margen-caja-login" id="caja-login">
-				<h5 class="mt-4">¡BIENVENIDO DE NUEVO!</h5>
-				<form [formGroup]="form" (submit)="login()" method="POST">
-					<div class="row" *ngIf="errors">
-						<div class="col">
-							<div class="alert alert-danger">
-								<strong>Oops!</strong> You have entered invalid credentials
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!------ Include the above in your HEAD tag ---------->
+	<div class="container-fuid" id="cajara-exterior-login">
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				
+				
+				
+				
+				<div class="col-xs-12 col-sm-6  margen-caja-login" id="caja-login">
+					<h5 class="mt-4">¡BIENVENIDO DE NUEVO!</h5>
+
+
+					<form [formGroup]="form" (submit)="login()" method="POST">
+						<div class="row" *ngIf="errors">
+							<div class="col">
+								<div class="alert alert-danger">
+									<strong>Oops!</strong> You have entered invalid credentials
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"></span>
-						<input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"></span>
-						<input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
-					</div>
+						<div class="input-group">
+							<span class="input-group-addon"></span>
+							<input type="email" id="email" class="form-control sombra" formControlName="email" placeholder="Email">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"></span>
+							<input type="password" class="form-control sombra" formControlName="password" placeholder="Contraseña">
+						</div>
 
-<div class="row">
+		<div class="row">
 
-					<div class="col-md-4 mt-4 ml-4">					<a [routerLink]="['/forgotpass']">He olvidado mi contraseña</a>
-</div>
+						<div class="col-md-6 mt-4 ml-4">				
+							<p><a id="btn-forgot" [routerLink]="['/register']">He olvidado mi contraseña</a></p>
+						</div>
 
-<div class="col-md-4 mt-4 ml-4">	
-	
-	
-	<button type="submit" type="submit"><i class="fa fa-sign-in"></i>Acceder</button>			
-	
-	<p><a id="btn-register" [routerLink]="['/register']">Registarme</a></p>
+			<div class="col-md-3 mt-4">	
+		
+		
+		<button type="submit" type="submit"><i class="fa fa-sign-in"></i>Acceder</button>			
+		
+		<p><a id="btn-register" [routerLink]="['/register']">Registrarme</a></p>
 
-</div>
+			</div>
 
 
 
-</div>
+		</div>
+						
+					</form>
 					
-				</form>
-				
+				</div>
 			</div>
 		</div>
 	</div>
-</div>

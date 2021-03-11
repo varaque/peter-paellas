@@ -1,50 +1,68 @@
-div.container-fluid {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../assets/images/1551251263737.jpg');
-    background-size: cover;
-    height: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-h5{
-    color: darkgoldenrod;
-    text-align: center;
-    margin-top: 25px;
-    margin-bottom: 20px;
+    div.container-fluid {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/1551251263737.jpg');
+        background-size: cover;
+        height: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h5{
+        color: #8b5a17;
+        text-align: center;
+        margin-top: 35px;
+        margin-bottom: 20px;
 
-}
+    }
 
-div.row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    div.row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-form input {
-    margin-top: 20px;
-}
+    form input {
+        margin-top: 20px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    .sombra{
+        box-shadow: 2px 2px 10px #666;
+    }
+    .marron{
+        color:#844f06;
+    }
+    #btn-forgot {
+        color:#844f06;
+        font-weight: 700;
+        font-size: 16px;
 
-div.col-md-4 {
-    background-color: sandybrown;
-    border-radius: 5px;
-}
-form{
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-}
-form button {
-    border-radius: 15px;
-    border-style: none;
-    font-weight: bold;
-    color: darkgoldenrod;
-    padding: 5px 15px 5px 15px;
-    float: right;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-form a{
-    color: black;
-    margin-top: 13px;
-    text-decoration: underline;
-}
+
+    }
+
+    .caja {
+        background-color: #e9cda5;
+        border-radius: 5px;
+        margin-top: 150px;
+        margin-bottom: 150px;
+    }
+    form{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+    }
+    form button {
+        border-radius: 15px;
+        border-style: none;
+        font-weight: bold;
+        color:#844f06;
+        padding: 5px 15px 5px 15px;
+        float: right;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        margin-right:20px;
+    }
+    form a{
+        color: black;
+        margin-top: 13px;
+        text-decoration: underline;
+    }

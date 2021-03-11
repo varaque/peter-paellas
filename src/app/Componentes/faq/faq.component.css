@@ -1,56 +1,76 @@
-#caja-modal {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10000;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    #caja-modal {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #fondo {
+        background-image: url();
+        background:linear-gradient(to right, rgb(0 0 0 / 50%),rgb(0 0 0 / 50%)), /* url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg") */ url("../../../assets/images/1551251263737.jpg");
+        padding: 90px;
+        text-align: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+    }
 
-.respuesta-modal-card {
-    background-color: sandybrown;
-    width: 25%;
-    padding: 20px 35px 20px 35px;
-}
+    .respuesta-modal-card {
+        background-color: #ffefd5;
+        width: 25%;
+        padding: 20px 35px 20px 35px;
+    }
 
-.caja-exterior-faq {
-    padding: 20px;
-}
+    .caja-exterior-faq {
+        padding: 20px;
+    }
+    .marron{
+        color: #8b5a17;
+        font-size: 20px;
+        font-weight: 900;
+    }
+    .caja-contenedor {
+        background: linear-gradient(to bottom, rgb( 255 255 255 / 50%), #ffefd5);
+        background-color: #ffefd5;
+        padding: 40px 50px 40px 50px;
+        border-radius: 5px;
+    }
 
-.caja-contenedor {
-    background-color: sandybrown;
-    padding: 40px 50px 40px 50px;
-}
+    .caja-faq {
+        border-radius: 3px;
+        background-color: #FFFFFF;
+        padding: 25px 40px 25px 40px;
+    }
+    .titulo{
+        color: grey;
+        font-weight: 500;
+        font-size: 35px;
+    }
 
-.caja-faq {
-    border-radius: 3px;
-    background-color: #FFFFFF;
-    padding: 25px 40px 25px 40px;
-}
+    .caja-faq h3,
+    .caja-faq p {
+        margin-top: 35px;
+    }
 
-.caja-faq h3,
-.caja-faq p {
-    margin-top: 35px;
-}
+    .caja-faq i {
+        color: saddlebrown;
+        text-align: center;
+    }
 
-.caja-faq i {
-    color: saddlebrown;
-    text-align: center;
-}
+    .caja-faq hr {
+        size: 20px;
+    }
 
-.caja-faq hr {
-    size: 20px;
-}
+    .box-boton-plus {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.box-boton-plus {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#caja-modal .col-md-5 {
-    background-color: sandybrown;
-}
+    #caja-modal .col-md-5 {
+        background-color: #ffefd5;
+    }

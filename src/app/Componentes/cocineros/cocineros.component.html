@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 <!--estrellitas-->
 
 <div class="container-fluid">
@@ -8,20 +8,20 @@
       classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
       Hampden-Sydney College in Virginia</p>
     <div class="row">
-      <div class="col-md-4" *ngFor="let user of users;index as i;">
-        <div class="cocinero">
-          <p class="nombre-cocinero">{{user.name}}</p>
-          <div class="caja-foto-cocinero">
-            <img src="../../../assets/images/244772.jpg" class="rounded-circle">
-          </div>
-          <p class="ubicacion-cocinero">{{user.ubicacion}}</p>
+      <div class="col-md-4" *ngFor="let user of users">
+        <div class="cocinero"> 
+          <p class="titulo-name">{{user.name}}</p> 
+          <div class="caja-foto-cocinero"> 
+            <img src="/assets/images/244772.jpg" class="rounded-circle"> 
+          </div> 
+          <p class="ubicacion-cocinero">{{user.ubicacion}}</p> 
 
-          <div class="ultima-caja-cocinero">
-            <div class="link-perfil-cocinero">
-              <a type="button" routerLink="/perfil/{{user.id}}" onclick="scroll(-10000,0)" routerLinkActive="active"
-                href="">Perfil</a>
-            </div>
-            <div class="caja-estrellas">
+          <div class="ultima-caja-cocinero"> 
+            <div class="link-perfil-cocinero"> 
+              <a type="button" routerLink="/perfil/{{user.id}}" onclick="scroll(-10000,0)" routerLinkActive="active" 
+                href="" class="mb-4">Perfil</a> 
+            </div> 
+            <div class=" mb-4 caja-estrellas"> 
               <i class="fa fa-star checked"></i>
               <i class="fa fa-star checked"></i>
               <i class="fa fa-star checked"></i>

@@ -1,3 +1,4 @@
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -7,20 +8,26 @@
   <div class="row">
     <div class="col-md-12 mt-4 mb-4 d-flex align-items-center justify-content-center">
       <form action="reserva.php" method="POST">
-        <h3>¡Reserva ya tu paella!    </h3>
+        <h3>¡RESERVA TU PAELLA!    </h3>
         <hr/>
 
-<p class="d-flex mt-4"> Nombre: <input [(ngModel)]="reserva.nombre"  class="d-flex ml-4" type="text" name="nombre" size="40" placeholder="Name..."></p>
+<p class="d-flex mt-4"><input [(ngModel)]="reserva.nombre"  class="inputs d-flex ml-4" type="text" name="nombre" size="40" placeholder="Nombre completo*" required></p>
 
-<p class="d-flex mt-4"> Email: <input  [(ngModel)]="reserva.email"  class="d-flex ml-4" type="text" name="email" size="40" placeholder="Email..."></p>
-<p class="d-flex mt-4"> Telefono: <input [(ngModel)]="reserva.telefono"  class="d-flex ml-4" type="tel" name="telefono" size="40" pattern="[0-9]{9}" placeholder="Telephone..."></p>
+<p class="d-flex mt-4"><input [(ngModel)]="reserva.telefono"  class="inputs d-flex ml-4" type="tel" name="telefono" size="40" pattern="[0-9]{9}" placeholder="Telefono*" required></p>
+
+<p class="d-flex mt-4"><input  [(ngModel)]="reserva.email"  class="inputs d-flex ml-4" type="text" name="email" size="40" placeholder="Email*" required></p>
+
 <hr/>
 
 
 <div class="row">
  <div class="col-md-4">
-<p>Raciones totales: 
-    <select [(ngModel)]="reserva.personas" name="menu">
+<p> Raciones
+   
+      <input class="contador bordeMarron"  [(ngModel)]="reserva.personas" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
+
+        <!--<select [(ngModel)]="reserva.personas" name="raciones">
+        <option value="" selected disabled>Nº Raciones</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -31,12 +38,14 @@
         <option value="8">8</option>
         <option value="9">9</option>
         <option value="10">10</option>
+        
 
-      </select> </p></div>
+      </select> --> </p></div>
 
 
       <div class="col-md-3"*ngIf="selectedPaella.mascota == true">
-      <label>¿Mascota?   <select [(ngModel)]="reserva.mascota" name="menu">
+      <label>¿Mascota?   <select [(ngModel)]="reserva.mascota" name="mascota">
+        <option value="" selected disabled>Mascota</option>
         <option value="0">No</option>
         <option value="1">Si</option> </select> </label><br></div>
 
@@ -44,40 +53,45 @@
 
       <div class="col-md-3" *ngIf="selectedPaella.ninos == true">
         <label>¿Niños? 
-        <select [(ngModel)]="reserva.ninos" name="menu">
+        <select [(ngModel)]="reserva.ninos" name="ninos">
+          <option value="" selected disabled>Niños</option>
         <option value="0">No</option>
         <option value="1">Si</option> </select> </label><br></div>
       
       
       
       <div class="col-md-6" *ngIf="selectedPaella.ver_hacer_paella == true">
-        <label>¿Ver hacer la paella? 
-          <select [(ngModel)]="reserva.ver_hacer_paella" name="menu">
-            <option value="0">No</option>
+        <label>Quiero ver como se hace la paella 
+          <select [(ngModel)]="reserva.ver_hacer_paella" name="ver">
+            <option value="" selected disabled>¿Ver hacer la paella?</option>
+            <option value="0" selected>No</option>
             <option value="1">Si</option> </select> </label><br></div>
     </div>
       <hr/>
       <div class="row">
         <div class="col-xl-12 d-flex align-items-center justify-content-center ">
-          <p class="mt-4 letra txt-top"> Información adicional (mascotas, alguna alergia, hora de llegada...): <textarea  [(ngModel)]="reserva.mensaje"  class="l-input d-flex align-items-center justify-content-center" type="text" name="mensaje" cols="43" rows="3" placeholder="Message (pets, allergies, arrival time)..."></textarea> </p>
+          <p class="mt-4 letra txt-top"> <textarea  [(ngModel)]="reserva.mensaje"  class="l-input inputsta d-flex align-items-center justify-content-center" type="text" name="mensaje" cols="43" rows="3" placeholder="Informacion adicional: hora de llegada, alergias, mascota (si se permite), etc"></textarea> </p>
         </div>    
       </div>
       <hr/>
 
+
+
+
+ 
   <div #paypal></div>
 
       <a type="button" class="d-flex justify-content-between align-items-center mb-4" routerLink="" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">Cerrar</a>
     
       
-     <!-- <a (click)="saveReserva()" type="submit" class="d-flex justify-content-between align-items-center mb-4" href="" class="btn btn-sm btn-outline-secondary">Reservar plaza</a>     
-    /ANTIGUO BOTON DE RESERVAR HAY QUE GASTAR EL DE PAYPAL O TRAJETA DE CREDITO   --> 
+      <a (click)="saveReserva()" type="submit" class="d-flex justify-content-between align-items-center mb-4" class="btn btn-sm btn-outline-secondary">Reservar plaza</a>     
+    <!--/ANTIGUO BOTON DE RESERVAR HAY QUE GASTAR EL DE PAYPAL O TRAJETA DE CREDITO   --> 
 
 
-    <!-- <button (click)="saveReserva()" type="submit" class="btn btn-lg btn-outline-primary btn-block" >	RESERVA PAELLA</button>    
+     <!--<button (click)="saveReserva()" type="submit" class="btn btn-lg btn-outline-primary btn-block" >	RESERVA PAELLA</button>    
     
       este boton es solo para comprobar que saveReserva() guardaba la reserva, y lo hace, pero hay que probarlo con el pago, y PROBAR QUE EL PAGO VA DONDE TOCA QUE TIENE LA CUENTA
-      DEL TIO DE YOUTUBE
-    -->
+      DEL TIO DE YOUTUBE (ya no, ahora tiene la que me pasó dam) si simplemente quieres comprobar que en la bbdd se guarda la reserva esto te vale -->
 
 
       </form>

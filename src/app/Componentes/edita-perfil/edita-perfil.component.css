@@ -1,0 +1,38 @@
+.bg-color{
+    background-color: #f7eddf;
+    height: 600px;
+}
+
+.bg-blanco{
+    background-color: white;
+    border-color: black;
+    border-width: 5px;
+}
+
+.margenes{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.inoutl{
+    color:#ffffff;
+    font-weight: 700;
+  }
+
+.inout{
+    text-decoration: none;
+    padding: 8px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: 300;
+    background-color: #d3b791;
+    border-radius: 20px;
+  }
+
+.p-paella-margin{
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+.cancelar{
+    color:#8b5a17;
+}

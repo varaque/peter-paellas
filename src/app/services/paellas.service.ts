@@ -28,4 +28,10 @@ API_ENDPOINT = 'http://localhost:8000/api/';
   get(){
     return this.httpClient.get(this.API_ENDPOINT + 'paellas');
   }
+  put(paella){
+
+    const headers = new HttpHeaders({ 'Content-Type':'application/json'});
+    return this.httpClient.put(this.API_ENDPOINT + 'paellas/' + paella.id, paella, {headers:headers});
+
+  }
 }

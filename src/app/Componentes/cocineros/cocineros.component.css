@@ -9,7 +9,7 @@ div.container-fluid,
 }
 
 div.container-fluid {
-    background-color: sandybrown;
+    background-color: #ffefd5;
 }
 
 div.container {
@@ -36,6 +36,15 @@ div.container {
 .cocinero .nombre-cocinero {
     text-align: center;
     margin-top: 25px;
+
+}
+
+.titulo-name{
+    text-align: center;
+    margin-top: 25px;
+    font-weight: 500;
+    color: grey;
+    font-size: 20px;
 }
 
 img.rounded-circle {
@@ -65,3 +74,6 @@ img.rounded-circle {
     color: saddlebrown;
     font-weight: bold;
 }
+.checked {
+    color: rgb(248, 223, 0);
+  }

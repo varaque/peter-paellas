@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {Reserva} from '../interfaces/reserva';
+import {Paella} from '../interfaces/paella';
 
 @Injectable({
   providedIn: 'root'

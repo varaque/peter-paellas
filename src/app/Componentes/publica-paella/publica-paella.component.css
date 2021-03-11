@@ -1,16 +1,40 @@
 .d-flex{
     display: flex;
 }
+.img-round{
 
+  border-radius:10px;
+
+}
+.descripcion{
+  height: 150px;
+  width: 100px;
+  margin-left: 30px;
+  margin-right:30px;
+}
+.bordeMarron{
+  border-width:2px;
+  border-color:#d9c2a3;
+}
 #fondo {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Paella_valenciana_01.jpg/1920px-Paella_valenciana_01.jpg);
+    background-color:  #f7eddf;
+/*     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Paella_valenciana_01.jpg/1920px-Paella_valenciana_01.jpg);*/
     padding: 90px;
     text-align: center;
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
   }
-  #fondo:before {
+  .form-control{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .bg-white{
+    background-color: white;
+    border-radius: 10px;
+  }
+/*   #fondo:before {
     content:'';
     position: absolute;
     top: 0;
@@ -19,13 +43,18 @@
     right: 0;
     background-color: rgba(255, 255, 255, 0.7);
   }
-  
+   */
   .letra{
     color: rgb(0, 0, 0);
     font-family: 'Quicksand', sans-serif;
  
 }
-
+.sombra{
+  box-shadow: 2px 2px 10px #666;
+}
+.contador{
+  width: 50px;
+}
   form{
       margin-left: 25%;
       margin-right: 25%;
@@ -35,6 +64,34 @@
     margin-left: 25%;
     margin-right: 25%;
 }
-a{
-  color: black;
+.letra-marron{
+  color:#8b5a17;
+  font-weight: 700;
+  padding-top: 10px;
+}
+.letra-base{
+  color:lightgray;
+}
+
+.inoutl{
+  color:#ffffff;
+  font-weight: 700;
+}
+
+.inout{
+  text-decoration: none;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-weight: 300;
+  background-color: #d3b791;
+  border-radius: 20px;
+  border-color: #d3b791;
+}
+.p-paella-margin{
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+.cancelar{
+  color:#8b5a17;
 }

@@ -1,40 +1,41 @@
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<!--letra font-->
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap"
-  rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!--letra font-->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
 
-<div class="container-fluid">
-  <div class="container">
-    <div class="col-md-4">
-      <h5>¡ENVÍANOS UN E-MAIL! </h5>
-      <form class="" action="" autocomplete="off" method="POST">
-        <div class="form-group">
-          <input [(ngModel)]="mensaje.nombre" class="form-control" type="text" name="nombre" size="40"
-            placeholder="Nombre">
-        </div>
-        <div class="form-group">
-          <input [(ngModel)]="mensaje.apellido" class="form-control" type="text" name="apellido" size="40"
-            placeholder="Apellidos">
-        </div>
-        <div class="form-group">
-          <input [(ngModel)]="mensaje.telefono" class="form-control" type="tel" name="telefono" size="40"
-            pattern="[0-9]{9}" placeholder="Teléfono">
-        </div>
+  <div class="container-fluid">
+    <div class="container mt-4 mb-4">
+      <div class="col-md-4">
+        <h5>¡ENVÍANOS UN E-MAIL! </h5>
+        <p class="letra-gris">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque qui voluptas ipsum illum. Ut, consequatur. Qui minus, blanditiis aut, molestiae debitis pariatur vero quidem vel tenetur quis et nihil deserunt!</p>
+        <form class="" action="" autocomplete="off" method="POST">
+          <div class="form-group">
+            <input [(ngModel)]="mensaje.nombre" class="form-control sombra" type="text" name="nombre" size="40"
+              placeholder="Nombre">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="mensaje.apellido" class="form-control sombra" type="text" name="apellido" size="40"
+              placeholder="Apellidos">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="mensaje.telefono" class="form-control sombra" type="tel" name="telefono" size="40"
+              pattern="[0-9]{9}" placeholder="Teléfono">
+          </div>
 
-        <div class="form-group">
-          <input [(ngModel)]="mensaje.email" class="form-control" type="text" name="email" size="40"
-            placeholder="E-mail">
-        </div>
+          <div class="form-group">
+            <input [(ngModel)]="mensaje.email" class="form-control sombra" type="text" name="email" size="40"
+              placeholder="E-mail">
+          </div>
 
-        <div class="form-group ">
-          <textarea [(ngModel)]="mensaje.mensaje" class="form-control" type="text" name="mensaje" rows="10"
-            placeholder="Mensaje"></textarea>
-        </div>
+          <div class="form-group ">
+            <textarea [(ngModel)]="mensaje.mensaje" class="form-control sombra" type="text" name="mensaje" rows="10"
+              placeholder="Mensaje"></textarea>
+          </div>
 
-        <button (click)="saveMensaje()" type="submit">Enviar</button>
-      </form>
+          <button (click)="saveMensaje()" type="submit">Enviar</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>

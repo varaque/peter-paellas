@@ -1,5 +1,5 @@
 div.container-fluid {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../assets/images/1551251263737.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/1551251263737.jpg');
     background-size: cover;
     height: 70%;
     display: flex;
@@ -8,19 +8,30 @@ div.container-fluid {
 }
 
 h5 {
-    color: darkgoldenrod;
+    color: #8b5a17;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 div.col-md-4 {
-    background-color: burlywood;
+    background-color: #e9cda5;
     border-radius: 5px;
     padding-bottom: 10px;
     padding-top: 20px;
     padding-right: 25px;
     padding-left: 25px;
+}
+.letra-gris{
+    font-size: 14px;
+    font-weight: 600;
+    color: grey;
+}
+.gris{
+    color:grey;
+}
+.sombra{
+    box-shadow: 2px 2px 10px #666;
 }
 
 div.container {

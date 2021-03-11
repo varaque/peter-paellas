@@ -9,8 +9,56 @@
     border-radius: 25px; 
     height: 450px;
   }
+  .bg-color{
+    background-color: #ffefd5;
+  }
+  .bg-tarjeta{
+    background-color: #ffdfad;
+    border-radius: 15px;
+  }
+  .bg-white{
+    background-color: white;
+  }
+.letra-negra{
+color:black;
+font-weight: 700;
+margin-top: 30px;
 
-  .letra{
-    font-family: 'Quicksand', sans-serif;
- 
+}
+.letra-gris{
+  color:gray;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  }
+.fecha-gris{
+  color:gray;
+  font-size: 12px;
+}
+
+
+  .margenes{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px #666;
+  }
+  .margenes-interiores{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .marron{
+/*     font-family: 'Quicksand', sans-serif; */ 
+color: #8b5a17;
+font-size: 20px;
+font-weight: 900;
+  }
+  .checked {
+    color: rgb(248, 223, 0);
+  }
+  .gris{
+    color:gray;
+    font-weight: 600;
+
   }

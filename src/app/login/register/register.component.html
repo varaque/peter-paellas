@@ -10,47 +10,59 @@
 <div class="container-fluid">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<h5>¡BIENVENIDO DE NUEVO!</h5>
-				<form class="" action="" autocomplete="off" method="POST">
+			<div class="caja col-md-6">
+				<h5>¡ÚNETE A LA EXPERIENCIA!</h5>
+				<form class="" action="" autocomplete="off" method="POST"> 
 					<div class="input-group">
 						<span class="input-group-addon"><span class="fa fa-user"></span></span>
-						<input [(ngModel)]="usuario.nombre" [(ngModel)]="user.name" type="text" class="form-control"
-							name="username" placeholder="Username">
+						<input [(ngModel)]="usuario.nombre" [(ngModel)]="user.name" type="text" class="form-control sombra"
+							name="username" placeholder="Username"> 
 					</div>
-					<div class="input-group">
-						<span class="input-group-addon"></span>
-						<input [(ngModel)]="usuario.email" [(ngModel)]="user.email" type="email" class="form-control"
-							name="email" placeholder="E-mail">
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"></span>
-						<input [(ngModel)]="usuario.contrasena" [(ngModel)]="user.password" type="password"
-							class="form-control" name="password" placeholder="Contraseña">
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"></span>
-						<input [(ngModel)]="contrasena2" type="password" class="form-control" name="rpassword"
-							placeholder="Repetir contraseña">
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"></span>
-						<input [(ngModel)]="usuario.ubicacion" [(ngModel)]="user.ubicacion" type="ubication"
-							class="form-control" name="ubicacion" placeholder="Ubicaión">
-					</div>
+					<div class="input-group"> 
+						<span class="input-group-addon"></span> 
+						<input [(ngModel)]="usuario.email" [(ngModel)]="user.email" type="email" class="form-control sombra"
+							name="email" placeholder="E-mail"> 
+					</div> 
+					<div class="input-group"> 
+						<span class="input-group-addon"></span> 
+						<input [(ngModel)]="usuario.contrasena" [(ngModel)]="user.password" type="password" 
+							class="form-control sombra" name="password" placeholder="Contraseña">
+					</div> 
+					<div class="input-group"> 
+						<span class="input-group-addon"></span> 
+						<input [(ngModel)]="contrasena2" type="password" class="form-control sombra" name="rpassword"
+							placeholder="Repetir contraseña"> 
+					</div> 
+					<div class="input-group"> 
+						<span class="input-group-addon"></span> 
+						<input [(ngModel)]="usuario.ubicacion" [(ngModel)]="user.ubicacion" type="ubication" 
+							class="form-control sombra" name="ubicacion" placeholder="Ubicación">
+					</div> 
 
 
-					<div class="d-none" value="0" [(ngModel)]="usuario.baneado" [(ngModel)]="usuario.email_verified"
-						[(ngModel)]="user.baneado" [(ngModel)]="user.email_verified_at"></div>
+					<div class="d-none" value="0" [(ngModel)]="usuario.baneado" [(ngModel)]="usuario.email_verified" [(ngModel)]="user.baneado" [(ngModel)]="user.email_verified_at"></div> 
 
-					<a [routerLink]="['/login']">Acceder</a>
 
-					<button (click)="saveUsuario()" (click)="saveUser()" href="panel-usuario" class="" type="submit"><i
+
+					<div class="row">
+						<div class="col-md-6 mt-4 ml-4">				
+							<p><a id="btn-forgot" [routerLink]="['/login']">Acceder</a></p>
+												
+
+						</div>	
+
+					<button (click)="saveUsuario()" (click)="saveUser()" href="marron" class="" type="submit"><i 
 							class="fa fa-sign-in"></i>
-						Registrarme</button>
+						Registrarme</button> 
+
+					</div>
+
+
+
+
 				</form>
 
 			</div>
-		</div>
+		</div> 
 	</div>
 </div>
