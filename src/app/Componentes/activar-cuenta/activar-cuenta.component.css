@@ -1,0 +1,15 @@
+#caja-activar-cuenta {
+    padding: 50px 60px 50px 60px;
+}
+
+#caja-activar-cuenta .container {
+    padding: 20px;
+}
+
+#caja-activar-cuenta .row {
+    margin-top: 20px;
+}
+
+#caja-activar-cuenta p {
+    font-size: 20px;
+}

@@ -116,6 +116,9 @@ import {
 } from '@angular-material-components/datetime-picker';
 import { FilterPipe } from './pipes/filter.pipe';
 import { EditaPerfilComponent } from './Componentes/edita-perfil/edita-perfil.component';
+import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
+import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambiadas/credenciales-cambiadas.component';
+import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
 
 
 
@@ -143,6 +146,9 @@ import { EditaPerfilComponent } from './Componentes/edita-perfil/edita-perfil.co
     PublicaPaellaComponent,
     FilterPipe,
     EditaPerfilComponent,
+    ActivarCuentaComponent,
+    CredencialesCambiadasComponent,
+    PaellaReservadaComponent,
 
   ],
   imports: [
