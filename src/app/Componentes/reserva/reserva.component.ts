@@ -122,7 +122,7 @@ this.selectedPaella.plazas_libres = (this.selectedPaella.plazas_libres - this.re
 // COLUMNA NULLABLE, O CUANDO CREES LAS COLUMNAS O SI YA ESTAN CREADAS DESDE LA PROPIA BBDD, MUY SENCILLO, ES ACTIVAR UN TICK
       
 
-       location.href ="http://localhost:4200/"; 
+       location.href ="https://peterpaellas.com/"; 
  
         }, (error) => {
       console.log("error en reserva.component.ts en la parte del paellaservice de actualizar paella");

@@ -161,26 +161,26 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" href=""><strong>HOME</strong> <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" routerLink="" routerLinkActive="active" href=""><strong>HOME</strong> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                          <a class="nav-link" href="contacto"><strong>CONTACTO</strong></a>
+                          <a class="nav-link" routerLink="contacto" routerLinkActive="active" href=""><strong>CONTACTO</strong></a>
                         </li>
                         <li class="nav-item dropdown">
                           <a class="nav-link active dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <strong>PÁGINAS</strong>
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="faq"><strong>FAQ's</strong></a>
-                            <a class="dropdown-item" href="cocineros"><strong>COCINEROS</strong></a>
+                            <a class="dropdown-item" routerLink="faq" routerLinkActive="active" href=""><strong>FAQ's</strong></a>
+                            <a class="dropdown-item" routerLink="cocineros" routerLinkActive="active"  href=""><strong>COCINEROS</strong></a>
 
                           </div>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="publica-paella" *ngIf="this.guard.loggedIn==true"> <strong>PUBLICAR PAELLA</strong></a>
+                          <a class="nav-link active"  routerLink="publica-paella" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==true"> <strong>PUBLICAR PAELLA</strong></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="panel-usuario" *ngIf="this.guard.loggedIn==true"> <strong>MI PERFIL</strong></a>
+                          <a class="nav-link active" routerLink="panel-usuario" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==true"> <strong>MI PERFIL</strong></a>
 
                         </li>
 
@@ -196,12 +196,12 @@
 <!--                           <a type="button" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary mr-1">Mas info</a>
  -->
                         <li class="nav-item ml-4 mr-4">
-                    <a href="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==false" class="letra-header inout"> <strong class="inoutl">Acceder</strong> </a>
-                    <a href="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==true" (click)="logout()" class="letra-header inout"> <strong class="inoutl">Salir</strong> </a>
+                    <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==false" class="letra-header inout"> <strong class="inoutl">Acceder</strong> </a>
+                    <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==true" (click)="logout()" class="letra-header inout"> <strong class="inoutl">Salir</strong> </a>
                   </li>
 
                   <li class="nav-item ml-4 mr-4">
-                                        <a href="register" routerLinkActive="active" class="registrarse"> <strong>Registrarse</strong> </a> 
+                                        <a href="" routerLink="register" routerLinkActive="active" class="registrarse"> <strong>Registrarse</strong> </a> 
                   </li>
         
                     <li class="nav-item ml-4 mr-4">

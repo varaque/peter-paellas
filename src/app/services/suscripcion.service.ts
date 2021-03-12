@@ -7,7 +7,7 @@ import {Suscripcion} from '../interfaces/suscripcion';
 })
 export class SuscripcionService {
 
-  API_ENDPOINT = 'http://localhost:8000/api/';
+  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
   constructor(private httpClient:HttpClient) { }
 
   save(suscripcion:Suscripcion){

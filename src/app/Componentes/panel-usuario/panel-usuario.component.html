@@ -23,7 +23,7 @@
 
 
 
-         <div><a type="" routerLink="/edita-perfil" routerLinkActive="active" href="/edita-perfil" class="edita-info">Editar datos</a></div>
+         <div><a type="" routerLink="/edita-perfil" routerLinkActive="active" href="" class="edita-info">Editar datos</a></div>
   
 </div>
 
@@ -40,26 +40,29 @@
 
                   <table class="table table-hover table dark">
                       <tbody>
+
                           <tr class="fila-par pt-4">
-                              <td class="py-4">
+                              <td class="py-4 lineaMarron">
                                   <p class="letra-base"><strong>Nombre:</strong> </p>
                                 <p><strong> {{this.userData.name}}</strong> </p> 
                               </td>
-                              <td class="py-4">
+                              <td class="py-4 lineaMarron">
                                   <p class="letra-base"><strong>Email:</strong> </p>
                                   <p> <strong>{{this.userData.email}}</strong> </p> 
  
                                    
                               </td>
                           </tr>
+
+
                           <tr class="fila-impar">
-                              <td class="py-4">
+                              <td class="py-4 lineaMarron">
                                   <p class="letra-base"><strong>Calificación:</strong> </p>
                                   <p><strong> {{this.userData.calificacion}} /5</strong> </p> 
  
 
                               </td>
-                               <td class="py-4">
+                               <td class="py-4 lineaMarron">
                                   <p class="letra-base"><strong>Direccion:</strong> </p>
                                   <strong>{{this.userData.ubicacion}}</strong>
                               </td>
@@ -81,7 +84,7 @@
                           
                       </tbody>
 
-                      <div class="p-paella-margin"> <a href="publica-paella" routerLinkActive="active" class="letra-header inout"> <strong class="inoutl">¡Publicar ya una paella!</strong> </a></div>
+                      <div class="p-paella-margin"> <a href="" routerLink="publica-paella" routerLinkActive="active" class="letra-header inout"> <strong class="inoutl">¡Publicar ya una paella!</strong> </a></div>
 
                   </table>
  

@@ -6,7 +6,7 @@ import {Paella} from '../interfaces/paella';
   providedIn: 'root'
 })
 export class PaellasService {
-API_ENDPOINT = 'http://localhost:8000/api/';
+API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
 
 
   constructor(private httpClient:HttpClient) {}

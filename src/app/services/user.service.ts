@@ -6,7 +6,7 @@ import {User} from '../interfaces/user';
   providedIn: 'root'
 })
 export class UserService {
-  API_ENDPOINT = 'http://localhost:8000/api/';
+  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
 
   constructor(private httpClient:HttpClient) {}
 

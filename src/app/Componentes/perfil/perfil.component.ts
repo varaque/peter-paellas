@@ -17,7 +17,7 @@ import {Paella} from '../../Interfaces/paella';
 export class PerfilComponent implements OnInit {
   
  
-  API_ENDPOINT ='http://localhost:8000/api/paellas'; 
+  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas'; 
 
  
   usuario: Usuario ={

@@ -22,9 +22,17 @@
 
 <div class="row">
  <div class="col-md-4">
-<p> Raciones
+
    
-      <input class="contador bordeMarron"  [(ngModel)]="reserva.personas" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
+
+  
+     <div class="raciones bordeMarron d-flex justify-content-between">
+       
+      <span> Nª raciones</span>
+      <input class="contador"  [(ngModel)]="reserva.personas" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
+    
+    
+    </div>
 
         <!--<select [(ngModel)]="reserva.personas" name="raciones">
         <option value="" selected disabled>Nº Raciones</option>
@@ -40,7 +48,8 @@
         <option value="10">10</option>
         
 
-      </select> --> </p></div>
+      </select> --> 
+    </div>
 
 
       <div class="col-md-3"*ngIf="selectedPaella.mascota == true">
@@ -57,6 +66,7 @@
           <option value="" selected disabled>Niños</option>
         <option value="0">No</option>
         <option value="1">Si</option> </select> </label><br></div>
+      
       
       
       
@@ -84,8 +94,8 @@
       <a type="button" class="d-flex justify-content-between align-items-center mb-4" routerLink="" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">Cerrar</a>
     
       
-      <a (click)="saveReserva()" type="submit" class="d-flex justify-content-between align-items-center mb-4" class="btn btn-sm btn-outline-secondary">Reservar plaza</a>     
-    <!--/ANTIGUO BOTON DE RESERVAR HAY QUE GASTAR EL DE PAYPAL O TRAJETA DE CREDITO   --> 
+<!--       <a (click)="saveReserva()" type="submit" class="d-flex justify-content-between align-items-center mb-4" class="btn btn-sm btn-outline-secondary">Reservar plaza</a>     
+ /ANTIGUO BOTON DE RESERVAR HAY QUE GASTAR EL DE PAYPAL O TRAJETA DE CREDITO   --> 
 
 
      <!--<button (click)="saveReserva()" type="submit" class="btn btn-lg btn-outline-primary btn-block" >	RESERVA PAELLA</button>    

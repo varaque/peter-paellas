@@ -5,8 +5,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AuthService {
   // Variables
-  authUrl = 'http://localhost:8000/oauth/token';
-  apiUrl = 'http://localhost:8000/api';
+  authUrl = 'https://peterpaellas.com/lvel/public/oauth/token';
+  apiUrl = 'https://peterpaellas.com/lvel/public/api';
   options: any;
   /**
    * Constructor

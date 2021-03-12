@@ -24,6 +24,7 @@ var loggedIn : Boolean;                                     //vamos a chequear q
     logout(){
       
       localStorage.removeItem('atoken');
+      location.href = "https://peterpaellas.com/";
 
 
       //console.log('cambiamos a false en header component en el logout');

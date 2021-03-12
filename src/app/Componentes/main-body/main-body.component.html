@@ -49,7 +49,7 @@
         
          <input type="search" value="" class="form-control buscador mt-4" name="filterCocinero" placeholder="¿Buscas algun cocinero?" [(ngModel)]="filterCocinero" >
 
-         <input type="search" value="" class="form-control buscador mt-4" name="filterUbicacion" placeholder="Ubicación" [(ngModel)]="filterUbicacion" >
+        <div class="ubi"> <input type="search" value="" class="form-control buscador mt-4" name="filterUbicacion" placeholder="Ubicación" [(ngModel)]="filterUbicacion" >   </div>
 
 
          </div>
@@ -101,7 +101,7 @@
 
 <!-- https://img-global.cpcdn.com/recipes/152d87bfdfda7dfb/1200x630cq70/photo.jpg -->
 
-            <img src="http://localhost:8000{{Paella.foto}}" width="100%" height="225" alt="paella.jpg">
+            <img src="https://peterpaellas.com/lvel/public/{{Paella.foto}}" width="100%" height="225" alt="paella.jpg">
 
 
             <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"

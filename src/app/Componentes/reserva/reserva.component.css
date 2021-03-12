@@ -7,7 +7,16 @@ display: flex;
 }
 .contador{
   width: 50px;
+  border:none;
 }
+.contador:focus{
+  width: 50px;
+  outline:none;
+}
+.raciones{
+  border: 1px solid;
+}
+
 .bordeMarron{
   border-width:2px;
   border-color:#d9c2a3;

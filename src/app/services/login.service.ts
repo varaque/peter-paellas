@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LoginService {
-  API_ENDPOINT = 'http://localhost:8000/api/';
+  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
 headers:HttpHeaders
   constructor(private http:HttpClient) {
     console.log('cambiamos a false en login service');
