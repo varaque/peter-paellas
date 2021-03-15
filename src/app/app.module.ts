@@ -119,6 +119,7 @@ import { EditaPerfilComponent } from './Componentes/edita-perfil/edita-perfil.co
 import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
 import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambiadas/credenciales-cambiadas.component';
 import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
+import { CantidadLetrasPipe } from './Componentes/paella/cantidad-letras.pipe';
 
 
 
@@ -149,6 +150,7 @@ import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-
     ActivarCuentaComponent,
     CredencialesCambiadasComponent,
     PaellaReservadaComponent,
+    CantidadLetrasPipe,
 
   ],
   imports: [
