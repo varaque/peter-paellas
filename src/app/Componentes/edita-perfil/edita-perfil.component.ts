@@ -24,10 +24,10 @@ export class EditaPerfilComponent implements OnInit {
 
     name: this.userData.name,
     email: this.userData.email,
-    email_verified_at: this.userData.email_verified_at,
-    password: this.userData.password,
-    foto: this.userData.foto,
     ubicacion: this.userData.ubicacion,
+    email_verified_at: null,
+    password: null,
+    foto: this.userData.foto,
     calificacion: this.userData.calificacion,
     baneado: this.userData.baneado,
     tipo: this.userData.tipo,
@@ -40,14 +40,18 @@ export class EditaPerfilComponent implements OnInit {
   API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users'; 
 
   constructor(private usuariosService:UsuarioService, private usersService:UserService, private route: ActivatedRoute, private fb:FormBuilder, private http: HttpClient) 
-  { 
-    console.log('El userData: ')
-    console.log(this.userData)
+  {       
     
-    console.log('El user: ')
+    console.log('El user, que es el coger del localStorage el userData: ')
     console.log(this.user)
 
-    console.log('El users: ')
+
+    console.log('El userData, que es parsear el JSON del user: ')
+    console.log(this.userData)
+    
+
+
+    console.log('El users, un objeto user que hemos creado: ')
 console.log(this.users);
 
 
@@ -56,6 +60,7 @@ console.log(this.users);
 
 
   }
+
 
   saveEdits(){
 
@@ -70,37 +75,62 @@ console.log('aqui name que coge: ' + this.users.name)
 
 //ESTOS IF SON PARA COMPROBAR SI ESTA EL CAMPO VACIO, QUE ENTONCES EL NAME EMAIL O LO QUE SEA SE PONDRÁ EL DEL USER, QUE ES EL QUE YA TENIAMOS Y NO SE GUARDARÁ EN EL THIS.USERS
 
-/* if(this.users.name == ""){
-
-this.users.name = this.userData.name;    //ESTA ES LA SOLUCION, APLICALA EL LUNES A TODOS LOS CAMPOS, creo que ya solo queda esto antes de maquetar, o poco mas 
-    } */
-
-  /*   if(this.users.email == ""){
-
-      this.users.email = this.userData.email;   
-          } */
 
 
-  /*         if(this.users.ubicacion == ""){
+ if(this.users.name == ""){
 
-            this.users.ubicacion = this.userData.ubicacion;  
-                } */
+this.users.name = this.userData.name;    //Esto es por si no metes nada en los campos de cambio que coja el que ya hay. 
+    } 
+    else{
+      this.userData.name = this.users.name ;
+    }
 
 
-                
+
+  if(this.users.email == ""){
+
+this.users.email = this.userData.email;   
+    } 
+    else{
+      this.userData.email = this.users.email ;
+    }
 
 
-console.log('el this. users para comprobar cuando dejamos vacio: ')
+  if(this.users.ubicacion == ""){
+
+this.users.ubicacion = this.userData.ubicacion;   
+    } 
+    else{
+      this.userData.ubicacion = this.users.ubicacion ;
+    }
+
+ 
+
+console.log('el this. users del saveedits(): ')
 console.log(this.users);
-/* this.usersService.put(this.user).subscribe((data) => {     
+
+console.log('el this.user dentro del saveedits()')
+console.log(this.user);
+
+console.log('el userData que pretendemos guardar con el saveedits()')
+console.log(this.userData);
 
 
+
+
+  this.usersService.put(this.userData).subscribe((data) => {     
+  console.log('lo de dentro del put: ')
+
+console.log(data)
   // location.href ="https://peterpaellas.com/";  
-  location.href ="http://localhost:4200/panel-usuario"; 
+  // location.href ="http://localhost:4200/panel-usuario"; 
   
   }, (error) => {
   console.log("error en edita-perfil.component.ts en la parte del userservice de actualizar user");
-  }) */
+  }) 
+
+
+
   }
 
 
