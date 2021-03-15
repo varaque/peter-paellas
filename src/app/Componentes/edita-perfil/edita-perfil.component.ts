@@ -47,23 +47,12 @@ export class EditaPerfilComponent implements OnInit {
     console.log('El user: ')
     console.log(this.user)
 
-
-//creo que para cambiar algo concreto a un usuario se gasta la llamada patch, pero lo tengo que comprobar
-   /*  httpClient.patch(this.API_ENDPOINT).subscribe((data: User[]) => {
-      // this.user = data;
-      console.log(data)
-    }) */
+    console.log('El users: ')
+console.log(this.users);
 
 
-
-
-
-
-
-
-
-
-
+//el userdata son los datos de quien se logueó, user es el usuario de la bbdd, users es lo que estamos poniendo, asi que habra que ponerle al user lo que cojamos en el users y
+// guardar el user en la bbdd
 
 
   }
@@ -71,64 +60,48 @@ export class EditaPerfilComponent implements OnInit {
   saveEdits(){
 
 
-    if(this.contrasena2==this.users.password){ 
+   /*  if(this.contrasena2==this.users.password){ 
       console.log('al menos la pass va')
-  } //chequeamos que la contraseña puesta 2 veces esté gucci
+  } */ //chequeamos que la contraseña puesta 2 veces esté gucci
 
-    const formData = this.form.getRawValue;
+/*     const formData = this.form.getRawValue; */
 console.log('aqui email que coge: ' + this.users.email)
 console.log('aqui name que coge: ' + this.users.name)
 
 //ESTOS IF SON PARA COMPROBAR SI ESTA EL CAMPO VACIO, QUE ENTONCES EL NAME EMAIL O LO QUE SEA SE PONDRÁ EL DEL USER, QUE ES EL QUE YA TENIAMOS Y NO SE GUARDARÁ EN EL THIS.USERS
 
-if(this.users.name == ""){
-/* console.log('ya esta pillando el if');
-console.log( this.userData.name) */
+/* if(this.users.name == ""){
+
 this.users.name = this.userData.name;    //ESTA ES LA SOLUCION, APLICALA EL LUNES A TODOS LOS CAMPOS, creo que ya solo queda esto antes de maquetar, o poco mas 
-    }
+    } */
 
-    if(this.users.email == ""){
-      /* console.log('ya esta pillando el if');
-      console.log( this.userData.name) */
+  /*   if(this.users.email == ""){
+
       this.users.email = this.userData.email;   
-          }
+          } */
 
 
-          if(this.users.ubicacion == ""){
-            /* console.log('ya esta pillando el if');
-            console.log( this.userData.name) */
+  /*         if(this.users.ubicacion == ""){
+
             this.users.ubicacion = this.userData.ubicacion;  
-                }
+                } */
 
-                /* if(this.users.password == ""){
-                  this.users.password = this.userData.password;    
-                      } */                                              //DE MOMENTO NO PONDRE LA OPCION DE CAMBIAR CONTRSEÑA
+
+                
 
 
 console.log('el this. users para comprobar cuando dejamos vacio: ')
 console.log(this.users);
+/* this.usersService.put(this.user).subscribe((data) => {     
 
-  /*   console.log('El formData del saveEdits: ')
-    console.log(formData)
 
-    console.log('El userData del saveEdits: ')
-    console.log(this.userData)
-    
-    console.log('El user del saveEdits: ')
-    console.log(this.user)
-
-    console.log('El userS del saveEdits: ')
-    console.log(this.users)
-    
-    console.log('queckeemos que no cambia el nombre si le ponemos vacio: ')
-    console.log(this.users)
- */
-
+  // location.href ="https://peterpaellas.com/";  
+  location.href ="http://localhost:4200/panel-usuario"; 
+  
+  }, (error) => {
+  console.log("error en edita-perfil.component.ts en la parte del userservice de actualizar user");
+  }) */
   }
-
-
-
-
 
 
 

@@ -17,7 +17,18 @@
   display: block;
 }
 
+.separacionReservas{
 
+margin-left: 125px;
+
+}
+.rowHeight{
+  height: 75px;
+}
+.margen-info{
+  padding-left:114px;
+  padding-right:110px;
+}
 
 .paella{
   border-radius: 15px;

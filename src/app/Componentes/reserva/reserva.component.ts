@@ -49,6 +49,15 @@ export class ReservaComponent implements OnInit {
 
   }
 
+  multiplica(a, b){   //funcion un poco tonta para sacar el precio final
+var c= 0;
+    c= a * b;
+    console.log('hola');
+    return c;
+
+  }
+
+
   
   ngOnInit(){
 
@@ -127,15 +136,6 @@ this.selectedPaella.plazas_libres = (this.selectedPaella.plazas_libres - this.re
         }, (error) => {
       console.log("error en reserva.component.ts en la parte del paellaservice de actualizar paella");
     })
-
-
-
-
-
-
-
-
-
 
 
         }, (error) => {

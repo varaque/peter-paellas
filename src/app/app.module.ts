@@ -58,7 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicaPaellaComponent } from './Componentes/publica-paella/publica-paella.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-    //hasta el salto de linea es todo para el datepicker de mierda
+    //hasta el salto de linea es todo para el datepicker
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -104,7 +104,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
-//segundo datapicker de mierda NgxMatNativeDateModule, NgxMatMomentModule,
+//segundo datapicker de NgxMatNativeDateModule, NgxMatMomentModule,
 
 
 import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';

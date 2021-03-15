@@ -21,6 +21,22 @@ display: flex;
   border-width:2px;
   border-color:#d9c2a3;
 }
+.borde-pago{
+  border-right: 2px solid #d3b791;
+  margin-left:50px;
+}
+.borde-pago-2{
+  margin-right:45px;
+}
+.calculo{
+  font-size: 20px;
+  color: #878687;
+ 
+}
+.bordeMarron{
+  border-bottom: 2px solid #d3b791;
+
+}
  h3{
     color: #8b5a17;
     font-size: 30px;
@@ -38,6 +54,7 @@ height: 50px;
 border-color: #d3b791;
 border-radius: 5px;
 border-width: 2px;
+border-style: solid;
 
   }
   .inputsta{
