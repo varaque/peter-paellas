@@ -27,7 +27,7 @@ export class AuthService {
    * @param e The email address
    * @param p The password string
    */
-  login(e: string, p: string) {
+ /*  login(e: string, p: string) {
     //return 
     var user = localStorage.getItem('user');
     var prueba = this.http.post(this.authUrl, {
@@ -40,7 +40,7 @@ export class AuthService {
     },
     this.options);
     console.log(prueba);
-  }
+  } */
   /**
    * Revoke the authenticated user token
    */

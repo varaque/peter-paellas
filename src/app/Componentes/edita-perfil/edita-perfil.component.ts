@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { User } from 'src/app/interfaces/user';
+import { userEdit } from 'src/app/interfaces/useredit';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
@@ -18,21 +19,31 @@ export class EditaPerfilComponent implements OnInit {
   user = localStorage.getItem('userData');
   userData = JSON.parse(this.user);
 
-  
+  //aqui intentabamos guardar todo para meterlo con un patch y au pero claro necesita contraseña etc y es un pateo asi que probaremos con la version chiquita de abajo
 
   users:User = {
 
+    id: this.userData.id,
     name: this.userData.name,
     email: this.userData.email,
     ubicacion: this.userData.ubicacion,
     email_verified_at: null,
-    password: null,
     foto: this.userData.foto,
     calificacion: this.userData.calificacion,
     baneado: this.userData.baneado,
     tipo: this.userData.tipo,
   
   }
+
+  edit:userEdit = {
+    id: this.userData.id,
+    name: this.userData.name,
+    email: this.userData.email,
+    ubicacion: this.userData.ubicacion,
+
+  }
+
+  
 
   contrasena2: null;
   form: FormGroup;
@@ -112,13 +123,16 @@ console.log(this.users);
 console.log('el this.user dentro del saveedits()')
 console.log(this.user);
 
-console.log('el userData que pretendemos guardar con el saveedits()')
+/* console.log('el userData que pretendemos guardar con el saveedits()')
+console.log(this.userData); */
+
+console.log('el edit que pretendemos guardar con el saveedits()')
 console.log(this.userData);
 
 
 
 
-  this.usersService.put(this.userData).subscribe((data) => {     
+  this.usersService.put(this.users).subscribe((data) => {     
   console.log('lo de dentro del put: ')
 
 console.log(data)

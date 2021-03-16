@@ -56,7 +56,7 @@
           </div>
 
 
-          <div class="col-xs-6 col-sm-6">
+          <div class="col-xs-4 col-sm-4">
 
     <div class="container sombra bg-white">
             <!--
@@ -87,12 +87,29 @@
               <label class="mt-4" for="nombre">
     <!--             <h5 class="letra"> Nombre:</h5>-->
               </label>
-              <div class="input-group">
+
+              <div class="input-group mt-4 mb-4">
                 <span class="input-group-addon"></span>
-                <input [(ngModel)]="paella.nombre" type="text" class="form-control bordeMarron" id="nombre"
-                  placeholder="Name of the paella">
+                <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
+                  <option value="" disabled selected>Selecciona el tipo de paella</option> 
+                  <option value="1">Paella Valenciana</option> 
+                  <option value="2">Paella de marisco</option> 
+                  <option value="3">Paella de verdura</option> 
+                  <option value="4">Fideuá</option> 
+                  </select> 
               </div>
-              <hr />
+              
+
+                  <div class="input-group mt-4 mb-4">
+                    <span class="input-group-addon"></span>
+                    <input [(ngModel)]="paella.nombre" type="text" class="form-control bordeMarron" id="nombre"
+                      placeholder="Name of the paella">
+                  </div>
+                  
+
+
+
+
     <!--           <h5 class="letra"> Descripción:</h5>
     --> <!--          <div class="input-group">
       <span class="input-group-addon"></span>
@@ -101,27 +118,27 @@
     </div>
     <hr /> -->
     <!--           <h5 class="letra"> Dirección:</h5>
-    -->          <div class="input-group">
+    -->          <div class="input-group mt-4 mb-4">
                 <span class="input-group-addon"></span>
                 <input [(ngModel)]="paella.ubicacion" type="text" class="form-control bordeMarron" id="ubicacion" name="ubicacion"
                   placeholder="Address">
               </div>
-              <hr />
+              
     <!--           <h5 class="letra"> Precio por ración (€):</h5>
-    -->          <div class="input-group">
+    -->       <!--    <div class="input-group">
                 <span class="input-group-addon"></span>
                 <input [(ngModel)]="paella.precio" type="number" step="0.01" class="form-control bordeMarron" id="precio" name="precio"
                   placeholder="Ration price">
-              </div>
-              <hr />
+              </div> -->
+              
 
     <!--           <h5 class="letra"> Telefono:</h5> -->
-              <div class="input-group">
+              <div class="input-group mt-4 mb-4">
                 <span class="input-group-addon"></span>
                 <input [(ngModel)]="paella.telefono" type="text" class="form-control bordeMarron" id="telefono" name="telefono"
                   placeholder="Phone number">
               </div>
-              <hr />
+              
 
               <div>
 
@@ -147,10 +164,12 @@
 
               </div> 
 
-              <hr /> 
-              <div class="row"> 
-                <div class="col-md-6"> 
-                  <p class=""><strong>Plazas  </strong> 
+          
+              
+              <div class="row d-flex align-items-center justify-content-center"> 
+                <div class="col-md-2"> 
+                  
+                  <p class=""><strong>Raciones disponibles </strong>   </div> 
                   <!--  <select [(ngModel)]="paella.plazas" [(ngModel)]="paella.plazas_libres" name="menu"> 
                       <option value="1">1</option> 
                       <option value="2">2</option> 
@@ -164,14 +183,29 @@
                       <option value="10">10</option> 
     
                     </select>  -->
-                    <input class="contador bordeMarron" [(ngModel)]="paella.plazas" [(ngModel)]="paella.plazas_libres" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
+                    <div class="col-md-2"> 
+                    <input class="contador bordeMarron ml-3" [(ngModel)]="paella.plazas" [(ngModel)]="paella.plazas_libres" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
 
-                  </p> 
+                   
 
 
                 </div> 
+
+
+
+
+
+                <div class="col-md-4">
+
+                  <p class=""><strong>Precio por ración € </strong> </div>
+
+                    <div class="col-md-2">
+                    <input class="contador bordeMarron" [(ngModel)]="paella.precio" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
+
+                </div>
+              </div>
     
-                <div class="col-md-6"> 
+               <!--  <div class="col-md-6"> 
                   <p class=""><strong>¿Se admiten mascotas?</strong> 
                     <select [(ngModel)]="paella.mascota" class="bordeMarron" name="menu"> 
                       <option value="0">No</option> 
@@ -180,8 +214,8 @@
     
                     </select>
                   </p>
-                </div>
-                <div class="col-md-6"> 
+                </div> -->
+               <!--  <div class="col-md-6"> 
                   <p class=""><strong>¿Se admiten niños? </strong>
                     <select [(ngModel)]="paella.ninos" class="bordeMarron" name="menu">
                       <option value="0">No</option> 
@@ -190,9 +224,9 @@
 
                     </select>
                   </p>
-                </div>
+                </div> -->
 
-                <div class="col-md-6"> 
+                <!-- <div class="col-md-6"> 
                   <p class=""><strong>¿Se permite ver hacer la paella? </strong>
                     <select [(ngModel)]="paella.ver_hacer_paella" class="bordeMarron" name="menu">
                       <option value="0">No</option>
@@ -201,9 +235,37 @@
 
                     </select>
                   </p>
-                </div> 
+                </div>  -->
 
-      <hr />
+                <div class="input-group mt-4 mb-4">
+                  <span class="input-group-addon"></span>
+                  <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
+                    <option value="" disabled selected>¿Permito ver como se prepara la paella?</option> 
+                    <option value="0">Si, permito ver como se prepara la paella</option> 
+                    <option value="1">No permito ver como se prepara la paella</option> 
+                   
+                    </select> 
+                </div>
+                <div class="input-group mt-4 mb-4">
+                  <span class="input-group-addon"></span>
+                  <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
+                    <option value="" disabled selected>¿Permito la entrada de mascotas?</option> 
+                    <option value="0">Si, permito traer mascotas</option> 
+                    <option value="1">No permito traer mascotas</option> 
+                   
+                    </select> 
+                </div>
+                <div class="input-group mt-4 mb-4">
+                  <span class="input-group-addon"></span>
+                  <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
+                    <option  selected="selected" disabled="disabled" value="">¿Permito que se traigan niños?</option> 
+                    <option value="0">Si, permito que se traigan niños</option> 
+                    <option value="1">No permito que se traigan niños</option> 
+
+                    </select> 
+                </div>
+
+      
                 <div class="mt-4 input-group">
                   <span class="input-group-addon"></span>
                   <textarea [(ngModel)]="paella.descripcion" type="text" class="form-control descripcion bordeMarron" id="descripcion" name="descripcion"
@@ -213,12 +275,12 @@
             
 
 
-              </div>
+              
 
     <!--           <button (click)="savePaella()" class="btn btn-lg btn-outline-primary btn-block"> PUBLICA MI PAELLA</button>  -->
 
-              <div class="p-paella-margin"> <button (click)="savePaella()" class="letra-header inout"> <strong class="inoutl">Aceptar</strong> </button></div>
-              <div class="p-paella-margin"> <a href="" routerLinkActive="active" class=""> <strong class="cancelar">Cancelar</strong> </a></div>
+              <div class="p-paella-margin"> <a href="" routerLinkActive="active" class="ml-4 pr-4"> <strong class="cancelar">Cancelar</strong> </a> <button (click)="savePaella()" class="letra-header bordeMarron inout"> <strong class="inoutl">Publicar</strong> </button></div>
+              <div class="p-paella-margin"></div>
             </div> 
 
 

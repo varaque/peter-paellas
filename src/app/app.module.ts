@@ -152,7 +152,7 @@ import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-
 
   ],
   imports: [
-    //hasta el salto de linea es todo para el datepicker de mierda
+    //hasta el salto de linea es todo para el datepicker
     A11yModule,
     ClipboardModule,
     CdkStepperModule,
@@ -198,7 +198,7 @@ import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-
     PortalModule,
     ScrollingModule,
 
-//ahora el segundo datapicker de mierda 
+//ahora el segundo datapicker
 BrowserModule,
 HttpClientModule,
 BrowserAnimationsModule,

@@ -34,7 +34,7 @@ import { ReadVarExpr } from '@angular/compiler';
       ver_hacer_paella: false,
       ninos: false,
       mascota: false,
-      categoria: 0,
+      categoria: null,
       usuario_id: this.userData.id,
 
     }
@@ -49,7 +49,7 @@ handleUpload(event) {                                   //esto coge la foto del 
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      console.log('a ver lo de la tia esta: ');
+      console.log('a ver lo de la tia esta del video: ');
         console.log(reader.result);
         this.img = reader.result;
     };
