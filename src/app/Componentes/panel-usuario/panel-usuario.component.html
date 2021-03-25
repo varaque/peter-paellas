@@ -1,9 +1,7 @@
 
 <div class="container-fluid py-4 bg-color">
   <div class="container bg-blanco">
-      <div class="row">
-          <div class="col-sm-12 text-center">
-              <div class="tabs text-center">
+ 
                  
                   <!--<a id="btn-billings" class="btn btn-tabs" (click)="boton2()">Billings</a>-->
                   
@@ -11,13 +9,9 @@
     <!--<a type="button" routerLink="/" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary ml-1">Reserva</a></div> -->
   
 
-              </div>
-          </div>
-      </div>
-
       <div class="row">
-
-<div class="col-sm-3"> <img class="img-round" src="/assets/images/244772.jpg"> </div>
+        
+<div class="col-sm-3"> <img class="img-round" src="https://peterpaellas.com/lvel/public/{{this.userD.foto}}"> </div>  <!-- "https://peterpaellas.com/lvel/public/{{this.userD.foto}}" -->
 
 <div class="col-sm-3 mt-4"><div class=" letra-intro"> PANEL DE USUARIO     </div>
 
@@ -44,11 +38,11 @@
                           <tr class="fila-par pt-4">
                               <td class="py-4 lineaMarron">
                                   <p class="letra-base"><strong>Nombre:</strong> </p>
-                                <p><strong> {{this.userData.name}}</strong> </p> 
+                                <p><strong> {{this.userD.name}}</strong> </p> 
                               </td>
                               <td class="py-4 lineaMarron">
                                   <p class="letra-base"><strong>Email:</strong> </p>
-                                  <p> <strong>{{this.userData.email}}</strong> </p> 
+                                  <p> <strong>{{this.userD.email}}</strong> </p> 
  
                                    
                               </td>
@@ -58,13 +52,13 @@
                           <tr class="fila-impar">
                               <td class="py-4 lineaMarron">
                                   <p class="letra-base"><strong>Calificación:</strong> </p>
-                                  <p><strong> {{this.userData.calificacion}} /5</strong> </p> 
+                                  <p><strong> {{this.userD.calificacion}} /5</strong> </p> 
  
 
                               </td>
                                <td class="py-4 lineaMarron">
                                   <p class="letra-base"><strong>Direccion:</strong> </p>
-                                  <strong>{{this.userData.ubicacion}}</strong>
+                                  <strong>{{this.userD.ubicacion}}</strong>
                               </td>
                           </tr>
 
@@ -84,7 +78,7 @@
                           
                       </tbody>
 
-                      <div class="p-paella-margin"> <a href="" routerLink="publica-paella" routerLinkActive="active" class="letra-header inout"> <strong class="inoutl">¡Publicar ya una paella!</strong> </a></div>
+                      <div class="p-paella-margin"> <a href="" routerLink="/publica-paella" routerLinkActive="active" class="letra-header inout"> <strong class="inoutl">¡Publicar ya una paella!</strong> </a></div>
 
                   </table>
  

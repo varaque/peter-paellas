@@ -2,11 +2,26 @@
     background-color: #f7eddf;
     height: 600px;
 }
+.img-round{
+    width:150px;
+    height:150px;
+    border-radius:150px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.letra-intro{
+    color:#8b5a17;
+    font-weight: 700;
+    margin-top:50px;
+}
+.edita-info{
+    color:grey;
+    margin-top: 10px;
+}
 
 .bg-blanco{
     background-color: white;
-    border-color: black;
-    border-width: 5px;
+height: 550px;
 }
 
 .margenes{

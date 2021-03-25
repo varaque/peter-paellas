@@ -7,6 +7,8 @@ import {Mensaje} from '../interfaces/mensaje';
 })
 export class MensajeService {
   API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
+          //API_ENDPOINT = 'localhost:8000/api/';      //pruebas
+          //API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
   constructor(private httpClient:HttpClient) { }
 
   save(mensaje:Mensaje){

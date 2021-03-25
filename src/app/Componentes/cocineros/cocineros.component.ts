@@ -12,7 +12,11 @@ export class CocinerosComponent implements OnInit {
   /*  SI TE DA PROBLEMA AL CARGARLAS O ALGO PUEDE SER POR EL CORS 
   ESE QUE PONE EN EL F12, QUE ES QUENO ESTAS EN WHITE LIST PARA EL SERVER, 
   GASTA LA EXTENSION DE CHROME ALLOW CORS Y AU */
-  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/users';
+
+  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/users';  //real
+  //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas
+
+
   users: User[];
   constructor(private userService: UserService, private httpClient: HttpClient) {
     httpClient.get(this.API_ENDPOINT).subscribe((data: User[]) => {

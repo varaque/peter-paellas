@@ -85,17 +85,18 @@
                 PUBLICAR UNA PAELLA
               </div>
               <label class="mt-4" for="nombre">
-    <!--             <h5 class="letra"> Nombre:</h5>-->
+    <!--             <h5 class="letra"> Nombre:</h5>   -->
               </label>
 
               <div class="input-group mt-4 mb-4">
                 <span class="input-group-addon"></span>
                 <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
-                  <option value="" disabled selected>Selecciona el tipo de paella</option> 
+                  <option [ngValue]="null" [disabled]="true" hidden>Selecciona el tipo de paella</option> 
                   <option value="1">Paella Valenciana</option> 
                   <option value="2">Paella de marisco</option> 
                   <option value="3">Paella de verdura</option> 
                   <option value="4">Fideuá</option> 
+                  <option value="0">Otro</option> 
                   </select> 
               </div>
               
@@ -170,6 +171,7 @@
                 <div class="col-md-2"> 
                   
                   <p class=""><strong>Raciones disponibles </strong>   </div> 
+
                   <!--  <select [(ngModel)]="paella.plazas" [(ngModel)]="paella.plazas_libres" name="menu"> 
                       <option value="1">1</option> 
                       <option value="2">2</option> 
@@ -183,12 +185,10 @@
                       <option value="10">10</option> 
     
                     </select>  -->
+                   
                     <div class="col-md-2"> 
                     <input class="contador bordeMarron ml-3" [(ngModel)]="paella.plazas" [(ngModel)]="paella.plazas_libres" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
-
                    
-
-
                 </div> 
 
 
@@ -197,12 +197,12 @@
 
                 <div class="col-md-4">
 
-                  <p class=""><strong>Precio por ración € </strong> </div>
-
-                    <div class="col-md-2">
-                    <input class="contador bordeMarron" [(ngModel)]="paella.precio" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
-
-                </div>
+                  <p class=""><strong>Precio por ración € </strong> 
+                  
+                  </div>
+                  
+  <input class="contador bordeMarron" [(ngModel)]="paella.precio" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
+                
               </div>
     
                <!--  <div class="col-md-6"> 
@@ -239,29 +239,26 @@
 
                 <div class="input-group mt-4 mb-4">
                   <span class="input-group-addon"></span>
-                  <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
-                    <option value="" disabled selected>¿Permito ver como se prepara la paella?</option> 
-                    <option value="0">Si, permito ver como se prepara la paella</option> 
-                    <option value="1">No permito ver como se prepara la paella</option> 
-                   
+                  <select [(ngModel)]="paella.ver_hacer_paella" class="form-control bordeMarron" name="menu" placeholder="Ver paella"> 
+                    <option [ngValue]="null" [disabled]="true" hidden>¿Permito ver como se prepara la paella?</option> 
+                    <option value="true">Si, permito ver como se prepara la paella</option> 
+                    <option value="false">No permito ver como se prepara la paella</option> 
                     </select> 
                 </div>
                 <div class="input-group mt-4 mb-4">
                   <span class="input-group-addon"></span>
-                  <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
-                    <option value="" disabled selected>¿Permito la entrada de mascotas?</option> 
-                    <option value="0">Si, permito traer mascotas</option> 
-                    <option value="1">No permito traer mascotas</option> 
-                   
+                  <select [(ngModel)]="paella.mascota" class="form-control bordeMarron" name="menu" placeholder="Mascota"> 
+                    <option [ngValue]="null" [disabled]="true" hidden>¿Permito la entrada de mascotas?</option> 
+                    <option value="true">Si, permito traer mascotas</option> 
+                    <option value="false">No permito traer mascotas</option> 
                     </select> 
                 </div>
                 <div class="input-group mt-4 mb-4">
                   <span class="input-group-addon"></span>
-                  <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
-                    <option  selected="selected" disabled="disabled" value="">¿Permito que se traigan niños?</option> 
-                    <option value="0">Si, permito que se traigan niños</option> 
-                    <option value="1">No permito que se traigan niños</option> 
-
+                  <select [(ngModel)]="paella.ninos" class="form-control bordeMarron" name="menu" placeholder="Niños"> 
+                    <option [ngValue]="null" [disabled]="true" hidden>¿Permito que se traigan niños?</option> 
+                    <option value="true">Si, permito que se traigan niños</option> 
+                    <option value="false">No permito que se traigan niños</option> 
                     </select> 
                 </div>
 

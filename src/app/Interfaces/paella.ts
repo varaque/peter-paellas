@@ -6,7 +6,7 @@ export interface Paella{
     nombre: string;
     descripcion: string;
     cocinero: string;
-    foto: string;
+    foto?: string;
     ubicacion: string;
     plazas: number;
     plazas_libres: number;

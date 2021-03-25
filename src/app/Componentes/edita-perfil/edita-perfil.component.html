@@ -1,39 +1,47 @@
 <div class="container-fluid bg-color">
+<div class="row"></div>
 
     <div class="container bg-blanco">
-<div style="min-height: 60vh;">
-    <div #user id="user" class="row no-gutters mt-5">
+
         <div class="col-sm-12">
+
+<div class="row mt-4 mb-4 ml-4">
+    <div class="col-sm-3"> <img class="img-round" src="https://peterpaellas.com/lvel/public/{{this.users.foto}}"> </div>
+
+
+    <div class="col-sm-3 mt-4"><div class=" letra-intro"> PANEL DE USUARIO     </div>
+
+
+    <input type="file" (change)="handleUpload($event)" class="edita-info">
+
+</div>
+
+        </div>
 
             <table class="table table-hover table dark">
                 <tbody>
                     <tr class="fila-par pt-4">
                         <td class="py-4">
                             <p><strong>Nombre:</strong> </p>
-                           {{this.userData.name}}
+
                            <input [(ngModel)]="this.users.name"  type="name" class="form-control" name="name" placeholder="Nuevo nombre">
-<!--                            <button (click)="saveName()" class="btn btn-lg btn-outline-primary btn-block" >	cambia mi nombre</button>
- -->                        </td>
+                       </td>
                         <td class="py-4">
                             <p><strong>Email:</strong> </p>
-                             {{this.userData.email}}
+
                              <input [(ngModel)]="this.users.email"  type="email" class="form-control" name="email" placeholder="Nuevo email">
-<!--                              <button (click)="saveEmail()" class="btn btn-lg btn-outline-primary btn-block" > cambia mi email</button>
- -->
+
                         </td>
                     </tr>
                     <tr class="fila-impar">
                        
                          <td class="py-4">
                             <p><strong>Direccion:</strong> </p>
-                            {{this.userData.ubicacion}}
-                            <div class="input-group">
-                                <span class="input-group-addon"></span>
-                            <input [(ngModel)]="this.users.ubicacion"  type="ubicacion" class="form-control" name="ubicacion" placeholder="Nueva ubicacion">
-                            </div>
-<!--                             <button (click)="saveUbicacion()" class="btn btn-lg btn-outline-primary btn-block" >	cambia mi direccion</button>-->
+
+                           <input [(ngModel)]="this.users.ubicacion"  type="ubicacion" class="form-control" name="ubicacion" placeholder="Nueva ubicacion">
 
 </td>
+
                     </tr>
 
                    
@@ -63,16 +71,14 @@
     
                 <div class="p-paella-margin"> <a (click)="saveEdits()" class="letra-header inout"> <strong class="inoutl">Aceptar</strong> </a></div>
                 <div class="p-paella-margin"> <a href="" routerLink="/panel-usuario" routerLinkActive="active"> <strong class="cancelar">Cancelar</strong> </a></div>
-
-</div>
-
-
+                </div>
             </table>
-
         </div>
     </div>
 
-    </div> 
+   
+</div>
+
 
 
 

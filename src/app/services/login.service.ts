@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginService {
   API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
+          //API_ENDPOINT = 'localhost:8000/api/';      //pruebas
+          //API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
 headers:HttpHeaders
   constructor(private http:HttpClient) {
     console.log('cambiamos a false en login service');

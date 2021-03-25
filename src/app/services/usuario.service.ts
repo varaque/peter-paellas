@@ -7,6 +7,7 @@ import {Usuario} from '../interfaces/usuario';
 })
 export class UsuarioService {
   API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
+  //API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
 
   constructor(private httpClient:HttpClient) {}
 

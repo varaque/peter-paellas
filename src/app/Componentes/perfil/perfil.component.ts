@@ -18,6 +18,7 @@ export class PerfilComponent implements OnInit {
   
  
   API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas'; 
+    //API_ENDPOINT = 'http://localhost:8000/api/paellas';      //pruebas
 
  
   usuario: Usuario ={

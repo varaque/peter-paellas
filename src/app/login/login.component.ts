@@ -73,6 +73,10 @@ console.log('hemos entrado en el login() del login.component.ts')
     console.log('aqui el data que hemos puesto, osea email pass y tal: ')
     console.log(data);
 
+      //.post('https://peterpaellas.com/lvel/public/oauth/token')
+      //API_ENDPOINT = 'localhost:8000/oauth/token';      //pruebas
+      //API_ENDPOINT = 'http://localhost:8000/oauth/token'; //si pruebas no va intenta esto
+
 this.http.post('https://peterpaellas.com/lvel/public/oauth/token', data).subscribe( //AQUI RECIBIMOS EL TOKEN DE REFRESH Y DE AUTHENTICATION, EL CUAL VAMOS A ENVIAR EN UN HEADER PARA RECIBIR LA INFO DEL USER
   result =>{
 
@@ -111,7 +115,7 @@ this.http.post('https://peterpaellas.com/lvel/public/oauth/token', data).subscri
 
 
 
-
+        //API_ENDPOINT = 'localhost:8000/api/users';      //pruebas
     this.http.get('https://peterpaellas.com/lvel/public/api/user', {headers: headers}).subscribe(
 
 result => {

@@ -8,6 +8,7 @@ import {userEdit} from '../interfaces/useredit';
 })
 export class UserService {
   API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
+  //API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
 
   constructor(private httpClient:HttpClient) {}
 
@@ -31,6 +32,10 @@ export class UserService {
   put(user){
 
     const headers = new HttpHeaders({ 'Content-Type':'application/json'});
+    console.log('a ver que le llega al put de user.service: ')
+    console.log('el id: ' + user.id);
+    console.log('el user: ')
+    console.log(user)
     return this.httpClient.put(this.API_ENDPOINT + 'users/' + user.id, user, {headers:headers});
 
   }

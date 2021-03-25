@@ -20,14 +20,14 @@ export class EditaPerfilComponent implements OnInit {
   userData = JSON.parse(this.user);
 
   //aqui intentabamos guardar todo para meterlo con un patch y au pero claro necesita contraseña etc y es un pateo asi que probaremos con la version chiquita de abajo
-
+  userL:User[];
   users:User = {
 
     id: this.userData.id,
     name: this.userData.name,
     email: this.userData.email,
     ubicacion: this.userData.ubicacion,
-    email_verified_at: null,
+    email_verified_at: this.userData.email_verified_at,
     foto: this.userData.foto,
     calificacion: this.userData.calificacion,
     baneado: this.userData.baneado,
@@ -43,17 +43,19 @@ export class EditaPerfilComponent implements OnInit {
 
   }
 
-  
-
+  img = this.userData.foto;
+  id:any;
   contrasena2: null;
   form: FormGroup;
 
-  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users'; 
+  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users'; //real
+  //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas 
+    
 
   constructor(private usuariosService:UsuarioService, private usersService:UserService, private route: ActivatedRoute, private fb:FormBuilder, private http: HttpClient) 
   {       
     
-    console.log('El user, que es el coger del localStorage el userData: ')
+    /* console.log('El user, que es el coger del localStorage el userData: ')
     console.log(this.user)
 
 
@@ -63,15 +65,38 @@ export class EditaPerfilComponent implements OnInit {
 
 
     console.log('El users, un objeto user que hemos creado: ')
-console.log(this.users);
+console.log(this.users); */
 
 
 //el userdata son los datos de quien se logueó, user es el usuario de la bbdd, users es lo que estamos poniendo, asi que habra que ponerle al user lo que cojamos en el users y
 // guardar el user en la bbdd
 
 
+//esto es para pillar al user por data
+
+this.id = this.userData.id;  
+this.usersService.get().subscribe((dataL: User[]) => {
+ // this.users = data;
+ this.userL = dataL;
+ this.users = this.userL.find((n) => { return n.id == this.id})
+      console.log('users: ');   
+ console.log(this.users); 
+
+}) 
+
+
   }
 
+  handleUpload(event) {                                   //esto coge la foto del input y la convierte a formato base 64
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      console.log('a ver lo de la tia esta del video: ');
+        console.log(reader.result);
+        this.img = reader.result;
+    };
+}
 
   saveEdits(){
 
@@ -81,11 +106,23 @@ console.log(this.users);
   } */ //chequeamos que la contraseña puesta 2 veces esté gucci
 
 /*     const formData = this.form.getRawValue; */
-console.log('aqui email que coge: ' + this.users.email)
+
+
+
+/* console.log('aqui email que coge: ' + this.users.email)
 console.log('aqui name que coge: ' + this.users.name)
+console.log('aqui ubicacion que coge: ' + this.users.ubicacion)
+console.log('aqui la foto que coge: ' + this.users.foto)
+console.log('la this img: ' + this.img) */
+
+
+//this.img == storage/foto.png
+//this.users.foto ==
+if(this.img != '/storage/foto.png' ){
+
+this.users.foto = this.img;}
 
 //ESTOS IF SON PARA COMPROBAR SI ESTA EL CAMPO VACIO, QUE ENTONCES EL NAME EMAIL O LO QUE SEA SE PONDRÁ EL DEL USER, QUE ES EL QUE YA TENIAMOS Y NO SE GUARDARÁ EN EL THIS.USERS
-
 
 
  if(this.users.name == ""){
@@ -95,7 +132,6 @@ this.users.name = this.userData.name;    //Esto es por si no metes nada en los c
     else{
       this.userData.name = this.users.name ;
     }
-
 
 
   if(this.users.email == ""){
@@ -115,35 +151,28 @@ this.users.ubicacion = this.userData.ubicacion;
       this.userData.ubicacion = this.users.ubicacion ;
     }
 
- 
 
-console.log('el this. users del saveedits(): ')
+
+/* console.log('el this. users del saveedits(), lo que le pasamos al put: ')
 console.log(this.users);
 
-console.log('el this.user dentro del saveedits()')
-console.log(this.user);
+console.log('el this.userL dentro del saveedits()')
+console.log(this.userL);  */
 
-/* console.log('el userData que pretendemos guardar con el saveedits()')
+/* console.log('el edit que pretendemos guardar con el saveedits()')
 console.log(this.userData); */
 
-console.log('el edit que pretendemos guardar con el saveedits()')
-console.log(this.userData);
-
-
-
-
   this.usersService.put(this.users).subscribe((data) => {     
-  console.log('lo de dentro del put: ')
-
+/*   console.log('lo de dentro del put: ')
 console.log(data)
-  // location.href ="https://peterpaellas.com/";  
-  // location.href ="http://localhost:4200/panel-usuario"; 
+console.log( 'el this users: ')
+console.log(this.users) */
+  // location.href ="https://peterpaellas.com/panel-usuario";  
+   location.href ="http://localhost:4200/panel-usuario"; 
   
   }, (error) => {
   console.log("error en edita-perfil.component.ts en la parte del userservice de actualizar user");
   }) 
-
-
 
   }
 
@@ -158,6 +187,7 @@ console.log(data)
       email: ['', Validators.required],
       password: ['', Validators.required],
       ubicacion: ['', Validators.required],
+      foto: ['', Validators.required],
 
 
     })
