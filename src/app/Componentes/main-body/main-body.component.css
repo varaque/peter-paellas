@@ -76,12 +76,29 @@ img{
 
 .buscador{
  border: 0;
- border-radius: 5px;
- background-color: #fae9b3;
+ /*border-radius: 5px;*/
+ border-top-left-radius: 15px;
+ border-top-right-radius: 15px;
+ background-color: #ffefd5;
  color:#5c3c1d;
  display: inline;
  height: 50px;
  width: 400px;
+ padding-left: 10px;
+ font-weight:500;
+}
+.fotos{
+  height: 225px;
+  width:100%;
+}
+.styleDatepicker{
+  background-color: #ffefd5;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  width: 400px;
+  height: 60px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .placeholders{
@@ -133,9 +150,24 @@ border-radius: 10px;
 
 }
 
+.letramarron{
+  color: #8b5a17;
+  font-weight: 500;
+}
+
 .lres{
   color: #8b5a17;
   font-weight: 1000;
+}
+.buscar{
+  text-decoration: none;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-weight: 300;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 2px solid #ffffff;
 }
 
 .res{
@@ -146,6 +178,7 @@ border-radius: 10px;
   font-weight: 300;
   background-color: #ffefd5;
   border-radius: 20px;
+  /* border: 2px solid #ffffff; */
 
 }
 

@@ -1,50 +1,52 @@
 div.container-fluid {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/1551251263737.jpg');
-    background-size: cover;
-    height: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/1551251263737.jpg'); 
+    background-size: cover; 
+    height: 70%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 h5 {
-    color: #8b5a17;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    color: #8b5a17; 
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
 }
 
 div.col-md-4 {
-    background-color: #e9cda5;
-    border-radius: 5px;
-    padding-bottom: 10px;
-    padding-top: 20px;
-    padding-right: 25px;
-    padding-left: 25px;
+    background-color: #e9cda5; 
+          /* border-radius: 15px; */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+    padding-bottom: 10px; 
+    padding-top: 20px; 
+    padding-right: 25px; 
+    padding-left: 25px; 
 }
-.letra-gris{
-    font-size: 14px;
-    font-weight: 600;
-    color: grey;
+.letra-gris{ 
+    font-size: 14px; 
+    font-weight: 600; 
+    color: grey; 
 }
 .gris{
-    color:grey;
+    color:grey; 
 }
 .sombra{
-    box-shadow: 2px 2px 10px #666;
+    box-shadow: 2px 2px 10px #666; 
 }
 
-div.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+div.container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
-form button {
-    border-radius: 15px;
-    border-style: none;
-    font-weight: bold;
-    color: darkgoldenrod;
-    padding: 5px 15px 5px 15px;
-    float: right;
+form button { 
+    border-radius: 15px; 
+    border-style: none; 
+    font-weight: bold; 
+    color: darkgoldenrod; 
+    padding: 5px 15px 5px 15px; 
+    float: right; 
 }

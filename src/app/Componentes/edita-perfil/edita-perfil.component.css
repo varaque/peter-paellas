@@ -1,6 +1,7 @@
 .bg-color{
     background-color: #f7eddf;
     height: 600px;
+    
 }
 .img-round{
     width:150px;
@@ -22,6 +23,9 @@
 .bg-blanco{
     background-color: white;
 height: 550px;
+          /* border-radius: 15px; */
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
 }
 
 .margenes{
