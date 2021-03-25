@@ -80,7 +80,7 @@ img{
  border-top-left-radius: 15px;
  border-top-right-radius: 15px;
  background-color: #ffefd5;
- color:#5c3c1d;
+ color: #8b5a17;
  display: inline;
  height: 50px;
  width: 400px;
@@ -101,15 +101,20 @@ img{
   border-top-right-radius: 15px;
 }
 
-.placeholders{
+/* .placeholders{
 background-color: #000000;
-color: white;
+color: white; */
 /* font-family: 'Quicksand', sans-serif; */
-font-size: 20px;
+/* font-size: 20px;
 width: 300px;
 height: 40px;
 margin-left:25%;
 margin-bottom: 5%;
+} */
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #8b5a17;
+  opacity: 1; /* Firefox */
 }
 .fondobuscador{
   background-color: burlywood;
