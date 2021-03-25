@@ -14,7 +14,9 @@
   }
   .bg-tarjeta{
     background-color: #ffdfad;
-    border-radius: 15px;
+ /* border-radius: 15px; */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     width: 25rem;
   }
   .bg-white{
@@ -40,7 +42,9 @@ margin-top: 30px;
   .margenes{
     margin-top: 30px;
     margin-bottom: 30px;
-    border-radius: 15px;
+  /* border-radius: 15px; */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
     box-shadow: 2px 2px 10px #666;
   }
   .margenes-interiores{
