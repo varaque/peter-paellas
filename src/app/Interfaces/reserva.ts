@@ -8,7 +8,7 @@ export interface Reserva{
     telefono: number;
     personas: number;
     mascota: boolean;
-    mensaje: string;
+    mensaje?: string;
     ver_hacer_paella: boolean;
     ninos: boolean;
     fecha: string;

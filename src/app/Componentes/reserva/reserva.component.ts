@@ -49,14 +49,6 @@ export class ReservaComponent implements OnInit {
 
   }
 
-  multiplica(a, b){   //funcion un poco tonta para sacar el precio final
-var c= 0;
-    c= a * b;
-    console.log('hola');
-    return c;
-
-  }
-
 
   
   ngOnInit(){
@@ -93,15 +85,12 @@ var c= 0;
   saveReserva(){ //guardamos la reserva, habra que comprobar que hay plazas, que el email bien, etc
     
           //AQUI TENEMOS YA LA INFO PAELLA
-
-    const fechahoy = moment.tz(moment().toString());   //aqui y en las dos lineas de abajo estoy formateando la fecha para poder guardarla bien en la bbdd con fecha de hoy
+          const fechahoy = moment().format('YYYY-MM-DD HH:mm:ss').toString(); 
+    //const fechahoy = moment.tz(moment().toString());   //aqui y en las dos lineas de abajo estoy formateando la fecha para poder guardarla bien en la bbdd con fecha de hoy
     console.log('lafechahoy: ' + fechahoy);            //porque la bbdd la quiere en 'YYYY-MM-DD HH:mm:ss' pero el moment nos da algo como 'YYYY-MM-DDTHH:mm:ss+000000000'
-    this.reserva.fecha = fechahoy.tz(moment.tz.guess(true)).format('YYYY-MM-DD HH:mm:ss');
-
-
+    //this.reserva.fecha = fechahoy.tz(moment.tz.guess(true)).format('YYYY-MM-DD HH:mm:ss');
+    this.reserva.fecha = fechahoy;
     
-
-
     console.log(this.reserva);
 
 if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar que hay plazas suficientes libres
@@ -153,9 +142,30 @@ this.selectedPaella.plazas_libres = (this.selectedPaella.plazas_libres - this.re
 
 }
   else{
-    alert('¡Lo sentimos, hay tantas plazas libres!');
+    alert('¡Lo sentimos, no hay tantas plazas libres!');
   }
 
+
+  }
+
+
+
+  checkReserva(){
+
+    //var fechahoy = moment().format('YYYY-MM-DD HH:mm:ss').toString();   //aqui y en las dos lineas de abajo estoy formateando la fecha para poder guardarla bien en la bbdd con fecha de hoy
+    //console.log('lafechahoy: ' + fechahoy);            //porque la bbdd la quiere en 'YYYY-MM-DD HH:mm:ss' pero el moment nos da algo como 'YYYY-MM-DDTHH:mm:ss+000000000'
+   
+    /*  fechahoy = fechahoy.format();
+    this.reserva.fecha = fechahoy.tz(moment.tz.guess(true)).format('YYYY-MM-DD HH:mm:ss');  */
+
+   /*  const hola = moment().format('YYYY-MM-DD HH:mm:ss');
+    var patata = moment.tz(hola, 'Europe/Madrid');
+console.log(patata);
+
+var patata = patata.moment().toString() */
+
+    this.reserva.paella_id = this.selectedPaella.id;
+    console.log(this.reserva);
 
   }
 
