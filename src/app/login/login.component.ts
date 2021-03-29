@@ -126,7 +126,8 @@ result => {
 
 /*  this.guard.loggedIn=true;                    AQUI SE SUPONE QUE SE SETEARIA A TRUE EL LOGGEDIN DEL GUARD */
 
-  location.href ="http://localhost:4200/panel-usuario";
+  //location.href ="http://localhost:4200/panel-usuario"; pruebas
+  location.href ="https://peterpaellas.com/panel-usuario";  //real
 },
 error=> {
   console.log('error');

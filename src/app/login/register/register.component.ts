@@ -117,7 +117,8 @@ if(this.contrasena2==this.usuario.contrasena){ //chequeamos que la contraseña p
 
       alert('¡Usuario creado!');
       localStorage.setItem('token', token);
-      location.href ="http://localhost:4200";
+      location.href ="https://peterpaellas.com";  //real
+      //location.href ="http://localhost:4200"; //pruebas
       console.log(data);
         }, (error) => {
       console.log("error en register.ts");
@@ -153,7 +154,8 @@ if(this.contrasena2==this.user.password){ //chequeamos que la contraseña puesta
      this.userService.save(this.user).subscribe((data) => {
 
       alert('¡User creado!');
-      location.href ="http://localhost:4200/panel-usuario";
+      location.href ="https://peterpaellas.com/panel-usuario";  //real
+      //location.href ="http://localhost:4200/panel-usuario"; //pruebas
       console.log(data);
         }, (error) => {
       console.log("error en register.ts");

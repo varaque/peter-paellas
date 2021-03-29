@@ -32,44 +32,47 @@
 
 
         <div class="row">
+<!-- lo que tienes en el portapapeles empeiza aqui -->
+<div class="col-md-6 ">
 
+  <div class="row">
+    <div class="col-md-2">
+      <p class="mt-4"><img src="/assets/images/chef.png" width="30" height="30"> </p></div>
+      <div class="col-md-8">
+        <p class="h4 mt-4">{{paella.cocinero}}</p></div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-2">
+      <p class="mt-4"><img src="/assets/images/location.png" width="30" height="30"> </p></div>
+      <div class="col-md-8">
+        <p class="h4 mt-4">{{paella.ubicacion}}</p></div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-2">
+      <p class="mt-4"><img src="/assets/images/currency.png" width="30" height="30"> </p></div>
+      <div class="col-md-8">
+        <p class="h4 mt-4">{{paella.precio}}€ / ración</p></div>
+  </div>
 
-
-          <div class="col-md-6 cliente borde align-items-center justify-content-center">
-
-
-            <div class="row">
-
-            <div class="col-md-2">
-              <p class="mt-4"><img src="/assets/images/chef.png" width="30" height="30"> </p>
-              <p class="mt-4"><img src="/assets/images/location.png" width="30" height="30"> </p>
-              <p class="mt-4"><img src="/assets/images/currency.png" width="30" height="30" class="mr-1"> </p>
-            </div>
-
-
-
-
-            <div class="col-md-10">
-            <p class="h4 mt-4">{{paella.cocinero}}</p>
-
-            <p class="h4 mt-4">{{paella.ubicacion}}</p>
-            
-            <p class="h4 mt-4">  {{paella.precio}}€ / ración</p>
-
-
-            <div *ngIf="paella.telefono != '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
-            <p class="h4 mt-4">Telefono: {{paella.telefono}}</p></div>
-            <div *ngIf="paella.telefono == '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
-              <p class="h4 mt-4">Telefono:  No</p></div>
-
-            </div>
+  <div class="row">
+    <div class="col-md-2">
+      <p class="mt-4"></p></div>
+      <div class="col-md-8">
+        <div *ngIf="paella.telefono != '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
+          <p class="h4 mt-4">Telefono: {{paella.telefono}}</p></div>
+          <div *ngIf="paella.telefono == '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
+            <p class="h4 mt-4">Telefono:  No facilitado</p></div>
+          
           </div>
 
 
-          </div>
+  </div>
 
+
+</div>
+<!-- lo que tienes en el portapelees de porsiaca termina aqui -->
 
          <!--  <div  class="col-md-3 borde d-flex align-items-center justify-content-center">
 
@@ -88,7 +91,7 @@
 
           </div> -->
 
-          <hr/>
+ 
           
 
             <div class="col-md-6 ">
@@ -116,9 +119,9 @@
                   <div *ngIf="paella.ver_hacer_paella == true"><img src="/assets/images/check.png" width="30" height="30"> </div>
                   <div *ngIf="paella.ver_hacer_paella == false"><img src="/assets/images/x.png" width="30" height="30"> </div></div>
                   <div class="col-md-10 rowHeight d-flex align-items-center justify-content-center">
-                    <div *ngIf="paella.mascota == true">
+                    <div *ngIf="paella.ver_hacer_paella == true">
                       <p class="h4 mt-4">Se permite ver hacer la paella</p></div>
-                      <div *ngIf="paella.mascota == false">
+                      <div *ngIf="paella.ver_hacer_paella == false">
                         <p class="h4 mt-4">No se permite ver hacer la paella</p></div></div>
               </div>
 
@@ -127,9 +130,9 @@
                   <div *ngIf="paella.ninos == true"><img src="/assets/images/check.png" width="30" height="30"> </div>
                   <div *ngIf="paella.ninos == false"><img src="/assets/images/x.png" width="30" height="30"> </div></div>
                   <div class="col-md-10 rowHeight d-flex align-items-center justify-content-center">
-                    <div *ngIf="paella.mascota == true">
+                    <div *ngIf="paella.ninos == true">
                       <p class="h4 mt-4">Se permiten niños</p></div>
-                      <div *ngIf="paella.mascota == false">
+                      <div *ngIf="paella.ninos == false">
                         <p class="h4 mt-4">No se permiten niños</p></div></div>
               </div>
 
@@ -239,6 +242,12 @@ AQUI SE PONIA ANTES EL TELEFONO Y SI ESTABA VACIO PUES NO SALIA, PERO POR ESO DE
             </div> -->       
 
         </div>
+
+
+<div class="margenDescripcion">
+        {{paella.descripcion}}
+      
+      </div>
 
        </div>
 

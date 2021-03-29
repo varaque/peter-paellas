@@ -5,12 +5,28 @@
 .bgc{
   background-color: blue;
 }
-/* .ubi::after{
+ .ubi::after{
 content: url(/assets/images/location.png);
 position: absolute;
-bottom: 5px;
-right:100px;
-} */
+bottom: 165px;
+right:110px;
+color: #8b5a17 !important;
+} 
+
+ select {                                     /* flechita del select*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='brown' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 96%;
+  background-position-y: 15px;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+} 
+
+
+
 #fondo {
   background-image: url();
   background:linear-gradient(to right, rgb(0 0 0 / 50%),rgb(0 0 0 / 50%)), /* url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg") */ url("../../../assets/images/1551251263737.jpg");
@@ -100,7 +116,36 @@ img{
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
+mat-datepicker-toggle {                               /*el color del calendario del datepicker*/
+  color: #8b5a17 !important;
+}
+::ng-deep .mat-focused .mat-form-field-label {  /*esta es la clase del placeholder cuando le haces click y se hace pequeñito*/
+  /*change color of label*/
+  color: #8b5a17 !important;
+}
 
+
+::ng-deep.mat-form-field-underline {
+  /*linea que subraya*/
+  background-color: #ffefd5 !important;
+ } 
+ 
+ ::ng-deep.mat-form-field-ripple {
+  /*la linea que subrayya mientras le haces click*/
+  background-color: #ffefd5 !important;;
+ }
+ ::ng-deep.mat-calendar-body-selected{
+  background-color: #565656;        /*color del seleccionado en el calendario*/
+  color: #a9a092 !important;
+}
+::ng-deep.mat-calendar-body-hover{
+  background-color: #565656;        /*color del seleccionado en el calendario*/
+
+}
+::ng-deep.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
+  background-color: rgba(107, 107, 107, 0.3);  /*el color que cuando pasas el raton por encima sale en cada fecha*/
+
+}
 /* .placeholders{
 background-color: #000000;
 color: white; */
@@ -173,6 +218,8 @@ border-radius: 10px;
   background-color: #ffffff;
   border-radius: 20px;
   border: 2px solid #ffffff;
+  margin-left: 275px;
+  
 }
 
 .res{
@@ -193,4 +240,11 @@ border-radius: 10px;
 
 ul{
   list-style:none
+}
+
+.descripcion{ /*tamaño minimo de las tarjetas de descripcion*/
+
+height: 100px;
+
+
 }

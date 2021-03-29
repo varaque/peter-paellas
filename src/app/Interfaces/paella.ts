@@ -4,7 +4,7 @@ export interface Paella{
 
     id?: number;
     nombre: string;
-    descripcion: string;
+    descripcion?: string;
     cocinero: string;
     foto?: string;
     ubicacion: string;

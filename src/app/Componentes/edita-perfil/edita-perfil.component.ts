@@ -167,8 +167,8 @@ console.log(this.userData); */
 console.log(data)
 console.log( 'el this users: ')
 console.log(this.users) */
-  // location.href ="https://peterpaellas.com/panel-usuario";  
-   location.href ="http://localhost:4200/panel-usuario"; 
+   location.href ="https://peterpaellas.com/panel-usuario";  //real
+  // location.href ="http://localhost:4200/panel-usuario"; //pruebas
   
   }, (error) => {
   console.log("error en edita-perfil.component.ts en la parte del userservice de actualizar user");

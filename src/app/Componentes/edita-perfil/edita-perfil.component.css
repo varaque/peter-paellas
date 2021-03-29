@@ -3,6 +3,9 @@
     height: 600px;
     
 }
+input[type="file"] {
+    display: none;
+  } 
 .img-round{
     width:150px;
     height:150px;
@@ -19,6 +22,11 @@
     color:grey;
     margin-top: 10px;
 }
+
+.bordeMarron{
+
+    border: solid 2px #d9c2a3;
+  }
 
 .bg-blanco{
     background-color: white;
@@ -55,3 +63,7 @@ height: 550px;
 .cancelar{
     color:#8b5a17;
 }
+
+.custom-file{
+    max-width: 50px;
+    }

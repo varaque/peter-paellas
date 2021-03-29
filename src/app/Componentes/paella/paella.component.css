@@ -59,3 +59,17 @@ margin-left: 125px;
   margin-top: 10px;
   margin-bottom: 25px;
 }
+
+.margenDescripcion{
+  margin-top: 50px;
+  margin-left:50px;
+  margin-right: 50px;
+}
+
+::ng-deep.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element, .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+  background: #8b5a17 !important;
+} /*color al clickar en un checkbox*/
+
+#tlf{
+  background:linear-gradient(to right, rgb(0 0 0 / 50%),rgb(0 0 0 / 50%));
+}

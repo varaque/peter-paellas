@@ -19,7 +19,7 @@
 .lineaMarron{
     border-top: none;
     border-bottom: 2px solid #8b5a17;
-
+    padding-left: 125px;
 }
 .letra-intro{
     color:#8b5a17;
@@ -51,6 +51,6 @@
   }
 
 .p-paella-margin{
-    margin-top: 20px;
-
+    margin-top: 30px;
+    margin-left: 780px;
 }

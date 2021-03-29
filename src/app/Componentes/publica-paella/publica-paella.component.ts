@@ -31,9 +31,9 @@ import { ReadVarExpr } from '@angular/compiler';
       precio: null,
       telefono: null,
       fecha: null,
-      ver_hacer_paella: false,
-      ninos: false,
-      mascota: false,
+      ver_hacer_paella: null,
+      ninos: null,
+      mascota: null,
       categoria: null,
       usuario_id: this.userData.id,
 
@@ -52,11 +52,13 @@ handleUpload(event) {                                   //esto coge la foto del 
       console.log('a ver lo de la tia esta del video: ');
         console.log(reader.result);
         this.img = reader.result;
+        alert('¡Imagen recibida correctamente!')
     };
 }
 
 
     savePaella() {
+
 
       this.paella.foto = this.img;
 
@@ -98,9 +100,10 @@ handleUpload(event) {                                   //esto coge la foto del 
       this.paellaService.save(this.paella).subscribe((data) => {
         alert('¡Paella guardada!');
         console.log(data);
-        /* this.router.navigate(['/']); */
+         this.router.navigate(['/']); 
       }, (error) => {
         console.log("error en publica-paella.ts");
+        alert('Por favor, revisa todos los campos')
       })
     }
 

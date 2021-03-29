@@ -15,23 +15,20 @@
     <div class="container-fluid p-0">
       <div id="fondo">
 
-
-
         <div class="row">
 
-          <div class="col-xs-6 col-sm-6"> 
-
-
-
-            
+          <div class="col-xs-6 col-sm-6">
 
 
 
             <!-- EN ESTE HUECO ES DONDE HAY QUE PONER EL SUBIR FOTO   [(ngModel)]="img"  (change)="handldeUpload($event)   [(ngModel)]="paella.foto"-->
+
+
+
     <div class="container-input-file">
-      <label class="custom-file">
+      <label class="custom-file"> <img class="img-round" src="/assets/images/subirFoto.PNG">
 <!--         <input type="file" id="imagenPaella" /> -->
-<input type="file" (change)="handleUpload($event)">
+<input type="file" (change)="handleUpload($event)" class="botonimagen" placeholder="">
       </label>
     </div>
 
@@ -42,7 +39,7 @@
 
     
 
-            <img class="img-round" src="/assets/images/subirFoto.PNG">
+            
 
 
 
@@ -92,7 +89,7 @@
                 <span class="input-group-addon"></span>
                 <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
                   <option [ngValue]="null" [disabled]="true" hidden>Selecciona el tipo de paella</option> 
-                  <option value="1">Paella Valenciana</option> 
+                  <option value="1">Paella valenciana</option> 
                   <option value="2">Paella de marisco</option> 
                   <option value="3">Paella de verdura</option> 
                   <option value="4">Fideuá</option> 
@@ -147,8 +144,8 @@
     -->
 
 
-    <mat-form-field>
-      <input [(ngModel)]="paella.fecha" matInput [ngxMatDatetimePicker]="picker" id="fechafea" placeholder="Choose a date">
+    <mat-form-field class="styleDatepicker">
+      <input [(ngModel)]="paella.fecha" matInput [ngxMatDatetimePicker]="picker" id="fechafea" class="" placeholder="Choose a date">
     <mat-datepicker-toggle matSuffix [for]="picker">
     </mat-datepicker-toggle>
     <ngx-mat-datetime-picker #picker 
@@ -201,7 +198,7 @@
                   
                   </div>
                   
-  <input class="contador bordeMarron" [(ngModel)]="paella.precio" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
+  <input class="contador bordeMarron" [(ngModel)]="paella.precio" id="id_form-0-quantity" min="1" name="form-0-quantity" step="0.01" value="1" type="number">
                 
               </div>
     
@@ -240,25 +237,25 @@
                 <div class="input-group mt-4 mb-4">
                   <span class="input-group-addon"></span>
                   <select [(ngModel)]="paella.ver_hacer_paella" class="form-control bordeMarron" name="menu" placeholder="Ver paella"> 
-                    <option [ngValue]="null" [disabled]="true" hidden>¿Permito ver como se prepara la paella?</option> 
-                    <option value="true">Si, permito ver como se prepara la paella</option> 
-                    <option value="false">No permito ver como se prepara la paella</option> 
+                    <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito ver como se prepara la paella?</option> 
+                    <option value="1">Si, permito ver como se prepara la paella</option> 
+                    <option value="0">No permito ver como se prepara la paella</option> 
                     </select> 
                 </div>
                 <div class="input-group mt-4 mb-4">
                   <span class="input-group-addon"></span>
                   <select [(ngModel)]="paella.mascota" class="form-control bordeMarron" name="menu" placeholder="Mascota"> 
-                    <option [ngValue]="null" [disabled]="true" hidden>¿Permito la entrada de mascotas?</option> 
-                    <option value="true">Si, permito traer mascotas</option> 
-                    <option value="false">No permito traer mascotas</option> 
+                    <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito la entrada de mascotas?</option> 
+                    <option value="1">Si, permito traer mascotas</option> 
+                    <option value="0">No permito traer mascotas</option> 
                     </select> 
                 </div>
                 <div class="input-group mt-4 mb-4">
                   <span class="input-group-addon"></span>
                   <select [(ngModel)]="paella.ninos" class="form-control bordeMarron" name="menu" placeholder="Niños"> 
-                    <option [ngValue]="null" [disabled]="true" hidden>¿Permito que se traigan niños?</option> 
-                    <option value="true">Si, permito que se traigan niños</option> 
-                    <option value="false">No permito que se traigan niños</option> 
+                    <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito que se traigan niños?</option> 
+                    <option value="1">Si, permito que se traigan niños</option> 
+                    <option value="0">No permito que se traigan niños</option> 
                     </select> 
                 </div>
 
