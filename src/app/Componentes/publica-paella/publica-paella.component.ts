@@ -99,7 +99,7 @@ handleUpload(event) {                                   //esto coge la foto del 
 
       this.paellaService.save(this.paella).subscribe((data) => {
         alert('¡Paella guardada!');
-        //console.log(data);
+        console.log(data);
          this.router.navigate(['/']); 
       }, (error) => {
         console.log("error en publica-paella.ts");
