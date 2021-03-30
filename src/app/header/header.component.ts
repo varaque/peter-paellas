@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,7 +8,7 @@ import { AuthGuardService } from 'src/app/services/auth-guard.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public guard:AuthGuardService) {
+  constructor(public guard:AuthGuardService, private router: Router) {
 /*     console.log('cambiamos a false en header component');
 this.guard.loggedIn =false; */
    /*  var loggedIn : Boolean;
@@ -24,7 +25,10 @@ var loggedIn : Boolean;                                     //vamos a chequear q
     logout(){
       
       localStorage.removeItem('atoken');
-      location.href = "https://peterpaellas.com/";
+      localStorage.removeItem('userData');
+      this.guard.loggedIn == false;
+      
+       location.href = "https://peterpaellas.com/"; 
 
 
       //console.log('cambiamos a false en header component en el logout');

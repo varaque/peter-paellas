@@ -124,10 +124,10 @@ result => {
   console.log('el userData veamos a ver: ' + veamosaver);
   localStorage.setItem('userData',JSON.stringify(result));
 
-/*  this.guard.loggedIn=true;                    AQUI SE SUPONE QUE SE SETEARIA A TRUE EL LOGGEDIN DEL GUARD */
-
+  this.guard.loggedIn=true;                    /*AQUI SE SUPONE QUE SE SETEARIA A TRUE EL LOGGEDIN DEL GUARD */
+this.router.navigateByUrl('/panel-usuario');
   //location.href ="http://localhost:4200/panel-usuario"; pruebas
-  location.href ="https://peterpaellas.com/panel-usuario";  //real
+  //location.href ="https://peterpaellas.com/panel-usuario";  //real
 },
 error=> {
   console.log('error');

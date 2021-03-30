@@ -7,7 +7,7 @@ import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edita-perfil',
@@ -52,7 +52,7 @@ export class EditaPerfilComponent implements OnInit {
   //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas 
     
 
-  constructor(private usuariosService:UsuarioService, private usersService:UserService, private route: ActivatedRoute, private fb:FormBuilder, private http: HttpClient) 
+  constructor(private usuariosService:UsuarioService, private usersService:UserService, private route: ActivatedRoute, private fb:FormBuilder, private http: HttpClient, private router: Router,) 
   {       
     
     /* console.log('El user, que es el coger del localStorage el userData: ')
@@ -167,7 +167,9 @@ console.log(this.userData); */
 console.log(data)
 console.log( 'el this users: ')
 console.log(this.users) */
-   location.href ="https://peterpaellas.com/panel-usuario";  //real
+
+   this.router.navigateByUrl('/panel-usuario');
+  //location.href ="https://peterpaellas.com/panel-usuario";  //real
   // location.href ="http://localhost:4200/panel-usuario"; //pruebas
   
   }, (error) => {

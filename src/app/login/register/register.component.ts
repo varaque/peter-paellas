@@ -5,6 +5,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { UserService } from 'src/app/services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 //import { resourceLimits } from 'worker_threads';
 
 @Component({
@@ -49,7 +50,7 @@ export class RegisterComponent implements OnInit {
 contrasena2: null;
 form: FormGroup;
 
-  constructor(private usuarioService: UsuarioService, private userService: UserService, private fb:FormBuilder, private http: HttpClient) { }
+  constructor(private usuarioService: UsuarioService, private userService: UserService, private fb:FormBuilder, private http: HttpClient, private router:Router) { }
 
   ngOnInit(){
 
@@ -117,7 +118,8 @@ if(this.contrasena2==this.usuario.contrasena){ //chequeamos que la contraseña p
 
       alert('¡Usuario creado!');
       localStorage.setItem('token', token);
-      location.href ="https://peterpaellas.com";  //real
+      this.router.navigateByUrl('/login');
+      //location.href ="https://peterpaellas.com";  //real
       //location.href ="http://localhost:4200"; //pruebas
       console.log(data);
         }, (error) => {
