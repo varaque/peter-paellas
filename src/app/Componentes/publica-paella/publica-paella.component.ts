@@ -62,7 +62,18 @@ handleUpload(event) {                                   //esto coge la foto del 
 
       this.paella.foto = this.img;
 
-
+      if(this.paella.categoria== null){
+        this.paella.categoria=0;
+              }
+      if(this.paella.ninos== null){
+        this.paella.ninos=false;
+              }
+      if(this.paella.ver_hacer_paella== null){
+        this.paella.ver_hacer_paella=false;
+              }
+              if(this.paella.mascota== null){
+                this.paella.mascota=false;
+                      }
       //este if es por si no pusiera foto que salga una de default, está puesta en base 64 para no calentarse la cabeza, cierralo y no te rayes
 
       if(this.paella.foto==undefined){
@@ -71,7 +82,6 @@ handleUpload(event) {                                   //esto coge la foto del 
        //Esto es básicamente que si no pones foto sale la foto esta en b64 de default  
        
       }
-
 /*       this.trataImagen(this.img); */
       //console.log('fecha antes del moment: ' + this.paella.fecha);
       //console.log(this.paella.fecha)
