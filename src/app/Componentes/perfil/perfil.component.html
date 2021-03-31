@@ -27,8 +27,8 @@
 
       <p> <img src="/assets/images/restaurant.png"> Paellas publicadas {{numpaellas}} </p>  <!-- queda pendiente crear una variable foreach paella -->
 
-      <div class=" mb-4 caja-estrellas">
-        <i class="ml-1 fa fa-star checked"></i>
+      <div class=" mb-4 caja-estrellas">             <!--Esto deberia ir con un ng for segun las estrellas del cocinero pero el problema es que tampoco hay donde puntuar cocineros,-->
+        <i class="ml-1 fa fa-star checked"></i>      <!-- asi que las que tienen son aleatorias, pero vamos cuando se incluya deberia ser segun user.calificacion una estrella y au -->
         <i class="ml-1 fa fa-star checked"></i>
         <i class="ml-1 fa fa-star checked"></i>
         <i class="ml-1 fa fa-star "></i>
@@ -36,7 +36,7 @@
       
       </div>
       
-<div class="gris">{{numpaellas +1}} RESEÑAS</div>
+<div class="gris">{{numpaellas +1}} RESEÑAS</div>  <!--Esto esta asi porque no hay donde reseñar las paellas asi que porque salga algun numero logico, pero vamos-->
    
       
     </div>

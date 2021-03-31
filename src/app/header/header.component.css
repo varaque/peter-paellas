@@ -5,7 +5,16 @@
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+
+  mar car 1*(4/6)*(4/6)=0.44444 abr  1*(4/6)*(4/6)=0.41666666
 } */
+.dropdown-item.active{
+background-color: darkgrey;
+}
+.dropdown-item:active{
+  background-color: grey;
+}
+
 .registrarse{
 color: #8b5a17;
 }
