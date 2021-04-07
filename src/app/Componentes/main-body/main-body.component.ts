@@ -60,17 +60,25 @@ filterFecha=""
 }
 
 buscar(){
+  console.log('la fecha que le entra: ')
+  console.log(this.filterFecha)
+  if(this.filterFecha!= ''){
   var fechabuscada = moment.tz(this.filterFecha, 'Europe/Madrid');                //convertimos al estandar de comparar lo que nos pongan en el filtro de la pagina en el html
   this.filterFecha = fechabuscada.tz(moment.tz.guess(true)).format('YYYY-MM-DD'); // formateamos a como buscamos
-  this.filterFecha = this.filterFecha.toString()                                  //esto realmente no se si haria falta, pero bueno yo lo dejo
+  this.filterFecha = this.filterFecha.toString()}                                  //esto realmente no se si haria falta, pero bueno yo lo dejo
+  console.log('el filterfecha despues del moment: ') 
   console.log(this.filterFecha);
-
-console.log(this.paellas)
+  console.log(this.paellas) 
 this.paellas = this.fechaPaellas;                                 //reseteamos el array antes de filtrar, asi podremos filtrar sobre todas una segunda vez y no sobre las ya filtradas
   this.paellas = this.paellas.filter( p =>                        //filtramos si vemos que es igual la fecha de cada paella a la que hemos metido en el html
-    p.fecha == this.filterFecha
+   
+    (this.filterCategoria == '' ? p.id > 0 : p.categoria == parseInt(this.filterCategoria))&&
+    /* (this.filterUbicacion == '' ? p.id > 0 : p.ubicacion.toLowerCase() == this.filterUbicacion.toLowerCase())&& */
+    (this.filterFecha == '' ? p.id > 0 : p.fecha == this.filterFecha)
+    /* p.fecha == this.filterFecha */
   );  
 
+  window.scroll(0, 850)
 }
 
 /* var fecha = this.filterFecha;

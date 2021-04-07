@@ -25,7 +25,9 @@ color: #8b5a17 !important;
   border-radius: 2px;
 } 
 
-
+.p{
+border:none;
+}
 
 #fondo {
   background-image: url();

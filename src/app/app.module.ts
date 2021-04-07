@@ -114,6 +114,7 @@ import {
   NgxMatNativeDateModule, 
   NgxMatTimepickerModule 
 } from '@angular-material-components/datetime-picker';
+import { MAT_DATE_LOCALE } from '@angular/material/core'
 import { FilterPipe } from './pipes/filter.pipe';
 import { EditaPerfilComponent } from './Componentes/edita-perfil/edita-perfil.component';
 import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
@@ -224,7 +225,7 @@ MatCheckboxModule,
     MatMomentDateModule,
     MatDatepickerModule,
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

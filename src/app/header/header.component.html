@@ -161,12 +161,18 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" routerLink="" routerLinkActive="active" href=""><strong>HOME</strong> <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" routerLink="" routerLinkActive="active" href=""><strong>BUSCAR PAELLAS</strong> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                          <a class="nav-link" routerLink="contacto" routerLinkActive="active" href=""><strong>CONTACTO</strong></a>
+                          <!-- <a class="nav-link" routerLink="contacto" routerLinkActive="active" href=""><strong>CONTACTO</strong></a> -->
+                          <a class="nav-link" routerLink="cocineros" routerLinkActive="active"  href=""><strong>COCINEROS</strong></a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item active">
+                          <!-- <a class="nav-link" routerLink="contacto" routerLinkActive="active" href=""><strong>CONTACTO</strong></a> -->
+                          <a class="nav-link" routerLink="faq" routerLinkActive="active"  href=""><strong>FAQ'S</strong></a>
+                        </li>
+
+                        <!-- <li class="nav-item dropdown">
                           <a class="nav-link active dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <strong>PÁGINAS</strong>
                           </a>
@@ -175,7 +181,7 @@
                             <a class="dropdown-item" routerLink="cocineros" routerLinkActive="active"  href=""><strong>COCINEROS</strong></a>
 
                           </div>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                           <a class="nav-link active"  routerLink="publica-paella" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==true"> <strong>PUBLICAR PAELLA</strong></a>
                           <a class="nav-link active"  routerLink="login" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==false"> <strong>PUBLICAR PAELLA</strong></a>
@@ -202,7 +208,7 @@
                   </li>
 
                   <li class="nav-item ml-4 mr-4">
-                                        <a href="" routerLink="register" routerLinkActive="active" class="registrarse"> <strong>Registrarse</strong> </a> 
+                                        <a href="" routerLink="register" routerLinkActive="active" *ngIf="this.guard.loggedIn==false" class="registrarse"> <strong>Registrarse</strong> </a> 
                   </li>
         
                     <li class="nav-item ml-4 mr-4">

@@ -4,7 +4,7 @@ import { Paella } from '../../Interfaces/paella';
 //import { PAELLAS } from '../paellasprueba';
 import { PaellasService } from 'src/app/services/paellas.service';
 import { HttpClient } from '@angular/common/http';
-
+import * as moment from 'moment-timezone';
 
 @Component({
   selector: 'app-paella',
@@ -56,6 +56,13 @@ paellas: Paella[];
 
 value: null;
 ngOnInit(){
+  var fechabuscada = moment.tz(this.paella.fecha, 'Europe/Madrid');                //convertimos al estandar de comparar lo que nos pongan en el filtro de la pagina en el html
+  console.log(fechabuscada);
+
+  this.paella.fecha = fechabuscada.tz(moment.tz.guess(true)).format('DD-MM');
+  console.log('la fecha: ')
+console.log(this.paella.fecha);
+
 }
  /* ngOnInit(){
    
