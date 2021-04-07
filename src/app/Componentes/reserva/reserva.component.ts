@@ -1,8 +1,10 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
 import { Paella } from '../../Interfaces/paella';
+import { Mensaje } from '../../Interfaces/mensaje';
 //import { PAELLAS } from '../paellasprueba';
 import { ReservaService } from 'src/app/services/reserva.service';
+import { MensajeService } from 'src/app/services/mensaje.service';
 import { HttpClient } from '@angular/common/http';
 import { PaellaComponent } from '../paella/paella.component';
 import { Reserva } from '../../Interfaces/reserva';
@@ -30,7 +32,8 @@ export class ReservaComponent implements OnInit {
   task: Task = {//para colorear el check
     color: 'primary',}
 
-  reserva: Reserva = { //OJO ESTO ES UN PRODUCTO DE PRUEBA, HAY QUE HACER QUE COJA EL VALOR DE LA PAELLA DE LA BBDD 
+ 
+  reserva:Reserva = { //OJO ESTO ES UN PRODUCTO DE PRUEBA, HAY QUE HACER QUE COJA EL VALOR DE LA PAELLA DE LA BBDD 
 
     nombre : null,
     email      : null,
@@ -46,6 +49,13 @@ export class ReservaComponent implements OnInit {
 
 
   }
+  mensaje:Mensaje = {
+    nombre: 'nombre',
+    apellido: 'apellido',
+    telefono: 5,
+    email: this.reserva.email,
+    mensaje: '',
+  }
 
 
 
@@ -53,13 +63,15 @@ export class ReservaComponent implements OnInit {
 
 	iframe: boolean = false
 
-  constructor(private reservaService: ReservaService, private paellasService: PaellasService) { 
+  constructor(private reservaService: ReservaService, private paellasService: PaellasService, private MensajeService: MensajeService) { 
 
   }
 
 
   
   ngOnInit(){
+
+
 
     paypal.Buttons({createOrder: (data, actions) => {
       if( this.reserva.personas <= this.selectedPaella.plazas_libres){ 
@@ -87,39 +99,47 @@ export class ReservaComponent implements OnInit {
       console.log(err);
     }
     })
-    .render ( this.paypalElement.nativeElement );
+    .render ( this.paypalElement.nativeElement );  }
 
-  }
+
+
   saveReserva(){ //guardamos la reserva, habra que comprobar que hay plazas, que el email bien, etc
-    
-          //AQUI TENEMOS YA LA INFO PAELLA
-          const fechahoy = moment().format('YYYY-MM-DD HH:mm:ss').toString(); 
-    //const fechahoy = moment.tz(moment().toString());   //aqui y en las dos lineas de abajo estoy formateando la fecha para poder guardarla bien en la bbdd con fecha de hoy
+    this.mensaje.email = this.reserva.email;
+    const fechahoy = moment().format('YYYY-MM-DD HH:mm:ss').toString(); //aqui y en las lineas de abajo estoy formateando la fecha para poder guardarla bien en la bbdd con fecha de hoy
     console.log('lafechahoy: ' + fechahoy);            //porque la bbdd la quiere en 'YYYY-MM-DD HH:mm:ss' pero el moment nos da algo como 'YYYY-MM-DDTHH:mm:ss+000000000'
-    //this.reserva.fecha = fechahoy.tz(moment.tz.guess(true)).format('YYYY-MM-DD HH:mm:ss');
     this.reserva.fecha = fechahoy;
-    
     console.log(this.reserva);
+
+    this.mensaje.mensaje = 'Nombre: ' + this.reserva.nombre + '. Email: ' + this.reserva.email +  '. Telefono: ' + this.reserva.telefono +'. Plazas reservadas: ' + this.reserva.personas + '. La reserva se realizó para la siguiente paella: '+ 'Nombre de la paella: '+ this.selectedPaella.nombre + '. Hecha por: ' + this.selectedPaella.cocinero +'. En: ' + this.selectedPaella.ubicacion + '. Se pagó en total: ' + this.selectedPaella.precio*this.reserva.personas + '€' + '. La reserva se realizó el dia y hora: ' + this.reserva.fecha;
 
 if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar que hay plazas suficientes libres
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.reserva.email)) //chequeamos que el mail sea de verdad y esté gucci
   {
     this.reserva.paella_id = this.selectedPaella.id;
-/*     this.selectedPaella.plazas_libres*/
-
-this.selectedPaella.plazas_libres = (this.selectedPaella.plazas_libres - this.reserva.personas)
-        console.log('el id paella, deberia estar ya con las plazas bien: ');
+    this.selectedPaella.plazas_libres = (this.selectedPaella.plazas_libres - this.reserva.personas)
+    console.log('el id paella, deberia estar ya con las plazas bien: ');
     console.log(this.selectedPaella); 
 
 
+    
 
 
 
-     this.reservaService.save(this.reserva).subscribe((data) => {     //esto para guardar la reserva
+
+
+          //reservamos
+
+     this.reservaService.save(this.reserva).subscribe((data) => {     
       
       alert('¡Reserva enviada!');
       console.log(data);
 
+
+      //ENVIAMOS MENSAJE DE RESERVA
+    this.MensajeService.sendReserva(this.mensaje).subscribe((data) => {
+      console.log('el mensaje: ')
+      console.log(this.mensaje);  
+          });
 
         this.paellasService.put(this.selectedPaella).subscribe((data) => {     
           //ESTO GUARDA LAS PLAZAS QUE HAYAS QUITADO DE LA PAELLA CON LA RESERVA 
@@ -158,7 +178,7 @@ this.selectedPaella.plazas_libres = (this.selectedPaella.plazas_libres - this.re
 
 
 
-  checkReserva(){              //esta funcion es para comprobar la reserva y tal
+  checkReserva(){              //esta funcion es para ver la reserva nada mas
 
     const fechahoy = moment().format('YYYY-MM-DD HH:mm:ss').toString(); 
     console.log('lafechahoy: ' + fechahoy);            

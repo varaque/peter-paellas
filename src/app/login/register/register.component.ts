@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { User } from 'src/app/interfaces/user';
+import { Mensaje } from 'src/app/interfaces/mensaje';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { UserService } from 'src/app/services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MensajeService } from 'src/app/services/mensaje.service';
 //import { resourceLimits } from 'worker_threads';
 
 @Component({
@@ -41,6 +43,14 @@ export class RegisterComponent implements OnInit {
     tipo: 0,
   
   }
+  mensaje:Mensaje = {
+    nombre: 'nombre',
+    apellido: 'apellido',
+    telefono: 5,
+    email: this.user.email,
+    mensaje: 'mensaje de registro',
+  }
+
   data = {
 
     newsletter: null,
@@ -50,7 +60,7 @@ export class RegisterComponent implements OnInit {
 contrasena2: null;
 form: FormGroup;
 
-  constructor(private usuarioService: UsuarioService, private userService: UserService, private fb:FormBuilder, private http: HttpClient, private router:Router) { }
+  constructor(private usuarioService: UsuarioService, private userService: UserService, private fb:FormBuilder, private http: HttpClient, private router:Router, private MensajeService:MensajeService) { }
 
   ngOnInit(){
 
@@ -72,7 +82,7 @@ form: FormGroup;
   submit(){
 
     const formData = this.form.getRawValue;
-    this.http.post('https://peterpaellas.com/lvel/public/register', formData).subscribe(   //'http://localhost:8000/register'
+    this.http.post('http://localhost:8000/register', formData).subscribe(   //'http://localhost:8000/register'  'https://peterpaellas.com/lvel/public/register'
       result=>console.log(result),
       err=> console.log(err)
     );
@@ -81,7 +91,10 @@ form: FormGroup;
   }
 
 
+enviaMensaje(){                     //aqui habra que añadir el enviar mensaje
 
+
+}
 
 
 
@@ -106,7 +119,7 @@ console.log(this.data);
 
     var token = null;
 
-    console.log(this.usuario);
+    /* console.log(this.usuario); */
 
     
 if(this.contrasena2==this.usuario.contrasena){ //chequeamos que la contraseña puesta 2 veces esté gucci
@@ -118,7 +131,7 @@ if(this.contrasena2==this.usuario.contrasena){ //chequeamos que la contraseña p
 
       alert('¡Usuario creado!');
       localStorage.setItem('token', token);
-      this.router.navigateByUrl('/login');
+      //this.router.navigateByUrl('/login');
       //location.href ="https://peterpaellas.com";  //real
       //location.href ="http://localhost:4200"; //pruebas
       console.log(data);
@@ -146,15 +159,29 @@ if(this.contrasena2==this.usuario.contrasena){ //chequeamos que la contraseña p
   saveUser(){
 
     
-    console.log(this.user);
+    /* console.log(this.user); */
 if(this.contrasena2==this.user.password){ //chequeamos que la contraseña puesta 2 veces esté gucci
 
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.user.email)) //chequeamos que el mail sea de verdad y esté gucci
   {
 
+    this.MensajeService.sendRegistro(this.mensaje).subscribe((data) => {
+
+console.log('el mensaje: ')
+console.log(this.mensaje);
+
+    }
+    
+    );
+
+
 
      this.userService.save(this.user).subscribe((data) => {
 
+
+
+
+      
       alert('¡User creado!');
       this.router.navigateByUrl('/login');
       //location.href ="https://peterpaellas.com/panel-usuario";  //real
