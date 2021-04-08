@@ -27,12 +27,12 @@
 
     <div class="container-input-file">
       <label class="custom-file"> <img class="img-round" src="/assets/images/subirFoto.PNG">
-<!--         <input type="file" id="imagenPaella" /> -->
+
 <input type="file" (change)="handleUpload($event)" class="botonimagen" placeholder="">
       </label>
     </div>
 
-    
+    <img class="margen-preview" id="blah" [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />     <!-- Aqui vemos el preview-->
 
     
 

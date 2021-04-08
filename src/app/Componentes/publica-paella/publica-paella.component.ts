@@ -18,6 +18,7 @@ import { ReadVarExpr } from '@angular/compiler';
     img;
     user = localStorage.getItem('userData');
     userData = JSON.parse(this.user);
+    imageSrc;
 
     paella: Paella = {
 
@@ -46,6 +47,7 @@ import { ReadVarExpr } from '@angular/compiler';
 
 handleUpload(event) {                                   //esto coge la foto del input y la convierte a formato base 64
     const file = event.target.files[0];
+   
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
@@ -53,6 +55,11 @@ handleUpload(event) {                                   //esto coge la foto del 
         console.log(reader.result);
         this.img = reader.result;
         alert('¡Imagen recibida correctamente!')
+    
+    
+    this.imageSrc = this.img;           //metemos la foto en b64 en imageSrc y la decodifica con atob, que literalmente solo sirve para decodifcar b64 y mostramos imageSrc en el html
+    this.imageSrc = atob(this.imageSrc);
+
     };
 }
 

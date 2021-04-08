@@ -7,8 +7,8 @@ import {userEdit} from '../interfaces/useredit';
   providedIn: 'root'
 })
 export class UserService {
-  //API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
-  API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
+  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
+  //API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
 
   constructor(private httpClient:HttpClient) {}
 

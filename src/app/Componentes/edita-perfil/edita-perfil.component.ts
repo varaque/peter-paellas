@@ -49,8 +49,8 @@ export class EditaPerfilComponent implements OnInit {
   contrasena2: null;
   form: FormGroup;
 
-  //API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users'; //real
-  API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas 
+  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users'; //real
+  //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas 
     
 
   constructor(private usuariosService:UsuarioService, private usersService:UserService, private route: ActivatedRoute, private fb:FormBuilder, private http: HttpClient, private router: Router,) 

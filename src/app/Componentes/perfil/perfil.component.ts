@@ -17,8 +17,8 @@ import {Paella} from '../../Interfaces/paella';
 export class PerfilComponent implements OnInit {
   
  
-  //API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas'; 
-  API_ENDPOINT = 'http://localhost:8000/api/paellas';      //pruebas
+  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas'; 
+  //API_ENDPOINT = 'http://localhost:8000/api/paellas';      //pruebas
 
  
   usuario: Usuario ={
@@ -126,7 +126,4 @@ console.log ('numpaellas: ' + this.numpaellas); */
 
   
  
-}
-export class NgbdRatingDecimal {
-  currentRate = 3.14;
 }

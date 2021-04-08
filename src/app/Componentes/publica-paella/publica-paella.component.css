@@ -119,7 +119,14 @@ mat-datepicker-toggle {                               /*el color del calendario 
 /* input[type=number]::-webkit-inner-spin-button {
   opacity: 1;
 } */
+.margen-preview{
 
+  margin-top: 200px;
+  max-width: 650px;
+  max-height: 500px;
+  align-items: center;
+  align-content: center;
+}
 
  input[type="file"] {
   display: none;

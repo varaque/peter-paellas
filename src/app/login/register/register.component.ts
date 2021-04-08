@@ -83,7 +83,7 @@ form: FormGroup;
   submit(){
 
     const formData = this.form.getRawValue;
-    this.http.post('http://localhost:8000/register', formData).subscribe(   //'http://localhost:8000/register'  'https://peterpaellas.com/lvel/public/register'
+    this.http.post('https://peterpaellas.com/lvel/public/register', formData).subscribe(   //'http://localhost:8000/register'  'https://peterpaellas.com/lvel/public/register'
       result=>console.log(result),
       err=> console.log(err)
     );
