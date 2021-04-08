@@ -18,8 +18,8 @@ import {Paella} from '../../Interfaces/paella';
 export class PanelUsuarioComponent implements OnInit {
 
 
-  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users';  
-  //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas
+  //API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users';  
+  API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas
   user = localStorage.getItem('userData');
   userData = JSON.parse(this.user);
   /* user:User = {      antiguo data del usuario rollo modelo --23/2/21--

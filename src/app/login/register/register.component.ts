@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit {
     foto: "/storage/foto.png",
     ubicacion: null,
     calificacion: 0,
+    veces_puntuado: 0,
     baneado: false,
     tipo: 0,
   

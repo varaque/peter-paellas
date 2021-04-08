@@ -30,6 +30,7 @@ export class EditaPerfilComponent implements OnInit {
     email_verified_at: this.userData.email_verified_at,
     foto: this.userData.foto,
     calificacion: this.userData.calificacion,
+    veces_puntuado: this.userData.veces_puntuado,
     baneado: this.userData.baneado,
     tipo: this.userData.tipo,
   
@@ -48,8 +49,8 @@ export class EditaPerfilComponent implements OnInit {
   contrasena2: null;
   form: FormGroup;
 
-  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users'; //real
-  //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas 
+  //API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users'; //real
+  API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas 
     
 
   constructor(private usuariosService:UsuarioService, private usersService:UserService, private route: ActivatedRoute, private fb:FormBuilder, private http: HttpClient, private router: Router,) 

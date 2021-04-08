@@ -7,9 +7,9 @@ import {User} from '../interfaces/user';
   providedIn: 'root'
 })
 export class MensajeService {
-  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
+  //API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
   //API_ENDPOINT = 'https://localhost:8000/api/';      //pruebas
-  //API_ENDPOINT = 'http://localhost:8000/api';      //pruebas sin api para enviar mail
+  API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas sin api para enviar mail
   constructor(private httpClient:HttpClient) { }
 
   save(mensaje:Mensaje){

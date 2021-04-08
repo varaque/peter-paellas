@@ -9,6 +9,10 @@
     border-radius: 25px; 
     height: 450px;
   }
+  .fa-star{
+    height: 20px;
+    width: 20px;
+  }
   .bg-color{
     background-color: #ffefd5;
     min-height: 575px;
@@ -66,4 +70,23 @@ font-weight: 700;
     color:gray;
     font-weight: 600;
 
+  }
+
+
+
+
+  .star {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #d3d3d3;
+  }
+  .full {
+    color: red;
+  }
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: red;
   }

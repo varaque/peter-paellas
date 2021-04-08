@@ -10,6 +10,7 @@ export interface User{
     foto: string;
     ubicacion: string;
     calificacion: number;
+    veces_puntuado?: number;
     baneado: boolean;
     tipo: number;
     created_at?: string;

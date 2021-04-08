@@ -20,8 +20,8 @@ filterCocinero=""
 filterUbicacion=""
 filterCategoria=""
 filterFecha=""
-  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas'; // SI TE DA PROBLEMA AL CARGARLAS O ALGO PUEDE SER POR EL CORS ESE QUE PONE EN EL F12, QUE ES QUENO ESTAS EN WHITE LIST PARA EL SERVER, GASTA LA EXTENSION DE CHROME ALLOW CORS Y AU
-  //API_ENDPOINT = 'http://localhost:8000/api/paellas';      //pruebas
+  //API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas'; // SI TE DA PROBLEMA AL CARGARLAS O ALGO PUEDE SER POR EL CORS ESE QUE PONE EN EL F12, QUE ES QUENO ESTAS EN WHITE LIST PARA EL SERVER, GASTA LA EXTENSION DE CHROME ALLOW CORS Y AU
+  API_ENDPOINT = 'http://localhost:8000/api/paellas';      //pruebas
   paellas: Paella[];
   fechaPaellas: Paella[];
 

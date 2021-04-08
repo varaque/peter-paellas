@@ -120,7 +120,7 @@ import { EditaPerfilComponent } from './Componentes/edita-perfil/edita-perfil.co
 import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
 import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambiadas/credenciales-cambiadas.component';
 import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -224,6 +224,8 @@ MatCheckboxModule,
     BrowserAnimationsModule,
     MatMomentDateModule,
     MatDatepickerModule,
+
+    NgbModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent]
