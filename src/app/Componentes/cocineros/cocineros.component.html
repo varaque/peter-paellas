@@ -9,12 +9,12 @@
       Hampden-Sydney College in Virginia</p>
     <div class="row">
       <div class="col-md-4" *ngFor="let user of users">
-        <div class="cocinero"> 
-          <p class="titulo-name">{{user.name}}</p> 
+        <div class="cocinero" routerLink="/perfil/{{user.id}}" routerLinkActive="active" > 
+          <p class="titulo-name" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >{{user.name}}</p> 
           <div class="caja-foto-cocinero"> 
-            <img src="https://peterpaellas.com/lvel/public/{{user.foto}}" class="rounded-circle">  <!-- "https://peterpaellas.com/lvel/public/{{user.foto}}" -->
+            <img src="https://peterpaellas.com/lvel/public/{{user.foto}}" class="rounded-circle" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >  <!-- "https://peterpaellas.com/lvel/public/{{user.foto}}" -->
           </div> 
-          <p class="ubicacion-cocinero">{{user.ubicacion}}</p> 
+          <p class="ubicacion-cocinero" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >{{user.ubicacion}}</p> 
 
           <div class="ultima-caja-cocinero"> 
             <div class="link-perfil-cocinero"> 
@@ -22,11 +22,20 @@
                 href="" class="mb-4">Perfil</a> 
             </div> 
             <div class=" mb-4 caja-estrellas"> 
-              <i class="fa fa-star checked"></i>
-              <i class="fa fa-star checked"></i>
-              <i class="fa fa-star checked"></i>
-              <i class="fa fa-star "></i>
-              <i class="fa fa-star"></i>
+               <!-- <i class="fa fa-star checked" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>
+              <i class="fa fa-star" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>
+              <i class="fa fa-star" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>
+              <i class="fa fa-star" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>
+              <i class="fa fa-star" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>  -->
+
+              <ng-template #t let-fill="fill" >
+                <span class="star" [class.full]="fill === 100">
+                  <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
+                </span>
+              </ng-template>
+            
+              <ngb-rating [(rate)]="user.calificacion/user.veces_puntuado" [starTemplate]="t" [max]="5"></ngb-rating>
+
             </div>
           </div>
         </div>

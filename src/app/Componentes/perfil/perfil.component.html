@@ -34,14 +34,25 @@
         <i class="ml-1 fa fa-star checked"></i>
         <i class="ml-1 fa fa-star "></i>
         <i class="ml-1 fa fa-star"></i>  -->
-
-         <ng-template #t let-fill="fill">
+        <div *ngIf="this.logeado == true">
+         <ng-template #t let-fill="fill" >
           <span class="star" [class.full]="fill === 100">
             <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
           </span>
         </ng-template>
       
-        <ngb-rating class="grande" [(rate)]="currentRate" [starTemplate]="t"  [max]="5" (click)="rating(rate)"></ngb-rating> 
+        <ngb-rating class="grande" [(rate)]="currentRate" [starTemplate]="t" [max]="5" (rateChange)="rating($event)"></ngb-rating> </div>
+
+
+
+        <div *ngIf="this.logeado == false">
+          <ng-template #t let-fill="fill" >
+           <span class="star" [class.full]="fill === 100">
+             <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
+           </span>
+         </ng-template>
+       
+         <ngb-rating class="grande" [(rate)]="currentRate" [starTemplate]="t" [max]="5" (hover)="nolog()"></ngb-rating> </div>
         <!-- <ngb-rating [(rate)]="currentRate" [max]="5">
           <ng-template let-fill="fill" let-index="index">
             <span class="star" [class.filled]="fill === 100">&#9733;</span>
@@ -53,7 +64,7 @@
 
 
       
-<div class="gris">{{numpaellas +1}} VALORACIONES</div>  <!--Esto esta asi porque no hay donde reseñar las paellas asi que porque salga algun numero logico, pero vamos-->
+<div class="gris">{{user.veces_puntuado}} VALORACION(ES)</div>  <!--Esto esta asi porque no hay donde reseñar las paellas asi que porque salga algun numero logico, pero vamos-->
    
       
     </div>

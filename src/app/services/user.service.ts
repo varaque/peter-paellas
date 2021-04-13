@@ -26,7 +26,7 @@ export class UserService {
     var rtoken = user.refresh_token;
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${atoken}`});
     var usuario = this.httpClient.get(this.API_ENDPOINT +'users', {headers:headers});
-    console.log(usuario);
+    /* console.log(usuario); */
     return usuario;
   }
   put(user){
