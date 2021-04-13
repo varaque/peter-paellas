@@ -8,6 +8,7 @@ export interface Paella{
     cocinero: string;
     foto?: string;
     ubicacion: string;
+    provincia: string;
     plazas: number;
     plazas_libres: number;
     precio: number; 

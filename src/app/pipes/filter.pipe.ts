@@ -21,9 +21,13 @@ resultPaellas.push(paella);
       }; */
 
       
-      if(paella.ubicacion.toLowerCase().indexOf(arg.toLowerCase()) > -1){
+      if(paella.provincia.toLowerCase().indexOf(arg.toLowerCase()) > -1){
         resultPaellas.push(paella);
               };
+      
+              /* if(paella.ubicacion.toLowerCase().indexOf(arg.toLowerCase()) > -1){              SI QUIERES QUE TAMBIEN FILTRE POR UBICACION DESCOMENTA ESTE
+                resultPaellas.push(paella);
+                      }; */
 
       if(paella.categoria.indexOf(arg) > -1){
         resultPaellas.push(paella);

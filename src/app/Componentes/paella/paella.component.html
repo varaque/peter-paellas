@@ -22,9 +22,12 @@
 
         <div class="row" style=" border-bottom: 2px solid #8b5a17;">
 
-        <div class="col-md-6">         <p class="nombre"><strong>{{paella.nombre}}</strong></p></div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">         <p class="nombre"><strong>{{paella.nombre}}</strong></p></div>
 
-        <div class="col-md-6">         <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/747/747310.svg" width="20" height="20" class="mr-1">{{paella.fecha}}</p></div>
+        <div class="col-md-6">    <div class="row d-flex align-items-center justify-content-center"> <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/747/747310.svg" width="20" height="20" class="mr-1">{{dia}}-{{mes}}-{{year}}<!-- {{paella.fecha}} --></p></div>    
+        <div class="row d-flex align-items-center justify-content-center"> <p class="h4"><img src="../../../assets/images/hora.png" width="20" height="20" class="mr-1">{{hora}}<!-- {{paella.fecha}} --></p></div>
+      
+      </div>
         
       </div>
 
@@ -46,7 +49,7 @@
     <div class="col-md-2">
       <p class="mt-4"><img src="/assets/images/location.png" width="30" height="30"> </p></div>
       <div class="col-md-8">
-        <p class="h4 mt-4">{{paella.ubicacion}}</p></div>
+        <p class="h4 mt-4">{{paella.ubicacion}}. {{paella.provincia}}</p></div>
   </div>
 
   <div class="row">

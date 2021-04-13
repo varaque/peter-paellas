@@ -101,7 +101,7 @@
                   <div class="input-group mt-4 mb-4">
                     <span class="input-group-addon"></span>
                     <input [(ngModel)]="paella.nombre" type="text" class="form-control bordeMarron" id="nombre"
-                      placeholder="Name of the paella">
+                      placeholder="Nombre de la paella">
                   </div>
                   
 
@@ -119,7 +119,13 @@
     -->          <div class="input-group mt-4 mb-4">
                 <span class="input-group-addon"></span>
                 <input [(ngModel)]="paella.ubicacion" type="text" class="form-control bordeMarron" id="ubicacion" name="ubicacion"
-                  placeholder="Address">
+                  placeholder="Ubicacion">
+              </div>
+
+              <div class="input-group mt-4 mb-4">
+                <span class="input-group-addon"></span>
+                <input [(ngModel)]="paella.provincia" type="text" class="form-control bordeMarron" id="provincia" name="provincia"
+                  placeholder="Provincia">
               </div>
               
     <!--           <h5 class="letra"> Precio por ración (€):</h5>
@@ -134,7 +140,7 @@
               <div class="input-group mt-4 mb-4">
                 <span class="input-group-addon"></span>
                 <input [(ngModel)]="paella.telefono" type="text" class="form-control bordeMarron" id="telefono" name="telefono"
-                  placeholder="Phone number">
+                  placeholder="Telefono">
               </div>
               
 
@@ -145,7 +151,7 @@
 
 
     <mat-form-field class="styleDatepicker">
-      <input [(ngModel)]="paella.fecha" matInput [ngxMatDatetimePicker]="picker" id="fechafea" class="" placeholder="Choose a date">
+      <input [(ngModel)]="paella.fecha" matInput [ngxMatDatetimePicker]="picker" id="fechafea" class="" placeholder="Selecciona fecha y hora">
     <mat-datepicker-toggle matSuffix [for]="picker">
     </mat-datepicker-toggle>
     <ngx-mat-datetime-picker #picker 

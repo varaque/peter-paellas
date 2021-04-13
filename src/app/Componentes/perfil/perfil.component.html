@@ -28,12 +28,26 @@
       <p> <img src="/assets/images/restaurant.png"> Paellas publicadas {{numpaellas}} </p>  <!-- queda pendiente crear una variable foreach paella -->
 
       <div class=" mb-4 caja-estrellas">             <!--Esto deberia ir con un ng for segun las estrellas del cocinero pero el problema es que tampoco hay donde puntuar cocineros,-->
-        <i class="ml-1 fa fa-star checked"></i>      <!-- asi que las que tienen son aleatorias, pero vamos cuando se incluya deberia ser segun user.calificacion una estrella y au -->
+                                                      <!-- asi que las que tienen son aleatorias, pero vamos cuando se incluya deberia ser segun user.calificacion una estrella y au -->
+         <!-- <i class="ml-1 fa fa-star checked"></i>     
         <i class="ml-1 fa fa-star checked"></i>
         <i class="ml-1 fa fa-star checked"></i>
         <i class="ml-1 fa fa-star "></i>
-        <i class="ml-1 fa fa-star"></i>
+        <i class="ml-1 fa fa-star"></i>  -->
+
+         <ng-template #t let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
       
+        <ngb-rating class="grande" [(rate)]="currentRate" [starTemplate]="t"  [max]="5" (click)="rating(rate)"></ngb-rating> 
+        <!-- <ngb-rating [(rate)]="currentRate" [max]="5">
+          <ng-template let-fill="fill" let-index="index">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+          </ng-template>
+        </ngb-rating> -->
+        
       </div>
 
 
@@ -54,11 +68,11 @@
       <div class=" mr-4 ml-4 pl-4 pr-4  bg-tarjeta">
         <div class="row">
           <div class="col-md-2">
-          <img src="https://peterpaellas.com/lvel/public/{{Paella.foto}}" class="mt-4 mb-4" width="55px" height="55px">
+          <img src="https://peterpaellas.com/lvel/public/{{Paella.foto}}" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" class="mt-4 mb-4" width="55px" height="55px">
 
           </div>
           <div class="col-md-10">
-          <a routerLink="/paella/{{Paella.id}}" routerLinkActive="active" class="letra-negra pt-2">{{Paella.nombre}}, {{Paella.ubicacion}}</a>
+          <a routerLink="/paella/{{Paella.id}}" routerLinkActive="active" class="letra-negra pt-2">{{Paella.nombre}}, {{Paella.ubicacion}}. {{Paella.provincia}} </a>
           <p class="fecha-gris"> {{Paella.fecha}}</p>
             
           </div>

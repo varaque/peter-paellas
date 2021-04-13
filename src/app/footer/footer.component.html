@@ -74,7 +74,7 @@
         <div class="row pt-4 mt-0 pl-3 ml-3">
         
        
-        <p ><a (click)="saveSuscripcion()" title="Suscrito" routerLinkActive="active" class="letra-footer align-items-center justify-content-center" href="">SUSCRÍBETE A NUESTRA NEWSLETTER*</a></p>
+        <p ><a (click)="saveSuscripcion()" title="Suscrito" routerLinkActive="active" class="letra-footer align-items-center justify-content-center" >SUSCRÍBETE A NUESTRA NEWSLETTER*</a></p>
 
        </div>
 
@@ -88,7 +88,7 @@
 
               <div class="row ml-2">
 
-               <mat-checkbox></mat-checkbox> <p> <label class="ml-2 letra-footer2" for="cbox2"> Acepto recibir notificaciones de este sitio web y los <a href="https://peterpaellas.com/avisolegal"> terminos y condiciones</a></label></p>
+               <mat-checkbox id="acepto" class="acepto" [(ngModel)]="acepto" name="acepto"></mat-checkbox> <p> <label class="ml-2 letra-footer2" for="cbox2"> Acepto recibir notificaciones de este sitio web y los <a routerLink="avisolegal" routerLinkActive="active"  href="" > terminos y condiciones</a></label></p>
 
               </div>
 

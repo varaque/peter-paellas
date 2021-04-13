@@ -27,6 +27,7 @@ import { ReadVarExpr } from '@angular/compiler';
       cocinero: this.userData.name,
       foto: null,
       ubicacion: null,
+      provincia: null,
       plazas: null,
       plazas_libres: null,
       precio: null,

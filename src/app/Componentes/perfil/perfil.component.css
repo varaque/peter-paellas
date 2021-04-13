@@ -73,8 +73,6 @@ font-weight: 700;
   }
 
 
-
-
   .star {
     position: relative;
     display: inline-block;
@@ -82,11 +80,11 @@ font-weight: 700;
     color: #d3d3d3;
   }
   .full {
-    color: red;
+    color: rgb(248, 223, 0);
   }
-  .half {
+  .ratio {
     position: absolute;
     display: inline-block;
     overflow: hidden;
-    color: red;
+    color: rgb(248, 223, 0);
   }

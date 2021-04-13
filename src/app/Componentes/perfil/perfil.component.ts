@@ -20,6 +20,8 @@ export class PerfilComponent implements OnInit {
   API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas'; 
   //API_ENDPOINT = 'http://localhost:8000/api/paellas';      //pruebas
 
+  currentRate;
+
  
   usuario: Usuario ={
     id: null,
@@ -44,6 +46,7 @@ export class PerfilComponent implements OnInit {
     foto: null,
     ubicacion: null,
     calificacion: 0,
+    veces_puntuado: 0,
     baneado: false,
     tipo: 0,
 
@@ -55,11 +58,16 @@ id:any;
 usuarios: Usuario[];
 users: User[];
 paellas: Paella[];
-
 numpaellas = 0;
+aux;
+userData;
 
   constructor(private usuariosService:UsuarioService , private paellasService:PaellasService, private usersService:UserService , private route: ActivatedRoute, private httpClient:HttpClient) { 
 
+
+    this.aux = localStorage.getItem('userData');
+    this.userData = JSON.parse(this.aux);
+    console.log(this.userData);
 
     this.id = this.route.snapshot.params['id'];
     this.usersService.get().subscribe((data: User[]) => {
@@ -88,22 +96,23 @@ numpaellas = 0;
      
    }
 console.log ('numpaellas: ' + this.numpaellas); */
-
+if(this.user)
+       this.currentRate=this.user.calificacion;
 
 
     })
    
-
-
-
-
-
-
-
   }
 
   value: null;
   ngOnInit(){}
+
+
+  rating(puntuacion){
+    console.log('puntuacion: ');
+    console.log(puntuacion);
+
+  }
 
  /* ngOnInit(){
     

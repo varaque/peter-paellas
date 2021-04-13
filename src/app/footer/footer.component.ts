@@ -16,12 +16,16 @@ export class FooterComponent implements OnInit {
 
   }
 
+ acepto;
+
   constructor(private suscripcionService: SuscripcionService,private router:Router) { }
 
   ngOnInit(): void {
   }
 
   saveSuscripcion() {
+
+    if (this.acepto==true){
     /* esto con validators se arregla */
     if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.suscripcion.email)) //chequeamos que el mail sea de verdad y esté gucci
     {
@@ -42,5 +46,10 @@ export class FooterComponent implements OnInit {
     }
 
   }
+  else{
+    alert('Debes aceptar recibir notificaciones ademas de los terminos y condiciones')
+  }
+
+}
 
 }
