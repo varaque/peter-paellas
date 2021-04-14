@@ -6,95 +6,81 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <div class="container-fluid  bg-color">
+  <div class="row justify-content-center">  
+    <div class="col-md-10 bg-white margenes">
+      <div class="row margenes-interiores">
+        <div class="col-md-3 ml-4">
 
-  <div class="row justify-content-center">
-  <div class="col-md-10 bg-white margenes">
+            <img src="https://peterpaellas.com/lvel/public{{user.foto}}" width="100%" height="225" class="mt-4 mb-4">
 
+        </div>
 
-<div class="row margenes-interiores">
+          <div class="col-md-6 mt-4 ml-4">
 
-    <div class="col-md-3 ml-4">
+              <p class="marron mb-4">¡HOLA! SOY {{user.name}} </p>
 
-    <img src="https://peterpaellas.com/lvel/public{{user.foto}}" width="100%" height="225" class="mt-4 mb-4">
-    
-    </div>
+              <p> <img src="/assets/images/location.png"> {{user.ubicacion}} </p>
 
-    <div class="col-md-6 mt-4 ml-4">
+              <p> <img src="/assets/images/restaurant.png"> Paellas publicadas {{numpaellas}} </p>  
 
-      <p class="marron mb-4">¡HOLA! SOY {{user.name}} </p>
+            <div class=" mb-4 caja-estrellas">            
 
-      <p> <img src="/assets/images/location.png"> {{user.ubicacion}} </p>
+                <div *ngIf="this.logeado == true">                                           <!-- BASICAMENTE SI ESTAS LOGUEADO TE MUESTRA UN RATE EN EL QUE PUEDES PUNTUAR, SI NO NO -->
+                 <ng-template #t let-fill="fill" >
+                  <span class="star" [class.full]="fill === 100">
+                    <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
+                  </span>
+                </ng-template>
+              
+                <ngb-rating class="grande" [(rate)]="currentRate" [starTemplate]="t" [max]="5" (rateChange)="rating($event)"></ngb-rating> </div>
+              
+                <div *ngIf="this.logeado == false">
+                  <ng-template #t let-fill="fill" >
+                   <span class="star" [class.full]="fill === 100">
+                     <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
+                   </span>
+                 </ng-template>
+               
+                 <ngb-rating class="grande" [(rate)]="currentRate" [starTemplate]="t" [max]="5" (hover)="nolog()"></ngb-rating> </div>
 
-      <p> <img src="/assets/images/restaurant.png"> Paellas publicadas {{numpaellas}} </p>  
-
-      <div class=" mb-4 caja-estrellas">            
-
-        <div *ngIf="this.logeado == true">
-         <ng-template #t let-fill="fill" >
-          <span class="star" [class.full]="fill === 100">
-            <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
-          </span>
-        </ng-template>
+            </div>
       
-        <ngb-rating class="grande" [(rate)]="currentRate" [starTemplate]="t" [max]="5" (rateChange)="rating($event)"></ngb-rating> </div>
-
-
-
-        <div *ngIf="this.logeado == false">
-          <ng-template #t let-fill="fill" >
-           <span class="star" [class.full]="fill === 100">
-             <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
-           </span>
-         </ng-template>
-       
-         <ngb-rating class="grande" [(rate)]="currentRate" [starTemplate]="t" [max]="5" (hover)="nolog()"></ngb-rating> </div>
-
-        
-      </div>
-
-
-
-      
-<div class="gris">{{user.veces_puntuado}} VALORACION(ES)</div>  
+            <div class="gris">{{user.veces_puntuado}} VALORACION(ES)</div>  
    
       
-    </div>
-  </div>
-
-
-<div class="d-flex  mr-4 ml-4 pl-4 pr-4 flex-wrap">
-  <div *ngFor="let Paella of paellas" >
-
-    <div *ngIf="Paella.usuario_id == user.id" >
-
-      <div class=" mr-4 ml-4 pl-4 pr-4  bg-tarjeta">
-        <div class="row">
-          <div class="col-md-2">
-          <img src="https://peterpaellas.com/lvel/public/{{Paella.foto}}" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" class="mt-4 mb-4" width="55px" height="55px">
-
           </div>
-          <div class="col-md-10">
-          <a routerLink="/paella/{{Paella.id}}" routerLinkActive="active" class="letra-negra pt-2">{{Paella.nombre}}, {{Paella.ubicacion}}. {{Paella.provincia}} </a>
-          <p class="fecha-gris"> {{Paella.fecha}}</p>
+        </div>
+
+
+        <div class="d-flex  mr-4 ml-4 pl-4 pr-4 flex-wrap">
+          <div *ngFor="let Paella of paellas" >
+            <div *ngIf="Paella.usuario_id == user.id" >
             
-          </div>
+              <div class=" mr-4 ml-4 pl-4 pr-4  bg-tarjeta">
+                <div class="row">
+
+                  <div class="col-md-2">
+                  <img src="https://peterpaellas.com/lvel/public/{{Paella.foto}}" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" class="mt-4 mb-4" width="55px" height="55px">
+                  </div>
+
+                  <div class="col-md-10">
+                  <a routerLink="/paella/{{Paella.id}}" routerLinkActive="active" class="letra-negra pt-2">{{Paella.nombre}}, {{Paella.ubicacion}}. {{Paella.provincia}} </a>
+                  <p class="fecha-gris"> {{Paella.fecha}}</p>
+                  </div>
+
+                </div>
+              
+                <div class="col-md-12 justify-content-between align-items-center">
+                <p class="letra-gris">{{Paella.descripcion}}</p>
+                </div>
+
+              </div>
+
+            </div>     
+          </div>    
         </div>
 
-        <div class="col-md-12 justify-content-between align-items-center">
-        <p class="letra-gris">{{Paella.descripcion}}</p>
-        </div>
 
-
-      </div>
-
-    </div>     <!-- el if -->
-    </div>     <!-- el for -->
-
+    </div>      
   </div>
-
-
-  </div>      
-
- 
-
 </div>

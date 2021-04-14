@@ -33,21 +33,6 @@
     
     </div>
 
-        <!--<select [(ngModel)]="reserva.personas" name="raciones">
-        <option value="" selected disabled>Nº Raciones</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        
-
-      </select> --> 
     </div>
 
     
@@ -65,17 +50,16 @@
       </div>
 
 
-      <!-- <div class="col-md-6" *ngIf="selectedPaella.ver_hacer_paella == true">
+<!-- <div class="col-md-6" *ngIf="selectedPaella.ver_hacer_paella == true">ESTO ERA PARA CHEQUEAR QUE LLEVAMOS NIÑOS MASCOTA ETC, EN PRINCIPIO VA FUERA PERO LO DEJO COMENTADO POR SI ACASO
         <label>Quiero ver como se hace la paella 
           <select [(ngModel)]="reserva.ver_hacer_paella" name="ver">
             <option value="" selected disabled>¿Ver hacer la paella?</option>
             <option value="0" selected>No</option>
             <option value="1">Si</option> </select> </label><br></div>
-    </div> -->
+    </div> 
 
-<!-- <div class="row">
+ <div class="row">
 
-     
         <div class="col-md-4 columnasinferiores" *ngIf="selectedPaella.ninos == true">
           Niños </div>
           <div class="col-md-1 margencheckbox" *ngIf="selectedPaella.ninos == true">
@@ -87,7 +71,6 @@
       <div class="col-md-1 margencheckbox" *ngIf="selectedPaella.mascota == true">
       <mat-checkbox id="mascota" class="" [(ngModel)]="reserva.mascota" name="mascota"></mat-checkbox>
     </div>
-
   </div> -->
 
 
@@ -104,7 +87,7 @@
 
       <div class="row mb-4 mt-2 d-flex align-items-center justify-content-center">
 <div class="col-md-4 borde-pago bordeMarron">
-      <div class="calculo mb-1">{{this.selectedPaella.precio}}€ x {{this.reserva.personas}} raciones <!--     {{this.selectedPaella.precio * this.reserva.personas}} €  --></div> 
+      <div class="calculo mb-1">{{this.selectedPaella.precio}}€ x {{this.reserva.personas}} raciones</div> 
       
     </div>
     <div class="col-md-4 borde-pago-2 bordeMarron">
@@ -114,27 +97,14 @@
   </div>
 
 
-      
-     
-
-
-
-
  
-  <div #paypal></div>
+  <div #paypal></div>    <!-- Aplicacion de paypal de pagar -->
 
       <a type="button" class="d-flex justify-content-between align-items-center mb-4" routerLink="" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">Volver atras</a>
     
       
        <!--<a (click)="saveReserva()" type="submit" class="d-flex justify-content-between align-items-center mb-4" class="btn btn-sm btn-outline-secondary">Reservar plaza</a>     
  /ANTIGUO BOTON DE RESERVAR, AHORA HAY QUE GASTAR EL DE PAYPAL O TRAJETA DE CREDITO   , si solo quieres ver la reserva pon de funcion checkReserva, si quieres guardarla saveReserva--> 
-
-
-     <!--<button (click)="saveReserva()" type="submit" class="btn btn-lg btn-outline-primary btn-block" >	RESERVA PAELLA</button>    
-    
-      este boton es solo para comprobar que saveReserva() guardaba la reserva, y lo hace, pero hay que probarlo con el pago, y PROBAR QUE EL PAGO VA DONDE TOCA QUE TIENE LA CUENTA
-      DEL TIO DE YOUTUBE (ya no, ahora tiene la que me pasó dam) si simplemente quieres comprobar que en la bbdd se guarda la reserva esto te vale -->
-
 
       </form>
 

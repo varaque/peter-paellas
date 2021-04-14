@@ -53,8 +53,6 @@ export class PerfilComponent implements OnInit {
   };
 
 id:any;
-  //cocineros = COCINEROS;
-  //selectedUsuario: Usuario;
 usuarios: Usuario[];
 users: User[];
 paellas: Paella[];
@@ -63,95 +61,45 @@ aux;
 userData;
 ya_puntuaste = false;
 logeado;
+
   constructor(private usuariosService:UsuarioService , private paellasService:PaellasService, private usersService:UserService , private route: ActivatedRoute, private httpClient:HttpClient) { 
 
 
-    this.aux = localStorage.getItem('userData');
+    this.aux = localStorage.getItem('userData');      //esto es para comprobar si estás logueado, simplemente recibimos un dato desde el localStorage que nos habra traido el header
     this.userData = JSON.parse(this.aux);
-    console.log('this userdata: ');
-    console.log(this.userData);
     if(this.userData==null){
       this.logeado = false;
     }else{this.logeado =true}
-    console.log('el logueado')
-    console.log(this.logeado)
+
 
     this.id = this.route.snapshot.params['id'];
     this.usersService.get().subscribe((data: User[]) => {
-      this.users = data;
- this.user = this.users.find((n) => { return n.id == this.id})
- /* console.log('el user del perfil');
- console.log(this.user); */
+    this.users = data;
 
-
-
+    this.user = this.users.find((n) => { return n.id == this.id})
 
     httpClient.get( this.API_ENDPOINT).subscribe((data2: Paella[]) => { //aqui vemos todas las paellas, de las cuales mostraremos solo las que tengan el mismo id del usuario
       this.paellas = data2;
-      /* console.log(data) */
-      for (var i = 0; i < data.length; i++) {       //esto es para saber el numero de paellas de cada usuario y poder sacarlo por pantalla
-        if(data2[i].usuario_id == this.user.id){
-          this.numpaellas++;       }
-        }
+      for (var i = 0; i < data.length; i++) {       //esto es para saber el numero de paellas de cada usuario y poder sacarlo por pantalla ademas si quiere ver sus paellas tambien sirve
+        if(data2[i].usuario_id == this.user.id){this.numpaellas++;}  }  })
 
-    })
-
-/*     for (var i = 0; i < data.length; i++) {
-      if(this.paellas[i].usuario_id == this.usuario.id){
-        this.numpaellas++;
-      }
-     
-     
-   }
-console.log ('numpaellas: ' + this.numpaellas); */
-if(this.user.veces_puntuado == 0){this.currentRate=this.user.calificacion;}else{this.currentRate = this.user.calificacion/this.user.veces_puntuado}
-
-       
-
-    })
-   
+    if(this.user.veces_puntuado == 0){this.currentRate=this.user.calificacion;}else{this.currentRate = this.user.calificacion/this.user.veces_puntuado}}) 
+    //si no lo has puntuado nunca que salga la calificacion que tenga (que si es un usuario real será 0) por no dividir entre 0 y que salga siempre 5
   }
 
   value: null;
   ngOnInit(){}
 
-  rating(puntuacion){
-    
-if(this.ya_puntuaste == false){
-  
-    /* console.log('puntuacion: ');
-    console.log(puntuacion);  */
-    this.user.calificacion = this.user.calificacion + puntuacion;
-    this.user.veces_puntuado++;
-
-     this.usersService.put(this.user).subscribe((data) => {  
-       /* console.log('lo que recibo')   
-       console.log(data) */
-       this.ya_puntuaste = true;
-        }, (error) => {
-        console.log("error en perfil.component.ts en la parte del userservice de actualizar puntuacion");
-        })  
-      
-     
-    
-    } else{alert('¡Ya has puntuado a este usuario!'); console.log('no'); console.log(this.ya_puntuaste)}
-    
-
+  rating(puntuacion)                    //Esto se gasta para puntuar a alguien, le sumamos 1 a veces puntuado y su puntuacion dada
+  {                               
+      if(this.ya_puntuaste == false){
+        this.user.calificacion = this.user.calificacion + puntuacion;
+        this.user.veces_puntuado++;
+         this.usersService.put(this.user).subscribe((data) => {  
+           this.ya_puntuaste = true;
+            }, (error) => {
+            console.log("error en perfil.component.ts en la parte del userservice de actualizar puntuacion");})  } else{alert('¡Ya has puntuado a este usuario!')}
   }
-
- /* ngOnInit(){
-    
-    this.route.params.subscribe(params => {
-
-      this.selectedCocinero=COCINEROS[params.id]
-      console.log(params.id)
-
-    });
-  }*/
-
-/*   onSelect(usuario: Usuario): void {
-    this.usuario = usuario;
-  } */
 
   onSelect(user: User): void {
     this.user = user;

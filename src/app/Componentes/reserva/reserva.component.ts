@@ -104,28 +104,23 @@ export class ReservaComponent implements OnInit {
 
 
   saveReserva(){ //guardamos la reserva, habra que comprobar que hay plazas, que el email bien, etc
+
     this.mensaje.email = this.reserva.email;
     const fechahoy = moment().format('YYYY-MM-DD HH:mm:ss').toString(); //aqui y en las lineas de abajo estoy formateando la fecha para poder guardarla bien en la bbdd con fecha de hoy
-    console.log('lafechahoy: ' + fechahoy);            //porque la bbdd la quiere en 'YYYY-MM-DD HH:mm:ss' pero el moment nos da algo como 'YYYY-MM-DDTHH:mm:ss+000000000'
-    this.reserva.fecha = fechahoy;
-    console.log(this.reserva);
+ /*    console.log('lafechahoy: ' + fechahoy); */            //porque la bbdd la quiere en 'YYYY-MM-DD HH:mm:ss' pero el moment nos da algo como 'YYYY-MM-DDTHH:mm:ss+000000000'
+    
+ this.reserva.fecha = fechahoy;
 
+/*     console.log(this.reserva); */
+
+//Creamos el mensaje que enviaremos de la reserva, con nombre fecha etc al back y este enviara el correo al email en cuestion
     this.mensaje.mensaje = 'Nombre: ' + this.reserva.nombre + '. Email: ' + this.reserva.email +  '. Telefono: ' + this.reserva.telefono +'. Plazas reservadas: ' + this.reserva.personas + '. La reserva se realizó para la siguiente paella: '+ 'Nombre de la paella: '+ this.selectedPaella.nombre + '. Hecha por: ' + this.selectedPaella.cocinero +'. En: ' + this.selectedPaella.ubicacion + '. Se pagó en total: ' + this.selectedPaella.precio*this.reserva.personas + '€' + '. La reserva se realizó el dia y hora: ' + this.reserva.fecha;
 
 if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar que hay plazas suficientes libres
-  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.reserva.email)) //chequeamos que el mail sea de verdad y esté gucci
+  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.reserva.email)) //chequeamos que el mail este bien
   {
     this.reserva.paella_id = this.selectedPaella.id;
     this.selectedPaella.plazas_libres = (this.selectedPaella.plazas_libres - this.reserva.personas)
-    console.log('el id paella, deberia estar ya con las plazas bien: ');
-    console.log(this.selectedPaella); 
-
-
-    
-
-
-
-
 
           //reservamos
 
@@ -142,26 +137,13 @@ if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar qu
           });
 
         this.paellasService.put(this.selectedPaella).subscribe((data) => {     
-          //ESTO GUARDA LAS PLAZAS QUE HAYAS QUITADO DE LA PAELLA CON LA RESERVA 
-//OJO ESTO PRESENTABA UN ERROR EN EL TELEFONO, QUE DECIA QUE NO PODIA SER NULL PORQUE AL CREAR LA BBDD NO LO PUSE ASI, FALLO MIO, LAS OPCIONES SON O VOLVER A HACER LA MIGRACION CON
-//LAS TABLAS Y TAL, PERO COMO LO DE LOGUEARSE CONTOKENS Y TAL ES UN POCO TRICKY IGUAL LO JODE Y HAY QUE VOLVER A HACER EL LOGIN, LA OTRA OPCION MUCHISIMO MAS SENCILLA ES HACER LA
-// COLUMNA NULLABLE, O CUANDO CREES LAS COLUMNAS O SI YA ESTAN CREADAS DESDE LA PROPIA BBDD, MUY SENCILLO, ES ACTIVAR UN TICK
-      
-
-       location.href ="https://peterpaellas.com/"; 
- 
-        }, (error) => {
-      console.log("error en reserva.component.ts en la parte del paellaservice de actualizar paella");
-    })
+       location.href ="https://peterpaellas.com/"; }, (error) => {
+      console.log("error en reserva.component.ts en la parte del paellaservice de actualizar paella");})
 
 
         }, (error) => {
       console.log("error en reserva.component.ts en la parte de reservaservice de guardar reserva");
     })
-
-
-
-
 
   }
   else{
@@ -173,9 +155,7 @@ if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar qu
     alert('¡Lo sentimos, no hay tantas plazas libres!');
   }
 
-
   }
-
 
 
   checkReserva(){              //esta funcion es para ver la reserva nada mas
@@ -188,6 +168,5 @@ if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar qu
     console.log(this.reserva);
 
   }
-
 
 }

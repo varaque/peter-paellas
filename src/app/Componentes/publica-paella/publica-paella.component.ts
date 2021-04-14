@@ -52,7 +52,6 @@ handleUpload(event) {                                   //esto coge la foto del 
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      //console.log('a ver lo de la tia esta del video: ');
         console.log(reader.result);
         this.img = reader.result;
         alert('¡Imagen recibida correctamente!')
@@ -90,32 +89,20 @@ handleUpload(event) {                                   //esto coge la foto del 
        //Esto es básicamente que si no pones foto sale la foto esta en b64 de default  
        
       }
-/*       this.trataImagen(this.img); */
-      //console.log('fecha antes del moment: ' + this.paella.fecha);
-      //console.log(this.paella.fecha)
 
-      //tratamos la hora porque el datepicker de angular saca la hora en formato ISO y eso no le gusta a la bbdd, asi que vamos a hacer un poco de malabares para ver que dia es y darle
-      //categoría y que la bbdd guarde la fecha como toca 
+
+      //tratamos la hora porque el datepicker de angular saca la hora en formato ISO y eso no le gusta a la bbdd, asi que vamos a cambiar el formato, darle categoría y que la bbdd guarde la fecha como toca 
+
+
       const fechabbdd = moment.tz(this.paella.fecha, 'Europe/Madrid'); //decimos que de base tome que lo estas poniendo en madrid, esto habra que cambiarlo si gente internacional sube paellas
 
-      //abajo la fecha la convertimos al formato de la bbdd que es el YYYY-MM-DD etc pero de base la fecha la devuelve en formato ISO, que como formato es mejor pero la bbdd no lo acepta tal y como esta.
+      //abajo la fecha la convertimos al formato de la bbdd que es el YYYY-MM-DD etc pero de base la fecha la devuelve en formato ISO, que como formato es mejor pero la bbdd no lo acepta tal y como está.
+
       this.paella.fecha = fechabbdd.tz(moment.tz.guess(true)).format('YYYY-MM-DD HH:mm:ss');  //guess es: ignora cache? : boolean.  el format es simplemente el formato en que queremos
-      //console.log('fecha despues del moment: ' + this.paella.fecha);
 
-      /*this.paella.sesiones.forEach(sesion => {
-      const fechabbdd_sesion_inicio = moment.tz(sesion.inicio, 'Europe/Madrid');
-      sesion.inicio = fechabbdd_sesion_inicio.tz(moment.tz.guess(true)).format();    
-      const fechabbdd_sesion_fin = moment.tz(sesion.fin, 'Europe/Madrid');    
-      sesion.fin = fechabbdd_sesion_fin.tz(moment.tz.guess(true)).format();}*/
-
-      //console.log('la paella antes de salvarla: ');
-      //console.log(this.paella);
-
-      //de aqui obtenemos el token del user que haya en el localstorage
       var user = localStorage.getItem('user');
-      //console.log(user);
 
-      this.paellaService.save(this.paella).subscribe((data) => {
+      this.paellaService.save(this.paella).subscribe((data) => {    //Guardamos la paella
         alert('¡Paella guardada!');
         console.log(data);
          this.router.navigate(['/']); 
