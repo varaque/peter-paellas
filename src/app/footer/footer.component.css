@@ -1,7 +1,7 @@
 .bg-gris{
     background-color: 
     #585757;
-    height: 265px;
+
 }
 .letra-footer{
     color: #d3d3d3;
@@ -18,7 +18,7 @@
     color:#222222;
     display: inline;
     height: 50px;
-    width: 400px;
+    width: 350px;
    }
 button{
     background-color: black;

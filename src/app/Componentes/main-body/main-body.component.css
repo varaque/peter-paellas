@@ -25,14 +25,14 @@ color: #8b5a17 !important;
   border-radius: 2px;
 } 
 
+.paellaMain{
+  width:80%;
+}
+
 .p{
 border:none;
 }
 
-.margen1{
-
-
-}
 
 #fondo {
   background-image: url();
@@ -42,6 +42,12 @@ border:none;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+}
+
+@media only screen and (max-width:768px) {
+  #fondo {
+    padding: 0px;
+  }
 }
 
 .article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {

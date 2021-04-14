@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     email_verified_at: null,
     password: null,
     foto: "/storage/foto.png",
-    ubicacion: null,
+    ubicacion: "Desconocida",
     calificacion: 0,
     veces_puntuado: 0,
     baneado: false,

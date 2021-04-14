@@ -32,7 +32,7 @@
       </label>
     </div>
 
-    <img class="margen-preview" id="blah" [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />     <!-- Aqui vemos el preview-->
+    <img class="margen-preview" id="blah" [src]="imageSrc || 'https://placehold.it/180'" alt="your image" />     <!-- Aqui vemos el preview-->
 
     
 
@@ -119,7 +119,7 @@
     -->          <div class="input-group mt-4 mb-4">
                 <span class="input-group-addon"></span>
                 <input [(ngModel)]="paella.ubicacion" type="text" class="form-control bordeMarron" id="ubicacion" name="ubicacion"
-                  placeholder="Ubicacion">
+                  placeholder="Direccion">
               </div>
 
               <div class="input-group mt-4 mb-4">
@@ -127,6 +127,11 @@
                 <input [(ngModel)]="paella.provincia" type="text" class="form-control bordeMarron" id="provincia" name="provincia"
                   placeholder="Provincia">
               </div>
+              
+              <!-- <div class="input-group mt-4 mb-4">                          ESTA ES LA AMPLIACION DE ELEGIR PAIS, CUANDO ESO SOLO SERÁ DESCOMENTARLO 
+                <span class="input-group-addon"></span>
+                <input [(ngModel)]="paella.pais" type="text" class="form-control bordeMarron" id="provincia" name="provincia"
+                  placeholder="Pais"></div> -->
               
     <!--           <h5 class="letra"> Precio por ración (€):</h5>
     -->       <!--    <div class="input-group">
