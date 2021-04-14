@@ -8,7 +8,8 @@ export interface Paella{
     cocinero: string;
     foto?: string;
     ubicacion: string;
-    provincia: string;
+    provincia: string;      //en verdad con los cambios de hacer esto cerrado podria guardar esto y municipio como int, pero bueno ya se verá
+/*     municipio: string;   aun no me voy a poner a añadir esto asi que lo dejo comentado para evitar errores de compilacion de momento        */
     plazas: number;
     plazas_libres: number;
     precio: number; 

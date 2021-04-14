@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { PaellasService } from 'src/app/services/paellas.service';
 import {Paella} from '../../Interfaces/paella';
-
+import * as moment from 'moment-timezone';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -81,7 +81,12 @@ logeado;
     httpClient.get( this.API_ENDPOINT).subscribe((data2: Paella[]) => { //aqui vemos todas las paellas, de las cuales mostraremos solo las que tengan el mismo id del usuario
       this.paellas = data2;
       for (var i = 0; i < data.length; i++) {       //esto es para saber el numero de paellas de cada usuario y poder sacarlo por pantalla ademas si quiere ver sus paellas tambien sirve
-        if(data2[i].usuario_id == this.user.id){this.numpaellas++;}  }  })
+        if(data2[i].usuario_id == this.user.id){this.numpaellas++;}  }  
+        this.paellas.forEach(p => {
+          var fechaedit = moment.tz(p.fecha, 'Europe/Madrid');
+           p.fecha = fechaedit.tz(moment.tz.guess(true)).format('YYYY-MM-DD'); });
+
+      })
 
     if(this.user.veces_puntuado == 0){this.currentRate=this.user.calificacion;}else{this.currentRate = this.user.calificacion/this.user.veces_puntuado}}) 
     //si no lo has puntuado nunca que salga la calificacion que tenga (que si es un usuario real será 0) por no dividir entre 0 y que salga siempre 5

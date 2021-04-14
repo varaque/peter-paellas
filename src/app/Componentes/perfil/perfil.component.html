@@ -21,7 +21,7 @@
 
               <p> <img src="/assets/images/location.png"> {{user.ubicacion}} </p>
 
-              <p> <img src="/assets/images/restaurant.png"> Paellas publicadas {{numpaellas}} </p>  
+              <p> <img src="/assets/images/restaurant.png"> Paellas activas {{numpaellas}} </p>  
 
             <div class=" mb-4 caja-estrellas">            
 
@@ -65,7 +65,7 @@
 
                   <div class="col-md-10">
                   <a routerLink="/paella/{{Paella.id}}" routerLinkActive="active" class="letra-negra pt-2">{{Paella.nombre}}, {{Paella.ubicacion}}. {{Paella.provincia}} </a>
-                  <p class="fecha-gris"> {{Paella.fecha}}</p>
+                  <p class="fecha-gris"> {{Paella.fecha | date: "dd/MM/yyyy"}}</p>
                   </div>
 
                 </div>

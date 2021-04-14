@@ -18,13 +18,13 @@ export class AuthGuardService {
   ) {
     //this.loggedIn= false;                                                     ESTO ES LO DEL LOGGEDIN
   this.loggedIn = localStorage.getItem('atoken') !== null;
-    console.log('loggedIn es desde el header: ' + this.loggedIn) 
+    console.log('loggedIn es desde el auth-guard: ' + this.loggedIn) 
 
    }
 
   logout(){
-    /* localStorage.removeItem('atoken'); */          
-/*     this.loggedIn=false; */
+     localStorage.removeItem('atoken');          
+     this.loggedIn=false; 
   }
    
   /**
@@ -35,13 +35,5 @@ export class AuthGuardService {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ) {/*         BUSCANDO DONDE MODIFICAR EL LOGGEDIN HE COMENTADO ESTO A VER SI VA BIEN
-
-    if (
-      localStorage.getItem('access_token')
-    ) { return true; }
-    localStorage.removeItem('access_token');
-    this.router.navigateByUrl('/login');
-    return false;*/
-  }
+  ) { }
 }
