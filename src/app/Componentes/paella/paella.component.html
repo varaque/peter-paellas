@@ -1,101 +1,62 @@
-
 <div class="container-fluid bg-general">
-
   <div class="row pt-3 align-items-center justify-content-center">
-    
-
-  
-
-
-
   </div>
-
-
     <div class="row ml-4 mr-4 pr-4 pl-4" >
 
        <div class="col-md-6 mt-3 align-items-center justify-content-center margen-info">
 
          <img src="https://peterpaellas.com/lvel/public/{{paella.foto}}" width="100%" height="500" class="ml-4 mb-4 paella">
 
-
-
-
         <div class="row" style=" border-bottom: 2px solid #8b5a17;">
 
-        <div class="col-md-6 d-flex align-items-center justify-content-center">         <p class="nombre"><strong>{{paella.nombre}}</strong></p></div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">  <p class="nombre"><strong>{{paella.nombre}}</strong></p></div>
 
         <div class="col-md-6">    <div class="row d-flex align-items-center justify-content-center"> <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/747/747310.svg" width="20" height="20" class="mr-1">{{dia}}-{{mes}}-{{year}}<!-- {{paella.fecha}} --></p></div>    
         <div class="row d-flex align-items-center justify-content-center"> <p class="h4"><img src="../../../assets/images/hora.png" width="20" height="20" class="mr-1">{{hora}}<!-- {{paella.fecha}} --></p></div>
       
       </div>
-        
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-md-6 ">
+
+       <div class="row">
+         <div class="col-md-2">
+           <p class="mt-4"><img src="/assets/images/chef.png" width="30" height="30"> </p></div>
+           <div class="col-md-8">
+             <p class="h4 mt-4">{{paella.cocinero}}</p></div>
+        </div>
+
+      <div class="row">
+        <div class="col-md-2">
+          <p class="mt-4"><img src="/assets/images/location.png" width="30" height="30"> </p></div>
+          <div class="col-md-8">
+            <p class="h4 mt-4">{{paella.ubicacion}}. {{paella.provincia}}</p></div>
       </div>
 
+       <div class="row">
+         <div class="col-md-2">
+           <p class="mt-4"><img src="/assets/images/currency.png" width="30" height="30"> </p></div>
+           <div class="col-md-8">
+             <p class="h4 mt-4">{{paella.precio}}€ / ración</p></div>
+       </div>
 
-
-
-        <div class="row">
-<!-- lo que tienes en el portapapeles empeiza aqui -->
-<div class="col-md-6 ">
-
-  <div class="row">
-    <div class="col-md-2">
-      <p class="mt-4"><img src="/assets/images/chef.png" width="30" height="30"> </p></div>
-      <div class="col-md-8">
-        <p class="h4 mt-4">{{paella.cocinero}}</p></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2">
-      <p class="mt-4"><img src="/assets/images/location.png" width="30" height="30"> </p></div>
-      <div class="col-md-8">
-        <p class="h4 mt-4">{{paella.ubicacion}}. {{paella.provincia}}</p></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2">
-      <p class="mt-4"><img src="/assets/images/currency.png" width="30" height="30"> </p></div>
-      <div class="col-md-8">
-        <p class="h4 mt-4">{{paella.precio}}€ / ración</p></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2">
-      <p class="mt-4"></p></div>
-      <div class="col-md-8">
-        <div *ngIf="paella.telefono != '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
-          <p class="h4 mt-4">Telefono: {{paella.telefono}}</p></div>
-          <div *ngIf="paella.telefono == '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
-            <p class="h4 mt-4">Telefono:  No facilitado</p></div>
-          
-          </div>
-
-
-  </div>
-
-
-</div>
-<!-- lo que tienes en el portapelees de porsiaca termina aqui -->
-
-         <!--  <div  class="col-md-3 borde d-flex align-items-center justify-content-center">
-
+      <div class="row">
+        <div class="col-md-2">
+          <p class="mt-4"></p></div>
+          <div class="col-md-8">
+            <div *ngIf="paella.telefono != '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
+              <p class="h4 mt-4">Telefono: {{paella.telefono}}</p></div>
+              <div *ngIf="paella.telefono == '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
+                <p class="h4 mt-4">Telefono:  No facilitado</p></div>
+              
+              </div>
             
-
-          </div>
-
-          <div class="col-md-3 borde d-flex align-items-center justify-content-center">
-
-
-          </div>
- -->
-<!--           <div class="col-md-3 borde d-flex align-items-center justify-content-center">
-
-            <p class="h4"><img src="https://www.flaticon.es/svg/static/icons/svg/747/747310.svg" width="20" height="20" class="mr-1">{{paella.fecha}}</p>
-
-          </div> -->
-
- 
-          
+            
+      </div>
+    </div>
 
             <div class="col-md-6 ">
 
@@ -139,110 +100,7 @@
                         <p class="h4 mt-4">No se permiten niños</p></div></div>
               </div>
 
-
-
-<!--               <div class="row">
-
-
-                  <div class="col-md-2">
-              <p class="mt-4"><img src="/assets/images/restaurant.png" width="30" height="30"> </p>
-
-              
-              <p class="mt-4">
-                <div *ngIf="paella.mascota == true"><img src="/assets/images/check.png" width="30" height="30"> </div>
-                <div *ngIf="paella.mascota == false"><img src="/assets/images/x.png" width="30" height="30"> </div>
-              
-              <p class="mt-4">
-                <div *ngIf="paella.ver_hacer_paella == true"><img src="/assets/images/check.png" width="30" height="30"> </div>
-                <div *ngIf="paella.ver_hacer_paella == false"><img src="/assets/images/x.png" width="30" height="30"> </div>
-
-                <p class="mt-4">
-                  <div *ngIf="paella.ninos == true"><img src="/assets/images/check.png" width="30" height="30"> </div>
-                  <div *ngIf="paella.ninos == false"><img src="/assets/images/x.png" width="30" height="30"> </div>
-                
-                  </div>
-
-
-
-                  <div class="col-md-10">
-                    <p class="h4 mt-4">¡Quedan {{paella.plazas_libres}} raciones!</p>
-                    <div *ngIf="paella.mascota == true">
-                    <p class="h4 mt-4">Se permite traer mascotas</p></div>
-                    <div *ngIf="paella.mascota == false">
-                      <p class="h4 mt-4">No se permite traer mascotas</p></div>
-                      <div *ngIf="paella.ver_hacer_paella == true">
-                        <p class="h4 mt-4">Se permite ver hacer la paella</p></div>
-                        <div *ngIf="paella.ver_hacer_paella == false">
-                          <p class="h4 mt-4">No se permite ver hacer la paella</p></div>
-                          <div *ngIf="paella.ninos == true">
-                            <p class="h4 mt-4">Se permiten niños</p></div>
-                            <div *ngIf="paella.ninos == false">
-                              <p class="h4 mt-4">No se permiten niños</p></div>
-
-                    </div>
-                </div> -->
             </div>
-
-
-<!--               <p class="h4"><img src="../../../assets/images/restaurant.png" width="30" height="30" class="mr-1">¡Quedan {{paella.plazas_libres}} raciones!</p>
-                <div *ngIf="paella.mascota == true">
-                <p class="h4"><img src="../../../assets/images/check.png" width="30" height="30" class="mr-1">Se permite traer mascotas</p>
-
-              </div>
-              <div *ngIf="paella.mascota == false">
-                <p class="h4"><img src="../../../assets/images/x.png" width="30" height="30" class="mr-1">No se permiten mascotas</p>
-
-              </div>
-
-              <div *ngIf="paella.ver_hacer_paella == true">
-                <p class="h4"><img src="../../../assets/images/check.png" width="30" height="30" class="mr-1">Se permite ver hacer la paella</p>
-
-              </div>
-              <div *ngIf="paella.ver_hacer_paella == false">
-                <p class="h4"><img src="../../../assets/images/x.png" width="30" height="30" class="mr-1">No se permite ver hacer la paella</p>
-
-              </div>
-
-              <div *ngIf="paella.ninos == true">
-                <p class="h4"><img src="../../../assets/images/check.png" width="30" height="30" class="mr-1">Se permiten niños</p>
-
-              </div>
-              <div *ngIf="paella.ninos == false">
-                <p class="h4"><img src="../../../assets/images/x.png" width="30" height="30" class="mr-1">No se permiten niños</p>
-
-              </div> -->
-
-
-
-
-<!--             <div class="col-md-3 borde d-flex align-items-center justify-content-center">
-
-
-
-            
-  
-            </div>
-
-            <div class="col-md-3 borde d-flex align-items-center justify-content-center">
-
-            
-  
-            </div>
-
-
-            <div class="col-md-3 borde d-flex align-items-center justify-content-center">
-
-            
-  
-            </div> -->
-
-
-            
-<!--             <div *ngIf="paella.telefono != '' "  class="col-md-12 borde d-flex align-items-center justify-content-center">
-              
-AQUI SE PONIA ANTES EL TELEFONO Y SI ESTABA VACIO PUES NO SALIA, PERO POR ESO DE LA SIMETRIA LO VOY A PONER
-
-            </div> -->       
 
         </div>
 
@@ -264,37 +122,8 @@ AQUI SE PONIA ANTES EL TELEFONO Y SI ESTABA VACIO PUES NO SALIA, PERO POR ESO DE
         
 
    <app-reserva [selectedPaella]='this.paella'></app-reserva>
-
-<!--    <div #paypal></div> -->
-
       </div>
 
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-<!--<ul class="paellas">
-  <li *ngFor="let paella of paellas"
-    [class.selected]="paella === paella"
-    (click)="onSelect(paella)">
-    <span class="badge">{{paella.id}}</span> {{paella.name}} {{paella.cocinero}}
-  </li>
-</ul>
-
-<div *ngIf="paella" class="container">
-
-  <h2>{{paella.name}} de </h2>
-  <div><span>id: </span>{{paella.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="paella.name" placeholder="Tipo de paella..."/>
-    </label>
-  </div>
-</div> -->

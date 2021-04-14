@@ -25,15 +25,10 @@
 
       <p> <img src="/assets/images/location.png"> {{user.ubicacion}} </p>
 
-      <p> <img src="/assets/images/restaurant.png"> Paellas publicadas {{numpaellas}} </p>  <!-- queda pendiente crear una variable foreach paella -->
+      <p> <img src="/assets/images/restaurant.png"> Paellas publicadas {{numpaellas}} </p>  
 
-      <div class=" mb-4 caja-estrellas">             <!--Esto deberia ir con un ng for segun las estrellas del cocinero pero el problema es que tampoco hay donde puntuar cocineros,-->
-                                                      <!-- asi que las que tienen son aleatorias, pero vamos cuando se incluya deberia ser segun user.calificacion una estrella y au -->
-         <!-- <i class="ml-1 fa fa-star checked"></i>     
-        <i class="ml-1 fa fa-star checked"></i>
-        <i class="ml-1 fa fa-star checked"></i>
-        <i class="ml-1 fa fa-star "></i>
-        <i class="ml-1 fa fa-star"></i>  -->
+      <div class=" mb-4 caja-estrellas">            
+
         <div *ngIf="this.logeado == true">
          <ng-template #t let-fill="fill" >
           <span class="star" [class.full]="fill === 100">
@@ -53,18 +48,14 @@
          </ng-template>
        
          <ngb-rating class="grande" [(rate)]="currentRate" [starTemplate]="t" [max]="5" (hover)="nolog()"></ngb-rating> </div>
-        <!-- <ngb-rating [(rate)]="currentRate" [max]="5">
-          <ng-template let-fill="fill" let-index="index">
-            <span class="star" [class.filled]="fill === 100">&#9733;</span>
-          </ng-template>
-        </ngb-rating> -->
+
         
       </div>
 
 
 
       
-<div class="gris">{{user.veces_puntuado}} VALORACION(ES)</div>  <!--Esto esta asi porque no hay donde reseñar las paellas asi que porque salga algun numero logico, pero vamos-->
+<div class="gris">{{user.veces_puntuado}} VALORACION(ES)</div>  
    
       
     </div>

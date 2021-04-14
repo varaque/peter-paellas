@@ -12,7 +12,7 @@
         <div class="cocinero" routerLink="/perfil/{{user.id}}" routerLinkActive="active" > 
           <p class="titulo-name" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >{{user.name}}</p> 
           <div class="caja-foto-cocinero"> 
-            <img src="https://peterpaellas.com/lvel/public/{{user.foto}}" class="rounded-circle" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >  <!-- "https://peterpaellas.com/lvel/public/{{user.foto}}" -->
+            <img src="https://peterpaellas.com/lvel/public/{{user.foto}}" class="rounded-circle" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >  <!-- "https://peterpaellas.com/lvel/public/{{user.foto}}" LINK TRABAJO EN REAL -->
           </div> 
           <p class="ubicacion-cocinero" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >{{user.ubicacion}}</p> 
 
@@ -22,19 +22,14 @@
                 href="" class="mb-4">Perfil</a> 
             </div> 
             <div class=" mb-4 caja-estrellas"> 
-               <!-- <i class="fa fa-star checked" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>
-              <i class="fa fa-star" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>
-              <i class="fa fa-star" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>
-              <i class="fa fa-star" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>
-              <i class="fa fa-star" routerLink="/perfil/{{user.id}}" routerLinkActive="active" ></i>  -->
 
-              <ng-template #t let-fill="fill" >
-                <span class="star" [class.full]="fill === 100">
+              <ng-template #t let-fill="fill" >                                     <!-- ESTO MUESTRA LA PUNTUACION EN EL ALBUM DE COCINEROS -->
+                <span class="star" [class.full]="fill === 100">                        
                   <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
                 </span>
               </ng-template>
             
-              <ngb-rating [(rate)]="user.calificacion/user.veces_puntuado" [starTemplate]="t" [max]="5"></ngb-rating>
+              <ngb-rating [(rate)]="user.calificacion/user.veces_puntuado" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
 
             </div>
           </div>

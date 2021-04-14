@@ -9,9 +9,8 @@ import { User } from '../../Interfaces/user';
   styleUrls: ['./cocineros.component.css']
 })
 export class CocinerosComponent implements OnInit {
-  /*  SI TE DA PROBLEMA AL CARGARLAS O ALGO PUEDE SER POR EL CORS 
-  ESE QUE PONE EN EL F12, QUE ES QUENO ESTAS EN WHITE LIST PARA EL SERVER, 
-  GASTA LA EXTENSION DE CHROME ALLOW CORS Y AU */
+  /*  SI TE DA PROBLEMA AL CARGARLAS O ALGO PUEDE SER POR EL CORS QUE ES QUE NO ESTAS EN WHITE LIST PARA EL SERVER, EN PRINCIPIO EN EL BACK YA ESTA PUESTO PERO SI NO GASTA LA EXTENSION
+   DE CHROME ALLOW CORS Y AU */
 
   API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/users';  //real
   //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas

@@ -14,39 +14,47 @@ import * as moment from 'moment-timezone';
 })
 export class MainBodyComponent implements OnInit {
 
- // paellas = PAELLAS;
-filterPaella=""
-filterCocinero=""
+/*filterPaella=""             Por si al final si queremos filtrar por cocinero o nombre dejo esto
+filterCocinero=""*/
 filterUbicacion=""
 filterCategoria=""
 filterFecha=""
-  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas'; // SI TE DA PROBLEMA AL CARGARLAS O ALGO PUEDE SER POR EL CORS ESE QUE PONE EN EL F12, QUE ES QUENO ESTAS EN WHITE LIST PARA EL SERVER, GASTA LA EXTENSION DE CHROME ALLOW CORS Y AU
+
+  API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas';
   //API_ENDPOINT = 'http://localhost:8000/api/paellas';      //pruebas
+
   paellas: Paella[];
   fechaPaellas: Paella[];
-
+  fechahoy;
   filter = { filterFecha: undefined};
 
 
   constructor(private paellaService: PaellasService, private httpClient: HttpClient, private sanitizer:DomSanitizer) { 
 
-    httpClient.get( this.API_ENDPOINT).subscribe((data: Paella[]) => {
+      var fechahoy = moment().format('YYYY-MM-DD').toString(); //Primero pillo la fecha de hoy para comparar las paellas con ella y ver si son actuales
+      console.log('lafechahoy: ' + fechahoy);
+
+
+    httpClient.get( this.API_ENDPOINT).subscribe((data: Paella[]) => {      //Cogemos paellas de la BBDD
       this.paellas = data;
       this.fechaPaellas = data;
       console.log('las paellas: ')
       console.log(data)
 
+      
 
      this.paellas.forEach(p => {
-  var fechaedit = moment.tz(p.fecha, 'Europe/Madrid');
-  p.fecha = fechaedit.tz(moment.tz.guess(true)).format('YYYY-MM-DD'); //esto nos hace que el array que le pongamos antes del punto del foreach lo va a revisar uno a uno, la p es el nombre
-});                                                                //que le damos al elemento ( en este caso p es cada paella, porque las vamos revisando una a una y cada p es una paella),
-                                                                  // podria ser cualquier nombre, con el moment lo ponemos formateado como queremos sin hora para comparar con la fecha.
+          var fechaedit = moment.tz(p.fecha, 'Europe/Madrid');
+           p.fecha = fechaedit.tz(moment.tz.guess(true)).format('YYYY-MM-DD'); });  //formateamos la fecha que nos viene de la BBDD, que nos la deje sin hora a peticion del diseño
+
 
       this.fechaPaellas.forEach(p => {                                      //hacemos dos arrays con los datos porque aqui podemos resetearlo cada vez que hagamos busqueda nueva
-    var fechaedit = moment.tz(p.fecha, 'Europe/Madrid');                    //si no digamos que filtrariamos sobre el ya filtrado y claro no saldra nada 
-    p.fecha = fechaedit.tz(moment.tz.guess(true)).format('YYYY-MM-DD'); 
-    });   
+    var fechaedit = moment.tz(p.fecha, 'Europe/Madrid');                    //si no digamos que filtrariamos sobre el ya filtrado y claro no saldra nada, realmente esto no haria falta
+    p.fecha = fechaedit.tz(moment.tz.guess(true)).format('YYYY-MM-DD');});  //para el funcionamiento propiamente, pero ayuda a que sea mas facil para el usuario
+
+
+    this.paellas = this.paellas.filter( p =>                        //filtramos si la fecha es menor que la de hoy, en ese caso no aparecerá
+      (p.fecha > fechahoy ? p.id > 0 : p.fecha == this.filterFecha));  
 
   })
 
@@ -72,19 +80,16 @@ buscar(){
 this.paellas = this.fechaPaellas;                                 //reseteamos el array antes de filtrar, asi podremos filtrar sobre todas una segunda vez y no sobre las ya filtradas
   this.paellas = this.paellas.filter( p =>                        //filtramos si vemos que es igual la fecha de cada paella a la que hemos metido en el html
    
+
+
     (this.filterCategoria == '' ? p.id > 0 : p.categoria == parseInt(this.filterCategoria))&&
-    /* (this.filterUbicacion == '' ? p.id > 0 : p.ubicacion.toLowerCase() == this.filterUbicacion.toLowerCase())&& */
+    /* (this.filterUbicacion == '' ? p.id > 0 : p.ubicacion.toLowerCase() == this.filterUbicacion.toLowerCase())&&      Esto lo dejo comentado por si queremos volver a buscar ubicacion*/
     (this.filterFecha == '' ? p.id > 0 : p.fecha == this.filterFecha)
-    /* p.fecha == this.filterFecha */
+
   );  
 
   window.scroll(0, 850)
 }
-
-/* var fecha = this.filterFecha;
-this.filterFecha= fecha.tz(moment.tz.guess(true)).format('YYYY-MM-DD' )
-console.log('a ver que pilla el coso este: ')
-console.log(this.filterFecha) */
 
   ngOnInit(): void {
   }

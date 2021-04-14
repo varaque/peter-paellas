@@ -24,7 +24,9 @@
     ngOnInit(): void {
     }
 
-    saveMensaje() {//esta funcion guardará el mensaje en la bbdd y dentro llamamos a this.sendMensaje() que es lo que enviará el mail y nos redirige a la pagina main
+    saveMensaje() {
+
+      //esta funcion guardará el mensaje en la bbdd y dentro llamamos a this.sendMensaje() que es lo que enviará el mail y nos redirige a la pagina main
 
       //con validator esto no es necesario
       if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.mensaje.email)) //chequeamos que el mail sea de verdad y esté gucci
@@ -51,7 +53,7 @@
               this.mensajeService.save(this.mensaje).subscribe((data) => {
  
           alert('¡Mensaje enviado!');
-          //location.href = "https://localhost:4200";
+          //location.href = "https://localhost:4200";                PARA HACER PRUEBAS DE MOMENTO ESTO ESTA COMENTADO, PERO HAY QUE PONERLO COMO TOQUE EN SU MOMENTO
           //location.href = "https://peterpaellas.com/";
           console.log(data);
 

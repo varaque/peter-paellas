@@ -1,32 +1,16 @@
-
 <div class="container-fluid py-4 bg-color">
   <div class="container bg-blanco">
- 
-                 
-                  <!--<a id="btn-billings" class="btn btn-tabs" (click)="boton2()">Billings</a>-->
-                  
-                 <!-- <div><a type="button" routerLink="/publica-paella" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary mr-1">¡Publicar ya mi paella!</a></div> -->
-    <!--<a type="button" routerLink="/" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary ml-1">Reserva</a></div> -->
-  
-
-      <div class="row">
+    <div class="row">
         
-<div class="col-sm-3"> <img class="img-round" src="https://peterpaellas.com/lvel/public/{{this.userD.foto}}"> </div>  <!-- "https://peterpaellas.com/lvel/public/{{this.userD.foto}}" -->
+          <div class="col-sm-3"> 
+            <img class="img-round" src="https://peterpaellas.com/lvel/public/{{this.userD.foto}}"> 
+          </div>  <!-- "https://peterpaellas.com/lvel/public/{{this.userD.foto}}" Link real-->
 
-<div class="col-sm-3 mt-4"><div class=" letra-intro"> PANEL DE USUARIO  </div>
+          <div class="col-sm-3 mt-4"><div class=" letra-intro"> PANEL DE USUARIO  </div>
+                   <div><a type="" routerLink="/edita-perfil" routerLinkActive="active" href="" class="edita-info">Editar datos</a></div> 
+          </div>
 
-
-
-         <div><a type="" routerLink="/edita-perfil" routerLinkActive="active" href="" class="edita-info">Editar datos</a></div>
-  
-</div>
-
-    
-    
-      </div>
-
-      
-
+    </div>
 
       <div style="min-height: 60vh;">
           <div #user id="user" class="row no-gutters mt-5">
@@ -61,32 +45,20 @@
                                   <strong>{{this.userD.ubicacion}}</strong>
                               </td>
                           </tr>
-
-
-
-                          <!-- <tr class="fila-par"> 
-                          </tr>
-                          <tr class="fila-impar">
-                          </tr>
-                          <tr class="fila-par">
-                          </tr>
-                          <tr class="fila-impar">
-                          </tr> -->
-
-
-
-                          
                       </tbody>
-</table>
-                      <div class="p-paella-margin justify-content-end align-items-end"> <a href="" routerLink="/publica-paella" routerLinkActive="active" class="letra-header inout"> <strong class="inoutl">¡Publicar ya una paella!</strong> </a></div>
+                  </table>
 
-                  
- 
+                       <div class="p-paella-margin justify-content-end align-items-end"> 
+                         <a href="" routerLink="/publica-paella" routerLinkActive="active" class="letra-header inout"> 
+                           <strong class="inoutl">¡Publicar ya una paella!</strong> 
+                         </a>
+                       </div>
+
               </div>
 
-              
+              <!-- EN EL FUTURO ES FACIL QUE QUIERAN EN EL PANEL DE USUARIO LAS PAELLAS ACTIVAS QUE TENGAN, ASI QUE DEJO ESTO POR AQUI POR SI ACASO -->
 
-<!--               <p><strong>TUS PAELLAS ACTIVAS:</strong> </p>
+<!--               <p><strong>TUS PAELLAS ACTIVAS:</strong> </p>                                      
 
               <div class="col-md-4" *ngFor="let Paella of paellas">
                 <div *ngIf="Paella.usuario_id == userData.id" class="card mb-4 shadow-sm">
@@ -112,19 +84,6 @@
                 </div>      
               </div>         
             </div>   -->
-
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
       </div>
   </div>

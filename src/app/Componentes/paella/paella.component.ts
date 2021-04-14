@@ -39,9 +39,7 @@ export class PaellaComponent implements OnInit {
   year;
   hora;
   id:any;
-  //paellas = PAELLAS;
-//exportedPaella=[this.paella.id, this.paella.nombre, this.paella.descripcion, this.paella.cocinero, this.paella.foto, this.paella.ubicacion, this.paella.plazas, this.paella.plazas_libres, this.paella.precio, this.paella.fecha, this.paella.ver_hacer_paella, this.paella.ninos, this.paella.mascota, this.paella.categoria, this.paella.usuario_id];
-//exportedPaella[];
+
 paellas: Paella[];
 
 
@@ -53,7 +51,7 @@ paellas: Paella[];
     console.log(this.paella);
 
 var miCadena = this.paella.fecha;
-var divisiones = miCadena.split(" "); //BOMBA, ya tenemos aqui separados hora y fecha
+var divisiones = miCadena.split(" "); //Esto es para separar hora y fecha
                
 this.fecha = divisiones [0];
 this.fecha = this.fecha.split("-");
@@ -61,36 +59,14 @@ this.year = this.fecha[0];
 this.mes = this.fecha[1];
 this.dia = this.fecha[2];
 this.hora = divisiones[1].substr(0,5);
-console.log('le atine: ')
-console.log(this.hora);    
+/* console.log(this.hora);   */  
     })
   }
 
 
 
 value: null;
-ngOnInit(){
-
-}
- /* ngOnInit(){
-   
-    this.route.params.subscribe(params => {
-
-      this.selectedPaella=PAELLAS[params.id]
-      console.log(params.id)
-
-    }
-    );
-
-      var fechabuscada = moment.tz(this.paella.fecha, 'Europe/Madrid');                //convertimos al estandar de comparar lo que nos pongan en el filtro de la pagina en el html
-  console.log(fechabuscada);
-
-  this.paella.fecha = fechabuscada.tz(moment.tz.guess(true)).format('DD-MM');
-  console.log('la fecha: ')
-console.log(this.paella.fecha);
-
-
-  }*/
+ngOnInit(){}
 
   onSelect(paella: Paella): void {
     this.paella = paella;
