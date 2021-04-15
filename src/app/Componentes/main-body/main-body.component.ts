@@ -4,8 +4,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PaellasService } from 'src/app/services/paellas.service';
 import { HttpClient } from '@angular/common/http';
 import {Paella} from '../../Interfaces/paella';
+/* import { Provincias } from '../provincias'; */ 
 import {DomSanitizer} from '@angular/platform-browser';
 import * as moment from 'moment-timezone';
+import { Provincia } from 'src/app/Interfaces/provincia';
 
 @Component({
   selector: 'app-main-body',
@@ -19,10 +21,12 @@ filterCocinero=""*/
 filterUbicacion=""
 filterCategoria=""
 filterFecha=""
+/* provincia = Provincias;  */
 
   API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/paellas';
   //API_ENDPOINT = 'http://localhost:8000/api/paellas';      //pruebas
 
+  provincias: Provincia[];
   paellas: Paella[];
   fechaPaellas: Paella[];
   fechahoy;
@@ -34,6 +38,14 @@ filterFecha=""
       var fechahoy = moment().format('YYYY-MM-DD').toString(); //Primero pillo la fecha de hoy para comparar las paellas con ella y ver si son actuales
       console.log('lafechahoy: ' + fechahoy);
 
+      httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json').subscribe((data: Provincia[]) => {  //Cogemos provincias de un json que hay en internet https://public.opendatasoft.com/api/records/1.0/search/?dataset=provincias-espanolas&q=&sort=provincia&facet=provincia             https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json thx iago
+        
+        data.sort(function (a, b) {
+          if (a.nm > b.nm) { return 1  }
+          if (a.nm < b.nm) { return -1 }  return 0;});
+
+        this.provincias = data.sort();
+      })
 
     httpClient.get( this.API_ENDPOINT).subscribe((data: Paella[]) => {      //Cogemos paellas de la BBDD
       this.paellas = data;
@@ -88,7 +100,7 @@ this.paellas = this.fechaPaellas;                                 //reseteamos e
 
   );  
 
-  window.scroll(0, 850)
+  window.scroll(0, 850);
 }
 
   ngOnInit(): void {

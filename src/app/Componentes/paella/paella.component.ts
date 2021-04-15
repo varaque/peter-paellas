@@ -21,6 +21,7 @@ export class PaellaComponent implements OnInit {
     foto: null,
     ubicacion: null,
     provincia: null,
+    municipio: null,
     plazas: null,
     plazas_libres: null,
     precio: null,

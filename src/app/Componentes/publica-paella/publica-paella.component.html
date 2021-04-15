@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap"
       rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/pselect.js@4.0.1/dist/pselect.min.js" ></script>
 
 
 
@@ -61,12 +62,33 @@
                                placeholder="Direccion">
                            </div>
                          
-                          <div class="input-group mt-4 mb-4">
+                          <!--<div class="input-group mt-4 mb-4">
                             <span class="input-group-addon"></span>
                             <input [(ngModel)]="paella.provincia" type="text" class="form-control bordeMarron" id="provincia" name="provincia"
                               placeholder="Provincia">
                           </div>
 
+                           <div class="input-group mt-4 mb-4">
+                            <span class="input-group-addon"></span>
+                            <input [(ngModel)]="paella.municipio" type="text" class="form-control bordeMarron" id="municipio" name="municipio"
+                              placeholder="Municipio">
+                          </div> -->
+
+                          <div class="input-group mt-4 mb-4">
+                            <span class="input-group-addon"></span>
+                            <select [(ngModel)]="paella.provincia" class="form-control bordeMarron" name="provincia" placeholder="Provincia">
+                              <option [ngValue]="null" [disabled]="true" hidden>Busca tu provincia</option>
+                              <option *ngFor="let p of provincias">{{p.nm}}</option>
+                          </select>
+                          </div>
+
+                          <div class="input-group mt-4 mb-4">
+                            <span class="input-group-addon"></span>
+                            <select [(ngModel)]="paella.municipio" class="form-control bordeMarron" name="municipio" placeholder="Municipio" id="select">
+                              <option [ngValue]="null" [disabled]="true" hidden>Busca tu municipio</option>
+                              <option *ngFor="let m of municipios">{{m.nm}}</option>
+                          </select>
+                          </div>
               
               
               <!-- <div class="input-group mt-4 mb-4">                          ESTA ES LA AMPLIACION DE ELEGIR PAIS, CUANDO SE QUIERA SOLO SERÁ DESCOMENTARLO 

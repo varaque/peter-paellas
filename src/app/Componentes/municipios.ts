@@ -1,4 +1,6 @@
-[{
+import { Municipio } from "../Interfaces/municipio";
+//Esto es por si el json se cae o algo tener esto de backup
+export const Municipios: Municipio[] = [{
 	"id": "01002",
 	"nm": "Amurrio"
 }, {

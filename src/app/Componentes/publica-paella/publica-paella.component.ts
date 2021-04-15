@@ -3,10 +3,14 @@
   import { Paella } from '../../Interfaces/paella';
   import { Injectable } from '@angular/core';
   import * as moment from 'moment-timezone';
+  import { HttpClient } from '@angular/common/http';
   import { Router } from '@angular/router';
   import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { ReadVarExpr } from '@angular/compiler';
-
+/*  import{ Municipios } from '../municipios';             Esto esta comentado por lo que pongo mas abajo de si queremos coger del local municipios y provincias
+ import{ Provincias } from '../provincias'; */
+ import { Provincia } from 'src/app/Interfaces/provincia';
+ import { Municipio } from 'src/app/Interfaces/municipio';
 
   @Component({
     selector: 'app-publica-paella',
@@ -15,19 +19,24 @@ import { ReadVarExpr } from '@angular/compiler';
   })
   export class PublicaPaellaComponent implements OnInit {
 
+    /* municipios = Municipios; 
+    provincias = Provincias; 
+
+    Esto es por si queremos coger del local los municipios y provincias, por si se cayera el json o algo, pero en general es mejor como está por velocidad
+    */
     img;
     user = localStorage.getItem('userData');
     userData = JSON.parse(this.user);
     imageSrc;
 
     paella: Paella = {
-
       nombre: null,
       descripcion: null,
       cocinero: this.userData.name,
       foto: null,
       ubicacion: null,
       provincia: null,
+      municipio: null,
       plazas: null,
       plazas_libres: null,
       precio: null,
@@ -38,10 +47,30 @@ import { ReadVarExpr } from '@angular/compiler';
       mascota: null,
       categoria: null,
       usuario_id: this.userData.id,
+    }
+    provincias: Provincia[];
+    municipios: Municipio[];
+
+    constructor(private paellaService: PaellasService, private router: Router, private httpClient: HttpClient) {
+      httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json').subscribe((data: Provincia[]) => {
+        
+        data.sort(function (a, b) {
+          if (a.nm > b.nm) { return 1  }
+          if (a.nm < b.nm) { return -1 }  return 0;});
+
+        this.provincias = data.sort();
+      })
+
+      httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json').subscribe((data: Municipio[]) => { 
+        
+        data.sort(function (a, b) {
+          if (a.nm > b.nm) { return 1  }
+          if (a.nm < b.nm) { return -1 }  return 0;});
+
+        this.municipios = data.sort();
+      })
 
     }
-
-    constructor(private paellaService: PaellasService, private router: Router) { }
 
     ngOnInit(): void {
     }
@@ -101,7 +130,7 @@ handleUpload(event) {                                   //esto coge la foto del 
       this.paella.fecha = fechabbdd.tz(moment.tz.guess(true)).format('YYYY-MM-DD HH:mm:ss');  //guess es: ignora cache? : boolean.  el format es simplemente el formato en que queremos
 
       var user = localStorage.getItem('user');
-
+      console.log(this.paella);
       this.paellaService.save(this.paella).subscribe((data) => {    //Guardamos la paella
         alert('¡Paella guardada!');
         console.log(data);

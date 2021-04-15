@@ -32,7 +32,7 @@
             
             ESTO FILTRA POR COCINERO PERO VAMOS QUE NO SE NECESITA DE MOMENTO--> 
 
-          <select [(ngModel)]="filterCategoria" class="buscador" name="filterCategoria" placeholder="Tipo de paella">  
+          <select [(ngModel)]="filterCategoria" class="buscador select2" name="filterCategoria" placeholder="Tipo de paella">  
             <option onclick="window.scrollTo(0, 3000);" value="" class="letramarron">¿Que paella buscas?</option>  
             <option onclick="window.scrollTo(0, 3000);" value="1" class="letramarron">Paella valenciana</option>  
             <option onclick="window.scrollTo(0, 3000);" value="2" class="letramarron">Paella de marisco</option>  
@@ -42,10 +42,20 @@
             </select>  
  
  
-          <div class="ubi"> <input type="search" value="" class=" buscador mt-4" name="filterUbicacion"  
-              placeholder="Ubicación" [(ngModel)]="filterUbicacion"> </div>  
+            <!--<input type="search" value="" class=" buscador mt-4" name="filterUbicacion"  
+              placeholder="Ubicación" [(ngModel)]="filterUbicacion">  -->
+               <!-- <div class="ubi"><select [(ngModel)]="filterUbicacion" class="buscador select1 mt-4" name="menu" placeholder="Provincia">
+                <option [ngValue]="null" [disabled]="true" hidden selected>Busca tu provincia</option>
+                <option *ngFor="let provincia of provincia">{{provincia.nm}}</option>
+            </select>  </div>   --> 
  
  
+            <div class="ubi"><select [(ngModel)]="filterUbicacion" class="buscador select1 mt-4" name="menu" placeholder="Provincia">
+              <option [ngValue]="null" [disabled]="true" hidden selected>Busca tu provincia</option>
+              <option *ngFor="let provincia of provincias">{{provincia.nm}}</option>
+          </select>  </div>   
+
+
               <div > 
               <mat-form-field class="example-full-width styleDatepicker" appearance="fill"> 
                 <mat-label class="letramarron">Selecciona una fecha</mat-label> 

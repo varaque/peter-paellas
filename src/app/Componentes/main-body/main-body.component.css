@@ -13,7 +13,7 @@ right:110px;
 color: #8b5a17 !important;
 } 
 
- select {                                     /* flechita del select*/
+ .select2 {                                     /* flechita del select*/
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
@@ -24,7 +24,13 @@ color: #8b5a17 !important;
   border: 1px solid #dfdfdf;
   border-radius: 2px;
 } 
-
+.select1 {                                     /* flechita del select*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+} 
 .paellaMain{
   width:80%;
 }
