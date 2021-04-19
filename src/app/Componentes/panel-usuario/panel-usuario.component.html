@@ -36,7 +36,17 @@
                           <tr class="fila-impar">
                               <td class="py-4 lineaMarron">
                                   <p class="letra-base"><strong>Calificación:</strong> </p>
-                                  <p><strong> {{this.userD.calificacion}} /5</strong> </p> 
+                                  <p>
+                                    
+                                    <ng-template #t let-fill="fill" >                                     <!-- ESTO MUESTRA LA PUNTUACION EN EL ALBUM DE COCINEROS -->
+                                      <span class="star" [class.full]="fill === 100">                        
+                                        <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
+                                      </span>
+                                    </ng-template>
+                                  
+                                    <ngb-rating [(rate)]="userD.calificacion/userD.veces_puntuado" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+
+                                  </p> 
  
 
                               </td>

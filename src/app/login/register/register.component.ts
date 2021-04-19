@@ -47,17 +47,11 @@ export class RegisterComponent implements OnInit {
   mensaje:Mensaje = {
     nombre: 'nombre',
     apellido: 'apellido',
-    telefono: 5,
+    telefono: 10,
     email: this.user.email,
     mensaje: 'mensaje de registro',
   }
-
-  data = {
-
-    newsletter: null,
-  
-  }
-
+aux;
 contrasena2: null;
 form: FormGroup;
 
@@ -92,68 +86,8 @@ form: FormGroup;
   }
 
 
-enviaMensaje(){                     //aqui habra que añadir el enviar mensaje
-
-
-}
-
-
-
-
-
   //aqui hacemos el guardar con la tabla users, igual que usuarios arriba
 
-  saveUsuario(){
-    //<label><input type="checkbox" id="newsletter" value="1"> Quiero suscribirme al newsletter.</label><br>
-    //Yes: <input type="checkbox" id="myCheck1" value="Yes, I'm a web developer">  
-
-    //var yes = document.getElementById("myCheck1");  
-
-
-/*else if (yes.checked == true){  
-  var y = document.getElementById("myCheck1").value;  
-  return document.getElementById("result").innerHTML = y;   
-}   */
-console.log('el data: ');
-console.log(this.data);
-
-
-    var token = null;
-
-    /* console.log(this.usuario); */
-
-    
-if(this.contrasena2==this.usuario.contrasena){ //chequeamos que la contraseña puesta 2 veces esté gucci
-
-  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.usuario.email)) //chequeamos que el mail sea de verdad y esté gucci
-  {
-     this.usuarioService.save(this.usuario).subscribe((data) => {
-
-
-      alert('¡Usuario creado!');
-      localStorage.setItem('token', token);
-      //this.router.navigateByUrl('/login');
-      //location.href ="https://peterpaellas.com";  //real
-      //location.href ="http://localhost:4200"; //pruebas
-      console.log(data);
-        }, (error) => {
-      console.log("error en register.ts");
-    })
-
-  }
-  else{
-    alert('¡Este email no es valido!');
-  }
-
- 
-  }
-
-
- else{
-    alert('¡Las contraseñas no coinciden!');
-  }
-
-}
 
 
 //aqui hacemos el guardar con la tabla users, igual que usuarios arriba
@@ -166,28 +100,26 @@ if(this.contrasena2==this.user.password){ //chequeamos que la contraseña puesta
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.user.email)) //chequeamos que el mail sea de verdad y esté gucci
   {
 
-    this.MensajeService.sendRegistro(this.mensaje).subscribe((data) => {
+     this.userService.save(this.user).subscribe((udata) => {
+      this.aux=udata;
+      this.mensaje.telefono = this.aux.id;   //verás esto es un poco trambolico, para buscar el user necesito recibir su id en el mensaje que le enviaré, pero no puedo poner a mensaje, de
+                                              //tipo string un tipo int, asi que gasto el telefono para eso y au, total aqui el tlf da igual asi que lo uso como auxiliar para tener el id,
+                                              //pero tampoco puedo simplemente meterlo rollo udata.id porque es un subscribe asi que gasto una variable auxiliar y ya está.
+
+    this.MensajeService.sendRegistro(this.mensaje).subscribe((mdata) => {
 
 console.log('el mensaje: ')
 console.log(this.mensaje);
 
-    }
-    
-    );
-
-
-
-     this.userService.save(this.user).subscribe((data) => {
-
-
+    });
 
 
       
       alert('¡User creado!');
-      this.router.navigateByUrl('/login');
+      //this.router.navigateByUrl('/login');
       //location.href ="https://peterpaellas.com/panel-usuario";  //real
       //location.href ="http://localhost:4200/panel-usuario"; //pruebas
-      console.log(data);
+      console.log(udata);
         }, (error) => {
       console.log("error en register.ts");
     })

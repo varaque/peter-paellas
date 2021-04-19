@@ -14,7 +14,7 @@
           <div class="caja-foto-cocinero"> 
             <img src="https://peterpaellas.com/lvel/public/{{user.foto}}" class="rounded-circle" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >  <!-- "https://peterpaellas.com/lvel/public/{{user.foto}}" LINK TRABAJO EN REAL -->
           </div> 
-          <p class="ubicacion-cocinero" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >{{user.ubicacion}}</p> 
+          <p class="ubicacion-cocinero" *ngIf="user.ubicacion != 'Desconocida'" routerLink="/perfil/{{user.id}}" routerLinkActive="active" >{{user.ubicacion}}</p> 
 
           <div class="ultima-caja-cocinero"> 
             <div class="link-perfil-cocinero"> 

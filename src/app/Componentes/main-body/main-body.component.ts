@@ -96,7 +96,9 @@ this.paellas = this.fechaPaellas;                                 //reseteamos e
 
     (this.filterCategoria == '' ? p.id > 0 : p.categoria == parseInt(this.filterCategoria))&&
     /* (this.filterUbicacion == '' ? p.id > 0 : p.ubicacion.toLowerCase() == this.filterUbicacion.toLowerCase())&&      Esto lo dejo comentado por si queremos volver a buscar ubicacion*/
-    (this.filterFecha == '' ? p.id > 0 : p.fecha == this.filterFecha)
+    (this.filterFecha == '' ? p.id > 0 : p.fecha == this.filterFecha)&&
+    (this.filterUbicacion == '' ? p.id > 0 : p.provincia == this.filterUbicacion)
+
 
   );  
 

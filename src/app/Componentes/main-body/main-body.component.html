@@ -52,7 +52,7 @@
  
             <div class="ubi"><select [(ngModel)]="filterUbicacion" class="buscador select1 mt-4" name="menu" placeholder="Provincia">
               <option [ngValue]="null" [disabled]="true" hidden selected>Busca tu provincia</option>
-              <option *ngFor="let provincia of provincias">{{provincia.nm}}</option>
+              <option *ngFor="let provincia of provincias" [ngValue]="provincia.nm">{{provincia.nm}}</option>
           </select>  </div>   
 
 
@@ -93,10 +93,9 @@
  
 
 
-
         
         <div class="col-md-4 mt-4"  
-          *ngFor="let Paella of paellas |filter: filterUbicacion " >  <!--| filter: filterCategoria filter:filterPaella | filter: filterCocinero |  añadir esto si queremos filtar por co cinero o paella-->
+          *ngFor="let Paella of paellas " >  <!--|filter: filterUbicacion | filter: filterCategoria filter:filterPaella | filter: filterCocinero |  añadir esto si queremos filtar por co cinero o paella-->
 
           <div class="card mb-4 shadow-sm">  
             <div class="row">  

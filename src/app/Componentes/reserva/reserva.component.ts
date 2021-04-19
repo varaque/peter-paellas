@@ -114,7 +114,7 @@ export class ReservaComponent implements OnInit {
 /*     console.log(this.reserva); */
 
 //Creamos el mensaje que enviaremos de la reserva, con nombre fecha etc al back y este enviara el correo al email en cuestion
-    this.mensaje.mensaje = 'Nombre: ' + this.reserva.nombre + '. Email: ' + this.reserva.email +  '. Telefono: ' + this.reserva.telefono +'. Plazas reservadas: ' + this.reserva.personas + '. La reserva se realizó para la siguiente paella: '+ 'Nombre de la paella: '+ this.selectedPaella.nombre + '. Hecha por: ' + this.selectedPaella.cocinero +'. En: ' + this.selectedPaella.ubicacion + '. Se pagó en total: ' + this.selectedPaella.precio*this.reserva.personas + '€' + '. La reserva se realizó el dia y hora: ' + this.reserva.fecha;
+    this.mensaje.mensaje = ' · Nombre: ' + this.reserva.nombre + '. · Email: ' + this.reserva.email +  '. · Telefono: ' + this.reserva.telefono +'. · Plazas reservadas: ' + this.reserva.personas + '. · Mensaje: ' + this.reserva.mensaje + '. -> La reserva se realizó para la siguiente paella: '+ '  · Nombre de la paella: '+ this.selectedPaella.nombre + '. · Hecha por: ' + this.selectedPaella.cocinero +'. · En: ' + this.selectedPaella.ubicacion + '. · Se pagó en total: ' + this.selectedPaella.precio*this.reserva.personas + '€' + '. · La reserva se realizó el dia y hora: ' + this.reserva.fecha;
 
 if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar que hay plazas suficientes libres
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.reserva.email)) //chequeamos que el mail este bien
@@ -126,7 +126,7 @@ if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar qu
 
      this.reservaService.save(this.reserva).subscribe((data) => {     
       
-      alert('¡Reserva enviada!');
+      alert('¡Reserva enviada, revisa tu mail para encontrar un correo de justificacion!');
       console.log(data);
 
 
@@ -137,7 +137,7 @@ if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar qu
           });
 
         this.paellasService.put(this.selectedPaella).subscribe((data) => {     
-       location.href ="https://peterpaellas.com/"; }, (error) => {
+        }, (error) => {
       console.log("error en reserva.component.ts en la parte del paellaservice de actualizar paella");})
 
 
