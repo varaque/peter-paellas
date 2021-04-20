@@ -1,14 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-//import { PAELLAS } from '../paellasprueba';
-//import { Paella } from '../paella/paella'
 import { PaellasService } from 'src/app/services/paellas.service';
 import { HttpClient } from '@angular/common/http';
 import {Paella} from '../../Interfaces/paella';
-/* import { Provincias } from '../provincias'; */ 
 import {DomSanitizer} from '@angular/platform-browser';
 import * as moment from 'moment-timezone';
 import { Provincia } from 'src/app/Interfaces/provincia';
-
+/* import { Provincias } from '../provincias';    si queremos importar provincias localmente gastaremos esto*/ 
 @Component({
   selector: 'app-main-body',
   templateUrl: './main-body.component.html',
@@ -16,7 +13,7 @@ import { Provincia } from 'src/app/Interfaces/provincia';
 })
 export class MainBodyComponent implements OnInit {
 
-/*filterPaella=""             Por si al final si queremos filtrar por cocinero o nombre dejo esto
+/*filterPaella=""            Por si al final si queremos filtrar por cocinero o nombre dejo esto, realmente los de abajo no los estamos utilizando porque ahora gastamos la funcion buscar
 filterCocinero=""*/
 filterUbicacion=""
 filterCategoria=""
@@ -38,8 +35,7 @@ filterFecha=""
       var fechahoy = moment().format('YYYY-MM-DD').toString(); //Primero pillo la fecha de hoy para comparar las paellas con ella y ver si son actuales
       console.log('lafechahoy: ' + fechahoy);
 
-      httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json').subscribe((data: Provincia[]) => {  //Cogemos provincias de un json que hay en internet https://public.opendatasoft.com/api/records/1.0/search/?dataset=provincias-espanolas&q=&sort=provincia&facet=provincia             https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json thx iago
-        
+      httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json').subscribe((data: Provincia[]) => {  //Cogemos provincias de un json que hay en internet https://public.opendatasoft.com/api/records/1.0/search/?dataset=provincias-espanolas&q=&sort=provincia&facet=provincia             https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json         
         data.sort(function (a, b) {
           if (a.nm > b.nm) { return 1  }
           if (a.nm < b.nm) { return -1 }  return 0;});
@@ -92,13 +88,10 @@ buscar(){
 this.paellas = this.fechaPaellas;                                 //reseteamos el array antes de filtrar, asi podremos filtrar sobre todas una segunda vez y no sobre las ya filtradas
   this.paellas = this.paellas.filter( p =>                        //filtramos si vemos que es igual la fecha de cada paella a la que hemos metido en el html
    
-
-
     (this.filterCategoria == '' ? p.id > 0 : p.categoria == parseInt(this.filterCategoria))&&
-    /* (this.filterUbicacion == '' ? p.id > 0 : p.ubicacion.toLowerCase() == this.filterUbicacion.toLowerCase())&&      Esto lo dejo comentado por si queremos volver a buscar ubicacion*/
+  /*(this.filterUbicacion == '' ? p.id > 0 : p.ubicacion.toLowerCase() == this.filterUbicacion.toLowerCase())&&      Esto lo dejo comentado por si queremos volver a buscar ubicacion*/
     (this.filterFecha == '' ? p.id > 0 : p.fecha == this.filterFecha)&&
     (this.filterUbicacion == '' ? p.id > 0 : p.provincia == this.filterUbicacion)
-
 
   );  
 

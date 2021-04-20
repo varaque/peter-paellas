@@ -55,18 +55,6 @@ export class EditaPerfilComponent implements OnInit {
 
   constructor(private usuariosService:UsuarioService, private usersService:UserService, private route: ActivatedRoute, private fb:FormBuilder, private http: HttpClient, private router: Router,) 
   {       
-    
-    /* console.log('El user, que es el coger del localStorage el userData: ')
-    console.log(this.user)
-
-
-    console.log('El userData, que es parsear el JSON del user: ')
-    console.log(this.userData)
-    
-
-
-    console.log('El users, un objeto user que hemos creado: ')
-console.log(this.users); */
 
 
 //el userdata son los datos de quien se logueó, user es el usuario de la bbdd, users es lo que estamos poniendo, asi que habra que ponerle al user lo que cojamos en el users y
