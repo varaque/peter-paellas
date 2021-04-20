@@ -91,7 +91,7 @@ logeado;
   value: null;
   ngOnInit(){}
 
-  rating(puntuacion)                    //Esto se gasta para puntuar a alguien, le sumamos 1 a veces puntuado y su puntuacion dada
+  rating(puntuacion)  //Esto se gasta para puntuar a alguien, le sumamos 1 a veces puntuado y su puntuacion dada, el ya puntuaste hay que ponerlo de otro modo, esto no es una solucion real
   {                               
       if(this.ya_puntuaste == false){
         this.user.calificacion = this.user.calificacion + puntuacion;
@@ -106,7 +106,7 @@ logeado;
     this.user = user;
   }
 
-nolog(){
+nolog(){                                    //esto simplemente es la funcion que llamamos cuando mostramos el ratio sin estar logueados, simplemente nos dice que nos logueemos
   alert('Debes estar logeado para puntuar')
 }
   

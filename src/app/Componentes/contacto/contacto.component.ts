@@ -1,6 +1,7 @@
   import { Component, OnInit } from '@angular/core';
   import { Mensaje } from 'src/app/interfaces/mensaje';
   import { MensajeService } from 'src/app/services/mensaje.service';
+  import { Router } from '@angular/router';
   import {User} from '../../interfaces/user';
 
   @Component({
@@ -19,7 +20,7 @@
       mensaje: null,
     }
 
-    constructor(private mensajeService: MensajeService) { }
+    constructor(private mensajeService: MensajeService, private router:Router) { }
 
     ngOnInit(): void {
     }
@@ -53,6 +54,7 @@
               this.mensajeService.save(this.mensaje).subscribe((data) => {
  
           alert('¡Mensaje enviado!');
+          this.router.navigate(['/']) 
           //location.href = "https://localhost:4200";                PARA HACER PRUEBAS DE MOMENTO ESTO ESTA COMENTADO, PERO HAY QUE PONERLO COMO TOQUE EN SU MOMENTO
           //location.href = "https://peterpaellas.com/";
           console.log(data);

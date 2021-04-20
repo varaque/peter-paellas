@@ -116,7 +116,7 @@ console.log(this.mensaje);
 
       
       alert('¡User creado!');
-      //this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/login');
       //location.href ="https://peterpaellas.com/panel-usuario";  //real
       //location.href ="http://localhost:4200/panel-usuario"; //pruebas
       console.log(udata);
