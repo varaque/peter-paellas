@@ -98,7 +98,6 @@ this.http.post('https://peterpaellas.com/lvel/public/oauth/token', data).subscri
     console.log(user);   //
 
 
-
 //esto y lo de abajo antes estaba fuera del primer http
 
 
@@ -108,14 +107,9 @@ this.http.post('https://peterpaellas.com/lvel/public/oauth/token', data).subscri
     console.log('el header '); 
     console.log(headers);
 
-
-
-
-
-
-
         //'https://peterpaellas.com/lvel/public/api/user' //real
         //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas
+
     this.http.get('https://peterpaellas.com/lvel/public/api/user', {headers: headers}).subscribe(
 
 result => {
@@ -125,68 +119,25 @@ result => {
   localStorage.setItem('userData',JSON.stringify(result));
 
   this.guard.loggedIn=true;                    /*AQUI SE SUPONE QUE SE SETEARIA A TRUE EL LOGGEDIN DEL GUARD */
-this.router.navigateByUrl('/panel-usuario');
+  this.router.navigateByUrl('/panel-usuario');
   //location.href ="http://localhost:4200/panel-usuario"; pruebas
   //location.href ="https://peterpaellas.com/panel-usuario";  //real
 },
+
 error=> {
   console.log('error');
   console.log(error);
 }
 
-)
-
-  },
+)},
   
   error=> {
     alert('¡Email o contraseña incorrectos!')
     console.log('error');
     console.log(error);
-  }
-)
-
+  })
 
 var atoken = localStorage.getItem('atoken');
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   /* this.loading = true;
-    this.errors = false;
-    this.authService.login(this.controls.email.value, this.controls.password.value)
-      .subscribe((res: any) => {
-        // Store the access token in the localstorage
-        localStorage.setItem('access_token', res.access_token);
-        this.loading = false;
-        // Navigate to home page
-        this.router.navigate(['/']);
-      }, (err: any) => {
-        // This error can be internal or invalid credentials
-        // You need to customize this based on the error.status code
-        this.loading = false;
-        this.errors = true;
-      });*/
-      
-
-
 
   } //hasta aqui el login
 

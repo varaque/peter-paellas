@@ -117,7 +117,7 @@ export class ReservaComponent implements OnInit {
     this.mensaje.mensaje = ' · Nombre: ' + this.reserva.nombre + '. · Email: ' + this.reserva.email +  '. · Telefono: ' + this.reserva.telefono +'. · Plazas reservadas: ' + this.reserva.personas + '. · Mensaje: ' + this.reserva.mensaje + '. -> La reserva se realizó para la siguiente paella: '+ '  · Nombre de la paella: '+ this.selectedPaella.nombre + '. · Hecha por: ' + this.selectedPaella.cocinero +'. · En: ' + this.selectedPaella.ubicacion + '. · Se pagó en total: ' + this.selectedPaella.precio*this.reserva.personas + '€' + '. · La reserva se realizó el dia y hora: ' + this.reserva.fecha;
 
 if( this.reserva.personas <= this.selectedPaella.plazas_libres){  //comprobar que hay plazas suficientes libres
-  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.reserva.email)) //chequeamos que el mail este bien
+  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.reserva.email)) //chequeamos que el mail este bien, aqui tan solo habria que usar validator
   {
     this.reserva.paella_id = this.selectedPaella.id;
     this.selectedPaella.plazas_libres = (this.selectedPaella.plazas_libres - this.reserva.personas)

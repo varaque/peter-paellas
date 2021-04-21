@@ -22,20 +22,7 @@ export class PanelUsuarioComponent implements OnInit {
   //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas
   user = localStorage.getItem('userData');
   userData = JSON.parse(this.user);
-  /* user:User = {      antiguo data del usuario rollo modelo --23/2/21--
-
-    id: null,
-    name: null,
-    email: null,
-    email_verified: null,
-    password: null,
-    foto: "foto",
-    ubicacion: null,
-    calificacion: 0,
-    baneado: false,
-    tipo: 0,
-  
-  } */
+ 
   users: User[];
   paellas: Paella[];
   id:any;
@@ -82,7 +69,7 @@ export class PanelUsuarioComponent implements OnInit {
 //nombre por ejemplo en el userD ya esta cambiado porque lo coge de la bbdd directo, en cambio userdata lo cogemos cuando logueamos y es el que tenia originalmente, si quisieramos
 //tocar cualquier cosa de esto la solucion pasaria antes por no coger nada de el login que otra cosa, lo cual es una tonteria, ya que te logueas coges info por velocidad, porque
 //a no ser que quieras concretamente entrar cambiar nombre y publicar paella no deberia ser problematico y no ralentizará tampoco.
-  ngOnInit(): void {
-  }
+ 
+ngOnInit(): void {}
 
 }

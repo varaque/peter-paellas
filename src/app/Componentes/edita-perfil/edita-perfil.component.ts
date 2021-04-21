@@ -89,24 +89,6 @@ this.usersService.get().subscribe((dataL: User[]) => {
 
   saveEdits(){
 
-
-   /*  if(this.contrasena2==this.users.password){ 
-      console.log('al menos la pass va')
-  } */ //chequeamos que la contraseña puesta 2 veces esté gucci
-
-/*     const formData = this.form.getRawValue; */
-
-
-
-/* console.log('aqui email que coge: ' + this.users.email)
-console.log('aqui name que coge: ' + this.users.name)
-console.log('aqui ubicacion que coge: ' + this.users.ubicacion)
-console.log('aqui la foto que coge: ' + this.users.foto)
-console.log('la this img: ' + this.img) */
-
-
-//this.img == storage/foto.png
-//this.users.foto ==
 if(this.img != '/storage/foto.png' ){
 
 this.users.foto = this.img;}
@@ -141,21 +123,7 @@ this.users.ubicacion = this.userData.ubicacion;
     }
 
 
-
-/* console.log('el this. users del saveedits(), lo que le pasamos al put: ')
-console.log(this.users);
-
-console.log('el this.userL dentro del saveedits()')
-console.log(this.userL);  */
-
-/* console.log('el edit que pretendemos guardar con el saveedits()')
-console.log(this.userData); */
-
   this.usersService.put(this.users).subscribe((data) => {     
-/*   console.log('lo de dentro del put: ')
-console.log(data)
-console.log( 'el this users: ')
-console.log(this.users) */
 
    this.router.navigateByUrl('/panel-usuario');
   //location.href ="https://peterpaellas.com/panel-usuario";  //real
@@ -166,8 +134,6 @@ console.log(this.users) */
   }) 
 
   }
-
-
 
 
   ngOnInit(){

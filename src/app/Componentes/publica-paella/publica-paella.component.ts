@@ -6,12 +6,9 @@
   import { HttpClient } from '@angular/common/http';
   import { Router } from '@angular/router';
   import {FormGroup, FormControl, Validators} from '@angular/forms';
-import { ReadVarExpr } from '@angular/compiler';
-/*  import{ Municipios } from '../municipios';             Esto esta comentado por lo que pongo mas abajo de si queremos coger del local municipios y provincias
- import{ Provincias } from '../provincias'; */
- import { Provincia } from 'src/app/Interfaces/provincia';
- import { Municipio } from 'src/app/Interfaces/municipio';
-
+  import { Provincia } from 'src/app/Interfaces/provincia';
+  import { Municipio } from 'src/app/Interfaces/municipio';
+  import { ReadVarExpr } from '@angular/compiler';
   @Component({
     selector: 'app-publica-paella',
     templateUrl: './publica-paella.component.html',
@@ -19,11 +16,6 @@ import { ReadVarExpr } from '@angular/compiler';
   })
   export class PublicaPaellaComponent implements OnInit {
 
-    /* municipios = Municipios; 
-    provincias = Provincias; 
-
-    Esto es por si queremos coger del local los municipios y provincias, por si se cayera el json o algo, pero en general es mejor como está por velocidad
-    */
     img;
     user = localStorage.getItem('userData');
     userData = JSON.parse(this.user);
