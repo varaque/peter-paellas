@@ -63,7 +63,6 @@ logeado;
 
   constructor(private usuariosService:UsuarioService , private paellasService:PaellasService, private usersService:UserService , private route: ActivatedRoute, private httpClient:HttpClient) { 
 
-
     this.aux = localStorage.getItem('userData');    //esto es para comprobar si estás logueado, simplemente recibimos un dato desde el localStorage que nos habra traido el
     this.userData = JSON.parse(this.aux);           //header y si existe pues estas logeado
     if(this.userData==null){
