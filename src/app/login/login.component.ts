@@ -6,8 +6,6 @@ import { AuthService } from '../services/auth.service';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { LoginService } from '../services/login.service';
 
-//SI TE DA PROBLEMA DE CORS AL LOGEAR O LO QUE SEA, TIENES DOS OPCIONES. 1-SI ES SOLO PARA TESTEOS PUEDES PILLAR UNA EXTENSION DE CHROME LLAMADA ALLOW CORS O ALGO ASI, LA ACTIVAS 
-//Y YA VA. LA OTRA OPCION QUE ES LA BUENA PARA QUE FUNCIONE REALMENTE ES UTILIZAR EL CORS MIDDLEWARE EN LARAVEL, BUSCA UN TUTORIAL POR AHI DE APLICARLO
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -59,8 +57,6 @@ if(localStorage.getItem('atoken')!=null){           //para limpiar el atoken por
 console.log('hemos entrado en el login() del login.component.ts')
     const formData = this.form.getRawValue();
 
-   /* console.log(this.form.getRawValue());*/
-
     const data = {
       username: formData.email,
       password: formData.password,
@@ -73,7 +69,6 @@ console.log('hemos entrado en el login() del login.component.ts')
     console.log('aqui el data que hemos puesto, osea email pass y tal: ')
     console.log(data);
 
-      //.post('https://peterpaellas.com/lvel/public/oauth/token')
       //API_ENDPOINT = 'localhost:8000/oauth/token';      //pruebas
       //API_ENDPOINT = 'http://localhost:8000/oauth/token'; //si pruebas no va intenta esto
 
@@ -120,8 +115,6 @@ result => {
 
   this.guard.loggedIn=true;                    /*AQUI SE SUPONE QUE SE SETEARIA A TRUE EL LOGGEDIN DEL GUARD */
   this.router.navigateByUrl('/panel-usuario');
-  //location.href ="http://localhost:4200/panel-usuario"; pruebas
-  //location.href ="https://peterpaellas.com/panel-usuario";  //real
 },
 
 error=> {

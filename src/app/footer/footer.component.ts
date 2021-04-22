@@ -26,7 +26,7 @@ export class FooterComponent implements OnInit {
   saveSuscripcion() {  
  
     if (this.acepto==true){ 
-    /* Con validator esto no haría falta realmente */ 
+    /* Con validator esto no haría falta realmente, pero esto es mas simple, va y ya está hecho */ 
     if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.suscripcion.email)) //chequeamos que el mail sea de verdad y esté gucci 
     { 
       this.suscripcionService.save(this.suscripcion).subscribe((data) => { 

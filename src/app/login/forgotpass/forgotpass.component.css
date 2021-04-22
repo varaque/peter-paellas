@@ -1,6 +1,7 @@
 
 #fondo {
-    background-image: url(https://azulsunsetpoint.es/wp-content/uploads/2019/07/73-min.jpg);
+  background-image: url();
+  background:linear-gradient(to right, rgb(0 0 0 / 50%),rgb(0 0 0 / 50%)), /* url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg") */ url("../../../assets/images/1551251263737.jpg");
     padding: 90px;
     text-align: center;
     background-size: cover;

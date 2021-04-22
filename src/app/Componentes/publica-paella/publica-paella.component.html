@@ -20,7 +20,8 @@
           <div class="col-xs-6 col-sm-6">
 
 
-              <!-- ESTO ES PARA SUBIR FOTOS, FUNCIONA PERO SOLO SUBE UNA, LO COMENTO MIENTRAS HAGO TESTEOS CON EL MULTIFOTO -->
+              <!-- esto es para subir fotos, funciona pero solo sube una, lo de abajo comentado es el multifoto, pilla todas las fotos que quieras y las hace un array, falta modificar 
+                la bbdd para incluir tabla fotos y que busque la foto por el id de la paella-->
 
              <div class="container-input-file">
               <label class="custom-file"> <img class="img-round" src="/assets/images/subirFoto.PNG">
@@ -30,7 +31,7 @@
 
                 <img class="margen-preview" id="blah" [src]="imageSrc || '/assets/images/placeholder.png'" alt="your image" />     <!-- Aqui vemos el preview-->
 
-<!-- PRUEBAS DE SUBIR MULTIFOTO  AQUI COGEMOS TODAS LAS FOTOS QUE QUIERAS SUBIR Y LAS VAMOS METIENDO EN UN FORM AL QUE LUEGO PODREMOS ACCEDER, -->
+<!-- esto es para multifoto, esto coge todas las fotos que le pases y las mete en un form y las pasa en un array al que luego podremos acceder, falta eso, que la bbdd lo recoja -->
 
                  <!-- <form [formGroup]="myForm" (ngSubmit)="submit()">
 
@@ -53,7 +54,7 @@
 
               </form> -->
 
-<!-- PRUEBAS DE SUBIR MULTIFOTO -->
+<!-- HASTA AQUI el codigo de multifoto -->
 
           </div>
 

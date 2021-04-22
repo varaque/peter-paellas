@@ -43,16 +43,16 @@
     provincias: Provincia[];
     municipios: Municipio[];
 
-    //esto es para diferencias las partes que son de probar el multifoto y cuales no
+    //esto es para usar el multifoto
     images = [];
     myForm = new FormGroup({
-     /* name: new FormControl('', [Validators.required, Validators.minLength(3)]), */
-     /* file: new FormControl('', [Validators.required]), */
-     fileSource: new FormControl('', [Validators.required])
-   });
-   //hasta aqui es
+           //de aqui no es imprescindible pero yo quitaria name y file y simplemente dejaria filesource para guardar solo imagen y ya esta
+     name: new FormControl('', [Validators.required, Validators.minLength(3)]), 
+     file: new FormControl('', [Validators.required]), 
+     fileSource: new FormControl('', [Validators.required])});
 
-    constructor(private paellaService: PaellasService, private router: Router, private httpClient: HttpClient) {
+
+    constructor(private paellaService: PaellasService, private router: Router, private httpClient: HttpClient) {  //cargar provincias...
       httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json').subscribe((data: Provincia[]) => {
         
         data.sort(function (a, b) {
@@ -62,7 +62,7 @@
         this.provincias = data.sort();
       })
 
-      httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json').subscribe((data: Municipio[]) => { 
+      httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json').subscribe((data: Municipio[]) => { //cargar municipios...
         
         data.sort(function (a, b) {
           if (a.nm > b.nm) { return 1  }
@@ -77,8 +77,8 @@
     }
 
 
-//pruebas de coger varias fotos, lo voy a dejar de la otra manera de momento pero es descomentar esto y comentar lo de arriba
-
+//pruebas de coger varias fotos, lo voy a dejar de la otra manera de momento pero es descomentar la parte del HTML y comentar lo de abajo
+ 
     get f(){
       return this.myForm.controls;
     }

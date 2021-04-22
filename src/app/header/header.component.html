@@ -24,13 +24,17 @@
                           <a class="nav-link" routerLink="faq" routerLinkActive="active"  href=""><strong>FAQ'S</strong></a>
                         </li>
 
+
+
+
                         <li class="nav-item">
                           <a class="nav-link active"  routerLink="publica-paella" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==true"> <strong>PUBLICAR PAELLA</strong></a>
                           <a class="nav-link active"  routerLink="login" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==false"> <strong>PUBLICAR PAELLA</strong></a>
                         </li>
+
+
                         <li class="nav-item">
                           <a class="nav-link active" routerLink="panel-usuario" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==true"> <strong>MI PERFIL</strong></a>
-
                         </li>
 
                       </ul>
@@ -41,10 +45,10 @@
                         <ul class="navbar-nav mr-auto">   
 
 
-                        <li class="nav-item ml-4 mr-4">
-                    <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==false" class="letra-header inout"> <strong class="inoutl">Acceder</strong> </a>
-                    <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==true" (click)="logout()" class="letra-header inout"> <strong class="inoutl">Salir</strong> </a>
-                  </li>
+           <li class="nav-item ml-4 mr-4">
+             <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==false" class="letra-header inout"> <strong class="inoutl">Acceder</strong> </a>
+             <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==true" (click)="logout()" class="letra-header inout"> <strong class="inoutl">Salir</strong> </a>
+           </li>
 
                   <li class="nav-item ml-4 mr-4">
                                         <a href="" routerLink="register" routerLinkActive="active" *ngIf="this.guard.loggedIn==false" class="registrarse"> <strong>Registrarse</strong> </a> 
@@ -57,6 +61,8 @@
                    </ul>
                    
                       </div>
+
+                      
                     </div>
 
                   </div>

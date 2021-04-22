@@ -27,7 +27,9 @@
 
     saveMensaje() {
 
-      //esta funcion guardará el mensaje en la bbdd y dentro llamamos a this.sendMensaje() que es lo que enviará el mail y nos redirige a la pagina main
+      //esta funcion guardará el mensaje en la bbdd y dentro llamamos a this.sendMensaje() que es lo que enviará el mail y nos redirige a la pagina main, 
+      //asi que tendremos en la bbdd un backup de los mensajes y en la bandeja de entrada un correo nos llegara en peter paellas, si quieres que no se guarde en bbdd
+      //simplemente quita esta llamada y haz que en el HTML se llame directamente a sendMensaje()
 
       //con validator esto no es necesario
       if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.mensaje.email)) //chequeamos que el mail sea de verdad y esté gucci

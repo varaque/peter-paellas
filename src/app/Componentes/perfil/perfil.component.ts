@@ -2,7 +2,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../Interfaces/usuario';
 import { User } from '../../Interfaces/user';
-//import { COCINEROS } from '../cocinerosprueba';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
@@ -65,14 +64,14 @@ logeado;
   constructor(private usuariosService:UsuarioService , private paellasService:PaellasService, private usersService:UserService , private route: ActivatedRoute, private httpClient:HttpClient) { 
 
 
-    this.aux = localStorage.getItem('userData');      //esto es para comprobar si estás logueado, simplemente recibimos un dato desde el localStorage que nos habra traido el header
-    this.userData = JSON.parse(this.aux);
+    this.aux = localStorage.getItem('userData');    //esto es para comprobar si estás logueado, simplemente recibimos un dato desde el localStorage que nos habra traido el
+    this.userData = JSON.parse(this.aux);           //header y si existe pues estas logeado
     if(this.userData==null){
       this.logeado = false;
     }else{this.logeado =true}
 
 
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];           //buscar el user...
     this.usersService.get().subscribe((data: User[]) => {
     this.users = data;
 
@@ -85,7 +84,8 @@ logeado;
       })
 
     if(this.user.veces_puntuado == 0){this.currentRate=this.user.calificacion;}else{this.currentRate = this.user.calificacion/this.user.veces_puntuado}}) 
-    //si no lo has puntuado nunca que salga la calificacion que tenga (que si es un usuario real será 0) por no dividir entre 0 y que salga siempre 5
+    //si no lo has puntuado nunca que salga la calificacion que tenga (que si es un usuario real será 0) por no dividir entre 0 y que salga siempre 5 o si prefieres que salga 5 
+    //de base pon solo la segunda parte y au
   }
 
   value: null;

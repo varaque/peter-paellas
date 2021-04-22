@@ -15,17 +15,8 @@ headers:HttpHeaders
   var loggedIn = false;
   loggedIn = localStorage.getItem('atoken') !== null;
 
-   /* this.headers=new HttpHeaders({headers:{"Accept":"application/json", "Authorization":""}}) */
-
   
   }  
 
-
-
-   /* inicial(){
-this.http.get<any>(environment.).pipe(
-  map
-)
-    }*/
 
 }

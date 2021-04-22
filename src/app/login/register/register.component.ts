@@ -37,19 +37,19 @@ export class RegisterComponent implements OnInit {
     email_verified_at: null,
     password: null,
     foto: "/storage/foto.png",
-    ubicacion: "Desconocida",
+    ubicacion: "Desconocida", //ya no pedimos al registrarte ubicacion asi que como no es obligatoria pues pongo esto de default y luego si quieres lo cambias en el panel de usuario
     calificacion: 0,
     veces_puntuado: 0,
     baneado: false,
     tipo: 0,
   
   }
-  mensaje:Mensaje = {
+  mensaje:Mensaje = {//esto es para enviar un mensaje de que te has registrado, el mensaje lo construimos en laravel asi que todos los datos dan igual realmente salvo el correo
     nombre: 'nombre',
     apellido: 'apellido',
     telefono: 10,
     email: this.user.email,
-    mensaje: 'mensaje de registro',
+    mensaje: 'mensaje de registro',  
   }
 aux;
 contrasena2: null;
@@ -58,8 +58,6 @@ form: FormGroup;
   constructor(private usuarioService: UsuarioService, private userService: UserService, private fb:FormBuilder, private http: HttpClient, private router:Router, private MensajeService:MensajeService) { }
 
   ngOnInit(){
-
-/*     var checkedValue = document.querySelector('.messageCheckbox:checked').value; */
 
 
     this.form = this.fb.group({
@@ -93,8 +91,6 @@ form: FormGroup;
 //aqui hacemos el guardar con la tabla users, igual que usuarios arriba
   saveUser(){
 
-    
-    /* console.log(this.user); */
 if(this.contrasena2==this.user.password){ //chequeamos que la contraseña puesta 2 veces esté gucci
 
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.user.email)) //chequeamos que el mail sea de verdad y esté gucci
@@ -117,8 +113,7 @@ console.log(this.mensaje);
       
       alert('¡User creado!');
       this.router.navigateByUrl('/login');
-      //location.href ="https://peterpaellas.com/panel-usuario";  //real
-      //location.href ="http://localhost:4200/panel-usuario"; //pruebas
+
       console.log(udata);
         }, (error) => {
       console.log("error en register.ts");

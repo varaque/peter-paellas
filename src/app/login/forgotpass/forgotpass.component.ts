@@ -13,3 +13,4 @@ export class ForgotpassComponent implements OnInit {
   }
 
 }
+//aqui habra que crear una funcion que llamaremos en el mensajeService

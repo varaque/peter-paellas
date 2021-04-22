@@ -1,35 +1,3 @@
-/*import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PaellaComponent } from './paella/paella.component';
-import { PruebaComponent } from './prueba/prueba.component';
-import { MainBodyComponent } from './main-body/main-body.component';
-
-const rutas: Routes{
-  path: 'paella',
-  component: PaellaComponent,
-}
-@NgModule({
-  declarations: [
-    AppComponent,
-    PaellaComponent,
-    PruebaComponent,
-    MainBodyComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }*/
-
-
-
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

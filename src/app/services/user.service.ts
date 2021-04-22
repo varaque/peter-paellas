@@ -39,12 +39,5 @@ export class UserService {
     return this.httpClient.put(this.API_ENDPOINT + 'users/' + user.id, user, {headers:headers});
 
   }
-  
-  /*login(email: string, password: string, token: string) {
 
-    const httpHeaders = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-    return this.httpClient.post(`${this.API_ENDPOINT}/login`, { email: email, password: password }, { headers: httpHeaders });
-  }*/
 }

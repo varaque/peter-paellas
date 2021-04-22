@@ -51,12 +51,11 @@ export class PanelUsuarioComponent implements OnInit {
  
  
  
-  //aqui abajo cogemos los datos del usuario, pero al final los podriamos cogeremos del localstorage y au, no obstante asi cuando editemos info sale directamente
+  //aqui abajo cogemos los datos del usuario, pero al final los podriamos coger del localstorage y au, no obstante asi cuando editemos info sale directamente
   //asi que no hay que calentarse la cabeza, pero es mejor esto porque coges directamente la info del usuario de la base
  
        this.id = this.userData.id;  
     this.usersService.get().subscribe((data: User[]) => {
-     // this.users = data;
      this.users = data;
      this.userD = this.users.find((n) => { return n.id == this.id})
       console.log('userD: ');   

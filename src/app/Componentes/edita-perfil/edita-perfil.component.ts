@@ -57,8 +57,8 @@ export class EditaPerfilComponent implements OnInit {
   {       
 
 
-//el userdata son los datos de quien se logueó, user es el usuario de la bbdd, users es lo que estamos poniendo, asi que habra que ponerle al user lo que cojamos en el users y
-// guardar el user en la bbdd
+//el userdata son los datos de quien se logueó (por si queremos msotrar el nombre original cuando alguien se logueó o algo asi, lo guardamos durante login en el localstorage), user es 
+//el usuario cogido de la bbdd, users es lo que estamos poniendo, asi que habra que ponerle al user lo que cojamos en el users y guardar el user en la bbdd
 
 
 //esto es para pillar al user por data
@@ -89,7 +89,9 @@ this.usersService.get().subscribe((dataL: User[]) => {
 
   saveEdits(){
 
-if(this.img != '/storage/foto.png' ){
+if(this.img != '/storage/foto.png' ){ 
+  //si la foto es distinta de la principal la cambiamos, esto es porque si en el this.img metes la original significa que no querias cambiarla, y si metes una nueva la cambia sin 
+  //problema, pero al meter foto hay que guardarla y crear una nueva, esto es para evitar tener un monton de veces la misma imagen que hemos seleccionado como default guardada
 
 this.users.foto = this.img;}
 
