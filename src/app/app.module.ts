@@ -14,7 +14,6 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { FaqComponent } from './componentes/faq/faq.component';
 import { LoginComponent } from './login/login.component';
 import { ComoFuncionaComponent } from './componentes/como-funciona/como-funciona.component';
-import { LoguserComponent } from './login/loguser/loguser.component';
 import { RegisterComponent } from './login/register/register.component';
 import { ForgotpassComponent } from './login/forgotpass/forgotpass.component';
 import { HeaderComponent } from './header/header.component';
@@ -104,7 +103,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FaqComponent,
     LoginComponent,
     ComoFuncionaComponent,
-    LoguserComponent,
     RegisterComponent,
     ForgotpassComponent,
     HeaderComponent,
