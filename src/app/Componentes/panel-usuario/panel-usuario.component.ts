@@ -20,10 +20,10 @@ export class PanelUsuarioComponent implements OnInit {
 
   API_ENDPOINT ='https://peterpaellas.com/lvel/public/api/users';  
   //API_ENDPOINT = 'http://localhost:8000/api/users';      //pruebas
-  user = localStorage.getItem('userData');
-  userData = JSON.parse(this.user);
+  user = localStorage.getItem('userData');    //guardamos los datos del usuario al loguearse en login en localStorage, por lo que las recuperamos lo primero y las asignamos a user
+  userData = JSON.parse(this.user);    
  
-  users: User[];
+  users: User[];   //Cogemos usuarios y paellas para poder encontrar las paellas que tiene cada usuario y asi poder luego filtrarlas, ya que en el panel se muestran las paellas de cada usuario
   paellas: Paella[];
   id:any;
   userD: User ={

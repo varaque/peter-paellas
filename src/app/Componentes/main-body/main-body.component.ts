@@ -12,6 +12,7 @@ import { Provincia } from 'src/app/Interfaces/provincia';
 })
 export class MainBodyComponent implements OnInit {
 
+  //esto se utilizaba para filtar con el pipe, el pipe lo he dejado puesto por si acaso en el futuro cambian de idea y quiere filtrar en tiempo real, pero no se está gastando ahora mismo
 filterUbicacion=""
 filterCategoria=""
 filterFecha=""
