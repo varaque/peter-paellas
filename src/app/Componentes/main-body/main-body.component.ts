@@ -72,7 +72,7 @@ filterFecha=""
 
 }
 
-buscar(){
+buscar(){                                                          //esto basicamente es una funcion para buscar por fecha tipo de paella etc
   console.log('la fecha que le entra: ')
   console.log(this.filterFecha)
   if(this.filterFecha!= ''){
