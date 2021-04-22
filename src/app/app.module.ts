@@ -8,7 +8,6 @@ import { PaellaComponent } from './componentes/paella/paella.component';
 import { ReservaComponent } from './componentes/reserva/reserva.component';
 import { MainBodyComponent } from './componentes/main-body/main-body.component';
 import { CocinerosComponent } from './componentes/cocineros/cocineros.component';
-import { PaellaSearchComponent } from './componentes/paella-search/paella-search.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { FaqComponent } from './componentes/faq/faq.component';
@@ -97,7 +96,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ReservaComponent,
     MainBodyComponent,
     CocinerosComponent,
-    PaellaSearchComponent,
     PerfilComponent,
     ContactoComponent,
     FaqComponent,
