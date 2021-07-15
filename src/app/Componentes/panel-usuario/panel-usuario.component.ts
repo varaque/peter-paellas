@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/interfaces/usuario';
 import { User } from 'src/app/interfaces/user';
-import { UsuarioService } from 'src/app/services/usuario.service';
 import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+
 import { PaellasService } from 'src/app/services/paellas.service';
-import {Paella} from '../../Interfaces/paella';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 
 
@@ -24,7 +23,7 @@ export class PanelUsuarioComponent implements OnInit {
   userData = JSON.parse(this.user);    
  
   users: User[];   //Cogemos usuarios y paellas para poder encontrar las paellas que tiene cada usuario y asi poder luego filtrarlas, ya que en el panel se muestran las paellas de cada usuario
-  paellas: Paella[];
+ /*  paellas: Paella[]; */
   id:any;
   userD: User ={
     id: null,
@@ -44,10 +43,10 @@ export class PanelUsuarioComponent implements OnInit {
  
     //cogemos las paellas
 
-    httpClient.get( this.API_ENDPOINT).subscribe((data: Paella[]) => {
+   /*  httpClient.get( this.API_ENDPOINT).subscribe((data: Paella[]) => {
       this.paellas = data;
       console.log(data)
-    })
+    }) */
  
  
  

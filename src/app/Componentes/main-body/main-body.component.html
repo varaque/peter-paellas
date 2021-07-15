@@ -1,133 +1,165 @@
-<link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap" 
-  rel="stylesheet"> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<div class="container-fluid p-0">
+  <div id="fondo">
+    <div class="roboto">
+      <div class="row">
 
-<div class="container-fluid p-0"> 
-  <div id="fondo"> 
-    <div class="roboto"> 
-      <div class="row align-items-center justify-content-center "> 
-        <div class="col-sm-12 col-md-4 col-lg-4 col-12 p-0"> 
-          <h3 class="letra-blanca"> <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur culpa 
-              quidem voluptatibus similique expedita. 
-              Exercitationem quidem, incidunt blanditiis reiciendis nemo.<br> </strong> </h3> 
- 
-          <p class="h4 letra-blanca">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto totam animi 
-            maxime necessitatibus laudantium commodi tempore doloribus, 
-            quibusdam id eaque nobis voluptate.</p> 
- 
-          <img src="/assets/images/paellaMain.png" class="paellaMain p-0">  
-        </div> 
-        <div class="col-xl-4">
+        <div class="col-md-3 offset-md-2 header-info">
+          <div class="row">
+            <div class="col-md-7">
+              <img src="../../../assets/images/logo-blanco.png" class="paellaMain p-0">
+            </div>
 
-
-          <!--  <h3 class="letra-blanca letra1"> <strong>BUSCA AQUI POR COCINERO NOMBRE O LOCALIZACION:<br> </strong> </h3> 
-           <input type="search" value="" class="form-control buscador" name="filterPaella" 
-            placeholder="¿Qué paella buscas?" [(ngModel)]="filterPaella">  
-          
-          ESTO BUSCA PAELLA POR NOMBRE PERO DE MOMENTO HAN DICHO QUE FUERA, LO DEJO POR AQUI POR SI CAMBIAN DE IDEA-->
-
-                        <!-- <input type="search" value="" class="form-control buscador mt-4" name="filterCocinero" 
-              placeholder="¿Buscas algun cocinero?" [(ngModel)]="filterCocinero">   
-            
-            ESTO FILTRA POR COCINERO PERO VAMOS QUE NO SE NECESITA DE MOMENTO--> 
-
-          <select [(ngModel)]="filterCategoria" class="buscador select2" name="filterCategoria" placeholder="Tipo de paella">  
-            <option onclick="window.scrollTo(0, 3000);" value="" class="letramarron">¿Que paella buscas?</option>  
-            <option onclick="window.scrollTo(0, 3000);" value="1" class="letramarron">Paella valenciana</option>  
-            <option onclick="window.scrollTo(0, 3000);" value="2" class="letramarron">Paella de marisco</option>  
-            <option onclick="window.scrollTo(0, 3000);" value="3" class="letramarron">Paella de verdura</option>  
-            <option onclick="window.scrollTo(0, 3000);" value="4" class="letramarron">Fideuá</option>  
-            <option onclick="window.scrollTo(0, 3000);" value="0" class="letramarron">Otro</option>  
-            </select>  
- 
- 
-            <!--<input type="search" value="" class=" buscador mt-4" name="filterUbicacion"  
-              placeholder="Ubicación" [(ngModel)]="filterUbicacion">  -->
-               <!-- <div class="ubi"><select [(ngModel)]="filterUbicacion" class="buscador select1 mt-4" name="menu" placeholder="Provincia">
-                <option [ngValue]="null" [disabled]="true" hidden selected>Busca tu provincia</option>
-                <option *ngFor="let provincia of provincia">{{provincia.nm}}</option>
-            </select>  </div>   --> 
- 
- 
-            <div class="ubi"><select [(ngModel)]="filterUbicacion" class="buscador select1 mt-4" name="menu" placeholder="Provincia">
-              <option [ngValue]="null" [disabled]="true" hidden selected>Busca tu provincia</option>
-              <option *ngFor="let provincia of provincias" [ngValue]="provincia.nm">{{provincia.nm}}</option>
-          </select>  </div>   
-
-
-              <div > 
-              <mat-form-field class="example-full-width styleDatepicker" appearance="fill"> 
-                <mat-label class="letramarron">Selecciona una fecha</mat-label> 
-                <input [(ngModel)]="filterFecha" name="filterFecha" id="filterFecha" placeholder="Selecciona una fecha y pulsa buscar" matInput [matDatepicker]="picker"> 
-                <mat-datepicker-toggle matSuffix [for]="picker"> 
-                   
-                </mat-datepicker-toggle> 
-                <mat-datepicker #picker></mat-datepicker> 
-              </mat-form-field></div> 
- 
-              <button type="button" (click)="buscar()" class=" btn-sm btn-outline-secondary buscar mr-1"> 
-                      <div class="lres">Buscar</div> 
-              </button> 
- 
- 
-        </div> 
-      </div> 
-    </div> 
-  </div> 
- 
- 
-  <div class="bg-paellas"> 
-    <div class="container"> 
- 
-      <div class="row"> 
-        <div class="roboto col-md-12 mt-4 h3">  
-          PAELLAS DESTACADAS 
-        </div> 
-        <div class="col-md-4"></div> 
-        <div class="col-md-4 align-items-center justify-content-center mb-4 h2"> 
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur laudantium, autem adipisci nesciunt 
-          distinctio voluptates. Numquam dicta fuga et incidunt. Laudantium, quia esse?  
-        </div> 
-        <div class="col-md-4"></div>  
- 
-
-
-        
-        <div class="col-md-4 mt-4"  
-          *ngFor="let Paella of paellas " >  <!--|filter: filterUbicacion | filter: filterCategoria filter:filterPaella | filter: filterCocinero |  añadir esto si queremos filtar por co cinero o paella-->
-
-          <div class="card mb-4 shadow-sm">  
-            <div class="row">  
-              <div class="col-md-3"><img src="/assets/images/avatarSimbolo.png" class="mt-3 mb-3 ml-3 mr-3"></div>  
-              <div class="col-md-9">  
-                <p class="mt-2  mr-2" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" ><strong>{{Paella.nombre}}</strong></p>  
-                <p class="mt-2  mr-2">{{Paella.cocinero}}</p>  
-              </div> 
-            </div> 
-            <!-- sources de fotos https://peterpaellas.com/lvel/public{{Paella.foto}} //real http://localhost:8000{{Paella.foto}} //pruebas 
-             
-            C:\xampp\htdocs\My\paellas-laravel-2\storage\app Este es el nombre de donde se guardan las fotos aparte de public, me lo dejo anotado, y de cualquier forma lo gasto como 
-            historial de imagenes subidas--> 
-
-            <img src="https://peterpaellas.com/lvel/public{{Paella.foto}}" class="fotos" alt="https://peterpaellas.com/lvel/public/foto.jpg" routerLink="/paella/{{Paella.id}}" routerLin kActive="active" > 
-           
-            <div class="card-body"> 
-              <p class="card-text h2 descripcion justify-content-between align-items-center"> {{Paella.descripcion}}</p> 
-              <div class="d-flex justify-content-between align-items-center"> 
-                <div class="btn-group"> 
-                  <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" href="" class=" btn-sm btn-outline-secondary res mr -1">
-                      <div class="lres">Reservar</div>  
-                    </a>  
-                  </div> 
-                </div>  
-              </div>  
-            </div>  
-          </div> 
+            <div class="col-md-11 mt-3">
+              <h3 class="letra-blanca text-left">
+                <strong>Sunt autem vel eum iure reprehenderit, qui dolorem eum iure.</strong>
+              </h3>
+            </div>
+            <div class="col-md-11 mt-2">
+              <p class="text-white text-left">Quae fuerit causa, nollem me ab eo ortum, tam egregios viros censes aut
+                rerum necessitatibus saepe eveniet, ut ad eam non ero tibique, si
+              </p>
+            </div>
+          </div>
         </div>
-        
-        
-      </div> 
-    </div> 
-  </div> 
-</div> 
+
+        <div class="col-md-3 offset-md-1 caja-buscador-paellas">
+          <div class="row">
+            <!-- select de los tipos de paellas -->
+
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12" (click)="toggleSelect(1)">
+                  <select [(ngModel)]="filter.tipoPaella" class="custom-select-arrow">
+                    <option *ngFor="let tipo of tipoPaellas" [ngValue]="tipo.id_tipo_paella">
+                      {{tipo.tipo_paella_nombre}}
+                      <input type="checkbox" name="" id="">
+                    </option>
+                  </select>
+                  <div class="overSelect1"></div>
+                  <span>Elije tu paella</span>
+                </div>
+                <div class="col-12 custom-select-opened" *ngIf="tipoPaellaselectOpened">
+                  <div class="checkboxes">
+                    <label *ngFor="let tipo of tipoPaellas" for="{{tipo.id_tipo_paella}}">
+                      {{tipo.tipo_paella_nombre|uppercase}}<input type="checkbox" id="{{tipo.id_tipo_paella}}" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- select de las provincias -->
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12" (click)="toggleSelect(2)">
+                  <div class="custom-select-gps">
+                    <select [(ngModel)]="filter.ubicacion" class="custom-select-arrow">
+                      <option [selected]>Busca tu provincia</option>
+                      <option *ngFor="let provincia of provincias" [ngValue]="provincia.id_provincia">
+                        {{provincia.provincia_nombre}}
+                      </option>
+                    </select>
+                    <div class="overSelect2"></div>
+                  </div>
+                </div>
+                <div class="col-12 custom-select-opened" *ngIf="provinciaSelectOpened">
+                  <div class="checkboxes">
+                    <label *ngFor="let provincia of provincias" for="{{provincia.id_provincia}}">
+                      {{provincia.provincia_nombre}}<input type="checkbox" id="{{provincia.id_provincia}}" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- input de las fechas -->
+            <div class="col-12">
+              <input #fechaRef class="custom-select-calendar" value="Seleccione una fecha" type="button"
+                (click)="toggleCalendar()">
+
+              <div class="custom-date-picker" *ngIf="calendarOpened">
+                <div class="col-4 p-0 custom-date-picker-info">
+                  <div>
+                    <p>SELECCIONA UNA FECHA</p>
+                    <ul>
+                      <li>{{diaSemana|titlecase|slice:0:3}},</li>
+                      <li>{{mesNombre|titlecase|slice:0:3}}</li>
+                      <li>{{diaNum}}</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-8 p-0 custom-date-picker-calendar">
+                  <mat-calendar (selectedChange)="seleccionarFecha($event)"></mat-calendar>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button type="button" (click)="buscar()" class="btn-sm btn-outline-secondary"> Buscar </button>
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="bg-paellas">
+  <div class="container">
+
+    <div class="row">
+      <div class="roboto col-md-12 mt-4 h3">
+        PAELLAS DESTACADAS
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4 align-items-center justify-content-center mb-4 h2">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur laudantium, autem adipisci nesciunt
+        distinctio voluptates. Numquam dicta fuga et incidunt. Laudantium, quia esse?
+      </div>
+      <div class="col-md-4"></div>
+
+
+
+
+      <div class="col-md-4 mt-4" *ngFor="let Paella of paellas ">
+
+        <div class="card mb-4 shadow-sm">
+          <div class="row">
+            <div class="col-md-3"><img src="/assets/images/avatarSimbolo.png" class="mt-3 mb-3 ml-3 mr-3"></div>
+            <div class="col-md-9">
+              <p class="mt-2  mr-2" routerLink="/paella/{{Paella.id}}" routerLinkActive="active">
+                <strong>{{Paella.nombre}}</strong>
+              </p>
+              <p class="mt-2  mr-2">{{Paella.cocinero}}</p>
+            </div>
+          </div>
+
+          <img src="https://peterpaellas.com/lvel/public{{Paella.foto}}" class="fotos"
+            alt="https://peterpaellas.com/lvel/public/foto.jpg" routerLink="/paella/{{Paella.id}}" routerLin
+            kActive="active">
+
+          <div class="card-body">
+            <p class="card-text h2 descripcion justify-content-between align-items-center"> {{Paella.descripcion}}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}"
+                    routerLinkActive="active" href="" class=" btn-sm btn-outline-secondary res mr -1">
+                    <div class="lres">Reservar</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

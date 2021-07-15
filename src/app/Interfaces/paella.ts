@@ -1,26 +1,17 @@
 
 
-export interface Paella{
-
-    id?: number;
-    nombre: string;
-    descripcion?: string;
-    cocinero: string;
-    foto?: string;
-    ubicacion: string;
-    provincia: string;      //en verdad con los cambios de hacer esto cerrado podria guardar esto y municipio como int, pero bueno ya se verá
-    municipio: string;
-    plazas: number;
-    plazas_libres: number;
-    precio: number; 
-    telefono: string;
-    fecha: string;
-    ver_hacer_paella: boolean;
-    ninos: boolean;
-    mascota: boolean;
-    categoria: number;
-    usuario_id: number;
-    created_at?: string;
-    updated_at?: string;
+export interface PaellaInterface {
+    id_paella: number;
+    paella_nombre: string;
+    paella_descripcion: string;
+    paella_precio: number;
+    paella_fecha_coccion: string;
+    paella_foto: string;
+    paella_tipo: number;
+    paella_raciones: number;
+    paella_ver: boolean;
+    paella_mascotas: boolean;
+    id_cocinero: number;
+    id_provincia: number;
 
 }

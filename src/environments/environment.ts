@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  isMockEnabled: true, // You have to switch this, when your real back-end is done
+  // apiUrl: 'https://peterpaellas.com/api/'
+  apiUrl: 'http://api.peterpaellas.local/'
 };
 
 /*

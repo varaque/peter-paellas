@@ -1,6 +1,4 @@
-export interface Provincia{
-
-    id?: string;
-    nm: string;
-
+export interface ProvinciaInterface {
+    id_provincia: number;
+    provincia_nombre: string;
 }

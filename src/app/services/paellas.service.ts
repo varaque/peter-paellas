@@ -1,39 +1,52 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
-import {Paella} from '../interfaces/paella';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { Paella } from '../models/paella.model';
+import { ApiService } from './api/api.service';
 //import {}
 @Injectable({
   providedIn: 'root'
 })
 export class PaellasService {
-
-API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
-//API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
+  constructor(private api: ApiService) { }
 
 
-  constructor(private httpClient:HttpClient) {}
-
-
-  save(paella:Paella){
-    
-    var user = null;
-    user = localStorage.getItem('user');
-    user = JSON.parse(user);
-    var atoken = user.access_token;
-    var rtoken = user.refresh_token;
-    const headers = new HttpHeaders({ 'Authorization': `Bearer ${atoken}`});
-    console.log(atoken);
-    return this.httpClient.post(this.API_ENDPOINT + 'paellas', paella, {headers:headers});
-
+  actualizar(paella: any): Observable<any> {
+    return this.api.conectar({ modelo: 'paellas', accion: 'Actualizar', argumentos: paella });
   }
 
-  get(){
-    return this.httpClient.get(this.API_ENDPOINT + 'paellas');
+  crear(paella: any): Observable<any> {
+    return this.api.conectar({ modelo: 'paellas', accion: 'InsertarAlbaran', argumentos: paella });
   }
-  put(paella){
 
-    const headers = new HttpHeaders({ 'Content-Type':'application/json'});
-    return this.httpClient.put(this.API_ENDPOINT + 'paellas/' + paella.id, paella, {headers:headers});
+  eliminar(id: number): Observable<any> {
+    return this.api.conectar({ modelo: 'paellas', accion: 'Eliminar', argumentos: id });
+  }
 
+  listar(): Observable<Paella[]> {
+    return this.api.conectar(
+      { modelo: 'paellas', accion: 'Listar' }
+    ).pipe(
+      map(next => next.respuesta.map(alb => new Paella(alb)))
+    );
+  }
+
+  buscar(args: any): Observable<Paella[]> {
+    return this.api.conectar(
+      { modelo: 'paellas', accion: 'Buscar', argumentos: args }
+    ).pipe(
+      map(next => next.respuesta.map(alb => new Paella(alb)))
+    );
+  }
+
+  obtener(id: number): Observable<Paella> {
+    return this.api.conectar(
+      { modelo: 'paellas', accion: 'Obtener', argumentos: id }
+    ).pipe(
+      map(next => {
+        return new Paella(next);
+      })
+    );
   }
 }

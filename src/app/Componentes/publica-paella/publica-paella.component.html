@@ -1,39 +1,40 @@
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript">
-      $(function () {
-          $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd hh:mm:ss' });
-      });
-    </script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap"
-      rel="stylesheet">
-      <script src="https://cdn.jsdelivr.net/npm/pselect.js@4.0.1/dist/pselect.min.js" ></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd hh:mm:ss' });
+  });
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap"
+  rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/pselect.js@4.0.1/dist/pselect.min.js"></script>
 
 
 
 
-    <div class="container-fluid p-0">
-      <div id="fondo">
-        <div class="row">
-          <div class="col-xs-6 col-sm-6">
+<div class="container-fluid p-0">
+  <div id="fondo">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6">
 
 
-              <!-- esto es para subir fotos, funciona pero solo sube una, lo de abajo comentado es el multifoto, pilla todas las fotos que quieras y las hace un array, falta modificar 
+        <!-- esto es para subir fotos, funciona pero solo sube una, lo de abajo comentado es el multifoto, pilla todas las fotos que quieras y las hace un array, falta modificar 
                 la bbdd para incluir tabla fotos y que busque la foto por el id de la paella-->
 
-             <div class="container-input-file">
-              <label class="custom-file"> <img class="img-round" src="/assets/images/subirFoto.PNG">
-                <input type="file" (change)="handleUpload($event)" class="botonimagen" placeholder="">
-              </label>
-            </div>
+        <div class="container-input-file">
+          <label class="custom-file"> <img class="img-round" src="/assets/images/subirFoto.PNG">
+            <input type="file" (change)="handleUpload($event)" class="botonimagen" placeholder="">
+          </label>
+        </div>
 
-                <img class="margen-preview" id="blah" [src]="imageSrc || '/assets/images/placeholder.png'" alt="your image" />     <!-- Aqui vemos el preview-->
+        <img class="margen-preview" id="blah" [src]="imageSrc || '/assets/images/placeholder.png'" alt="your image" />
+        <!-- Aqui vemos el preview-->
 
-<!-- esto es para multifoto, esto coge todas las fotos que le pases y las mete en un form y las pasa en un array al que luego podremos acceder, falta eso, que la bbdd lo recoja -->
+        <!-- esto es para multifoto, esto coge todas las fotos que le pases y las mete en un form y las pasa en un array al que luego podremos acceder, falta eso, que la bbdd lo recoja -->
 
-                 <!-- <form [formGroup]="myForm" (ngSubmit)="submit()">
+        <!-- <form [formGroup]="myForm" (ngSubmit)="submit()">
 
                   <div class="form-group">
                       <label for="file"><img class="img-round" src="/assets/images/subirFoto.PNG"></label>
@@ -54,167 +55,182 @@
 
               </form> -->
 
-<!-- HASTA AQUI el codigo de multifoto -->
+        <!-- HASTA AQUI el codigo de multifoto -->
+
+      </div>
+
+      <!-- <div class="col-xs-4 col-sm-4">
+        <div class="container sombra bg-white">
+          <div class="letra-marron">
+            PUBLICAR UNA PAELLA
+          </div>
+
+          <label class="mt-4" for="nombre"></label>
+
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu"
+              placeholder="Tipo de paella">
+              <option [ngValue]="null" [disabled]="true" hidden>Selecciona el tipo de paella</option>
+              <option value="1">Paella valenciana</option>
+              <option value="2">Paella de marisco</option>
+              <option value="3">Paella de verdura</option>
+              <option value="4">Fideuá</option>
+              <option value="0">Otro</option>
+            </select>
+          </div>
+
+
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <input [(ngModel)]="paella.nombre" type="text" class="form-control bordeMarron" id="nombre"
+              placeholder="Nombre de la paella">
+          </div>
+
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <input [(ngModel)]="paella.ubicacion" type="text" class="form-control bordeMarron" id="ubicacion"
+              name="ubicacion" placeholder="Direccion">
+          </div>
+
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <input [(ngModel)]="paella.provincia" type="text" class="form-control bordeMarron" id="provincia"
+              name="provincia" placeholder="Provincia">
+          </div>
+
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <input [(ngModel)]="paella.municipio" type="text" class="form-control bordeMarron" id="municipio"
+              name="municipio" placeholder="Municipio">
+          </div>
+
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <select [(ngModel)]="paella.provincia" class="form-control bordeMarron" name="provincia"
+              placeholder="Provincia">
+              <option [ngValue]="null" [disabled]="true" hidden>Busca tu provincia</option>
+              <option *ngFor="let p of provincias">{{p.nm}}</option>
+            </select>
+          </div>
+
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <select [(ngModel)]="paella.municipio" class="form-control bordeMarron" name="municipio"
+              placeholder="Municipio" id="select">
+              <option [ngValue]="null" [disabled]="true" hidden>Busca tu municipio</option>
+              <option *ngFor="let m of municipios">{{m.nm}}</option>
+            </select>
+          </div>
+
+
+          <div class="input-group mt-4 mb-4">
+            ESTA ES LA AMPLIACION DE ELEGIR PAIS, CUANDO SE QUIERA SOLO SERÁ
+            DESCOMENTARLO
+            <span class="input-group-addon"></span>
+            <input [(ngModel)]="paella.pais" type="text" class="form-control bordeMarron" id="provincia"
+              name="provincia" placeholder="Pais">
+          </div>
+
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <input [(ngModel)]="paella.telefono" type="text" class="form-control bordeMarron" id="telefono"
+              name="telefono" placeholder="Telefono">
+          </div>
+          <div>
+
+            <mat-form-field class="styleDatepicker">
+              <input [(ngModel)]="paella.fecha" matInput [ngxMatDatetimePicker]="picker" id="fechafea" class=""
+                placeholder="Selecciona fecha y hora">
+              <mat-datepicker-toggle matSuffix [for]="picker">
+              </mat-datepicker-toggle>
+              <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="true">
+              </ngx-mat-datetime-picker>
+            </mat-form-field>
 
           </div>
 
-        <div class="col-xs-4 col-sm-4">
-          <div class="container sombra bg-white">
-            <div class="letra-marron">
-                PUBLICAR UNA PAELLA
+
+
+          <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-md-2">
+
+              <p class=""><strong>Raciones disponibles </strong>
+
             </div>
 
-              <label class="mt-4" for="nombre"></label>
+            <div class="col-md-2">
 
-                           <div class="input-group mt-4 mb-4">
-                             <span class="input-group-addon"></span>
-                             <select [(ngModel)]="paella.categoria" class="form-control bordeMarron" name="menu" placeholder="Tipo de paella"> 
-                               <option [ngValue]="null" [disabled]="true" hidden>Selecciona el tipo de paella</option> 
-                               <option value="1">Paella valenciana</option> 
-                               <option value="2">Paella de marisco</option> 
-                               <option value="3">Paella de verdura</option> 
-                               <option value="4">Fideuá</option> 
-                               <option value="0">Otro</option> 
-                               </select> 
-                           </div>
-              
+              <input class="contador bordeMarron ml-3" [(ngModel)]="paella.plazas" [(ngModel)]="paella.plazas_libres"
+                id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
 
-                           <div class="input-group mt-4 mb-4">
-                             <span class="input-group-addon"></span>
-                             <input [(ngModel)]="paella.nombre" type="text" class="form-control bordeMarron" id="nombre"
-                               placeholder="Nombre de la paella">
-                           </div>
-                  
-                           <div class="input-group mt-4 mb-4">
-                             <span class="input-group-addon"></span>
-                             <input [(ngModel)]="paella.ubicacion" type="text" class="form-control bordeMarron" id="ubicacion" name="ubicacion"
-                               placeholder="Direccion">
-                           </div>
-                         
-                          <!--<div class="input-group mt-4 mb-4">
-                            <span class="input-group-addon"></span>
-                            <input [(ngModel)]="paella.provincia" type="text" class="form-control bordeMarron" id="provincia" name="provincia"
-                              placeholder="Provincia">
-                          </div>
+            </div>
 
-                           <div class="input-group mt-4 mb-4">
-                            <span class="input-group-addon"></span>
-                            <input [(ngModel)]="paella.municipio" type="text" class="form-control bordeMarron" id="municipio" name="municipio"
-                              placeholder="Municipio">
-                          </div> -->
+            <div class="col-md-4">
 
-                          <div class="input-group mt-4 mb-4">
-                            <span class="input-group-addon"></span>
-                            <select [(ngModel)]="paella.provincia" class="form-control bordeMarron" name="provincia" placeholder="Provincia">
-                              <option [ngValue]="null" [disabled]="true" hidden>Busca tu provincia</option>
-                              <option *ngFor="let p of provincias">{{p.nm}}</option>
-                          </select>
-                          </div>
+              <p class=""><strong>Precio por ración € </strong>
 
-                          <div class="input-group mt-4 mb-4">
-                            <span class="input-group-addon"></span>
-                            <select [(ngModel)]="paella.municipio" class="form-control bordeMarron" name="municipio" placeholder="Municipio" id="select">
-                              <option [ngValue]="null" [disabled]="true" hidden>Busca tu municipio</option>
-                              <option *ngFor="let m of municipios">{{m.nm}}</option>
-                          </select>
-                          </div>
-              
-              
-              <!-- <div class="input-group mt-4 mb-4">                          ESTA ES LA AMPLIACION DE ELEGIR PAIS, CUANDO SE QUIERA SOLO SERÁ DESCOMENTARLO 
-                <span class="input-group-addon"></span>
-                <input [(ngModel)]="paella.pais" type="text" class="form-control bordeMarron" id="provincia" name="provincia"
-                  placeholder="Pais"></div> -->
-              
-              <div class="input-group mt-4 mb-4">
-                <span class="input-group-addon"></span>
-                <input [(ngModel)]="paella.telefono" type="text" class="form-control bordeMarron" id="telefono" name="telefono"
-                  placeholder="Telefono">
-              </div>
-                <div>
+            </div>
 
-                     <mat-form-field class="styleDatepicker">
-                       <input [(ngModel)]="paella.fecha" matInput [ngxMatDatetimePicker]="picker" id="fechafea" class="" placeholder="Selecciona fecha y hora">
-                     <mat-datepicker-toggle matSuffix [for]="picker">
-                     </mat-datepicker-toggle>
-                     <ngx-mat-datetime-picker #picker 
-                       [showSpinners]="true" 
-                       [showSeconds]="true">
-                     </ngx-mat-datetime-picker>
-                     </mat-form-field>
+            <input class="contador bordeMarron" [(ngModel)]="paella.precio" id="id_form-0-quantity" min="1"
+              name="form-0-quantity" step="0.01" value="1" type="number">
 
-                </div> 
-
-          
-              
-              <div class="row d-flex align-items-center justify-content-center"> 
-                <div class="col-md-2"> 
-                  
-                  <p class=""><strong>Raciones disponibles </strong>   
-                  
-                </div> 
-                   
-                <div class="col-md-2"> 
-                    
-                  <input class="contador bordeMarron ml-3" [(ngModel)]="paella.plazas" [(ngModel)]="paella.plazas_libres" id="id_form-0-quantity" min="1" name="form-0-quantity" value="1" type="number">
-                   
-                </div> 
-
-                <div class="col-md-4">
-
-                  <p class=""><strong>Precio por ración € </strong> 
-                  
-                </div>
-                  
-                <input class="contador bordeMarron" [(ngModel)]="paella.precio" id="id_form-0-quantity" min="1" name="form-0-quantity" step="0.01" value="1" type="number">
-                
-              </div>
-    
-
-                <div class="input-group mt-4 mb-4">
-                  <span class="input-group-addon"></span>
-                  <select [(ngModel)]="paella.ver_hacer_paella" class="form-control bordeMarron" name="menu" placeholder="Ver paella"> 
-                    <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito ver como se prepara la paella?</option> 
-                    <option value="1">Si, permito ver como se prepara la paella</option> 
-                    <option value="0">No permito ver como se prepara la paella</option> 
-                    </select> 
-                </div>
-                <div class="input-group mt-4 mb-4">
-                  <span class="input-group-addon"></span>
-                  <select [(ngModel)]="paella.mascota" class="form-control bordeMarron" name="menu" placeholder="Mascota"> 
-                    <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito la entrada de mascotas?</option> 
-                    <option value="1">Si, permito traer mascotas</option> 
-                    <option value="0">No permito traer mascotas</option> 
-                    </select> 
-                </div>
-                <div class="input-group mt-4 mb-4">
-                  <span class="input-group-addon"></span>
-                  <select [(ngModel)]="paella.ninos" class="form-control bordeMarron" name="menu" placeholder="Niños"> 
-                    <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito que se traigan niños?</option> 
-                    <option value="1">Si, permito que se traigan niños</option> 
-                    <option value="0">No permito que se traigan niños</option> 
-                    </select> 
-                </div>
-
-      
-                <div class="mt-4 input-group">
-                  <span class="input-group-addon"></span>
-                  <textarea [(ngModel)]="paella.descripcion" type="text" class="form-control descripcion bordeMarron" id="descripcion" name="descripcion"
-                    placeholder="Informacion adicional: hora de llegada, ingredientes, indicaciones de ubicacion, ciudad, codigo postal, etc"></textarea>
-
-                </div>
-
-              <div class="p-paella-margin"> <a href="" routerLinkActive="active" class="ml-4 pr-4"> <strong class="cancelar">Cancelar</strong> </a> <button (click)="savePaella()" class="letra-header bordeMarron inout"> <strong class="inoutl">Publicar</strong> </button></div>
-              <div class="p-paella-margin"></div>
-            </div> 
-
-    </div>
-</div>
-
-
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
           </div>
+
+
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <select [(ngModel)]="paella.ver_hacer_paella" class="form-control bordeMarron" name="menu"
+              placeholder="Ver paella">
+              <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito ver como se prepara la
+                paella?</option>
+              <option value="1">Si, permito ver como se prepara la paella</option>
+              <option value="0">No permito ver como se prepara la paella</option>
+            </select>
+          </div>
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <select [(ngModel)]="paella.mascota" class="form-control bordeMarron" name="menu" placeholder="Mascota">
+              <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito la entrada de mascotas?
+              </option>
+              <option value="1">Si, permito traer mascotas</option>
+              <option value="0">No permito traer mascotas</option>
+            </select>
+          </div>
+          <div class="input-group mt-4 mb-4">
+            <span class="input-group-addon"></span>
+            <select [(ngModel)]="paella.ninos" class="form-control bordeMarron" name="menu" placeholder="Niños">
+              <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito que se traigan niños?
+              </option>
+              <option value="1">Si, permito que se traigan niños</option>
+              <option value="0">No permito que se traigan niños</option>
+            </select>
+          </div>
+
+
+          <div class="mt-4 input-group">
+            <span class="input-group-addon"></span>
+            <textarea [(ngModel)]="paella.descripcion" type="text" class="form-control descripcion bordeMarron"
+              id="descripcion" name="descripcion"
+              placeholder="Informacion adicional: hora de llegada, ingredientes, indicaciones de ubicacion, ciudad, codigo postal, etc"></textarea>
+
+          </div>
+
+          <div class="p-paella-margin"> <a href="" routerLinkActive="active" class="ml-4 pr-4"> <strong
+                class="cancelar">Cancelar</strong> </a> <button (click)="savePaella()"
+              class="letra-header bordeMarron inout"> <strong class="inoutl">Publicar</strong> </button>
+          </div>
+          <div class="p-paella-margin"></div>
         </div>
-        
+
+      </div> -->
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
       </div>
     </div>
+
+  </div>
+</div>

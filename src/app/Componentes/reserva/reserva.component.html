@@ -36,14 +36,14 @@
     </div>
 
     
-    <div class="col-md-4  margenverhacer" *ngIf="selectedPaella.ver_hacer_paella == true">
+    <div class="col-md-4  margenverhacer" *ngIf="selectedPaella.paella_ver == true">
       Quiero ver como se hace la paella
 
      
     </div>
      
-    <div class="col-md-1" *ngIf="selectedPaella.ver_hacer_paella == true"> 
-      <mat-checkbox id="ver_hacer_paella" class="" [(ngModel)]="reserva.ver_hacer_paella" name="ver_hacer_paella"></mat-checkbox>
+    <div class="col-md-1" *ngIf="selectedPaella.paella_ver == true"> 
+      <mat-checkbox id="paella_ver" class="" [(ngModel)]="reserva.paella_ver" name="paella_ver"></mat-checkbox>
     </div>
         <br>
 
@@ -61,11 +61,11 @@
 
       <div class="row mb-4 mt-2 d-flex align-items-center justify-content-center">
 <div class="col-md-4 borde-pago bordeMarron">
-      <div class="calculo mb-1">{{this.selectedPaella.precio}}€ x {{this.reserva.personas}} raciones</div> 
+      <div class="calculo mb-1">{{this.selectedPaella.paella_precio}}€ x 10 raciones</div> 
       
     </div>
     <div class="col-md-4 borde-pago-2 bordeMarron">
-      <div class="calculo mb-1">TOTAL {{this.selectedPaella.precio * this.reserva.personas}} € </div> 
+      <div class="calculo mb-1">TOTAL {{this.selectedPaella.paella_precio * 10}} € </div> 
       
     </div>
   </div>

@@ -1,70 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
 
-<link rel="preconnect" href="https://fonts.gstatic.com"><!--letra font-->
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap" rel="stylesheet">
-     
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-                <nav class="navbar navbar-expand-lg navbar-light">
-                  <div class="container">
-                  
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                          <a class="nav-link" routerLink="" routerLinkActive="active" href="#"><strong>BUSCAR PAELLAS</strong> <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="" routerLinkActive="active" href="#"><strong>BUSCAR PAELLAS</strong> <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
 
-                          <a class="nav-link" routerLink="cocineros" routerLinkActive="active"  href=""><strong>COCINEROS</strong></a>
-                        </li>
-                        <li class="nav-item active">
+          <a class="nav-link" routerLink="cocineros" routerLinkActive="active" href=""><strong>COCINEROS</strong></a>
+        </li>
+        <li class="nav-item active">
 
-                          <a class="nav-link" routerLink="faq" routerLinkActive="active"  href=""><strong>FAQ'S</strong></a>
-                        </li>
+          <a class="nav-link" routerLink="faq" routerLinkActive="active" href=""><strong>FAQ'S</strong></a>
+        </li>
 
 
 
 
-                        <li class="nav-item">
-                          <a class="nav-link active"  routerLink="publica-paella" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==true"> <strong>PUBLICAR PAELLA</strong></a>
-                          <a class="nav-link active"  routerLink="login" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==false"> <strong>PUBLICAR PAELLA</strong></a>
-                        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="publica-paella" routerLinkActive="active" href=""
+            *ngIf="this.guard.loggedIn==true"> <strong>PUBLICAR PAELLA</strong></a>
+          <a class="nav-link active" routerLink="login" routerLinkActive="active" href=""
+            *ngIf="this.guard.loggedIn==false"> <strong>PUBLICAR PAELLA</strong></a>
+        </li>
 
 
-                        <li class="nav-item">
-                          <a class="nav-link active" routerLink="panel-usuario" routerLinkActive="active"  href="" *ngIf="this.guard.loggedIn==true"> <strong>MI PERFIL</strong></a>
-                        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="panel-usuario" routerLinkActive="active" href=""
+            *ngIf="this.guard.loggedIn==true"> <strong>MI PERFIL</strong></a>
+        </li>
 
-                      </ul>
-
-
-
-                      <div class="form-inline my-2 my-lg-0">
-                        <ul class="navbar-nav mr-auto">   
+      </ul>
 
 
-           <li class="nav-item ml-4 mr-4">
-             <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==false" class="letra-header inout"> <strong class="inoutl">Acceder</strong> </a>
-             <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==true" (click)="logout()" class="letra-header inout"> <strong class="inoutl">Salir</strong> </a>
-           </li>
 
-                  <li class="nav-item ml-4 mr-4">
-                                        <a href="" routerLink="register" routerLinkActive="active" *ngIf="this.guard.loggedIn==false" class="registrarse"> <strong>Registrarse</strong> </a> 
-                  </li>
-        
-                    <li class="nav-item ml-4 mr-4">
+      <div class="form-inline my-2 my-lg-0">
+        <ul class="navbar-nav mr-auto">
 
-                    </li>
+          <li class="nav-item ml-4 mr-4">
+            <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==false"
+              class="letra-header inout"> <strong class="inoutl">Acceder</strong> </a>
+            <a href="" routerLink="login" routerLinkActive="active" *ngIf="this.guard.loggedIn==true" (click)="logout()"
+              class="letra-header inout"> <strong class="inoutl">Salir</strong> </a>
+          </li>
 
-                   </ul>
-                   
-                      </div>
+          <li class="nav-item ml-4 mr-4">
+            <a href="" routerLink="register" routerLinkActive="active" *ngIf="this.guard.loggedIn==false"
+              class="registrarse"> <strong>Registrarse</strong> </a>
+          </li>
 
-                      
-                    </div>
+          <li class="nav-item ml-4 mr-4">
 
-                  </div>
-                 
-                </nav>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</nav>

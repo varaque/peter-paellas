@@ -25,7 +25,6 @@ import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-
 
 const appRoutes: Routes = [
   { path: 'reserva', component: ReservaComponent },
-  //{ path: 'paella', loadChildren: () => import('./paella/paella.component').then(m => m.PaellaComponent), },
   { path: 'paella/:id', component: PaellaComponent },
   { path: 'cocineros', component: CocinerosComponent },
   { path: 'perfil/:id', component: PerfilComponent },
