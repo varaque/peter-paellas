@@ -1,58 +1,80 @@
-.bg-gris{
-    background-color: 
-    #585757;
-
+.bg-gris {
+    background-color: #585757;
 }
-.letra-footer{
+
+.letra-footer {
     color: #d3d3d3;
 }
- .letra-footer2{
+
+.letra-footer2 {
     color: rgb(255, 255, 255);
-/*     font-family: 'Quicksand', sans-serif; */
- 
 }
-.buscador{
+
+
+/* primera columna */
+
+.col-1-footer {
+    padding: 0 60px;
+}
+
+.btn-footer-contacto {
+    text-decoration: none;
+    padding: 10px 50px;
+    font-size: 20px;
+    background-color: lightgrey;
+    border-radius: 40px;
+    color: white;
+    margin-top: 30px;
+}
+
+.btn-footer-contacto:hover {
+    background: transparent;
+    border: 2px solid #ffffff;
+}
+
+
+/*  segunda columna*/
+
+.col-2-footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+.col-2-footer p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* tercera columna */
+
+.col-3-footer button {
+    height: 50px;
+    padding: 0 30px;
+    font-size: 20px;
+    background-color: transparent;
+    border-radius: 40px;
+    color: white;
+    border: 2px solid gray;
+}
+
+.col-3-footer button:hover {
+    background: #d3d3d3;
+}
+
+.buscador {
     border: 0;
-    border-radius: 5px;
+    border-radius: 1px;
     background-color: #d3d3d3;
-    color:#222222;
+    color: #222222;
     display: inline;
     height: 50px;
-    width: 350px;
-   }
-button{
-    background-color: black;
+    width: 60%;
 }
 
-.caja-footer-derecho input {
-    width: 75%;
+.col-3-footer i{
+    color: #d3d3d3;
 }
 
-.caja-footer-derecho button {
-    border-radius: 10px;
-    border-style: none;
-    padding-left: 5px 20px 5px 20px;
-    width: 100px;
+label[for="exampleCheck1"]{
+    font-size: 13px;
 }
-
-.caja-footer-izquierdo div:nth-child(1) {
-    width: 150px;
-}
-.bg-cyan{
-    background-color: cyan;
-}
-.lres{
-    color: #000000;
-    font-weight: 700;
-  }
-  
-  .res{
-    text-decoration: none;
-    padding: 8px;
-    padding-left: 25px;
-    padding-right: 25px;
-    font-weight: 300;
-    background-color: #bdbdbd;
-    border-radius: 20px;
-  
-  }

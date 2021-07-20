@@ -1,117 +1,45 @@
- /* #fondo {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg);
-  padding: 90px;
-  text-align: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-
-  mar car 1*(4/6)*(4/6)=0.44444 abr  1*(4/6)*(4/6)=0.41666666
-} */
-.dropdown-item.active{
-background-color: darkgrey;
-}
-.dropdown-item:active{
-  background-color: grey;
+nav {
+    padding: 25px 150px;
 }
 
-.registrarse{
-color: #8b5a17;
-}
-
-.navbar{
-min-height: 100px;
-}
-
-.acceso{
-  background-color: #ffefd5;
-}
-
-a{
-  color:black;
-}
-
-.inoutl{
-  color:#7c7572;
-  font-weight: 700;
-}
-.inout{
-  text-decoration: none;
-  padding: 8px;
-  padding-left: 25px;
-  padding-right: 25px;
-  font-weight: 300;
-  background-color: #ffefd5;
-  border-radius: 20px;
-
-}
-
-
-.btn-outline-secondary{
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 10px;
-  }
-
-.letra-header{
-  color: rgb(0, 0, 0);
-/*   font-family: 'Quicksand', sans-serif; */
-}
-
-.d-flex-center{
-display: flex;
-/* align-items: center; */
-justify-content: center;
-}
-.d-flex-end{
-  display: flex;
-  /* align-items: center; */
-  justify-content: end;
-  }
-
-
-  .li {
-    float: left;
-  }
-
-  li > ul{
-    display: none;
-    position: absolute;
-    transition: 1s 1s;
-  }
-
-  li:hover > ul {
-  padding-top:0px;
+  #navbarSupportedContent ul li {
     display: flex;
-    transition: 1s 1s;
-  }
-
-.letranegra{
-  color: black;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
 }
 
-  .navigation li {
-    padding: 0px;
-    display: inline-block;
-    font-size: 15px;
-    white-space: normal;
-    font-weight: 500;
-/*     font-family: 'Quicksand';
- */    color: black;
-    background-color: rgb(255, 255, 255);
-    transition: background-color 0.5s ease;
-    font-display: block;
-
-  }
-.round{
-  border-radius: 30px;
+#navbarSupportedContent ul li a {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 2px;
 }
-  .navigation li:first-of-type {
-    border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-  }
 
-  .navigation li:last-of-type {
-    border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  }
+form.form-inline a {
+    text-decoration: none;
+    padding: 10px 50px;
+    font-size: 20px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+form.form-inline a:nth-child(1) {
+    background-color: #f7eddf;
+    border: 2px solid #f7eddf;
+    color: #8b5a17;
+    margin-right: 30px;
+}
+
+form.form-inline a:nth-child(2) {
+    border: 2px solid #8b5a17;
+}
+
+form.form-inline a:nth-child(1):hover {
+    border: 2px solid #8b5a17;
+    font-weight: bold;
+}
+
+form.form-inline a:nth-child(2):hover {
+    font-weight: bold;
+}

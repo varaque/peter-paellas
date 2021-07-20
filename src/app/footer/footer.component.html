@@ -1,98 +1,58 @@
-<style>      /* estos estilos no me deja meterlos el css por algun motivo, asi que los dejo por aqui */
-
-  a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-  }
-
-  </style>
-  
-<link rel="preconnect" href="https://fonts.gstatic.com"><!--letra font-->
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap" rel="stylesheet">
-
-<!-- <div class="col-sm-12 col-md-4 col-lg-4 col-12"></div> -->
 <div class="container-fluid bg-gris">
-    <div class="row">
+  <div class="row d-flex justify-content-around p-5">
 
-     
-        <div class="col-sm-12 col-md-4 col-lg-4 col-12 d-flex align-items-center justify-content-center">
 
-          <img src="/assets/images/redes.PNG"> 
-          
-<!--Cuando esten claras las redes sociales y tal van aqui pero hasta entonces tampoco tiene mucho sentido meter 4 fotos con link a ninguna parte, lo dejo asi, que al menos no rompe la estética y cuando haya redes sociales se podrá implementar correctamente-->
+    <div class="col-md-2 d-flex flex-column justify-content-center col-1-footer">
+      <img src="../../assets/images/logo-blanco.png" class="img-fluid">
+      <a routerLink="/contacto" class="btn-footer-contacto">
+        Contactar
+      </a>
+    </div>
 
+    <div class="col-md-3 d-flex justify-content-center col-2-footer">
+      <div class="row">
+        <div class="col-12">
+          <p class="letra-footer2">
+            Laudem et impetus quo enim ad modum, quaeso, interpretaris? sicine eos et dolore magnam aliquam quaerat
+            voluptatem accusantium doloremque laudantium, totam rem aperiam eaque.
+          </p>
         </div>
 
-        <div class="col-sm-12 col-md-4 col-lg-4 col-12 d-flex align-items-center justify-content-center">
-<div class="row">         
-  
-  <p class="letra-footer2 mr-4 mb-3">
-    
-    <strong class="letra-footer ml-2 mr-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-      Accusantium aliquid porro possimus rerum exercitationem facere architecto quos quam amet dolorem illum ut recusandae rem aspernatur explicabo, 
-      sit totam? Velit, similique?</strong> 
-    
-    </p>
-
-
-
-              <a title="Aviso" routerLink="/avisolegal" routerLinkActive="active" href="">
-                <div class="letra-footer ml-3 mr-3">Aviso Legal</div>
-              </a>
-
-
-              <a title="Cookies" routerLink="/cookies" routerLinkActive="active" href="">
-                <div class="letra-footer ml-3 mr-3">Politica de cookies</div>
-              </a>
-
-              <a title="Contact" routerLink="/faq" routerLinkActive="active" href="">
-                <div class="letra-footer ml-3 mr-3">Preguntas Frecuentes</div>
-              </a>
-
-</div>
-            
-
-       </div>  
-       
-      
-       <div class="col-sm-12 col-md-4 col-lg-4 col-12 bg-negro align-items-center justify-content-center">
-
-
-        <div class="row pt-4 mt-4 pl-3 ml-3">
-
-          <a routerLink="/contacto" routerLinkActive="active" href="" class=" btn-sm btn-outline-secondary res mr-1"><div class="lres">Contactar</div></a>
-
+        <div class="col-12 d-flex justify-content-between">
+          <a title="Aviso" routerLink="/avisolegal" routerLinkActive="active" href="">
+            Aviso Legal
+          </a>
+          <a title="Cookies" routerLink="/cookies" routerLinkActive="active" href="">
+            Politica de cookies
+          </a>
+          <a title="Contact" routerLink="/faq" routerLinkActive="active" href="">
+            Preguntas Frecuentes
+          </a>
         </div>
 
+      </div>
+    </div>
 
 
+    <div class="col-md-4 col-3-footer">
+      <p class="letra-footer2">SUSCRÍBETE A NUESTRA NEWSLETTER* </p>
+      <div class="row">
+        <div class="col-10 d-flex">
+          <input [(ngModel)]="suscripcion.email" class="buscador mr-4" type="email" placeholder="Email">
+          <button>Enviar</button>
+        </div>
+      </div>
 
+      <div class="form-group form-check mt-3">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label text-white" for="exampleCheck1">Quiero recibir notificaciones de este sitio web*</label>
+      </div>
+      <div class="d-flex justify-content-start">
+        <i class="fa fa-facebook fa-2x mr-4"></i>
+        <i class="fa fa-twitter fa-2x mr-4"></i>
+        <i class="fa fa-instagram fa-2x"></i>
+      </div>
+    </div>
 
-
-        <div class="row pt-4 mt-0 pl-3 ml-3">
-        
-       
-        <p ><a (click)="saveSuscripcion()" title="Suscrito" routerLinkActive="active" class="letra-footer align-items-center justify-content-center" >SUSCRÍBETE A NUESTRA NEWSLETTER*</a></p>
-
-       </div>
-
-
-       <div class="row ml-2">
-
-                <p> <input [(ngModel)]="suscripcion.email" class="ml-4 pl-4 buscador" type="text" name="email" size="25" placeholder="Email"></p>
-
-              </div>
-
-
-              <div class="row ml-2">
-
-               <mat-checkbox id="acepto" class="acepto" [(ngModel)]="acepto" name="acepto"></mat-checkbox> <p> <label class="ml-2 letra-footer2" for="cbox2"> Acepto recibir notificaciones de este sitio web y los <a routerLink="/avisolegal" routerLinkActive="active"  href="" > terminos y condiciones</a></label></p>
-
-              </div>
-
-
-
-         </div>  
-
-
+  </div>
 </div>
