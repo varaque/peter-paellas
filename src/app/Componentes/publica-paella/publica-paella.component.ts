@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { PaellasService } from 'src/app/services/paellas.service';
-import * as moment from 'moment-timezone';
+
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Municipio } from 'src/app/Interfaces/municipio';
+import { ProvinciasService } from 'src/app/services/provincias.service';
+import { Provincia } from 'src/app/models/provincia.model';
+import { TipoPaella } from 'src/app/models/tipos-paellas.model';
+import { TipoPaellaService } from 'src/app/services/tipo-paella.service';
 
 @Component({
   selector: 'app-publica-paella',
@@ -22,6 +26,8 @@ export class PublicaPaellaComponent implements OnInit {
 
   //provincias: Provincia[];
   municipios: Municipio[];
+  provincias: Provincia[];
+  tipoPaellas: TipoPaella[];
 
   //esto es para usar el multifoto
   images = [];
@@ -33,18 +39,16 @@ export class PublicaPaellaComponent implements OnInit {
   });
 
 
-  constructor(private paellaService: PaellasService, private router: Router, private httpClient: HttpClient) {  //cargar provincias...
-    /* httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json').subscribe((data: Provincia[]) => {
+  constructor(private paellaService: PaellasService,
+    private router: Router,
+    private httpClient: HttpClient,
+    private provinciaService: ProvinciasService,
+    private tipoPaellaService: TipoPaellaService) { }
 
-      data.sort(function (a, b) {
-        if (a.nm > b.nm) { return 1 }
-        if (a.nm < b.nm) { return -1 } return 0;
-      });
-
-      this.provincias = data.sort();
-    }) */
-
-    httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json').subscribe((data: Municipio[]) => { //cargar municipios...
+  async ngOnInit() {
+    this.provincias = await this.provinciaService.listar().toPromise();
+    this.tipoPaellas = await this.tipoPaellaService.listar().toPromise();
+    this.httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json').subscribe((data: Municipio[]) => {
 
       data.sort(function (a, b) {
         if (a.nm > b.nm) { return 1 }
@@ -54,9 +58,6 @@ export class PublicaPaellaComponent implements OnInit {
       this.municipios = data.sort();
     })
 
-  }
-
-  ngOnInit(): void {
   }
 
 
@@ -85,9 +86,9 @@ export class PublicaPaellaComponent implements OnInit {
       }
     }
   }
+
   submit() {
     console.log(this.myForm.value);
-
   }
 
   //pruebas de coger varias fotos
@@ -109,6 +110,6 @@ export class PublicaPaellaComponent implements OnInit {
 
     };
   }
-
+  savePaella() { }
 
 }

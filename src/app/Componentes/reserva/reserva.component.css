@@ -1,211 +1,71 @@
-.d-flex{
-display: flex;
-}
-.bg-color{
-    background-color: beige;
-    height: 600px;
-}
-.contador{
-  width: 50px;
-  border:none;
-}
-.contador:focus{
-  width: 50px;
-  outline:none;
-}
-.columnasinferiores{
-  margin-top:20px;
-  margin-left: 80px;
-  margin-right: -50px;
-}
-.raciones{
-  border: 1px solid;
+.container-fluid {
+    background-color: #f7eddf;
 }
 
-.margenverhacer{
-  margin-top: -8px;
-  margin-right: -30px;
+.raciones {
+    border: 1px solid;
 }
 
-.margencheckbox{
-margin-top:23px;
-margin-right: 65px;
-margin-left: -115px;
+.checkcolor {
+    color: #8b5a17;
+    background-color: #ffffff;
+    width: 15px;
+    height: 15px;
+    border: solid 2px #d9c2a3 !important;
 }
 
-
-
-.margenTarjeta{
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.margenInputs{
-  margin-top: 20px;
-}
-
-.margenCentral{
-  margin-left: 80px;
-}
-
-
-.checkcolor{
-  color: #8b5a17;
-  background-color: #ffffff;
-  width: 15px;
-  height: 15px;
-  border: solid 2px #d9c2a3 !important;
-}
-
-/* .mat-checkbox{
-  border-color: #d9c2a3 !important;
-  color: #8b5a17 !important;
-} */
-/* ::ng-deep .label--checkbox .mat-checkbox-layout {
-  position: relative;
-
-  margin: .5rem;
-  
-  font-family: Arial, sans-serif;
-  line-height: 135%;
-  
-  cursor: pointer;
-}
-
-::ng-deep .label--checkbox .mat-checkbox-layout input{
-  position: relative;
-  top: rem(-6);
-  
-  margin: 0 1rem 0 0 ;
-  
-  cursor: pointer;
-  
-  &:before {
-		@include transition(all .3s ease-in-out);
-    
-		content: "";
-    
-		position: absolute;
-		left: 0;
-		z-index: 1;
-  
-		width: 1rem;
-		height: 1rem;
-    
-		border: 2px solid #f2f2f2; 
-  }
-  
-  &:checked {
-    &:before {
-       @include transform(rotate(-45deg));
-  
-  		height: .5rem;
-  
-  		border-color: $green;
-  		border-top-style: none;
-  		border-right-style: none;
-    } 
-  }
-  
-  &:after {
-    content: "";
-    
-    position: absolute;
-    top: rem(-2);
-    left: 0;
-    
-    width: 1.1rem;
-    height: 1.1rem;
-    
-    background: #fff;
-    
-    cursor: pointer;
-  }
-} */
 
 /*esto de aqui abajo es lo mas parecido a una solucion que he encontrado para el mat checkbox*/
 
-  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
-  opacity: 0.00 !important;
-  background-color: #8b5a17!important;
-  border: solid 2px #d9c2a3 !important;
+ ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.00 !important;
+    background-color: #8b5a17!important;
+    border: solid 2px #d9c2a3 !important;
 }
 
-::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
-  background-color: #8b5a17;
-  border: solid 2px #d9c2a3 !important;
-} 
-.margenRaciones{
-  margin-left:10px;
-}
- 
-
-
-
-.bordeCheck{
-  border: solid 2px #d9c2a3 !important;
-  border-inline-color: #d9c2a3;
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #8b5a17;
+    border: solid 2px #d9c2a3 !important;
 }
 
-.bordeMarron{
-  border-width:2px;
-  border-color:#d9c2a3;
+.bordeCheck {
+    border: solid 2px #d9c2a3 !important;
+    border-inline-color: #d9c2a3;
 }
-.borde-pago{
-  border-right: 2px solid #d3b791;
-  margin-left:50px;
+.borde-pago {
+    border-right: 2px solid #d3b791;
+    margin-left: 50px;
 }
-.borde-pago-2{
-  margin-right:45px;
-}
-.calculo{
-  font-size: 20px;
-  color: #878687;
- 
-}
-.bordeMarron{
-  border-bottom: 2px solid #d3b791;
 
+.borde-pago-2 {
+    margin-right: 45px;
 }
- h3{
-    color: #8b5a17;
-    font-size: 30px;
-/*      font-family: 'Quicksand', sans-serif;  */
-    line-height: 1.3;
-    font-weight: 700;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 25px;
 
-  } 
-  
-  .inputs{
-  width: 500px;
-  height: 50px;
-  border-color: #d3b791;
-  border-radius: 5px;
-  border-width: 2px;
-  border-style: solid;
-  margin-left: 80px;
-  }
+.calculo {
+    font-size: 20px;
+    color: #878687;
+}
 
-  .inputstextarea{
+.bordeMarron {
+    border-bottom: 2px solid #d3b791;
+}
+
+
+.inputs {
+    width: 500px;
+    height: 50px;
+    border-color: #d3b791;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    margin-left: 80px;
+}
+
+.inputstextarea {
     width: 500px;
     height: 250px;
     border-color: #d3b791;
     border-radius: 5px;
     border-width: 2px;
-    
-      }
-
-  select{
-border-color: #d3b791;
-border-width: 2px;
-
-
-  }
-
-  a{
-      margin-left: 5%;
-  }
-  
+}

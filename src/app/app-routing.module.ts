@@ -33,16 +33,16 @@ const appRoutes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'credenciales-cambiadas', component: CredencialesCambiadasComponent },
   { path: 'edita-perfil', component: EditaPerfilComponent },
-  { path: 'faq', component: FaqComponent },
-  { path: 'perfil/:id', component: PerfilComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'reserva', component: ReservaComponent },
   { path: 'forgotpass', component: ForgotpassComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'perfil/:id', component: PerfilComponent },
   { path: 'panel-usuario', component: PanelUsuarioComponent },
   { path: 'publica-paella', component: PublicaPaellaComponent },
   { path: 'paella/:id', component: PaellaComponent },
   { path: 'paella-reservada', component: PaellaReservadaComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'reserva', component: ReservaComponent },
 
 ];
 
