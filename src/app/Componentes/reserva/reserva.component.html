@@ -1,89 +1,127 @@
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12 margenTarjeta align-items-center justify-content-center">
-      <form action="reserva.php" method="POST">
-        <h3>¡RESERVA TU PAELLA!    </h3>
-        <hr/>
+  <div class="row d-flex justify-content-center">
 
-<p class="margenInputs"><input [(ngModel)]="reserva.nombre" class="inputs" type="text" name="nombre" size="40" placeholder="Nombre completo*" required></p>
-
-<p class="margenInputs"><input [(ngModel)]="reserva.telefono" class="inputs" type="tel" name="telefono" size="40" pattern="[0-9]{9}" placeholder="Telefono*" required></p>
-
-<p class="margenInputs"><input  [(ngModel)]="reserva.email" class="inputs" type="text" name="email" size="40" placeholder="Email*" required></p>
-
-<hr/>
-
-
-<div class="row">
- <div class="col-md-6">
-
-   
-
-  
-     <div class="raciones margenCentral bordeMarron d-flex justify-content-between">
-       
-      <span class="margenRaciones"> Nª raciones</span>
-      <input class="contador"  [(ngModel)]="reserva.personas"  id="personas" min="1" name="form-0-quantity" value="1" type="number">
-    
-    
-    </div>
-
-    </div>
-
-    
-    <div class="col-md-4  margenverhacer" *ngIf="selectedPaella.paella_ver == true">
-      Quiero ver como se hace la paella
-
-     
-    </div>
-     
-    <div class="col-md-1" *ngIf="selectedPaella.paella_ver == true"> 
-      <mat-checkbox id="paella_ver" class="" [(ngModel)]="reserva.paella_ver" name="paella_ver"></mat-checkbox>
-    </div>
-        <br>
-
-      </div>
-
-
-      <hr/>
+    <div class="col-md-4">
       <div class="row">
-        <div class="col-xl-12 d-flex align-items-center justify-content-center ">
-          <p class="mt-4 letra txt-top"> <textarea  [(ngModel)]="reserva.mensaje"  class="l-input inputstextarea d-flex align-items-center justify-content-center" type="text" name="mensaje" cols="43" rows="3" placeholder="Informacion adicional: hora de llegada, alergias, mascota (si se permite), etc"></textarea> </p>
-        </div>    
+
+        <div class="col-md-10 mb-3">
+          <img src="../../../assets/images/paella.jpg" class="img-fluid" alt="">
+          <div class="d-flex mt-3">
+            <div class="col-md-7 pl-0">
+              <h3 class="text-left">PAELLA VALENCIANA</h3>
+            </div>
+            <div class="col-md-1">
+              <i class="fa fa-calendar fa-2x"></i>
+            </div>
+            <div class="col-md-4">
+              <h4>14/03/2021</h4>
+            </div>
+          </div>
+          <hr>
+        </div>
+
+        <div class="col-md-6 d-flex">
+          <i class="fa fa-user fa-2x"></i>
+          <p>Juan Garcia Cano</p>
+        </div>
+        <div class="col-md-6 d-flex">
+          <i class="fa fa-user fa-2x"></i>
+          <p>5€/ ración</p>
+        </div>
+        <div class="col-md-6 d-flex">
+          <i class="fa fa-user fa-2x"></i>
+          <p>¡Quedan 3 raciones!</p>
+        </div>
+        <div class="col-md-6 d-flex">
+          <i class="fa fa-user fa-2x"></i>
+          <p>Ver como se prepara la paella</p>
+        </div>
+        <div class="col-md-6 d-flex">
+          <i class="fa fa-user fa-2x"></i>
+          <p>Quid ex ea voluptate ponit</p>
+        </div>
+        <div class="col-md-6 d-flex">
+          <i class="fa fa-user fa-2x"></i>
+          <p>Mascotas</p>
+        </div>
+
+        <div class="col-md-10">
+          <p>Primum igitur, quid malum, sensu iudicari, sed et dolorem eum fugiat,
+            quo enim maxime consuevit iactare vestra se texit, ne ferae quidem
+            exercitus quid ex ea commodi consequatur? quis nostrum
+            exercitationem ullam corporis suscipit laboriosam, nisi ut aut odit aut </p>
+        </div>
       </div>
-
-
-
-      <div class="row mb-4 mt-2 d-flex align-items-center justify-content-center">
-<div class="col-md-4 borde-pago bordeMarron">
-      <div class="calculo mb-1">{{this.selectedPaella.paella_precio}}€ x 10 raciones</div> 
-      
     </div>
-    <div class="col-md-4 borde-pago-2 bordeMarron">
-      <div class="calculo mb-1">TOTAL {{this.selectedPaella.paella_precio * 10}} € </div> 
-      
-    </div>
-  </div>
 
+    <!-- caja del formulario -->
+    <div class="col-md-4 px-5">
+      <form>
+        <div class="form-row d-flex justify-content-center">
 
- 
-  <div #paypal></div>    <!-- Aplicacion de paypal de pagar -->
+          <div class="form-group col-md-8">
+            <h3 class="text-left">¡RESERVA TU PAELLA! </h3>
+          </div>
+          <div class="form-group col-md-8">
+            <input type="text" placeholder="Nombre Completo*">
+          </div>
 
-      <a type="button" class="d-flex justify-content-between align-items-center mb-4" routerLink="" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary">Volver atras</a>
-    
-      
-       <a (click)="saveReserva()" type="submit" class="d-flex justify-content-between align-items-center mb-4" class="btn btn-sm btn-outline-secondary">Reservar plaza</a>     
- <!--/ANTIGUO BOTON DE RESERVAR, AHORA HAY QUE GASTAR EL DE PAYPAL O TRAJETA DE CREDITO   , si solo quieres ver la reserva pon de funcion checkReserva, si quieres guardarla saveReserva--> 
+          <div class="form-group col-md-8">
+            <input type="text" placeholder="Teléfono">
+          </div>
 
+          <div class="form-group col-md-8">
+            <input type="email" placeholder="Email">
+          </div>
+
+          <div class="form-group col-md-8 caja-raciones-ver-hacer-paella">
+            <div class="d-flex justify-content-center">
+              <div class="col-md-6 pl-0 pr-5">
+                <input type="button" value="Nº Raciones">
+              </div>
+              <div class="col-md-6 d-flex justify-content-end pr-0">
+                <label for="quiero-ver-hacer-paella">QUIERO VER CÓMO SE HACE LA PAELLA</label>
+                <input type="checkbox" id="quiero-ver-hacer-paella">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-8">
+            <textarea name="" id="" rows="5"
+              placeholder="Información adicional: hora de llegada, alergias, mascotas etc"></textarea>
+          </div>
+
+          <div class="form-group col-md-8 caja-prefactura">
+            <div class="d-flex justify-content-center">
+              <div class=" col-md-6 prefactura-concepto">
+                <p>5€ x 3 Raciones 15€</p>
+              </div>
+              <div class="col-md-6 prefactura-total">
+                <p>TOTAL 15€</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-8 caja-botones-pago">
+            <h5 class="text-left">MÉTODO DE PAGO</h5>
+            <div class="d-flex justify-content-center">
+              <div class="col-md-6">
+                <button class="btn-pago-1">PayPal</button>
+              </div>
+              <div class="col-md-6">
+                <button class="btn-pago-2">Tarjeta de crédito o débito</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-8 caja-botones">
+            <button class="btn-cancelar">Cancelar</button>
+            <button class="btn-reservar">Publicar</button>
+          </div>
+
+        </div>
       </form>
 
     </div>
   </div>
 </div>
-
-
