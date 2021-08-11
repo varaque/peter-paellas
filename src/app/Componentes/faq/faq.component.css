@@ -1,91 +1,104 @@
-    #caja-modal {
-        position: absolute;
-        width: 100%;
-        height: 1066px;
-        /* height: 100%; */
-        z-index: 10000;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+hr {
+    border: none;
+    height: 3px;
+    background-color: #8b5a17;
+}
 
-    }
+a:link {
+    color: #8b5a17 !important;
+}
 
-    a:link{
-        color: #8b5a17 !important; 
-    }
+i {
+    cursor: pointer;
+}
 
-    #fondo {
-        background-image: url();
-        background:linear-gradient(to right, rgb(0 0 0 / 50%),rgb(0 0 0 / 50%)), /* url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg") */ url("../../../assets/images/1551251263737.jpg");
-        padding: 90px;
-        text-align: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: relative;
-    }
+#caja-modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .respuesta-modal-card {
-        background-color: #fdedd4;
-        width: 25%;
-        padding: 20px 35px 20px 35px;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
+#caja-modal i {
+    float: right;
+    font-size: 35px;
+    font-weight: lighter;
+}
 
-    .caja-exterior-faq {
-        padding: 20px;
-    }
-    .marron{
-        color: #8b5a17;
-        font-size: 20px;
-        font-weight: 700;
-    }
-    .colorMarron{
-        color: #8b5a17;
-    }
-    .caja-contenedor {
-        background: linear-gradient(to bottom, rgb( 255 255 255 / 50%), #ffefd5);
-        background-color: #ffefd5;
-        padding: 40px 50px 40px 50px;
-          /* border-radius: 15px; 
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;*/
-        
-    }
+#fondo {
+    background-image: url();
+    background: linear-gradient(to right, rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)), /* url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg") */
+    url("../../../assets/images/1551251263737.jpg");
+    padding: 90px;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
 
-    .caja-faq {
-        border-radius: 3px;
-        background-color: #FFFFFF;
-        padding: 25px 40px 25px 40px;
-    }
-    .titulo{
-        color: grey;
-        font-weight: 500;
-        font-size: 35px;
-    }
+.respuesta-modal-card {
+    background-color: #fdedd4;
+    width: 50%;
+    padding: 50px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
 
-    .caja-faq h3,
-    .caja-faq p {
-        margin-top: 35px;
-    }
+.caja-exterior-faq {
+    padding: 20px;
+}
 
-    .caja-faq i {
-        color: saddlebrown;
-        text-align: center;
-    }
+.marron {
+    color: #8b5a17;
+    font-size: 20px;
+    font-weight: 700;
+}
 
-    .caja-faq hr {
-        size: 20px;
-    }
+.colorMarron {
+    color: #8b5a17;
+}
 
-    .box-boton-plus {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.caja-contenedor {
+    background: linear-gradient(to bottom, rgb( 255 255 255 / 50%), #ffefd5);
+    background-color: #ffefd5;
+    padding: 40px 50px 40px 50px;
+}
 
-    #caja-modal .col-md-5 {
-        background-color: #ffefd5;
-    }
+.caja-faq {
+    border-radius: 6px 6px 0 0;
+    background-color: #FFFFFF;
+    padding: 25px 40px 25px 40px;
+    box-shadow: 0px 3px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.titulo {
+    color: #000;
+    font-weight: bold;
+    font-size: 28px;
+    letter-spacing: 3px;
+}
+
+.caja-faq h3,
+.caja-faq p {
+    margin-top: 35px;
+}
+
+.caja-faq i {
+    color: saddlebrown;
+    text-align: center;
+}
+
+.box-boton-plus {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#caja-modal .col-md-5 {
+    background-color: #ffefd5;
+}

@@ -1,8 +1,12 @@
 /* imagenes */
 
+.main-image-box,
+.images-miniatures {
+    background-color: #D7A678
+}
+
 .main-image-box {
     height: 250px;
-    background-color: #8b5a17;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +32,6 @@ label i {
 .images-miniatures {
     min-height: 100px;
     min-width: 100px;
-    background-color: #8b5a17;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -188,6 +191,7 @@ mat-datepicker-toggle {
 input[type="file"] {
     display: none;
 }
+
 
 /* incrementadores */
 

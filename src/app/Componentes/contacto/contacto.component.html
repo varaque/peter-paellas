@@ -1,41 +1,49 @@
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <!--letra font-->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Roboto:ital@1&display=swap"
-    rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+<div class="container-fluid">
+  <div class="container mt-4 mb-4">
 
-  <div class="container-fluid">
-    <div class="container mt-4 mb-4">
-      <div class="col-md-4">
-        <h5>¡ENVÍANOS UN E-MAIL! </h5>
-        <p class="letra-gris">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque qui voluptas ipsum illum. Ut, consequatur. Qui minus, blanditiis aut, molestiae debitis pariatur vero quidem vel tenetur quis et nihil deserunt!</p>
-        <form class="" action="" autocomplete="off" method="POST">
-          <div class="form-group">
-            <input [(ngModel)]="mensaje.nombre" class="form-control sombra" type="text" name="nombre" size="40"
-              placeholder="Nombre">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="mensaje.apellido" class="form-control sombra" type="text" name="apellido" size="40"
-              placeholder="Apellidos">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="mensaje.telefono" class="form-control sombra" type="tel" name="telefono" size="40"
-              pattern="[0-9]{9}" placeholder="Teléfono">
-          </div>
+    <div class="col-md-6 caja-formulario">
+      <h5>¡ENVÍANOS UN E-MAIL! </h5>
 
-          <div class="form-group">
-            <input [(ngModel)]="mensaje.email" class="form-control sombra" type="text" name="email" size="40"
-              placeholder="E-mail">
-          </div>
+      <p> Si tienes alguna duda o necesitas más información, no dudes en contactar con nosotros</p>
 
-          <div class="form-group ">
-            <textarea [(ngModel)]="mensaje.mensaje" class="form-control sombra" type="text" name="mensaje" rows="10"
-              placeholder="Mensaje"></textarea>
-          </div>
+      <form>
+        <div class=" form-group">
+          <input class="form-control" type="text" size="40" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" size="40" placeholder="Apellidos">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="tel" size="40" pattern="[0-9]{9}" placeholder="Teléfono">
+        </div>
 
-          <button (click)="saveMensaje()" type="submit">Enviar</button>
-        </form>
-      </div>
+        <div class="form-group">
+          <input class="form-control" type="text" size="40" placeholder="E-mail">
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-control" type="text" rows="5" placeholder="Mensaje"></textarea>
+        </div>
+
+        <div class="form-group caja-terminos mt-3">
+          <div>
+            <input type="checkbox" id="terminos-condiciones">
+          </div>
+          <label for="terminos-condiciones">
+            Doy mi consentimiento de mis datos personales a
+            Peter Paellas para que pueda atender mis
+            mensajes y solicitudes.
+            <a routerLink="/"> Más información aquí</a>
+          </label>
+        </div>
+
+        <div class="form-group d-flex justify-content-center align-items-center mt-5">
+          <button class="btn-paella btn-paella-aceptar">Enviar</button>
+        </div>
+
+
+      </form>
     </div>
+
   </div>
+</div>

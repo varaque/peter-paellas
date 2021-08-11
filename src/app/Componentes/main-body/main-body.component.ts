@@ -17,6 +17,7 @@ import { TipoPaellaService } from 'src/app/services/tipo-paella.service';
   styleUrls: ['./main-body.component.css']
 })
 export class MainBodyComponent implements OnInit {
+
   @ViewChild('fechaRef') fechaRef: ElementRef;
 
   provincias: Provincia[] = [];
@@ -67,7 +68,6 @@ export class MainBodyComponent implements OnInit {
       this.filteredPaellas = this.paellas = await this.paellaService.listar().toPromise();
       this.provincias = await this.provinciaService.listar().toPromise();
       this.tipoPaellas = await this.tipoPaellaService.listar().toPromise();
-      console.log(this.provincias)
     } catch (error) {
       console.log(error);
     }
@@ -76,7 +76,6 @@ export class MainBodyComponent implements OnInit {
   }
 
   buscar(): void {
-    console.log(this.filter.fecha)
     /*  this.paellaService.buscar(this.filter).subscribe(res => {
        console.log(res)
      }) */

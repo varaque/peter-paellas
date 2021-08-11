@@ -1,9 +1,11 @@
 nav {
     padding: 25px 150px;
+    border-bottom: 2px solid #d3d3d3;
+    ;
 }
 
-  #navbarSupportedContent ul li {
-    display: flex;
+#navbarSupportedContent ul li {
+    display: ruby;
     flex-direction: column;
     justify-content: center;
     padding: 0 20px;
@@ -33,13 +35,141 @@ form.form-inline a:nth-child(1) {
 
 form.form-inline a:nth-child(2) {
     border: 2px solid #8b5a17;
+    color: #8b5a17
 }
 
 form.form-inline a:nth-child(1):hover {
     border: 2px solid #8b5a17;
+}
+
+form.form-inline a:nth-child(1):hover,
+form.form-inline a:nth-child(2):hover {
     font-weight: bold;
 }
 
-form.form-inline a:nth-child(2):hover {
+.btn-paella {
+    padding: 20px 30px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+}
+
+.btn-paella-aceptar {
+    background: #d3b791;
+    color: #8b5a17;
     font-weight: bold;
+}
+
+.caja-foto-perfil {
+    height: 50px;
+    width: 50px;
+    background: url('../../assets/images/img-cocinero.jpg');
+    border-radius: 100%;
+    background-position: center;
+    background-attachment: unset;
+    background-clip: padding-box;
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.caja-header-perfil {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.caja-header-perfil button {
+    border: none;
+    font-size: 18px;
+    color: #8b5a17;
+    font-weight: bold;
+    width: 100%;
+    margin-right: 25px;
+}
+
+.caja-header-perfil a {
+    margin-right: 5%;
+}
+
+.menu-dropdown-header {
+    position: absolute;
+    z-index: 1000;
+    background-color: #d3d3d3;
+    width: 300px;
+    right: 22%;
+    top: 80%;
+}
+
+.menu-dropdown-header ul {
+    padding: 0;
+    margin: 0;
+    display: grid;
+}
+
+.menu-dropdown-header li {
+    display: flex !important;
+    padding: 10px 10px;
+    height: 60px;
+    color: #8b5a17;
+    font-size: 22px;
+}
+
+.menu-dropdown-header li:hover {
+    background-color: #d3b791;
+}
+
+@media only screen and (max-width: 576px) {
+    nav {
+        padding: 0;
+    }
+    .navbar {
+        justify-content: space-around;
+    }
+    img {
+        width: 25%;
+    }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 991px) {
+    nav {
+        width: 100%;
+        padding: 1% 5%;
+    }
+    nav ul,
+    nav ul li {
+        display: block !important;
+    }
+    nav ul li {
+        width: 50%;
+        float: left;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    img {
+        width: 70px;
+    }
+    nav {
+        padding: 0 5px;
+    }
+    nav ul li {
+        padding: 0 !important;
+    }
+    .caja-header-perfil a {
+        margin: 0 !important;
+    }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1500px) {
+    img {
+        width: 70px;
+    }
+    nav {
+        padding: 1% 5%;
+    }
+    nav ul li {
+        padding: 0 5px !important;
+    }
 }

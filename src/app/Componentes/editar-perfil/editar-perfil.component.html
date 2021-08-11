@@ -1,0 +1,83 @@
+<div class="container-fluid">
+  <div class="container">
+
+    <!-- INICIO HEADER INFO PANEL USUARIO -->
+    <div class="row">
+      <div class="col-md-3">
+        <div class="caja-foto-perfil"></div>
+      </div>
+
+      <div class="col-md-9 caja-info-titulo">
+        <p> PANEL DE USUARIO </p>
+        <a>Cambiar la foto del perfil <i class="fa fa-pencil"></i> </a>
+      </div>
+    </div>
+    <!-- FIN HEADER INFO PANEL USUARIO-->
+
+    <!-- INICIO FORMULARIO -->
+    <form class="w-100 mt-5">
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="apellidos">Apellidos</label>
+          <input type="text" id="apellidos">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="text" id="email">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="telefono">Teléfono</label>
+          <input type="text" id="telefono">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="direccion">Dirección</label>
+          <input type="text" id="direccion">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="codigo-postal">Cód. Postal</label>
+          <input type="text" id="codigo-postal">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="pais">País</label>
+          <input type="text" id="pais">
+        </div>
+
+        <div class="form-group col-md-6 caja-password">
+          <div>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" value="asdasdasdasdsa">
+          </div>
+          <a>Cambiar contraseña</a>
+        </div>
+
+        <div class="form-group col-md-12 mt-4 mt-4">
+          <label for="descricion">Breve descripción</label>
+          <textarea id="descricion" cols="30" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu dui vitae lacus mattis molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer nec dui tincidunt, ultrices justo et. 
+          </textarea>
+        </div>
+
+        <div class="form-group col-md-12 mt-5 d-flex flex-column justify-contente-center align-items-center">
+          <button class="btn-paella btn-paella-aceptar">Aceptar</button>
+          <a routerLink="/panel-usuario" class="btn-paella btn-paella-cancelar">Cancelar</a>
+        </div>
+      </div>
+    </form>
+    <!--FIN FORMULARIO -->
+  </div>
+</div>

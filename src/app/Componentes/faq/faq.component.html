@@ -1,65 +1,49 @@
-<style>      /* estos estilos no me deja meterlos el css por algun motivo, asi que los dejo por aqui */
-  a:link {
-    color: #8b5a17;
-    text-decoration: underline;
-  }
-  a:visited {
-    color: #8b5a17;
-  }
-  a:hover {
-    color: #8b5a17;
-    text-decoration: underline;
-  }
-  a:active {
-    color: #8b5a17;
-  }
-  </style>
-  
-  <div id="caja-modal" *ngIf="modal_activated">
-    <div class="respuesta-modal-card">
-      <h3 class="colorMarron">
-        Sunt autem nusquam hoc
-        tenebo, si ob aliquam causam
-        ista?
-      </h3>
-      <p>
-        In oculis quidem se ipsam causam non possim
-        accommodare torquatos nostros? quos dolores et
-        voluptates omittantur maiorum voluptatum
-        adipiscendarum causa aut officiis debitis aut quid
-        aut petat aut petat aut fugit, sed animo etiam erga
-        nos amice et aut fugit, sed quia voluptas expetenda,
-        fugiendus.
-      </p>
-      <p>
-        In oculis quidem se ipsam causam non possim
-        accommodare torquatos nostros? quos dolores et
-        voluptates omittantur maiorum voluptatum.
-      </p>
-      <p>
-        Adipiscendarum causa aut officiis debitis aut quid
-        aut petat aut petat aut fugit, sed animo etiam erga
-        nos amice et aut fugit, sed quia voluptas expetenda,
-        fugiendus.
-      </p>
-      <hr>
-      <div class="row">
-        <div class="colorMarron col-md-9">
-          <p> ¿No ha respondido a tu pregunta? </p>
-          <a routerLink="/contacto">Contáctanos</a>
-        </div>
-        <div class="col-md-3">
-          <div class="fa fa-plus-circle fa-2x" (click)="toggleModal()"><img src="/assets/images/cierraModal.PNG"></div>
-        </div>
+<div id="caja-modal" *ngIf="modal_activated">
+  <div class="respuesta-modal-card">
+    <h3 class="colorMarron">
+      Sunt autem nusquam hoc
+      tenebo, si ob aliquam causam
+      ista?
+    </h3>
+    <p>
+      In oculis quidem se ipsam causam non possim
+      accommodare torquatos nostros? quos dolores et
+      voluptates omittantur maiorum voluptatum
+      adipiscendarum causa aut officiis debitis aut quid
+      aut petat aut petat aut fugit, sed animo etiam erga
+      nos amice et aut fugit, sed quia voluptas expetenda,
+      fugiendus.
+    </p>
+    <p>
+      In oculis quidem se ipsam causam non possim
+      accommodare torquatos nostros? quos dolores et
+      voluptates omittantur maiorum voluptatum.
+    </p>
+    <p>
+      Adipiscendarum causa aut officiis debitis aut quid
+      aut petat aut petat aut fugit, sed animo etiam erga
+      nos amice et aut fugit, sed quia voluptas expetenda,
+      fugiendus.
+    </p>
+    <hr>
+    <div class="row">
+      <div class="colorMarron col-md-9">
+        <p> ¿No ha respondido a tu pregunta? </p>
+        <a routerLink="/contacto">Contáctanos</a>
+      </div>
+      <div class="col-md-3">
+        <i class="fa fa-times" (click)="toggleModal()"></i>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="container-fluid p-0">
-    <div id="fondo">
+<div class="container-fluid p-0">
+  <div id="fondo">
     <div class="container caja-contenedor mb-4">
-      <h4 class="text-center titulo">PREGUNTAS FRECUENTES</h4>
+      <p class="text-center titulo">PREGUNTAS FRECUENTES</p>
       <div class="row">
+
         <div class="col-md-6 caja-exterior-faq">
           <div class="caja-faq">
             <h3 class=" marron">
@@ -74,7 +58,7 @@
             </p>
             <hr>
             <div class="box-boton-plus">
-              <i class="fa fa-plus-circle fa-2x"(click)="toggleModal()"><img src="/assets/images/toggle.PNG"></i>
+              <i class="fa fa-plus-circle fa-2x" (click)="toggleModal()"></i>
             </div>
           </div>
         </div>
@@ -94,7 +78,7 @@
             <hr>
 
             <div class="box-boton-plus">
-              <i class="fa fa-plus-circle fa-2x"(click)="toggleModal()"><img src="/assets/images/toggle.PNG"></i>
+              <i class="fa fa-plus-circle fa-2x" (click)="toggleModal()"></i>
             </div>
           </div>
         </div>
@@ -114,10 +98,11 @@
             <hr>
 
             <div class="box-boton-plus">
-              <i class="fa fa-plus-circle fa-2x"(click)="toggleModal()"><img src="/assets/images/toggle.PNG"></i>
+              <i class="fa fa-plus-circle fa-2x" (click)="toggleModal()"></i>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>

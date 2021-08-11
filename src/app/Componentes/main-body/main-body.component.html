@@ -105,53 +105,52 @@
 </div>
 
 
-<div class="bg-paellas">
+
+<div class="bg-paellas py-5">
   <div class="container">
+    <p class="main-title"> PAELLAS DESTACADAS </p>
 
-    <div class="row">
-      <div class="roboto col-md-12 mt-4 h3">
-        PAELLAS DESTACADAS
-      </div>
+    <p class="text-center subtitule"> Descubre los platos destacados de los cocineros mejores <br>
+      valorados y encuentra el que más encaje con tus gustos
+    </p>
 
-      <div class="col-md-5 mr-auto ml-auto">
-        <p class="text-center">
-          Descubre los platos destacados de los cocineros mejores valorados y encuentra el que más encaje con tus gustos
-        </p>
-      </div>
+    <div class="row mt-5">
 
-      <div class="col-md-4 mt-4" *ngFor="let Paella of paellas ">
-        <div class="card mb-4 shadow-sm">
-          <div class="row">
-            <div class="col-md-3"><img src="/assets/images/avatarSimbolo.png" class="mt-3 mb-3 ml-3 mr-3"></div>
-            <div class="col-md-9">
-              <p class="mt-2  mr-2" routerLink="/paella/{{Paella.id}}" routerLinkActive="active">
-                <strong>{{Paella.nombre}}</strong>
-              </p>
-              <p class="mt-2  mr-2">{{Paella.cocinero}}</p>
-            </div>
+      <div class="col-4">
+        <div class="card">
+
+          <div class="nombre-paella">
+            <img src="../../../assets/images/avatarSimbolo.png" class="" alt="">
+            <h3 class="card-title">Paella Valenciana</h3>
           </div>
 
-          <img src="https://peterpaellas.com/lvel/public{{Paella.foto}}" class="fotos"
-            alt="https://peterpaellas.com/lvel/public/foto.jpg" routerLink="/paella/{{Paella.id}}" routerLin
-            kActive="active">
+          <img src="../../../assets/images/paella.jpg" class="img-destacada-paella" alt="">
 
-          <div class="card-body">
-            <p class="card-text h2 descripcion justify-content-between align-items-center"> {{Paella.descripcion}}
+          <div class="info-cocinero">
+            <p class="card-text"> Juan Manuel Esposito de la Vera
             </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}"
-                    routerLinkActive="active" href="" class=" btn-sm btn-outline-secondary res mr -1">
-                    <div class="lres">Reservar</div>
-                  </a>
-                </div>
-              </div>
+            <div class="caja-estrellas">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
             </div>
           </div>
+
+          <p class="card-text ubicacion-paella text-center mt-4">
+            <img class="paella-icon-svg" src="../../../assets/images/gps.svg" alt=""> Burjassot, València
+          </p>
+
+          <p class="card-text fecha-paella text-center">
+            <img class="paella-icon-svg" src="../../../assets/images/calendar.svg" alt="">Mier. 8 Abril, 2021
+          </p>
+
+          <button class="btn-paella btn-paella-aceptar">Reservar</button>
         </div>
       </div>
-
-
+      
     </div>
+
+
   </div>
-</div>

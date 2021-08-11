@@ -1,72 +1,132 @@
-.bg-color{
+.container-fluid {
     background-color: #f7eddf;
+    padding: 5% 0;
 }
 
-.bg-blanco{
+.container {
     background-color: white;
-      /* border-radius: 15px; */
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2);
+    padding: 5% 15%;
 }
 
-.img-round{
-    width:150px;
-    height:150px;
-    border-radius:150px;
-    margin-top: 50px;
-    margin-left: 50px;
-}
-.lineaMarron{
-    border-top: none;
-    border-bottom: 2px solid #8b5a17;
-    padding-left: 125px;
-}
-.letra-intro{
-    color:#8b5a17;
-    font-weight: 700;
-    margin-top:50px;
-}
-.edita-info{
-    color:grey;
-    margin-top: 10px;
-}
-
-.letra-base{
-    color:lightgray;
+.caja-foto-perfil {
+    height: 125px;
+    width: 125px;
+    background: url('../../../assets/images/img-cocinero.jpg');
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-size: auto;
+    background-clip: border-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-attachment: scroll;
+    background-clip: border-box;
+    border-radius: 100%;
+    background-position: center;
+    background-attachment: inherit;
+    background-clip: inherit;
+    background-repeat: inherit;
+    background-size: cover;
 }
 
-.inoutl{
-    color:#ffffff;
-    font-weight: 700;
-  }
+.caja-info-titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-.inout{
+.caja-info-titulo p,
+.caja-info-titulo a,
+label {
+    color: #8b5a17;
+}
+
+.caja-info-titulo p {
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.caja-info-titulo a {
     text-decoration: none;
-    padding: 8px;
-    padding-left: 25px;
-    padding-right: 25px;
-    font-weight: 300;
-    background-color: #d3b791;
-    border-radius: 20px;
-  }
-
-.p-paella-margin{
-    margin-top: 30px;
-    margin-left: 780px;
 }
 
-.star {
-    position: relative;
-    display: inline-block;
-    font-size: 2rem;
-    color: #d3d3d3;
-  }
-  .full {
-    color: rgb(248, 223, 0);
-  }
-  .ratio {
-    position: absolute;
-    display: inline-block;
+.caja-info-titulo a i {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+
+/* parte del formulario */
+
+form div.col-md-6 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+form div.col-md-6,
+.caja-textarea {
+    border-bottom: 2px solid #8b5a17;
+}
+
+label,
+input {
+    font-size: 18px;
+}
+
+label {
+    margin-right: 20px;
+}
+
+input {
+    height: 35px;
+    border: none;
+    outline: none;
+}
+
+label[for="descricion"] {
+    font-size: 20px;
+}
+
+textarea {
+    width: 100%;
     overflow: hidden;
-    color: rgb(248, 223, 0);
-  }
+    outline: #d3b791;
+    padding: 10px 15px 5px 15px;
+    color: #000;
+    font-size: 20px;
+    border: none;
+}
+
+.btn-paella {
+    padding: 10px 30px;
+    border-radius: 40px;
+    font-size: 20px;
+    margin: 2px;
+}
+
+.btn-paella-aceptar {
+    background: #d3b791;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #d3b791;
+}
+
+.btn-paella-cancelar {
+    color: #8b5a17;
+    border: none;
+}
+
+.btn-paella-cancelar:hover {
+    padding: 8px 28px;
+    background: #d3b791;
+    color: #fff;
+    border: 2px solid #d3b791;
+}

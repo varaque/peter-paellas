@@ -1,0 +1,142 @@
+.container-fluid {
+    background-color: #f7eddf;
+    padding: 5% 0;
+}
+
+.container {
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2);
+    padding: 5% 15%;
+}
+
+.caja-foto-perfil {
+    height: 125px;
+    width: 125px;
+    background: url('../../../assets/images/img-cocinero.jpg');
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-size: auto;
+    background-clip: border-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-attachment: scroll;
+    background-clip: border-box;
+    border-radius: 100%;
+    background-position: center;
+    background-attachment: inherit;
+    background-clip: inherit;
+    background-repeat: inherit;
+    background-size: cover;
+}
+
+.caja-info-titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.caja-info-titulo p,
+.caja-info-titulo a,
+label {
+    color: #8b5a17;
+}
+
+.caja-info-titulo p {
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.caja-info-titulo a {
+    text-decoration: none;
+}
+
+.caja-info-titulo a i {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+
+/* parte del formulario */
+
+label,
+input {
+    font-size: 18px;
+}
+
+label {
+    margin-right: 20px;
+}
+
+input {
+    margin-top: 15px;
+    border: 1px solid #d3b791;
+    box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 1px;
+    height: 35px;
+    outline: #d3b791;
+}
+
+.caja-password div {
+    border-bottom: 2px solid #d3b791;
+}
+
+.caja-password input {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.caja-password a {
+    font-size: 13px;
+    color: grey;
+    text-decoration: underline;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+label[for="descricion"] {
+    font-size: 20px;
+}
+
+textarea {
+    border-radius: 2px;
+    border: 2px solid #d3b791;
+    width: 100%;
+    overflow: hidden;
+    outline: #d3b791;
+    padding: 10px 15px 5px 15px;
+    color: #000;
+    font-size: 20px;
+}
+
+.btn-paella {
+    padding: 10px 30px;
+    border-radius: 40px;
+    font-size: 20px;
+    margin: 2px;
+}
+
+.btn-paella-aceptar {
+    background: #d3b791;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #d3b791;
+}
+
+.btn-paella-cancelar {
+    color: #8b5a17;
+    border: none;
+}
+
+.btn-paella-cancelar:hover {
+    padding: 8px 28px;
+    background: #d3b791;
+    color: #fff;
+    border: 2px solid #d3b791;
+}

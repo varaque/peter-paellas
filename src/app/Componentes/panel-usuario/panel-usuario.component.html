@@ -1,100 +1,79 @@
-<div class="container-fluid py-4 bg-color">
-  <div class="container bg-blanco">
-    <div class="row">
-        
-          <div class="col-sm-3"> 
-            <img class="img-round" src="https://peterpaellas.com/lvel/public/{{this.userD.foto}}"> 
-          </div>  <!-- "https://peterpaellas.com/lvel/public/{{this.userD.foto}}" Link real-->
+<div class="container-fluid">
+    <div class="container">
 
-          <div class="col-sm-3 mt-4"><div class=" letra-intro"> PANEL DE USUARIO  </div>
-                   <div><a type="" routerLink="/edita-perfil" routerLinkActive="active" href="" class="edita-info">Editar datos</a></div> 
-          </div>
+        <!-- INICIO HEADER INFO PANEL USUARIO -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="caja-foto-perfil"></div>
+            </div>
 
+            <div class="col-md-9 caja-info-titulo">
+                <p> PANEL PERSONAL </p>
+                <a routerLink="/editar-perfil">Editar datos<i class="fa fa-pencil"></i> </a>
+            </div>
+        </div>
+        <!-- FIN HEADER INFO PANEL USUARIO-->
+
+        <!-- INICIO FORMULARIO -->
+        <form class="w-100 mt-5">
+            <div class="form-row">
+
+                <div class="col-md-6">
+                    <label for="nombre">Nombre</label>
+                    <input readonly value="asdsadsadas" type="text" id="nombre">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="apellidos">Apellidos</label>
+                    <input readonly value="asdsadsadas" type="text" id="apellidos">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="email">Email</label>
+                    <input readonly value="asdsadsadas" type="text" id="email">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="telefono">Teléfono</label>
+                    <input readonly value="asdsadsadas" type="text" id="telefono">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="direccion">Dirección</label>
+                    <input readonly value="asdsadsadas" type="text" id="direccion">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="codigo-postal">Cód. Postal</label>
+                    <input readonly value="asdsadsadas" type="text" id="codigo-postal">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="ciudad">Ciudad</label>
+                    <input readonly value="asdsadsadas" type="text" id="ciudad">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="pais">País</label>
+                    <input readonly value="asdsadsadas" type="text" id="pais">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="password">Contraseña</label>
+                    <input readonly type="password" id="password" value="asdasdasdasdsa">
+                </div>
+
+                <div class="col-md-12 mt-4 mt-4 caja-textarea">
+                    <label for="descricion">Breve descripción</label>
+                    <textarea readonly id="descricion" cols="30"
+                        rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu dui vitae lacus mattis molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer nec dui tincidunt, ultrices justo et.</textarea>
+                </div>
+
+                <div class="form-group col-md-12 mt-5 d-flex flex-column justify-contente-center align-items-center">
+                    <a routerLink="/publicar-paella" class="btn-paella btn-paella-aceptar">Publicar Paella</a>
+                </div>
+            </div>
+        </form>
+        <!--FIN FORMULARIO -->
     </div>
-
-      <div style="min-height: 60vh;">
-          <div #user id="user" class="row no-gutters mt-5">
-              <div class="col-sm-12">
-
-                  <table class="table table-hover table dark">
-                      <tbody>
-
-                          <tr class="fila-par pt-4">
-                              <td class="py-4 lineaMarron">
-                                  <p class="letra-base"><strong>Nombre:</strong> </p>
-                                <p><strong> {{this.userD.name}}</strong> </p> 
-                              </td>
-                              <td class="py-4 lineaMarron">
-                                  <p class="letra-base"><strong>Email:</strong> </p>
-                                  <p> <strong>{{this.userD.email}}</strong> </p> 
- 
-                                   
-                              </td>
-                          </tr>
-
-
-                          <tr class="fila-impar">
-                              <td class="py-4 lineaMarron">
-                                  <p class="letra-base"><strong>Calificación:</strong> </p>
-                                  <p>
-                                    
-                                    <ng-template #t let-fill="fill" >                                     <!-- ESTO MUESTRA LA PUNTUACION EN EL ALBUM DE COCINEROS -->
-                                      <span class="star" [class.full]="fill === 100">                        
-                                        <span class="ratio" [style.width.%]="fill">&#9733;</span>&#9733;
-                                      </span>
-                                    </ng-template>
-                                  
-                                    <ngb-rating [(rate)]="userD.calificacion/userD.veces_puntuado" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
-
-                                  </p> 
- 
-
-                              </td>
-                               <td class="py-4 lineaMarron">
-                                  <p class="letra-base"><strong>Direccion:</strong> </p>
-                                  <strong>{{this.userD.ubicacion}}</strong>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-
-                       <div class="p-paella-margin justify-content-end align-items-end"> 
-                         <a href="" routerLink="/publica-paella" routerLinkActive="active" class="letra-header inout"> 
-                           <strong class="inoutl">¡Publicar ya una paella!</strong> 
-                         </a>
-                       </div>
-
-              </div>
-
-              <!-- EN EL FUTURO ES FACIL QUE QUIERAN EN EL PANEL DE USUARIO LAS PAELLAS ACTIVAS QUE TENGAN, ASI QUE DEJO ESTO POR AQUI POR SI ACASO -->
-
-<!--               <p><strong>TUS PAELLAS ACTIVAS:</strong> </p>                                      
-
-              <div class="col-md-4" *ngFor="let Paella of paellas">
-                <div *ngIf="Paella.usuario_id == userData.id" class="card mb-4 shadow-sm">
-      
-                  <img src="https://img-global.cpcdn.com/recipes/152d87bfdfda7dfb/1200x630cq70/photo.jpg" width="100%" height="225"> 
-
-
-                   <div class="card-body">
-                    <p class="card-text h2">{{Paella.nombre}}, en {{Paella.ubicacion}} hecha por {{Paella.cocinero}} por tan solo {{Paella.precio}}€ la unidad. ¡Quedan {{Paella.plazas}} plaza(s)!</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <div onclick="window.scrollTo(0, 0);"><a type="button" routerLink="/paella/{{Paella.id}}" routerLinkActive="active" href="" class="btn btn-sm btn-outline-secondary mr-1">Reserva</a>
-                      </div>
-      
-                      <span class="fa ml-1 fa-star checked"></span>
-                      <span class="fa ml-1 fa-star checked"></span>
-                      <span class="fa ml-1 fa-star checked"></span>
-                      <span class="fa ml-1 fa-star checked"></span>
-                      <span class="fa ml-1 fa-star"></span>
-                        
-                    </div>
-                  </div>      
-                </div>      
-              </div>         
-            </div>   -->
-          </div>
-      </div>
-  </div>
 </div>
