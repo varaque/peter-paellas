@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../Interfaces/usuario';
 import { User } from '../../Interfaces/user';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { PaellasService } from 'src/app/services/paellas.service';
 
@@ -22,16 +21,15 @@ export class PerfilComponent implements OnInit {
 
 
   usuario: Usuario = {
-    id: null,
-    nombre: null,
-    email: null,
-    email_verified: false,
-    contrasena: null,
-    foto: null,
-    ubicacion: null,
-    calificacion: 0,
-    baneado: false,
-    tipo: 0,
+    id_usuario: 0,
+    usuario_nombre: '',
+    usuario_email: '',
+    email_verificado: false,
+    usuario_password: '',
+    usuario_telefono: '',
+    usuario_foto: '',
+    usuario_rol: '',
+    usuario_estado: 0
 
   };
 
@@ -60,7 +58,7 @@ export class PerfilComponent implements OnInit {
   ya_puntuaste = false;
   logeado;
 
-  constructor(private usuariosService: UsuarioService, private paellasService: PaellasService, private usersService: UserService, private route: ActivatedRoute, private httpClient: HttpClient) {
+  constructor(private usuariosService: UsuarioService, private paellasService: PaellasService, private route: ActivatedRoute, private httpClient: HttpClient) {
 
     this.aux = localStorage.getItem('userData');    //esto es para comprobar si estás logueado, simplemente recibimos un dato desde el localStorage que nos habra traido el
     this.userData = JSON.parse(this.aux);           //header y si existe pues estas logeado
@@ -69,22 +67,7 @@ export class PerfilComponent implements OnInit {
     } else { this.logeado = true }
 
 
-    this.id = this.route.snapshot.params['id'];           //buscar el user...
-    this.usersService.get().subscribe((data: User[]) => {
-      this.users = data;
-
-      this.user = this.users.find((n) => { return n.id == this.id })
-
-      /* httpClient.get( this.API_ENDPOINT).subscribe((data2: Paella[]) => { //aqui vemos todas las paellas, de las cuales mostraremos solo las que tengan el mismo id del usuario
-        this.paellas = data2;
-        for (var i = 0; i < data.length; i++) {       //esto es para saber el numero de paellas de cada usuario y poder sacarlo por pantalla ademas si quiere ver sus paellas tambien sirve
-          if(data2[i].usuario_id == this.user.id){this.numpaellas++;}  }      
-        })
-   */
-      if (this.user.veces_puntuado == 0) { this.currentRate = this.user.calificacion; } else { this.currentRate = this.user.calificacion / this.user.veces_puntuado }
-    })
-    //si no lo has puntuado nunca que salga la calificacion que tenga (que si es un usuario real será 0) por no dividir entre 0 y que salga siempre 5 o si prefieres que salga 5 
-    //de base pon solo la segunda parte y au
+    this.id = this.route.snapshot.params['id'];  
   }
 
   value: null;
@@ -95,11 +78,6 @@ export class PerfilComponent implements OnInit {
     if (this.ya_puntuaste == false) {
       this.user.calificacion = this.user.calificacion + puntuacion;
       this.user.veces_puntuado++;
-      this.usersService.put(this.user).subscribe((data) => {
-        this.ya_puntuaste = true;
-      }, (error) => {
-        console.log("error en perfil.component.ts en la parte del userservice de actualizar puntuacion");
-      })
     } else { alert('¡Ya has puntuado a este usuario!') }
   }
 

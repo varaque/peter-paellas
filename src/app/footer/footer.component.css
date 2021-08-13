@@ -25,6 +25,7 @@
     border-radius: 40px;
     color: white;
     margin-top: 30px;
+    border: 2px solid lightgrey;
 }
 
 .btn-footer-contacto:hover {
@@ -39,6 +40,7 @@
     color: #fff;
     text-decoration: underline;
 }
+
 .col-2-footer p {
     font-size: 18px;
     font-weight: bold;
@@ -71,10 +73,92 @@
     width: 60%;
 }
 
-.col-3-footer i{
+.col-3-footer i {
     color: #d3d3d3;
 }
 
-label[for="exampleCheck1"]{
+label[for="exampleCheck1"] {
     font-size: 13px;
+}
+
+@media only screen and (max-width: 576px) {
+    .col-1-footer {
+        padding: 0 !important;
+    }
+    .btn-footer-contacto {
+        text-align: center;
+    }
+    .col-2-footer .letra-footer2 {
+        margin-top: 50px;
+    }
+    .col-3-footer {
+        margin-top: 50px;
+    }
+    .col-3-footer input[type="email"] {
+        padding-left: 10px;
+        width: 75%;
+    }
+    .caja-redes {
+        justify-content: space-around !important;
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (min-width: 577px) {
+    .col-1-footer {
+        padding: 0 !important;
+    }
+    .btn-footer-contacto {
+        text-align: center;
+    }
+    .col-1-footer img {
+        width: 75% !important;
+    }
+    .col-2-footer .letra-footer2 {
+        margin-top: 50px;
+    }
+    .col-3-footer {
+        margin-top: 50px;
+    }
+    .col-3-footer input[type="email"] {
+        padding-left: 10px;
+        width: 75%;
+    }
+    .caja-redes {
+        justify-content: space-around !important;
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .col-1-footer img,
+    .col-1-footer a {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .col-1-footer a {
+        width: 50%;
+        padding: 5px 15px;
+    }
+    .col-2-footer .letra-footer2 {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .col-1-footer img,
+    .col-1-footer a {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .col-1-footer img {
+        width: 150px !important;
+    }
+    .col-1-footer a {
+        width: 50%;
+        padding: 5px 15px;
+    }
+    .col-2-footer .letra-footer2 {
+        font-size: 16px;
+    }
 }

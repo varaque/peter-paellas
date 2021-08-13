@@ -1,29 +1,42 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
-import {Usuario} from '../interfaces/usuario';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+
+import { Usuario } from '../interfaces/usuario';
+import { environment } from 'src/environments/environment';
+
+const apiUrl = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
-  //API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
 
-  constructor(private httpClient:HttpClient) {}
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  });
 
-  
-  save(usuario:Usuario){
-    const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.post(this.API_ENDPOINT +'usuarios', usuario, {headers:headers});
+  constructor(private httpClient: HttpClient) { }
+
+
+  insertar(usuario: Usuario) {
+    return this.httpClient.post(apiUrl, { modelo: 'usuarios', accion: 'Registrar', argumentos: usuario }, { headers: this.headers });
   }
 
-  get(){
-    return this.httpClient.get(this.API_ENDPOINT +'usuarios');
+  get() {
+    return this.httpClient.get(apiUrl + 'usuarios');
   }
 
-  
-  login(email: string, password: string) {
-    const httpHeaders = new HttpHeaders();
-    return this.httpClient.post(`${this.API_ENDPOINT}/login`, { email: email, password: password }, { headers: httpHeaders });
+
+  logIn(credenciales: any) {
+    return this.httpClient.post(apiUrl, { modelo: 'usuarios', accion: 'logIn', argumentos: credenciales }, { headers: this.headers });
+  }
+
+  guardarCredenciales(credenciales: any) {
+    localStorage.setItem('id_usuario', credenciales.respuesta.id_usuario);
+    localStorage.setItem('usuario_email', credenciales.respuesta.usuario_email);
+    localStorage.setItem('usuario_nombre', credenciales.respuesta.usuario_nombre);
+    localStorage.setItem('token', credenciales.respuesta.token);
+
   }
 }

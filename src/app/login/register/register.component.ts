@@ -3,9 +3,7 @@ import { Usuario } from 'src/app/interfaces/usuario';
 import { User } from 'src/app/interfaces/user';
 import { Mensaje } from 'src/app/interfaces/mensaje';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { UserService } from 'src/app/services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MensajeService } from 'src/app/services/mensaje.service';
 //import { resourceLimits } from 'worker_threads';
@@ -17,121 +15,26 @@ import { MensajeService } from 'src/app/services/mensaje.service';
 })
 export class RegisterComponent implements OnInit {
 
-  usuario:Usuario = {
+  registerForm: FormGroup;
 
-    nombre: null,
-    email: null,
-    email_verified: false,
-    contrasena: null,
-    foto: "foto",
-    ubicacion: null,
-    calificacion: 0,
-    baneado: false,
-    tipo: 0,
-  
-  }
-  user:User = {
+  constructor(
+    private usuarioService: UsuarioService,
+    private fb: FormBuilder,
+    private router: Router) { }
 
-    name: null,
-    email: null,
-    email_verified_at: null,
-    password: null,
-    foto: "/storage/foto.png",
-    ubicacion: "Desconocida", //ya no pedimos al registrarte ubicacion asi que como no es obligatoria pues pongo esto de default y luego si quieres lo cambias en el panel de usuario
-    calificacion: 0,
-    veces_puntuado: 0,
-    baneado: false,
-    tipo: 0,
-  
-  }
-  mensaje:Mensaje = {//esto es para enviar un mensaje de que te has registrado, el mensaje lo construimos en laravel asi que todos los datos dan igual realmente salvo el correo
-    nombre: 'nombre',
-    apellido: 'apellido',
-    telefono: 10,
-    email: this.user.email,
-    mensaje: 'mensaje de registro',  
-  }
-aux;
-contrasena2: null;
-form: FormGroup;
-
-  constructor(private usuarioService: UsuarioService, private userService: UserService, private fb:FormBuilder, private http: HttpClient, private router:Router, private MensajeService:MensajeService) { }
-
-  ngOnInit(){
-
-
-    this.form = this.fb.group({
-
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      ubicacion: ['', Validators.required],
-
-
+  ngOnInit() {
+    this.registerForm = this.fb.group({
+      usuario_nombre: ['', Validators.required],
+      usuario_email: ['', [Validators.required, Validators.email]],
+      usuario_password: ['', Validators.required]
     })
 
   }
 
-  submit(){
-
-    const formData = this.form.getRawValue;
-    this.http.post('https://peterpaellas.com/lvel/public/register', formData).subscribe(   //'http://localhost:8000/register'  'https://peterpaellas.com/lvel/public/register'
-      result=>console.log(result),
-      err=> console.log(err)
-    );
-
-
-  }
-
-
-  //aqui hacemos el guardar con la tabla users, igual que usuarios arriba
-
-
-
-//aqui hacemos el guardar con la tabla users, igual que usuarios arriba
-  saveUser(){
-
-if(this.contrasena2==this.user.password){ //chequeamos que la contraseña puesta 2 veces esté gucci
-
-  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.user.email)) //chequeamos que el mail sea de verdad y esté gucci
-  {
-
-     this.userService.save(this.user).subscribe((udata) => {
-      this.aux=udata;
-      this.mensaje.telefono = this.aux.id;   //verás esto es un poco trambolico, para buscar el user necesito recibir su id en el mensaje que le enviaré, pero no puedo poner a mensaje, de
-                                              //tipo string un tipo int, asi que gasto el telefono para eso y au, total aqui el tlf da igual asi que lo uso como auxiliar para tener el id,
-                                              //pero tampoco puedo simplemente meterlo rollo udata.id porque es un subscribe asi que gasto una variable auxiliar y ya está.
-
-    this.MensajeService.sendRegistro(this.mensaje).subscribe((mdata) => {
-
-console.log('el mensaje: ')
-console.log(this.mensaje);
-
+  registrarUsuario() {
+    console.log(this.registerForm.value);
+    this.usuarioService.insertar(this.registerForm.value).subscribe(res => {
+      this.usuarioService.guardarCredenciales(res);
     });
-
-
-      
-      alert('¡User creado!');
-      this.router.navigateByUrl('/login');
-
-      console.log(udata);
-        }, (error) => {
-      console.log("error en register.ts");
-    })
-
   }
-  else{
-    alert('¡Este email no es valido!');
-  }
-
- 
-  }
-
-
- else{
-    alert('¡Las contraseñas no coinciden!');
-  }
-
-}
-
 }

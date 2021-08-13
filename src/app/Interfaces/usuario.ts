@@ -1,18 +1,16 @@
 
 
-export interface Usuario{
+export interface Usuario {
 
-    id?: number;
-    nombre: string;
-    email: string;
-    email_verified: boolean;
-    contrasena: string;
-    foto: string;
-    ubicacion: string;
-    calificacion: number;
-    baneado: boolean;
-    tipo: number;
-    created_at?: string;
-    updated_at?: string;
+
+    id_usuario: number,
+    usuario_nombre: string,
+    usuario_email: string,
+    email_verificado: boolean,
+    usuario_password: string,
+    usuario_telefono: string,
+    usuario_foto: string,
+    usuario_rol: string,
+    usuario_estado: number;
 
 }
