@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ReservaComponent } from './componentes/reserva/reserva.component';
+import { DashboardRoutingModule } from './Componentes/dashboard/dashboard.routing';
+
 import { PaellaComponent } from '../app/componentes/paella/paella.component';
 import { CocinerosComponent } from './componentes/cocineros/cocineros.component';
-import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { FaqComponent } from './componentes/faq/faq.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { MainBodyComponent } from './componentes/main-body/main-body.component';
@@ -14,17 +14,12 @@ import { RegisterComponent } from './login/register/register.component';
 import { ForgotpassComponent } from './login/forgotpass/forgotpass.component';
 import { AvisoLegalComponent } from './Componentes/aviso-legal/aviso-legal.component';
 import { CookiesComponent } from './Componentes/cookies/cookies.component';
-import { EditarPerfilComponent } from './Componentes/editar-perfil/editar-perfil.component';
 import { PublicaPaellaComponent } from './Componentes/publica-paella/publica-paella.component';
 import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
 import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambiadas/credenciales-cambiadas.component';
 import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
 import { CambiarPasswordComponent } from './Componentes/cambiar-password/cambiar-password.component';
-import { PanelUsuarioComponent } from './Componentes/panel-usuario/panel-usuario.component';
 import { LaunchComponent } from './Componentes/launch/launch.component';
-import { DashboardComponent } from './Componentes/dashboard/dashboard.component';
-import { AuthGuard } from './guards/auth.guard';
-import { DashboardRoutingModule } from './Componentes/dashboard/dashboard.routing';
 
 
 const appRoutes: Routes = [
@@ -46,8 +41,7 @@ const appRoutes: Routes = [
   { path: 'cocineros', component: CocinerosComponent },
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-
-  { path: 'publicar-paella', component: PublicaPaellaComponent },
+  
   { path: 'paella/:id', component: PaellaComponent },
   { path: 'paella-reservada', component: PaellaReservadaComponent },
 

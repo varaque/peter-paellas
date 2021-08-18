@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PaellasService } from 'src/app/services/paellas.service';
 
-import { Router } from '@angular/router';
+import { ActivationEnd, ActivationStart, ChildActivationEnd, ChildActivationStart, NavigationEnd, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Municipio } from 'src/app/Interfaces/municipio';
@@ -9,6 +9,9 @@ import { ProvinciasService } from 'src/app/services/provincias.service';
 import { Provincia } from 'src/app/models/provincia.model';
 import { TipoPaella } from 'src/app/models/tipos-paellas.model';
 import { TipoPaellaService } from 'src/app/services/tipo-paella.service';
+import { filter, tap } from 'rxjs/operators';
+import { NavigationEvent } from '@ng-bootstrap/ng-bootstrap/datepicker/datepicker-view-model';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-publica-paella',
@@ -23,6 +26,9 @@ export class PublicaPaellaComponent implements OnInit {
   tipoPaellas: TipoPaella[];
 
   images: any[] = [];
+
+  previousUrl$ = new BehaviorSubject<string>(null);
+  currentUrl$ = new BehaviorSubject<string>(null);
 
   myForm = new FormGroup({
     paella_descripcion: new FormControl(''),
@@ -46,27 +52,7 @@ export class PublicaPaellaComponent implements OnInit {
   async ngOnInit() {
     this.provincias = await this.provinciaService.listar().toPromise();
     this.tipoPaellas = await this.tipoPaellaService.listar().toPromise();
-    console.log(this.provincias)
-  }
 
-  onFileChange(event) {
-    if (event.target.files && event.target.files[0]) {
-      var filesAmount = event.target.files.length;
-      for (let i = 0; i < filesAmount; i++) {
-        var reader = new FileReader();
-
-        reader.onload = (event: any) => {
-          console.log(event.target.result);
-          this.images.push(event.target.result);
-
-          this.myForm.patchValue({
-            fileSource: this.images
-          });
-        }
-
-        reader.readAsDataURL(event.target.files[i]);
-      }
-    }
   }
 
   submit() {
@@ -118,4 +104,7 @@ export class PublicaPaellaComponent implements OnInit {
     }
     this.myForm.get(nombre).setValue(valor);
   }
+
+ 
+
 }

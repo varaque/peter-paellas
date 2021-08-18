@@ -1,7 +1,6 @@
 nav {
     padding: 25px 150px;
     border-bottom: 2px solid #d3d3d3;
-    ;
 }
 
 #navbarSupportedContent ul li {
@@ -16,6 +15,10 @@ nav {
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 2px;
+}
+
+.nav-link.cursor-pointer {
+    cursor: pointer;
 }
 
 form.form-inline a {

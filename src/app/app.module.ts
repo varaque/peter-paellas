@@ -79,7 +79,6 @@ import { FooterComponent } from './footer/footer.component';
 import { AvisoLegalComponent } from './Componentes/aviso-legal/aviso-legal.component';
 import { CookiesComponent } from './Componentes/cookies/cookies.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PublicaPaellaComponent } from './Componentes/publica-paella/publica-paella.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
 import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambiadas/credenciales-cambiadas.component';
@@ -106,23 +105,41 @@ import { DashboardModule } from './Componentes/dashboard/dashboard.module';
     FooterComponent,
     AvisoLegalComponent,
     CookiesComponent,
-    PublicaPaellaComponent,
     FilterPipe,
     ActivarCuentaComponent,
     CredencialesCambiadasComponent,
     PaellaReservadaComponent,
     CambiarPasswordComponent,
     LaunchComponent,
-
+    
   ],
   imports: [
-    //hasta el salto de linea es todo para el datepicker
+    ScrollingModule,
     A11yModule,
     ClipboardModule,
     CdkStepperModule,
     CdkTableModule,
     CdkTreeModule,
     DragDropModule,
+    OverlayModule,
+    PortalModule,
+    
+    ReactiveFormsModule,
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    AppRoutingModule,
+    
+    FormsModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    DashboardModule,
+  
+    NgbModule,
+    
+    //hasta el salto de linea es todo para el datepicker
+    MatTreeModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -157,39 +174,17 @@ import { DashboardModule } from './Componentes/dashboard/dashboard.module';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule,
-    OverlayModule,
-    PortalModule,
-    ScrollingModule,
-
-    //ahora el segundo datapicker
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
     MatDatepickerModule,
     MatInputModule,
-    NgxMatDatetimePickerModule,
-    NgxMatTimepickerModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatButtonModule,
-    NgxMatMomentModule,
     MatRadioModule,
     MatSelectModule,
-    MatCheckboxModule,
-
-
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    RouterModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
     MatMomentDateModule,
     MatDatepickerModule,
-    DashboardModule,
-
-    NgbModule,
+    MatCheckboxModule,    
+    NgxMatMomentModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },

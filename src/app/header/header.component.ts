@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { Router } from '@angular/router';
+
 import { UsuarioService } from '../services/usuario.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -24,5 +25,15 @@ export class HeaderComponent {
   logout() {
     this.toggleDropdownMenu();
     this.usuarioService.logout();
+  }
+
+  launchAction() {
+    this.usuarioService.validarToken().subscribe(res => {
+      if (res) {
+        this.router.navigateByUrl('/dashboard/publicar-paella')
+      } else {
+        this.router.navigateByUrl('/launch');
+      }
+    });
   }
 }
