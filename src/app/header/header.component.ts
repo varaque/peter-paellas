@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../services/usuario.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   menuDropdownDesplegado: boolean = false;
-  constructor(public guard: AuthGuardService, private router: Router) {
+  constructor(private usuarioService: UsuarioService, private router: Router) {
   }
 
   toggleDropdownMenu() {
@@ -21,10 +22,7 @@ export class HeaderComponent {
   }
 
   logout() {
-
-    localStorage.removeItem('atoken');
-    localStorage.removeItem('userData');
-    this.guard.loggedIn == false;
-
+    this.toggleDropdownMenu();
+    this.usuarioService.logout();
   }
 }

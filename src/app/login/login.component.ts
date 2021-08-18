@@ -13,10 +13,10 @@ export class LoginComponent {
   form: FormGroup;
   loading: boolean;
   errors: boolean;
-
+  errorMsg: string = '';
 
   constructor(private fb: FormBuilder, private router: Router, private usuarioService: UsuarioService) {
-    this.form = fb.group({
+    this.form = this.fb.group({
       usuario_email: ['', [Validators.required, Validators.email]],
       usuario_password: ['', Validators.required],
       recordar_usuario: ['', [Validators.required]],
@@ -25,7 +25,12 @@ export class LoginComponent {
 
   login() {
     this.usuarioService.logIn(this.form.value).subscribe(res => {
-      this.usuarioService.guardarCredenciales(res);
+      if (res.respuesta.status) {
+        this.usuarioService.guardarCredenciales(res);
+        this.router.navigateByUrl('/dashboard');
+      } else {
+        console.log(res.respuesta.msg)
+      }
     });
   }
 }

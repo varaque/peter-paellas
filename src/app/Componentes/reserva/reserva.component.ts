@@ -62,9 +62,10 @@ export class ReservaComponent implements OnInit {
 
   iframe: boolean = false
 
-  constructor(private reservaService: ReservaService, private paellasService: PaellasService, private MensajeService: MensajeService) {
-
-  }
+  constructor(
+    private reservaService: ReservaService,
+    private paellasService: PaellasService,
+    private MensajeService: MensajeService) { }
 
 
 

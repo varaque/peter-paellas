@@ -154,12 +154,29 @@
 
 /* caja buscador */
 
+.overSelect1 div,
+.overSelect2 div {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.overSelect1 .custom-item-select,
+.overSelect2 .custom-item-select {
+    position: relative;
+    margin-right: 20px;
+    color: #000;
+}
+
 .caja-buscador-paellas {
     padding-top: 80px;
 }
 
 .caja-buscador-paellas .col-12 {
-    padding-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 .caja-buscador-paellas button {
@@ -183,6 +200,11 @@
     left: 8%;
     bottom: 0;
     color: lightgray;
+}
+
+.custom-span-info {
+    position: absolute !important;
+    bottom: -30px !important;
 }
 
 .dropdownmenu {
@@ -230,8 +252,7 @@
 
 #fondo {
     background-image: url();
-    /* url("https://upload.wikimedia.org/wikipedia/commons/e/ed/01_Paella_Valenciana_original.jpg") */
-    background: linear-gradient(to right, rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)), url("../../../assets/images/1551251263737.jpg");
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../assets/images/fondo1.jpg");
     padding: 90px;
     text-align: center;
     background-size: cover;
@@ -507,8 +528,145 @@ ul {
     border: 2px solid #d3b791;
 }
 
-@media only screen and (max-width:768px) {
-    #fondo {
-        padding: 0px;
+@media only screen and (max-width:576px) {
+    .header-info {
+        margin-top: 50px;
+    }
+    .letra-blanca {
+        font-size: 25px;
+    }
+    .caja-buscador-paellas {
+        padding: 10px 50px;
+    }
+    .caja-buscador-paellas button {
+        width: 100%;
+        float: none;
+    }
+    .card .nombre-paella {
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    .card .nombre-paella h3 {
+        font-size: 20px;
+        width: 75%;
+    }
+    .card .nombre-paella img {
+        width: 45px;
+    }
+    .info-cocinero p {
+        width: 40%;
+    }
+    .info-cocinero div {
+        width: 60%;
+    }
+    .ubicacion-paella {
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 10px !important;
+    }
+    .btn-paella.btn-paella-aceptar {
+        height: 50px;
+        width: 90%;
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width:577px) and (max-width:768px) {
+    .header-info {
+        margin-top: 50px;
+    }
+    .letra-blanca {
+        font-size: 25px;
+    }
+    .caja-buscador-paellas {
+        padding: 10px 50px;
+    }
+    .caja-buscador-paellas button {
+        width: 100%;
+        float: none;
+    }
+    .card .nombre-paella {
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    .card .nombre-paella h3 {
+        font-size: 20px;
+        width: 80%;
+    }
+    .card .nombre-paella img {
+        width: 45px;
+    }
+    .info-cocinero p {
+        width: 40%;
+    }
+    .info-cocinero div {
+        width: 80%;
+    }
+    .ubicacion-paella {
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 10px !important;
+    }
+    .btn-paella.btn-paella-aceptar {
+        height: 50px;
+        width: 90%;
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:992px) {
+    .header-info {
+        margin-top: 50px;
+    }
+    .letra-blanca {
+        font-size: 25px;
+    }
+    .caja-buscador-paellas {
+        padding: 10px 50px;
+    }
+    .caja-buscador-paellas button {
+        width: 100%;
+        float: none;
+    }
+    .card .nombre-paella {
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    .card .nombre-paella h3 {
+        font-size: 20px;
+        width: 80%;
+    }
+    .card .nombre-paella img {
+        width: 45px;
+    }
+    .info-cocinero p {
+        width: 40%;
+    }
+    .info-cocinero div {
+        width: 80%;
+    }
+    .ubicacion-paella {
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 10px !important;
+    }
+    .btn-paella.btn-paella-aceptar {
+        height: 50px;
+        width: 90%;
+        padding: 0;
+    }
+    .caja-buscador-paellas {
+        padding: 10px 0;
+    }
+}
+
+@media only screen and (min-width:992px) and (max-width:1200px) {
+    .btn-paella.btn-paella-aceptar {
+        height: 50px;
+        width: 80%;
+        padding: 0;
     }
 }

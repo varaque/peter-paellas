@@ -2,8 +2,8 @@ import { ElementRef, ViewChild } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment-timezone';
+import { PaellaDestacada } from 'src/app/models/paella-destacada.model';
 
-import { Paella } from 'src/app/models/paella.model';
 import { Provincia } from 'src/app/models/provincia.model';
 import { TipoPaella } from 'src/app/models/tipos-paellas.model';
 
@@ -20,11 +20,15 @@ export class MainBodyComponent implements OnInit {
 
   @ViewChild('fechaRef') fechaRef: ElementRef;
 
+
+
   provincias: Provincia[] = [];
-  paellas: Paella[] = [];
-  filteredPaellas: Paella[] = [];
+  paellas: PaellaDestacada[] = [];
+  filteredPaellas: PaellaDestacada[] = [];
+
   tipoPaellas: TipoPaella[] = [];
-  filter = { tipoPaella: undefined, ubicacion: undefined, fecha: undefined };
+  filter = { tipoPaella: [], ubicacion: [], fecha: moment().format('DD/MM/YYYY') };
+
   calendarOpened: boolean = false;
   tipoPaellaselectOpened: boolean = false;
   provinciaSelectOpened: boolean = false;
@@ -39,52 +43,44 @@ export class MainBodyComponent implements OnInit {
     private tipoPaellaService: TipoPaellaService,
     private renderer: Renderer2) {
 
-    /* httpClient.get(this.API_ENDPOINT).subscribe((data: Paella[]) => {      //Cogemos paellas de la BBDD
-      this.paellas = data;
-      this.fechaPaellas = data;
-      console.log('las paellas: ')
-      console.log(data)
-
-      this.paellas.forEach(p => {
-        var fechaedit = moment.tz(p.fecha, 'Europe/Madrid');
-        p.fecha = fechaedit.tz(moment.tz.guess(true)).format('YYYY-MM-DD');
-      });  //formateamos la fecha que nos viene de la BBDD, que nos la deje sin hora a peticion del diseño
-
-
-      this.fechaPaellas.forEach(p => {                                      //hacemos dos arrays con los datos porque aqui podemos resetearlo cada vez que hagamos busqueda nueva
-        var fechaedit = moment.tz(p.fecha, 'Europe/Madrid');                    //si no digamos que filtrariamos sobre el ya filtrado y claro no saldra nada, realmente esto no haria falta
-        p.fecha = fechaedit.tz(moment.tz.guess(true)).format('YYYY-MM-DD');
-      });  //para el funcionamiento propiamente, pero ayuda a que sea mas facil para el usuario
-
-
-      this.paellas = this.paellas.filter(p =>                        //filtramos si la fecha es menor que la de hoy, en ese caso no aparecerá
-        (p.fecha > fechahoy ? p.id > 0 : p.fecha == this.filterFecha));
-    }) */
-
   }
 
   async ngOnInit() {
     try {
-      this.filteredPaellas = this.paellas = await this.paellaService.listar().toPromise();
+      this.paellas = this.filteredPaellas = await this.paellaService.listarPaellasDestacadas().toPromise();
       this.provincias = await this.provinciaService.listar().toPromise();
       this.tipoPaellas = await this.tipoPaellaService.listar().toPromise();
     } catch (error) {
       console.log(error);
     }
-    this.generarFechaCuadro(new Date)
+
+    this.renderer.setAttribute(this.fechaRef.nativeElement, "value", this.filter.fecha);
+    this.generarFechaCuadro(new Date);
+
 
   }
 
-  buscar(): void {
-    /*  this.paellaService.buscar(this.filter).subscribe(res => {
-       console.log(res)
-     }) */
+  buscar() {
+    this.paellaService.buscar(this.filter).subscribe(res => {
+      this.paellas = res;
+    })
   }
+
   seleccionarFecha(e) {
     this.filter.fecha = moment(e).format('DD/MM/YYYY');
-    this.renderer.setAttribute(this.fechaRef.nativeElement, "value", this.filter.fecha)
+    this.renderer.setAttribute(this.fechaRef.nativeElement, "value", this.filter.fecha);
     this.generarFechaCuadro(new Date(e))
     this.toggleCalendar()
+  }
+
+  seleccionarTipoPaella(tipo: any) {
+    const index = this.filter.tipoPaella.indexOf(tipo);
+    index != -1 ? this.filter.tipoPaella.splice(index, 1) : this.filter.tipoPaella.push(tipo);
+  }
+
+  seleccionarpProvincia(provincia: any) {
+    const index = this.filter.ubicacion.indexOf(provincia);
+    index != -1 ? this.filter.ubicacion.splice(index, 1) : this.filter.ubicacion.push(provincia);
   }
 
   generarFechaCuadro(fecha: Date) {

@@ -7,69 +7,21 @@
     </p>
 
     <div class="row mt-3">
-      <div class="col-4">
+
+      <div class="col-4" *ngFor="let cocinero of cocineros">
         <div class="card">
           <div class="card-body">
             <div class="nombre-cocinero">
-              <h3 class="card-title text-center">Juan Lopez Perer Gonzalez</h3>
+              <h3 class="card-title text-center">{{cocinero.usuario_nombre}}</h3>
             </div>
-            <img src="../../../assets/images/img-cocinero.jpg" class="img-cocinero" alt="">
+            <img [src]="cocinero.usuario_foto" class="img-cocinero" alt="">
             <p class="card-text mt-3 text-cantidad-paellas">
-              <img class="paella-icon" src="../../../assets/images/paella.svg" alt=""> 10 Paellas publicadas
+              <img class="paella-icon" src="../../../assets/images/paella.svg" alt=""> {{cocinero.cantidad_paellas}}
+              Paellas publicadas
             </p>
             <p class="card-text ubicacion">
-              <img class="paella-icon" src="../../../assets/images/location.png" alt=""> Burjassot, Valencia, Fuente Vejuna, La madre de los tomate
-            </p>
-            <div class="caja-estrellas">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <a routerLink="/panel-usuario">Perfil</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="nombre-cocinero">
-              <h3 class="card-title text-center">Juan Lopez Perer</h3>
-            </div>
-            <img src="../../../assets/images/img-cocinero.jpg" class="img-cocinero" alt="">
-            <p class="card-text mt-3 text-cantidad-paellas">
-              <img class="paella-icon" src="../../../assets/images/paella.svg" alt=""> 10 Paellas publicadas
-            </p>
-            <p class="card-text ubicacion">
-              <img class="paella-icon" src="../../../assets/images/location.png" alt=""> Burjassot, Valencia
-            </p>
-            <div class="caja-estrellas">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <a routerLink="/panel-usuario">Perfil</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card">
-          <div class="card-body">
-
-            <div class="nombre-cocinero">
-              <h3 class="card-title text-center">Juan Lopez</h3>
-            </div>
-            <img src="../../../assets/images/img-cocinero.jpg" class="img-cocinero" alt="">
-            <p class="card-text mt-3 text-cantidad-paellas">
-              <img class="paella-icon" src="../../../assets/images/paella.svg" alt=""> 10 Paellas publicadas
-            </p>
-            <p class="card-text ubicacion">
-              <img class="paella-icon" src="../../../assets/images/location.png" alt=""> Burjassot, Valencia
+              <img class="paella-icon" src="../../../assets/images/location.png" alt="">
+              {{cocinero.direccion}}
             </p>
             <div class="caja-estrellas">
               <i class="fa fa-star"></i>

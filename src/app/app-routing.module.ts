@@ -22,6 +22,9 @@ import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-
 import { CambiarPasswordComponent } from './Componentes/cambiar-password/cambiar-password.component';
 import { PanelUsuarioComponent } from './Componentes/panel-usuario/panel-usuario.component';
 import { LaunchComponent } from './Componentes/launch/launch.component';
+import { DashboardComponent } from './Componentes/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
+import { DashboardRoutingModule } from './Componentes/dashboard/dashboard.routing';
 
 
 const appRoutes: Routes = [
@@ -42,14 +45,11 @@ const appRoutes: Routes = [
 
   { path: 'cocineros', component: CocinerosComponent },
 
-  { path: 'panel-usuario', component: PanelUsuarioComponent },
-  { path: 'editar-perfil', component: EditarPerfilComponent },
-  { path: 'perfil/:id', component: PerfilComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
   { path: 'publicar-paella', component: PublicaPaellaComponent },
   { path: 'paella/:id', component: PaellaComponent },
   { path: 'paella-reservada', component: PaellaReservadaComponent },
-  { path: 'reservar-paella', component: ReservaComponent },
 
   { path: 'cambiar-password', component: CambiarPasswordComponent },
   { path: 'recuperar-password', component: ForgotpassComponent },
@@ -57,7 +57,11 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [
+    RouterModule.forRoot(appRoutes),
+    DashboardRoutingModule
+  ],
+
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

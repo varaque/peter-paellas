@@ -4,70 +4,61 @@
       <div class="col-sm-6 d-flex justify-content-center align-items-center">
 
 
-        <form [formGroup]="myForm" (ngSubmit)="submit()">
+        <form>
           <div class="form-row">
 
             <div class="form-group col-12">
-              <div class="main-image-box">
+              <div class="main-image-box" #imagenPaellaDestacada>
                 <label for="mainImage">
                   <i class="fa fa-plus-circle fa-2x text-white"></i>
                   Añade una imagen <br> desde tu galería
                 </label>
-                <input type="file" (change)="handleUpload($event)" id="mainImage" class="botonimagen" placeholder="">
+                <input type="file" (change)="agregarImagen($event,imagenPaellaDestacada,1)" id="mainImage"
+                  class="botonimagen" placeholder="">
               </div>
             </div>
 
             <div class="col-4">
-              <div class="images-miniatures">
+              <div class="images-miniatures" #imagenMiniatura1>
                 <label for="img1">
                   <i class="fa fa-plus-circle fa-2x text-white"></i>
                 </label>
-                <input type="file" id="img1">
+                <input (change)="agregarImagen($event,imagenMiniatura1,1)" type="file" id="img1">
               </div>
             </div>
+
             <div class="col-4">
-              <div class="images-miniatures">
+              <div class="images-miniatures" #imagenMiniatura2>
                 <label for="img2">
                   <i class="fa fa-plus-circle fa-2x text-white"></i>
                 </label>
-                <input type="file" id="img2">
+                <input (change)="agregarImagen($event,imagenMiniatura2,2)" type="file" id="img2">
               </div>
             </div>
             <div class="col-4">
-              <div class="images-miniatures">
+              <div class="images-miniatures" #imagenMiniatura3>
                 <label for="img3">
                   <i class="fa fa-plus-circle fa-2x text-white"></i>
                 </label>
-                <input type="file" id="img3">
+                <input (change)="agregarImagen($event,imagenMiniatura3,3)" type="file" id="img3">
               </div>
             </div>
-
-
-            <!-- <div class="form-group col-12">
-              <label for="file"><img class="img-round" src="/assets/images/subirFoto.PNG"></label>
-              <input formControlName="file" id="file" type="file" class="form-control" multiple=""
-                (change)="onFileChange($event)">
-            </div> -->
-
-            <img *ngFor='let url of images' [src]="url" height="150" width="200px" style="margin: 3px;"> <br />
           </div>
         </form>
-
-        <!-- HASTA AQUI el codigo de multifoto -->
 
       </div>
 
       <div class="col-xs-4 col-sm-4 bg-white sombra">
 
-        <form>
+        <form [formGroup]="myForm" (submit)="submit()">
           <div class="form-row d-flex justify-content-center">
             <div class="form-group col-8 mb-5">
               <h3 class="letra-marron text-left"> PUBLICAR UNA PAELLA </h3>
             </div>
 
             <div class="form-group col-8">
-              <select class="custom-input">
-                <option *ngFor="let tipo of tipoPaellas" [ngValue]="tipo.id_tipo_paella">
+              <select class="custom-input" formControlName="id_tipo_paella">
+                <option *ngFor="let tipo of tipoPaellas" [value]="tipo.id_tipo_paella">
                   {{tipo.tipo_paella_nombre}}
                 </option>
               </select>
@@ -75,7 +66,8 @@
 
             <div class="form-group col-8">
               <mat-form-field class="styleDatepicker">
-                <input matInput [ngxMatDatetimePicker]="picker" id="fechafea" placeholder="Selecciona fecha y hora">
+                <input matInput [ngxMatDatetimePicker]="picker" id="fechafea" formControlName="paella_fecha_coccion"
+                  placeholder="Selecciona fecha y hora">
                 <mat-datepicker-toggle matSuffix [for]="picker">
                 </mat-datepicker-toggle>
                 <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="true">
@@ -84,19 +76,23 @@
             </div>
 
             <div class="form-group col-8">
-              <span class="input-group-addon"></span>
-              <input type="text" class="custom-input" placeholder="Ubicacion">
+              <select class="custom-input" formControlName="id_provincia">
+                <option *ngFor="let provincia of provincias" [value]="provincia.id_provincia">
+                  {{provincia.provincia_nombre}}
+                </option>
+              </select>
             </div>
 
             <div class="form-group col-8 d-flex justify-content-between">
               <div class="form-group col-6 d-flex justify-content-between">
                 <label class="text-left" for="raciones-disponible">Raciones disponibles</label>
-                <input #racionesDisponibles class="contador" min="1" value="1" type="number">
+                <input #racionesDisponibles formControlName="paella_raciones" class="contador" min="1" value="1"
+                  type="number">
                 <div class="f-flex flex-column container-butons-numbers">
-                  <button (click)="racionesDisponibles.stepUp()">
+                  <button type="button" (click)="decrementar('paella_raciones')">
                     <i class="fa fa-chevron-circle-up"></i>
                   </button>
-                  <button (click)="racionesDisponibles.stepDown()">
+                  <button type="button" (click)="decrementar('paella_raciones')">
                     <i class="fa fa-chevron-circle-down"></i>
                   </button>
                 </div>
@@ -105,13 +101,14 @@
 
               <div class="form-group col-6 d-flex justify-content-between">
                 <label class="text-left" for="precio-racion">Precio por racion €</label>
-                <input #precioRacion class="contador" id="precio-racion" min="1" value="1" type="number">
+                <input #precioRacion formControlName="paella_precio" class="contador" id="precio-racion" min="1"
+                  value="1" type="number">
 
                 <div class="f-flex flex-column container-butons-numbers">
-                  <button (click)="precioRacion.stepUp()">
+                  <button type="button" (click)="incrementar('paella_precio')">
                     <i class="fa fa-chevron-circle-up"></i>
                   </button>
-                  <button (click)="precioRacion.stepDown()">
+                  <button type="button" (click)="decrementar('paella_precio')">
                     <i class="fa fa-chevron-circle-down"></i>
                   </button>
                 </div>
@@ -120,9 +117,8 @@
 
             <div class="form-group col-8">
               <span class="input-group-addon"></span>
-              <select class="custom-input" name="menu" placeholder="Ver paella">
-                <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito ver como se prepara la
-                  paella?</option>
+              <select class="custom-input" formControlName="paella_ver" placeholder="Ver paella">
+                <option value="-1"> ¿Permito ver como se prepara la paella? </option>
                 <option value="1">Si, permito ver como se prepara la paella</option>
                 <option value="0">No permito ver como se prepara la paella</option>
               </select>
@@ -130,23 +126,22 @@
 
             <div class="form-group col-8">
               <span class="input-group-addon"></span>
-              <select class="custom-input" name="menu" placeholder="Mascota">
-                <option [ngValue]="null" [disabled]="true" hidden disabled selected>¿Permito la entrada de mascotas?
-                </option>
+              <select class="custom-input" formControlName="paella_mascotas" placeholder="Mascota">
+                <option value="-1">¿Permito la entrada de mascotas? </option>
                 <option value="1">Si, permito traer mascotas</option>
                 <option value="0">No permito traer mascotas</option>
               </select>
             </div>
 
             <div class="form-group col-8">
-              <textarea type="text" class="custom-textarea" rows="5"
+              <textarea formControlName="paella_descripcion" class="custom-textarea" rows="5"
                 placeholder="Informacion adicional: hora de llegada, ingredientes, indicaciones de ubicacion, ciudad, codigo postal, etc"></textarea>
 
             </div>
 
             <div class="form-group col-8 caja-botones">
-              <a href="" routerLinkActive="active"> Cancelar</a>
-              <button (click)="savePaella()">Publicar</button>
+              <a routerLinkActive="active"> Cancelar</a>
+              <button type="submit">Publicar</button>
             </div>
           </div>
         </form>

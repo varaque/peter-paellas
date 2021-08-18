@@ -8,16 +8,15 @@ import { Observable } from 'rxjs';
 })
 
 export class ApiService {
-
+  httpHeaders = new HttpHeaders({
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  });
   private URL: string = environment.apiUrl;
 
   constructor(protected http: HttpClient) { }
 
   conectar(body: any): Observable<any> {
-    /*  const httpHeaders = new HttpHeaders({
-       'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('currentUser')).token
-     }); */
-    return this.http.post(this.URL, body);
+    return this.http.post(this.URL, body, { headers: this.httpHeaders });
   }
 
 }

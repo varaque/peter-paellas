@@ -3,18 +3,18 @@
     <div class="roboto">
       <div class="row">
 
-        <div class="col-md-3 offset-md-2 header-info">
-          <div class="row">
-            <div class="col-md-7">
+        <div class="col-md-6 header-info">
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-4 col-md-7">
               <img src="../../../assets/images/logo-blanco.png" class="paellaMain p-0">
             </div>
 
-            <div class="col-md-11 mt-3">
+            <div class="col-6 col-md-11 mt-3">
               <h3 class="letra-blanca text-left">
                 <strong>Sunt autem vel eum iure reprehenderit, qui dolorem eum iure.</strong>
               </h3>
             </div>
-            <div class="col-md-11 mt-2">
+            <div class="col-10 col-md-11 mt-2">
               <p class="text-white text-left">Quae fuerit causa, nollem me ab eo ortum, tam egregios viros censes aut
                 rerum necessitatibus saepe eveniet, ut ad eam non ero tibique, si
               </p>
@@ -22,26 +22,37 @@
           </div>
         </div>
 
-        <div class="col-md-3 offset-md-1 caja-buscador-paellas">
+        <div class="col-md-6 caja-buscador-paellas">
           <div class="row">
             <!-- select de los tipos de paellas -->
-
             <div class="col-12">
               <div class="row">
                 <div class="col-12" (click)="toggleSelect(1)">
                   <select [(ngModel)]="filter.tipoPaella" class="custom-select-arrow">
                     <option *ngFor="let tipo of tipoPaellas" [ngValue]="tipo.id_tipo_paella">
                       {{tipo.tipo_paella_nombre}}
-                      <input type="checkbox" name="" id="">
+                      <input type="checkbox">
                     </option>
                   </select>
-                  <div class="overSelect1"></div>
-                  <span>Elije tu paella</span>
+                  <div class="overSelect1">
+                    <div>
+                      <span class="custom-item-select" *ngIf="filter.tipoPaella.length==0">
+                        SELECCIONE UN TIPO DE PAELLA
+                      </span>
+                      <span class="custom-item-select" *ngFor="let paellasSeleccionadas of filter.tipoPaella">
+                        {{paellasSeleccionadas.tipo_paella_nombre|uppercase}} &nbsp;
+                      </span>
+                    </div>
+                  </div>
+                  <span class="custom-span-info">Elije tu paella</span>
                 </div>
+
                 <div class="col-12 custom-select-opened" *ngIf="tipoPaellaselectOpened">
                   <div class="checkboxes">
                     <label *ngFor="let tipo of tipoPaellas" for="{{tipo.id_tipo_paella}}">
-                      {{tipo.tipo_paella_nombre|uppercase}}<input type="checkbox" id="{{tipo.id_tipo_paella}}" />
+                      {{tipo.tipo_paella_nombre|uppercase}}
+                      <input type="checkbox" (click)="seleccionarTipoPaella(tipo)"
+                        [checked]="filter.tipoPaella.indexOf(tipo)!=-1" id="{{tipo.id_tipo_paella}}" />
                     </label>
                   </div>
                 </div>
@@ -56,16 +67,27 @@
                     <select [(ngModel)]="filter.ubicacion" class="custom-select-arrow">
                       <option [selected]>Busca tu provincia</option>
                       <option *ngFor="let provincia of provincias" [ngValue]="provincia.id_provincia">
-                        {{provincia.provincia_nombre}}
+                        {{provincia.provincia_nombre|uppercase}}
                       </option>
                     </select>
-                    <div class="overSelect2"></div>
+                    <div class="overSelect2">
+                      <div>
+                        <span class="custom-item-select" *ngIf="filter.ubicacion.length==0">
+                          SELECCIONE UNA PROVINCIA
+                        </span>
+                        <span class="custom-item-select" *ngFor="let ubicacion of filter.ubicacion">
+                          {{ubicacion.provincia_nombre|uppercase}} &nbsp;
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-12 custom-select-opened" *ngIf="provinciaSelectOpened">
                   <div class="checkboxes">
                     <label *ngFor="let provincia of provincias" for="{{provincia.id_provincia}}">
-                      {{provincia.provincia_nombre}}<input type="checkbox" id="{{provincia.id_provincia}}" />
+                      {{provincia.provincia_nombre|uppercase}}
+                      <input type="checkbox" [checked]="filter.ubicacion.indexOf(provincia)!=-1"
+                        (click)="seleccionarpProvincia(provincia)" id="{{provincia.id_provincia}}" />
                     </label>
                   </div>
                 </div>
@@ -114,21 +136,22 @@
       valorados y encuentra el que más encaje con tus gustos
     </p>
 
+    <h3 class="text-center mt-3" *ngIf="paellas.length==0"><b>NO SE HAN ENCONTRADO PAELLAS</b></h3>
+
     <div class="row mt-5">
 
-      <div class="col-4">
+      <div class="col-6 col-lg-4 mt-3" *ngFor="let paella of paellas">
         <div class="card">
 
           <div class="nombre-paella">
             <img src="../../../assets/images/avatarSimbolo.png" class="" alt="">
-            <h3 class="card-title">Paella Valenciana</h3>
+            <h3 class="card-title">{{paella.tipo_paella_nombre}}</h3>
           </div>
 
-          <img src="../../../assets/images/paella.jpg" class="img-destacada-paella" alt="">
+          <img [src]="paella.paella_foto_url" class="img-destacada-paella" alt="{{paella.paella_foto_url}}">
 
           <div class="info-cocinero">
-            <p class="card-text"> Juan Manuel Esposito de la Vera
-            </p>
+            <p class="card-text"> {{paella.usuario_nombre}} </p>
             <div class="caja-estrellas">
               <i class="fa fa-star"></i>
               <i class="fa fa-star"></i>
@@ -143,13 +166,14 @@
           </p>
 
           <p class="card-text fecha-paella text-center">
-            <img class="paella-icon-svg" src="../../../assets/images/calendar.svg" alt="">Mier. 8 Abril, 2021
+            <img class="paella-icon-svg" src="../../../assets/images/calendar.svg" alt="">
+            {{paella.paella_fecha_coccion|date:'fullDate'}}
           </p>
 
           <button class="btn-paella btn-paella-aceptar">Reservar</button>
         </div>
       </div>
-      
+
     </div>
 
 

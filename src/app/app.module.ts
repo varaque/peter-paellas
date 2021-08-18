@@ -1,13 +1,16 @@
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core'
 import { FilterPipe } from './pipes/filter.pipe';
-import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs, 'es')
 
 //hasta el salto de linea es todo para el datepicker
 import { A11yModule } from '@angular/cdk/a11y';
@@ -63,10 +66,8 @@ import { NgxMatMomentModule } from '@angular-material-components/moment-adapter'
 
 import { AppComponent } from './app.component';
 import { PaellaComponent } from './componentes/paella/paella.component';
-import { ReservaComponent } from './componentes/reserva/reserva.component';
 import { MainBodyComponent } from './componentes/main-body/main-body.component';
 import { CocinerosComponent } from './componentes/cocineros/cocineros.component';
-import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { FaqComponent } from './componentes/faq/faq.component';
 import { LoginComponent } from './login/login.component';
@@ -77,7 +78,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AvisoLegalComponent } from './Componentes/aviso-legal/aviso-legal.component';
 import { CookiesComponent } from './Componentes/cookies/cookies.component';
-import { EditarPerfilComponent } from './Componentes/editar-perfil/editar-perfil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PublicaPaellaComponent } from './Componentes/publica-paella/publica-paella.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -86,18 +86,16 @@ import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambi
 import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CambiarPasswordComponent } from './Componentes/cambiar-password/cambiar-password.component';
-import { PanelUsuarioComponent } from './Componentes/panel-usuario/panel-usuario.component';
 import { LaunchComponent } from './Componentes/launch/launch.component';
+import { DashboardModule } from './Componentes/dashboard/dashboard.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PaellaComponent,
-    ReservaComponent,
     MainBodyComponent,
     CocinerosComponent,
-    PerfilComponent,
     ContactoComponent,
     FaqComponent,
     LoginComponent,
@@ -108,14 +106,12 @@ import { LaunchComponent } from './Componentes/launch/launch.component';
     FooterComponent,
     AvisoLegalComponent,
     CookiesComponent,
-    EditarPerfilComponent,
     PublicaPaellaComponent,
     FilterPipe,
     ActivarCuentaComponent,
     CredencialesCambiadasComponent,
     PaellaReservadaComponent,
     CambiarPasswordComponent,
-    PanelUsuarioComponent,
     LaunchComponent,
 
   ],
@@ -191,10 +187,14 @@ import { LaunchComponent } from './Componentes/launch/launch.component';
     BrowserAnimationsModule,
     MatMomentDateModule,
     MatDatepickerModule,
+    DashboardModule,
 
     NgbModule,
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    { provide: LOCALE_ID, useValue: 'es' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

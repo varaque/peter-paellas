@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/interfaces/usuario';
-import { User } from 'src/app/interfaces/user';
-import { Mensaje } from 'src/app/interfaces/mensaje';
-import { UsuarioService } from 'src/app/services/usuario.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MensajeService } from 'src/app/services/mensaje.service';
-//import { resourceLimits } from 'worker_threads';
+
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +12,7 @@ import { MensajeService } from 'src/app/services/mensaje.service';
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
+  ubicacion: any;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -26,15 +23,17 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       usuario_nombre: ['', Validators.required],
       usuario_email: ['', [Validators.required, Validators.email]],
-      usuario_password: ['', Validators.required]
+      usuario_password: ['', Validators.required],
+      usuario_rol: [2],
     })
-
   }
 
   registrarUsuario() {
-    console.log(this.registerForm.value);
     this.usuarioService.insertar(this.registerForm.value).subscribe(res => {
       this.usuarioService.guardarCredenciales(res);
+      console.log(res)
     });
   }
+
+
 }

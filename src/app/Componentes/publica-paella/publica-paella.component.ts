@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PaellasService } from 'src/app/services/paellas.service';
 
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -19,52 +18,35 @@ import { TipoPaellaService } from 'src/app/services/tipo-paella.service';
 
 export class PublicaPaellaComponent implements OnInit {
 
-  img;
-  user = localStorage.getItem('userData');
-  userData = JSON.parse(this.user);
-  imageSrc;
-
-  //provincias: Provincia[];
   municipios: Municipio[];
   provincias: Provincia[];
   tipoPaellas: TipoPaella[];
 
-  //esto es para usar el multifoto
-  images = [];
+  images: any[] = [];
+
   myForm = new FormGroup({
-    //de aqui no es imprescindible pero yo quitaria name y file y simplemente dejaria filesource para guardar solo imagen y ya esta
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    file: new FormControl('', [Validators.required]),
-    fileSource: new FormControl('', [Validators.required])
+    paella_descripcion: new FormControl(''),
+    paella_precio: new FormControl(5, [Validators.required]),
+    paella_fecha_coccion: new FormControl((new Date), [Validators.required]),
+    paella_raciones: new FormControl(1, [Validators.required]),
+    paella_ver: new FormControl('-1', [Validators.required]),
+    paella_mascotas: new FormControl('-1', [Validators.required]),
+    id_cocinero: new FormControl(localStorage.getItem('id_usuario') || -1),
+    id_provincia: new FormControl(1, [Validators.required]),
+    id_tipo_paella: new FormControl(1, [Validators.required]),
+    paella_foto: new FormControl([]),
   });
 
 
   constructor(private paellaService: PaellasService,
     private router: Router,
-    private httpClient: HttpClient,
     private provinciaService: ProvinciasService,
     private tipoPaellaService: TipoPaellaService) { }
 
   async ngOnInit() {
     this.provincias = await this.provinciaService.listar().toPromise();
     this.tipoPaellas = await this.tipoPaellaService.listar().toPromise();
-    this.httpClient.get('https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json').subscribe((data: Municipio[]) => {
-
-      data.sort(function (a, b) {
-        if (a.nm > b.nm) { return 1 }
-        if (a.nm < b.nm) { return -1 } return 0;
-      });
-
-      this.municipios = data.sort();
-    })
-
-  }
-
-
-  //pruebas de coger varias fotos, lo voy a dejar de la otra manera de momento pero es descomentar la parte del HTML y comentar lo de abajo
-
-  get f() {
-    return this.myForm.controls;
+    console.log(this.provincias)
   }
 
   onFileChange(event) {
@@ -88,28 +70,52 @@ export class PublicaPaellaComponent implements OnInit {
   }
 
   submit() {
+    if (this.myForm.invalid) {
+      return;
+    }
+
+    if (this.myForm.get('paella_ver').value == '-1') {
+      console.log('ver paella mal');
+      return;
+    }
+    if (this.myForm.get('paella_mascotas').value == '-1') {
+      console.log('mascotasa mal');
+      return;
+    }
+
+    this.myForm.get('paella_foto').setValue(this.images);
+
     console.log(this.myForm.value);
+    this.paellaService.crear(this.myForm.value).toPromise();
   }
 
-  //pruebas de coger varias fotos
 
-
-  handleUpload(event) {                                   //esto coge la foto del input y la convierte a formato base 64
+  agregarImagen(event: any, target: any, order: number) {
     const file = event.target.files[0];
-
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      console.log(reader.result);
-      this.img = reader.result;
-      alert('¡Imagen recibida correctamente!')
-
-
-      this.imageSrc = this.img;           //metemos la foto en b64 en imageSrc y la decodifica con atob, que literalmente solo sirve para decodifcar b64 y mostramos imageSrc en el html
-      this.imageSrc = atob(this.imageSrc);
-
+      var img = reader.result;
+      this.images.push({ name: file.name, size: file.size, type: file.type, order, data: img });
+      target.style.backgroundImage = `url(${img})`;
+      target.style.backgroundSize = 'cover';
     };
+    console.log(this.images)
   }
-  savePaella() { }
 
+  incrementar(nombre: string) {
+    var valor = this.myForm.get(nombre).value;
+    valor++;
+    this.myForm.get(nombre).setValue(valor);
+  }
+
+  decrementar(nombre: string) {
+    var valor = this.myForm.get(nombre).value;
+    if (valor === 0) {
+      valor == 0;
+    } else {
+      valor--;
+    }
+    this.myForm.get(nombre).setValue(valor);
+  }
 }

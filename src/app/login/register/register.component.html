@@ -3,10 +3,10 @@
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-5 caja mt-5 mb-5">
 				<p class="text-center form-title">¡ÚNETE CON EL CORREO<br> ELECTRÓNICO!</p>
-				<form class="mt-3" [formGroup]="registerForm" (submit)="registrarUsuario()">
+				<form class="mt-3" autocomplete="off" [formGroup]="registerForm" (submit)="registrarUsuario()">
 					<div class="row d-flex justify-content-center">
 						<div class="form-group col-md-8">
-							<input type="text" formControlName="usuario_nombre" placeholder="Username">
+							<input type="text" formControlName="usuario_nombre" placeholder="Nombre">
 						</div>
 						<div class="form-group col-md-8">
 							<input type="email" formControlName="usuario_email" placeholder="E-mail">
