@@ -51,20 +51,11 @@ label i {
     height: 50px;
 }
 
-.custom-file {
-    padding-top: 20px;
-    padding-left: 40px;
-}
-
 .letra-marron {
     color: #8b5a17;
     font-weight: 700;
     padding-top: 60px;
     font-size: 25px;
-}
-
-.letra-base {
-    color: lightgray;
 }
 
 .sombra {
@@ -73,7 +64,6 @@ label i {
 
 #fondo {
     background-color: #f7eddf;
-    /*     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Paella_valenciana_01.jpg/1920px-Paella_valenciana_01.jpg);*/
     padding: 90px;
     text-align: center;
     background-size: cover;
@@ -223,4 +213,55 @@ input[type=number]::-webkit-outer-spin-button {
 .container-butons-numbers button i {
     font-size: 22px;
     color: grey;
+}
+
+@media only screen and (max-width: 576px) {
+    .main-image-box label {
+        font-size: 25px;
+    }
+    .caja-numeros-innput {
+        padding: 0 10px 0 20px !important;
+    }
+    .caja-numeros-innput label {
+        font-size: 20px;
+    }
+    .caja-botones {
+        padding: 0 10px;
+    }
+    .caja-botones a,
+    .caja-botones button {
+        width: 50%;
+        padding: 5px 0;
+    }
+    .caja-botones a {
+        background-color: #a9a092;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 577px) and (max-width:768px) {
+    #fondo {
+        padding: 90px 45px;
+    }
+    .main-image-box label {
+        font-size: 25px;
+    }
+    .caja-numeros-innput {
+        padding: 0 10px 0 20px !important;
+    }
+    .caja-numeros-innput label {
+        font-size: 20px;
+    }
+    .caja-botones {
+        padding: 0 10px;
+    }
+    .caja-botones a,
+    .caja-botones button {
+        width: 50%;
+        padding: 5px 0;
+    }
+    .caja-botones a {
+        background-color: #a9a092;
+        color: #fff;
+    }
 }
