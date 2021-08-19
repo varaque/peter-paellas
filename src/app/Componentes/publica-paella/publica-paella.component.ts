@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { PaellasService } from 'src/app/services/paellas.service';
 
 import { ActivationEnd, ActivationStart, ChildActivationEnd, ChildActivationStart, NavigationEnd, Router } from '@angular/router';
@@ -104,7 +104,5 @@ export class PublicaPaellaComponent implements OnInit {
     }
     this.myForm.get(nombre).setValue(valor);
   }
-
- 
 
 }

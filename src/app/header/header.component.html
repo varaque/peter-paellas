@@ -2,7 +2,7 @@
   <a class="navbar-brand" routerLink="/">
     <img src="../../assets/images/logo-negro.png" width="120">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+  <button class="navbar-toggler" type="button" #botonToggleMenu data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,35 +10,35 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item text-center active">
-        <a class="nav-link" routerLink="">buscar <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/" (click)="cerrarMenu(botonToggleMenu)">buscar <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link cursor-pointer" (click)="launchAction()">publicar paella</a>
+        <a class="nav-link cursor-pointer" (click)="cerrarMenu(botonToggleMenu)" (click)="launchAction()">publicar paella</a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link" routerLink="/cocineros">cocineros</a>
+        <a class="nav-link" routerLink="/cocineros" (click)="cerrarMenu(botonToggleMenu)">cocineros</a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link" routerLink="/contacto">contacto</a>
+        <a class="nav-link" routerLink="/contacto" (click)="cerrarMenu(botonToggleMenu)">contacto</a>
       </li>
 
       <li class="nav-item text-center d-lg-none">
-        <a class="nav-link" routerLink="/contacto">Panel personal</a>
+        <a class="nav-link" routerLink="/contacto" (click)="cerrarMenu(botonToggleMenu)">Panel personal</a>
       </li>
       <li class="nav-item text-center d-lg-none">
-        <a class="nav-link" routerLink="/contacto">Opiniones</a>
+        <a class="nav-link" routerLink="/contacto" (click)="cerrarMenu(botonToggleMenu)">Opiniones</a>
       </li>
       <li class="nav-item text-center d-lg-none">
-        <a class="nav-link" routerLink="/contacto">Pagos y Cobros</a>
+        <a class="nav-link" routerLink="/contacto" (click)="cerrarMenu(botonToggleMenu)">Pagos y Cobros</a>
       </li>
       <li class="nav-item text-center d-lg-none">
-        <a class="nav-link" routerLink="/contacto">Ayuda</a>
+        <a class="nav-link" routerLink="/contacto" (click)="cerrarMenu(botonToggleMenu)">Ayuda</a>
       </li>
       <li class="nav-item text-center d-lg-none">
-        <a class="nav-link" routerLink="/contacto">Cerrar cesión</a>
+        <a class="nav-link" routerLink="/contacto" (click)="cerrarMenu(botonToggleMenu)">Cerrar cesión</a>
       </li>
       <li class="nav-item text-center d-lg-none">
-        <a class="nav-link" routerLink="/contacto">Reservas</a>
+        <a class="nav-link" routerLink="/contacto" (click)="cerrarMenu(botonToggleMenu)">Reservas</a>
       </li>
     </ul>
     <form *ngIf="false" class="form-inline my-2 my-lg-0 mr-auto ml-auto">
@@ -55,10 +55,10 @@
         </button>
         <div *ngIf="menuDropdownDesplegado" class="menu-dropdown-header">
           <ul>
-            <li (click)="redirect('panel-usuario')">Panel personal</li>
-            <li (click)="redirect('panel-usuario')">Opiniones</li>
-            <li (click)="redirect('panel-usuario')">Pagos y Cobros</li>
-            <li (click)="redirect('panel-usuario')">Ayuda</li>
+            <li (click)="redirect('/dashboard/panel-usuario')">Panel personal</li>
+            <li (click)="redirect('/dashboard/panel-usuario')">Opiniones</li>
+            <li (click)="redirect('/dashboard/panel-usuario')">Pagos y Cobros</li>
+            <li (click)="redirect('/dashboard/panel-usuario')">Ayuda</li>
             <li (click)="logout()">Cerrar cesión</li>
           </ul>
         </div>

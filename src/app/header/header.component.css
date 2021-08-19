@@ -90,6 +90,7 @@ form.form-inline a:nth-child(2):hover {
     font-weight: bold;
     width: 100%;
     margin-right: 25px;
+    background: transparent;
 }
 
 .caja-header-perfil a {
@@ -113,10 +114,11 @@ form.form-inline a:nth-child(2):hover {
 
 .menu-dropdown-header li {
     display: flex !important;
-    padding: 10px 10px;
+    padding: 10px 20px !important;
     height: 60px;
     color: #8b5a17;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .menu-dropdown-header li:hover {
@@ -163,6 +165,13 @@ form.form-inline a:nth-child(2):hover {
     .caja-header-perfil a {
         margin: 0 !important;
     }
+    .menu-dropdown-header {
+        left: 60vw;
+        top: 90%;
+    }
+    .menu-dropdown-header ul li {
+        padding: 0 15px !important;
+    }
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1500px) {
@@ -174,5 +183,12 @@ form.form-inline a:nth-child(2):hover {
     }
     nav ul li {
         padding: 0 5px !important;
+    }
+    .menu-dropdown-header {
+        left: 61vw;
+        top: 90%;
+    }
+    .menu-dropdown-header ul li {
+        padding: 0 15px !important;
     }
 }

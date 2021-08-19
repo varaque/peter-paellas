@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UsuarioService } from '../services/usuario.service';
@@ -9,6 +9,7 @@ import { UsuarioService } from '../services/usuario.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
   menuDropdownDesplegado: boolean = false;
   constructor(private usuarioService: UsuarioService, private router: Router) {
   }
@@ -35,5 +36,9 @@ export class HeaderComponent {
         this.router.navigateByUrl('/launch');
       }
     });
+  }
+
+  cerrarMenu(elemento: HTMLElement) {
+    if (window.innerWidth < 992) elemento.click();
   }
 }
