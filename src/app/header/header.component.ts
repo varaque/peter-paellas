@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeaderService } from '../services/header.service';
 
 import { UsuarioService } from '../services/usuario.service';
 
@@ -11,7 +12,10 @@ import { UsuarioService } from '../services/usuario.service';
 export class HeaderComponent {
 
   menuDropdownDesplegado: boolean = false;
-  constructor(private usuarioService: UsuarioService, private router: Router) {
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router,
+    public headerService: HeaderService) {
   }
 
   toggleDropdownMenu() {
@@ -24,6 +28,7 @@ export class HeaderComponent {
   }
 
   logout() {
+    this.headerService.mostrarSeccionUsuario = false;
     this.toggleDropdownMenu();
     this.usuarioService.logout();
   }

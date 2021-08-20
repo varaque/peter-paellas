@@ -13,7 +13,6 @@ export class RutaAnteriorService {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        console.log('prev:', event.url);
         this.rutaAnterior = this.rutaActual;
         this.rutaActual = event.url;
       });

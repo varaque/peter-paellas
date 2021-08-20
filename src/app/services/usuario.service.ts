@@ -14,7 +14,6 @@ export class UsuarioService {
 
   constructor(private apiService: ApiService, private router: Router) { }
 
-
   insertar(usuario: Usuario) {
     return this.apiService.conectar({ modelo: 'usuarios', accion: 'Registrar', argumentos: usuario });
   }
@@ -40,11 +39,10 @@ export class UsuarioService {
 
   validarToken(): Observable<boolean> {
     const token = localStorage.getItem('token') || '';
-    const tokenStatus = this.apiService.conectar({ accion: 'validar_token', argumentos: token })
+    return this.apiService.conectar({ accion: 'validar_token', argumentos: token })
       .pipe(
-        map(res => res.respuesta.token_status),
-      )
-    return tokenStatus;
+        map(res => res.respuesta.token_status)
+      );
   }
 
 }

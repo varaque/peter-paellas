@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HeaderService } from '../services/header.service';
 import { RutaAnteriorService } from '../services/ruta-anterior.service';
 import { UsuarioService } from '../services/usuario.service';
 
@@ -19,7 +20,8 @@ export class LoginComponent {
   constructor(private fb: FormBuilder,
     private router: Router,
     private usuarioService: UsuarioService,
-    private rutaAnteriorService: RutaAnteriorService) {
+    private rutaAnteriorService: RutaAnteriorService,
+    private headerService: HeaderService) {
     this.form = this.fb.group({
       usuario_email: ['', [Validators.required, Validators.email]],
       usuario_password: ['', Validators.required],
@@ -30,6 +32,7 @@ export class LoginComponent {
   login() {
     this.usuarioService.logIn(this.form.value).subscribe(res => {
       if (res.respuesta.status) {
+        this.headerService.mostrarSeccionUsuario = true;
         this.usuarioService.guardarCredenciales(res);
         this.rutaAnteriorService.obtenerUrlAnterior() == '/launch' ? this.router.navigateByUrl('/dashboard/publicar-paella') : this.router.navigateByUrl('/dashboard');
       } else {

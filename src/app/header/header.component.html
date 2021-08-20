@@ -2,18 +2,21 @@
   <a class="navbar-brand" routerLink="/">
     <img src="../../assets/images/logo-negro.png" width="120">
   </a>
-  <button class="navbar-toggler" type="button" #botonToggleMenu data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" #botonToggleMenu data-toggle="collapse"
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item text-center active">
-        <a class="nav-link" routerLink="/" (click)="cerrarMenu(botonToggleMenu)">buscar <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/" (click)="cerrarMenu(botonToggleMenu)">buscar <span
+            class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link cursor-pointer" (click)="cerrarMenu(botonToggleMenu)" (click)="launchAction()">publicar paella</a>
+        <a class="nav-link cursor-pointer" (click)="cerrarMenu(botonToggleMenu)" (click)="launchAction()">publicar
+          paella</a>
       </li>
       <li class="nav-item text-center">
         <a class="nav-link" routerLink="/cocineros" (click)="cerrarMenu(botonToggleMenu)">cocineros</a>
@@ -41,12 +44,13 @@
         <a class="nav-link" routerLink="/contacto" (click)="cerrarMenu(botonToggleMenu)">Reservas</a>
       </li>
     </ul>
-    <form *ngIf="false" class="form-inline my-2 my-lg-0 mr-auto ml-auto">
+    <form *ngIf="!headerService.mostrarSeccionUsuario" class="form-inline my-2 my-lg-0 mr-auto ml-auto">
       <a routerLink="/login">Acceder</a>
       <a routerLink="/registro">Registro</a>
     </form>
 
-    <div class="d-none d-lg-flex justify-content-center align-items-center caja-header-perfil">
+    <div *ngIf="headerService.mostrarSeccionUsuario"
+      class="d-none d-lg-flex justify-content-center align-items-center caja-header-perfil">
       <a class="btn-paella btn-paella-aceptar" routerLink="/reseravs">Reservas</a>
 
       <div>
