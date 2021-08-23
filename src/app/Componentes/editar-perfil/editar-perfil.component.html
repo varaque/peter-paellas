@@ -4,58 +4,75 @@
     <!-- INICIO HEADER INFO PANEL USUARIO -->
     <div class="row">
       <div class="col-md-3">
-        <div class="caja-foto-perfil"></div>
+        <div #cajaFotoPerfil [style.background-image]="imgPerfil" class="caja-foto-perfil"></div>
       </div>
 
       <div class="col-md-9 caja-info-titulo">
         <p> PANEL DE USUARIO </p>
-        <a>Cambiar la foto del perfil <i class="fa fa-pencil"></i> </a>
+        <label for="input-hidden-img-perfil" class="btn-cambiar-foto-perfil">
+          Cambiar la foto del perfil
+          <i class="fa fa-pencil"></i>
+        </label>
+        <input (change)="cambiarFotoPerfil($event,cajaFotoPerfil)" type="file" id="input-hidden-img-perfil">
       </div>
     </div>
     <!-- FIN HEADER INFO PANEL USUARIO-->
 
     <!-- INICIO FORMULARIO -->
-    <form class="w-100 mt-5">
+    <form class="w-100 mt-5" [formGroup]="form" (submit)="guardarUsuario()">
       <div class="form-row">
 
         <div class="form-group col-md-6">
+          <p class="text-danger" *ngIf="form.get('usuario_nombre').invalid && formSubmitted">El nombre es requerido</p>
           <label for="nombre">Nombre</label>
-          <input type="text" id="nombre">
+          <input type="text" id="nombre" formControlName="usuario_nombre">
         </div>
 
         <div class="form-group col-md-6">
           <label for="apellidos">Apellidos</label>
-          <input type="text" id="apellidos">
+          <input type="text" id="apellidos" formControlName="apellidos">
         </div>
 
         <div class="form-group col-md-6">
+          <p class="text-danger" *ngIf="form.get('usuario_email').invalid && formSubmitted">El email es requerido</p>
           <label for="email">Email</label>
-          <input type="text" id="email">
+          <input type="text" id="email" formControlName="usuario_email">
         </div>
 
         <div class="form-group col-md-6">
+          <p class="text-danger" *ngIf="form.get('usuario_telefono').invalid && formSubmitted">El teléfono es requerido
+          </p>
           <label for="telefono">Teléfono</label>
-          <input type="text" id="telefono">
+          <input type="text" id="telefono" formControlName="usuario_telefono">
         </div>
 
         <div class="form-group col-md-6">
-          <label for="direccion">Dirección</label>
-          <input type="text" id="direccion">
-        </div>
-
-        <div class="form-group col-md-6">
+          <p class="text-danger" *ngIf="form.get('codigo_postal').invalid && formSubmitted">El código postal es
+            requerido</p>
           <label for="codigo-postal">Cód. Postal</label>
-          <input type="text" id="codigo-postal">
+          <input type="text" id="codigo-codigo" formControlName="codigo_postal">
         </div>
 
         <div class="form-group col-md-6">
-          <label for="ciudad">Ciudad</label>
-          <input type="text" id="ciudad">
+          <p class="text-danger" *ngIf="form.get('id_provincia').invalid && formSubmitted">La provincia es requerida</p>
+          <label for="Provincia">Provincia</label>
+          <select id="Provincia" formControlName="id_provincia">
+            <option [value]="provincia.id_provincia" *ngFor="let provincia of provincias">
+              {{provincia.provincia_nombre}}
+            </option>
+          </select>
         </div>
 
         <div class="form-group col-md-6">
-          <label for="pais">País</label>
-          <input type="text" id="pais">
+          <p class="text-danger" *ngIf="form.get('calle').invalid && formSubmitted">La calle es requerida</p>
+          <label for="calle">Calle</label>
+          <input type="text" id="calle" formControlName="calle">
+        </div>
+
+        <div class="form-group col-md-6">
+          <p class="text-danger" *ngIf="form.get('poblacion').invalid && formSubmitted">La población es requerida</p>
+          <label for="poblacion">Población</label>
+          <input type="text" id="poblacion" formControlName="poblacion">
         </div>
 
         <div class="form-group col-md-6 caja-password">
@@ -68,7 +85,7 @@
 
         <div class="form-group col-md-12 mt-4 mt-4">
           <label for="descricion">Breve descripción</label>
-          <textarea id="descricion" cols="30" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu dui vitae lacus mattis molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer nec dui tincidunt, ultrices justo et. 
+          <textarea id="descricion" formControlName="descripcion" cols="30" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu dui vitae lacus mattis molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer nec dui tincidunt, ultrices justo et. 
           </textarea>
         </div>
 

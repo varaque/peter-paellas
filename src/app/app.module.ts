@@ -87,6 +87,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CambiarPasswordComponent } from './Componentes/cambiar-password/cambiar-password.component';
 import { LaunchComponent } from './Componentes/launch/launch.component';
 import { DashboardModule } from './Componentes/dashboard/dashboard.module';
+import { PerfilCocineroComponent } from './Componentes/perfil-cocinero/perfil-cocinero.component';
 
 
 @NgModule({
@@ -111,6 +112,7 @@ import { DashboardModule } from './Componentes/dashboard/dashboard.module';
     PaellaReservadaComponent,
     CambiarPasswordComponent,
     LaunchComponent,
+    PerfilCocineroComponent,
     
   ],
   imports: [

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of, pipe } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+
 import { Usuario } from '../models/usuario.model';
 
 import { ApiService } from './api/api.service';
@@ -16,6 +17,18 @@ export class UsuarioService {
 
   insertar(usuario: Usuario) {
     return this.apiService.conectar({ modelo: 'usuarios', accion: 'Registrar', argumentos: usuario });
+  }
+
+  obtener(): Observable<Usuario> {
+    return this.apiService.conectar({
+      modelo: 'usuarios', accion: 'ObtenerInfoNoSensible', argumentos: localStorage.getItem('id_usuario')
+    }).pipe(
+      map(res => new Usuario(res.respuesta.usuario)),
+    );
+  }
+
+  actualizar(usuario: any) {
+    return this.apiService.conectar({ modelo: 'usuarios', accion: 'ActualizarInfoUsuario', argumentos: usuario });
   }
 
   logIn(credenciales: any) {
@@ -43,6 +56,10 @@ export class UsuarioService {
       .pipe(
         map(res => res.respuesta.token_status)
       );
+  }
+
+  cambiarFotoPerfil(imagen: any) {
+    return this.apiService.conectar({ modelo: 'usuarios', accion: 'ActualizarFotoPerfil', argumentos: imagen });
   }
 
 }

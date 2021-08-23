@@ -6,6 +6,7 @@ import { UsuarioService } from './usuario.service';
 })
 export class HeaderService {
   private _mostrarSeccionUsuario: boolean;
+
   constructor(private usuarioService: UsuarioService) {
     this.usuarioService.validarToken().subscribe(res => this.mostrarSeccionUsuario = res)
   }

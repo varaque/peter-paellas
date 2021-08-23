@@ -76,7 +76,7 @@ export class PublicaPaellaComponent implements OnInit {
   }
 
 
-  agregarImagen(event: any, target: any, order: number) {
+  agregarImagen(event: any, target: HTMLElement, order: number) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);

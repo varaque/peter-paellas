@@ -20,6 +20,7 @@ import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambi
 import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
 import { CambiarPasswordComponent } from './Componentes/cambiar-password/cambiar-password.component';
 import { LaunchComponent } from './Componentes/launch/launch.component';
+import { PerfilCocineroComponent } from './Componentes/perfil-cocinero/perfil-cocinero.component';
 
 
 const appRoutes: Routes = [
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
   { path: 'launch', component: LaunchComponent },
 
   { path: 'cocineros', component: CocinerosComponent },
+  { path: 'perfil-cocinero', component: PerfilCocineroComponent },
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   

@@ -40,7 +40,7 @@
 }
 
 .caja-info-titulo p,
-.caja-info-titulo a,
+.caja-info-titulo .btn-cambiar-foto-perfil,
 label {
     color: #8b5a17;
 }
@@ -52,11 +52,17 @@ label {
     margin-bottom: 5px;
 }
 
-.caja-info-titulo a {
-    text-decoration: none;
+.caja-info-titulo input {
+    display: none;
 }
 
-.caja-info-titulo a i {
+.caja-info-titulo .btn-cambiar-foto-perfil {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.caja-info-titulo .btn-cambiar-foto-perfil i {
     font-size: 20px;
     margin-left: 10px;
 }
