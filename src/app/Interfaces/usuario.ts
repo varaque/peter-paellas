@@ -14,4 +14,5 @@ export interface UsuarioInterface {
     provincia_nombre: string;
     id_direccion: number;
     poblacion: string;
+    usuario_descripcion: string;
 }

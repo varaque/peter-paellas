@@ -4,7 +4,7 @@
     <!-- INICIO HEADER INFO PANEL USUARIO -->
     <div class="row">
       <div class="col-md-3">
-        <div #cajaFotoPerfil [style.background-image]="imgPerfil" class="caja-foto-perfil"></div>
+        <div #cajaFotoPerfil [style.background-image]="usuario.rutaFotoPerfil" class="caja-foto-perfil"></div>
       </div>
 
       <div class="col-md-9 caja-info-titulo">
@@ -85,8 +85,7 @@
 
         <div class="form-group col-md-12 mt-4 mt-4">
           <label for="descricion">Breve descripción</label>
-          <textarea id="descricion" formControlName="descripcion" cols="30" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu dui vitae lacus mattis molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer nec dui tincidunt, ultrices justo et. 
-          </textarea>
+          <textarea id="descricion" formControlName="usuario_descripcion" cols="30" rows="5"></textarea>
         </div>
 
         <div class="form-group col-md-12 mt-5 d-flex flex-column justify-contente-center align-items-center">

@@ -14,6 +14,7 @@ export class Usuario implements UsuarioInterface {
     provincia_nombre: string;
     id_direccion: number;
     poblacion: string;
+    usuario_descripcion: string;
 
     constructor(usuario?: any) {
 
@@ -28,9 +29,10 @@ export class Usuario implements UsuarioInterface {
         this.provincia_nombre = usuario.provincia_nombre;
         this.id_direccion = +usuario.id_direccion;
         this.poblacion = usuario.poblacion;
+        this.usuario_descripcion = usuario.usuario_descripcion || '';
     }
 
     get rutaFotoPerfil() {
-        return this.usuario_foto == null ? '../../../assets/images/img-cocinero.jpg' : `${environment.apiUrl}${this.usuario_foto}`;
+        return this.usuario_foto == null ? 'url(../../../assets/images/img-cocinero.jpg)' : `url(${environment.apiUrl}${this.usuario_foto})`;
     }
 }

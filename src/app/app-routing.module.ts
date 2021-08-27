@@ -14,13 +14,13 @@ import { RegisterComponent } from './login/register/register.component';
 import { ForgotpassComponent } from './login/forgotpass/forgotpass.component';
 import { AvisoLegalComponent } from './Componentes/aviso-legal/aviso-legal.component';
 import { CookiesComponent } from './Componentes/cookies/cookies.component';
-import { PublicaPaellaComponent } from './Componentes/publica-paella/publica-paella.component';
 import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
 import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambiadas/credenciales-cambiadas.component';
 import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
 import { CambiarPasswordComponent } from './Componentes/cambiar-password/cambiar-password.component';
 import { LaunchComponent } from './Componentes/launch/launch.component';
 import { PerfilCocineroComponent } from './Componentes/perfil-cocinero/perfil-cocinero.component';
+import { BuscadorPaellasComponent } from './Componentes/buscador-paellas/buscador-paellas.component';
 
 
 const appRoutes: Routes = [
@@ -40,10 +40,11 @@ const appRoutes: Routes = [
   { path: 'launch', component: LaunchComponent },
 
   { path: 'cocineros', component: CocinerosComponent },
-  { path: 'perfil-cocinero', component: PerfilCocineroComponent },
+  { path: 'perfil-cocinero/:id', component: PerfilCocineroComponent },
+  { path: 'buscar-paellas', component: BuscadorPaellasComponent },
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  
+
   { path: 'paella/:id', component: PaellaComponent },
   { path: 'paella-reservada', component: PaellaReservadaComponent },
 

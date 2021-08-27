@@ -1,11 +1,11 @@
+import { Component, OnInit } from '@angular/core';
 import { ElementRef, ViewChild } from '@angular/core';
 import { Renderer2 } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment-timezone';
-import { PaellaDestacada } from 'src/app/models/paella-destacada.model';
 
 import { Provincia } from 'src/app/models/provincia.model';
 import { TipoPaella } from 'src/app/models/tipos-paellas.model';
+import { PaellaDestacada } from 'src/app/models/paella-destacada.model';
 
 import { PaellasService } from 'src/app/services/paellas.service';
 import { ProvinciasService } from 'src/app/services/provincias.service';
@@ -19,8 +19,6 @@ import { TipoPaellaService } from 'src/app/services/tipo-paella.service';
 export class MainBodyComponent implements OnInit {
 
   @ViewChild('fechaRef') fechaRef: ElementRef;
-
-
 
   provincias: Provincia[] = [];
   paellas: PaellaDestacada[] = [];
@@ -56,8 +54,6 @@ export class MainBodyComponent implements OnInit {
 
     this.renderer.setAttribute(this.fechaRef.nativeElement, "value", this.filter.fecha);
     this.generarFechaCuadro(new Date);
-
-
   }
 
   buscar() {

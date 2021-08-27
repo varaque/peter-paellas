@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HeaderService } from '../services/header.service';
 
+import { Usuario } from '../models/usuario.model';
+
+import { HeaderService } from '../services/header.service';
 import { UsuarioService } from '../services/usuario.service';
 
 @Component({
@@ -9,13 +11,14 @@ import { UsuarioService } from '../services/usuario.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-
+export class HeaderComponent implements OnInit {
   menuDropdownDesplegado: boolean = false;
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
     public headerService: HeaderService) {
+  }
+  ngOnInit(): void {
   }
 
   toggleDropdownMenu() {

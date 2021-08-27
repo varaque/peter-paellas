@@ -6,5 +6,5 @@ export interface CocineroInterface {
     usuario_foto: string,
     cantidad_paellas: number;
     direccion: string;
-
+    usuario_descripcion: string;
 }

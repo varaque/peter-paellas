@@ -1,101 +1,42 @@
-.checked {
-    color: rgb(248, 223, 0);
+.container-fluid {
+    padding: 50px 0;
+    background: #ffefd5;
 }
 
-img {
-    border-radius: 25px;
+.container {
+    padding: 50px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
-.card {
-    border-radius: 25px;
-    height: 450px;
+/* Sección de la info del cocinero */
+
+
+/* Sección del comentario de la valoración */
+
+.card .card-body .inf-usr-valoracion {
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 
-.fa-star {
-    height: 20px;
-    width: 20px;
+.card .card-body .inf-usr-valoracion .inf-usr-img {
+    background-image: url(../../../assets/images/img-cocinero.jpg);
+    background-repeat: round;
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
 }
 
-.bg-color {
-    background-color: #ffefd5;
-    min-height: 575px;
+.card .card-body .inf-usr-valoracion .inf-data-usr .data-date {
+    margin: 0 0 5px 0;
 }
 
-.bg-tarjeta {
-    background-color: #ffdfad;
-    /* border-radius: 15px; */
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    width: 25rem;
+.card .card-body .inf-usr-valoracion .inf-data-usr {
+    padding-left: 10px;
 }
 
-.bg-white {
-    background-color: white;
-}
-
-.letra-negra {
-    color: black;
-    font-weight: 700;
-    margin-top: 30px;
-}
-
-.letra-gris {
-    color: gray;
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-}
-
-.fecha-gris {
-    color: gray;
-    font-size: 12px;
-}
-
-.margenes {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    /* border-radius: 15px; */
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    box-shadow: 2px 2px 10px #666;
-}
-
-.margenes-interiores {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
-.marron {
-    /*     font-family: 'Quicksand', sans-serif; 0.16666?>0.66666+0.2222222=0.888888888888 */
-    color: #8b5a17;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.checked {
-    color: rgb(248, 223, 0);
-}
-
-.gris {
-    color: gray;
-    font-weight: 600;
-}
-
-.star {
-    position: relative;
-    display: inline-block;
-    font-size: 3rem;
-    color: #d3d3d3;
-}
-
-.full {
-    color: rgb(248, 223, 0);
-}
-
-.ratio {
-    position: absolute;
-    display: inline-block;
-    overflow: hidden;
-    color: rgb(248, 223, 0);
+.card .card-body .inf-usr-valoracion .inf-data-usr .data-usr-name {
+    margin: 0;
+    text-transform: uppercase;
 }

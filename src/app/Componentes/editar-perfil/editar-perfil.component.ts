@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 import { Provincia } from 'src/app/models/provincia.model';
 import { Usuario } from 'src/app/models/usuario.model';
@@ -25,13 +26,13 @@ export class EditarPerfilComponent implements OnInit {
     private usuariosService: UsuarioService,
     private provinciaService: ProvinciasService,
     private fb: FormBuilder) {
+    this.usuario = this.usuariosService.usuario;
     this.inicializarFormulario()
   }
 
   async ngOnInit() {
-    this.usuario = await this.usuariosService.obtener().toPromise();
     this.imgPerfil = `url('${this.usuario.rutaFotoPerfil}')`;
-    console.log(this.imgPerfil)
+
     this.provincias = await this.provinciaService.listar().toPromise()
     this.form = this.fb.group({
       usuario_nombre: [this.usuario.usuario_nombre, [Validators.required]],
@@ -45,6 +46,7 @@ export class EditarPerfilComponent implements OnInit {
       id_direccion: [this.usuario.id_direccion],
       id_usuario: [this.usuario.id_usuario],
       poblacion: [this.usuario.poblacion, [Validators.required]],
+      usuario_descripcion: [this.usuario.usuario_descripcion]
     })
   }
 
@@ -61,6 +63,7 @@ export class EditarPerfilComponent implements OnInit {
       id_direccion: [''],
       id_usuario: [''],
       poblacion: ['', [Validators.required]],
+      usuario_descripcion: ['']
     })
   }
 
@@ -74,6 +77,7 @@ export class EditarPerfilComponent implements OnInit {
   }
 
   cambiarFotoPerfil(event: any, cajaFotoPerfil: HTMLElement) {
+    console.log(this.usuariosService.usuario)
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);

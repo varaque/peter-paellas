@@ -1,0 +1,82 @@
+<div class="container-fluid seccion-buscador-paellas">
+    <div class="row py-5 d-flex justify-content-center">
+        <div class="custom-input-search-paella col-3">
+            <input type="button" #tipoPaella value="Tipo de paella" (click)="toggleSelect(1)">
+            <div class="custom-select-buscar-paella" *ngIf="tipoPaellaselectOpened">
+                <div class="custom-select-buscar-paella-item" (click)="seleccionarTipoPaella(tipo,tipoPaella)"
+                    *ngFor="let tipo of tiposPaellas">
+                    <p>{{tipo.tipo_paella_nombre}} </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-input-search-paella col-3">
+            <input type="button" #provinciaHTML value="Seleccione la provincia" (click)="toggleSelect(2)">
+            <div class="custom-select-buscar-paella" *ngIf="provinciaSelectOpened">
+                <div class="custom-select-buscar-paella-item" (click)="seleccionarProvincia(provincia,provinciaHTML)"
+                    *ngFor="let provincia of provincias">
+                    <p>{{provincia.provincia_nombre}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-input-search-paella col-3">
+            <input #fecha class="custom-select-calendar" value="Seleccione una fecha" type="button"
+                (click)="toggleCalendar()">
+            <div class="caja-mat-calendar" *ngIf="calendarOpened">
+                <mat-calendar (selectedChange)="seleccionarFecha($event,fecha)"></mat-calendar>
+            </div>
+        </div>
+
+        <button (click)="buscar()" class="btn-lupa text-color-1">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+</div>
+
+<div class="container-fluid py-4">
+    <div class="container">
+        <h3 class="text-center text-uppercase text-wigth-bold">10 paellas disponibles</h3>
+        <h3 class="text-center mt-3" *ngIf="listaPaellas.length==0"><b>NO SE HAN ENCONTRADO PAELLAS</b></h3>
+
+        <div class="row">
+            <div class="col-6 col-lg-4 mt-3" *ngFor="let paella of listaPaellas">
+                <div class="card">
+
+                    <div class="nombre-paella">
+                        <img src="../../../assets/images/avatarSimbolo.png" class="" alt="">
+                        <h3 class="card-title">{{paella.tipo_paella_nombre}}</h3>
+                    </div>
+
+                    <img [src]="paella.paella_foto_url" class="img-destacada-paella" alt="{{paella.paella_foto_url}}">
+
+                    <div class="info-cocinero">
+                        <p class="card-text"> {{paella.usuario_nombre}} </p>
+                        <div class="caja-estrellas">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+
+                    <p class="card-text ubicacion-paella text-center mt-4">
+                        <img class="paella-icon-svg" src="../../../assets/images/gps.svg" alt="">
+                        Burjassot, València
+                    </p>
+
+                    <p class="card-text fecha-paella text-center">
+                        <img class="paella-icon-svg" src="../../../assets/images/calendar.svg" alt="">
+                        {{paella.paella_fecha_coccion|date:'fullDate'}}
+                    </p>
+
+                    <button class="btn-paella btn-paella-aceptar">Reservar</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

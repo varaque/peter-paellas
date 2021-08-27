@@ -4,7 +4,7 @@
         <!-- INICIO HEADER INFO PANEL USUARIO -->
         <div class="row">
             <div class="col-md-3">
-                <div class="caja-foto-perfil"></div>
+                <div [style.background-image]="usuario.rutaFotoPerfil" class="caja-foto-perfil"></div>
             </div>
 
             <div class="col-md-9 caja-info-titulo">
@@ -20,42 +20,42 @@
 
                 <div class="col-md-6">
                     <label for="nombre">Nombre</label>
-                    <input readonly value="asdsadsadas" type="text" id="nombre">
+                    <input readonly value="{{usuario.usuario_nombre}}" type="text" id="nombre">
                 </div>
 
                 <div class="col-md-6">
                     <label for="apellidos">Apellidos</label>
-                    <input readonly value="asdsadsadas" type="text" id="apellidos">
+                    <input readonly value="" type="text" id="apellidos">
                 </div>
 
                 <div class="col-md-6">
                     <label for="email">Email</label>
-                    <input readonly value="asdsadsadas" type="text" id="email">
+                    <input readonly value="{{usuario.usuario_email}}" type="text" id="email">
                 </div>
 
                 <div class="col-md-6">
                     <label for="telefono">Teléfono</label>
-                    <input readonly value="asdsadsadas" type="text" id="telefono">
+                    <input readonly value="{{usuario.usuario_telefono}}" type="text" id="telefono">
                 </div>
 
                 <div class="col-md-6">
                     <label for="direccion">Dirección</label>
-                    <input readonly value="asdsadsadas" type="text" id="direccion">
+                    <input readonly value="{{usuario.calle}}" type="text" id="direccion">
                 </div>
 
                 <div class="col-md-6">
                     <label for="codigo-postal">Cód. Postal</label>
-                    <input readonly value="asdsadsadas" type="text" id="codigo-postal">
+                    <input readonly value="{{usuario.codigo_postal}}" type="text" id="codigo-postal">
                 </div>
 
                 <div class="col-md-6">
-                    <label for="ciudad">Ciudad</label>
-                    <input readonly value="asdsadsadas" type="text" id="ciudad">
+                    <label for="poblacion">Poblacion</label>
+                    <input readonly value="{{usuario.poblacion}}" type="text" id="poblacion">
                 </div>
 
                 <div class="col-md-6">
-                    <label for="pais">País</label>
-                    <input readonly value="asdsadsadas" type="text" id="pais">
+                    <label for="provincia">Provincia</label>
+                    <input readonly value="{{usuario.provincia_nombre}}" type="text" id="provincia">
                 </div>
 
                 <div class="col-md-6">
@@ -66,7 +66,7 @@
                 <div class="col-md-12 mt-4 mt-4 caja-textarea">
                     <label for="descricion">Breve descripción</label>
                     <textarea readonly id="descricion" cols="30"
-                        rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu dui vitae lacus mattis molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer nec dui tincidunt, ultrices justo et.</textarea>
+                        rows="5">{{usuario.usuario_descripcion||'Falta por introducir la descripción'}}</textarea>
                 </div>
 
                 <div class="form-group col-md-12 mt-5 d-flex flex-column justify-contente-center align-items-center">

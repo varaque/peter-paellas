@@ -9,8 +9,10 @@ import { CocineroService } from 'src/app/services/cocinero.service';
 })
 
 export class CocinerosComponent implements OnInit {
+
+  cocineros: Cocinero[] = [];
+
   constructor(private cocineroService: CocineroService) { }
-  cocineros: Cocinero[];
 
   async ngOnInit() {
     this.cocineros = await this.cocineroService.listar().toPromise();

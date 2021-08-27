@@ -1,7 +1,8 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, throwIfEmpty } from 'rxjs/operators';
 
 import { Usuario } from '../models/usuario.model';
 
@@ -12,7 +13,7 @@ import { ApiService } from './api/api.service';
 })
 export class UsuarioService {
 
-
+  modeloUsuario: Usuario;
   constructor(private apiService: ApiService, private router: Router) { }
 
   insertar(usuario: Usuario) {
@@ -27,6 +28,10 @@ export class UsuarioService {
     );
   }
 
+  get usuario() {
+    return this.modeloUsuario ? this.modeloUsuario : new Usuario(JSON.parse(localStorage.getItem('usuario')));
+  }
+
   actualizar(usuario: any) {
     return this.apiService.conectar({ modelo: 'usuarios', accion: 'ActualizarInfoUsuario', argumentos: usuario });
   }
@@ -36,18 +41,15 @@ export class UsuarioService {
   }
 
   logout() {
-    localStorage.removeItem('id_usuario');
-    localStorage.removeItem('usuario_email');
-    localStorage.removeItem('usuario_nombre');
+    localStorage.removeItem('usuario');
     localStorage.removeItem('token');
     this.router.navigateByUrl('/login');
   }
 
   guardarCredenciales(credenciales: any) {
-    localStorage.setItem('id_usuario', credenciales.respuesta.id_usuario);
-    localStorage.setItem('usuario_email', credenciales.respuesta.usuario_email);
-    localStorage.setItem('usuario_nombre', credenciales.respuesta.usuario_nombre);
+    localStorage.setItem('usuario', JSON.stringify(credenciales.respuesta.usuario));
     localStorage.setItem('token', credenciales.respuesta.token);
+    this.modeloUsuario = new Usuario(credenciales.respuesta.usuario);
   }
 
   validarToken(): Observable<boolean> {
@@ -59,7 +61,13 @@ export class UsuarioService {
   }
 
   cambiarFotoPerfil(imagen: any) {
-    return this.apiService.conectar({ modelo: 'usuarios', accion: 'ActualizarFotoPerfil', argumentos: imagen });
+    return this.apiService.conectar({ modelo: 'usuarios', accion: 'ActualizarFotoPerfil', argumentos: imagen })
+      .pipe(
+        tap(res => {
+          this.modeloUsuario.usuario_foto = res.respuesta.foto;
+          localStorage.setItem('usuario', JSON.stringify(this.modeloUsuario))
+        })
+      );
   }
 
 }

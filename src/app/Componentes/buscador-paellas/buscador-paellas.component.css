@@ -1,0 +1,125 @@
+.seccion-buscador-paellas {
+    background: url(../../../assets/images/fondo1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+select,
+input {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-lupa {
+    border: none;
+    border-radius: 100%;
+    background: #fff;
+    width: 50px;
+    height: 50px;
+}
+
+.caja-mat-calendar {
+    position: absolute;
+    z-index: 1000;
+    border-top: 4px solid #E9CDA5;
+    width: calc( 100% - 30px);
+    background-color: #FFEED5;
+}
+
+.custom-select-buscar-paella {
+    position: absolute;
+    height: 30vh;
+    width: calc( 100% - 30px);
+    overflow: auto;
+    z-index: 1000;
+}
+
+.custom-select-buscar-paella .custom-select-buscar-paella-item {
+    width: 100%;
+    height: 40px;
+    color: #804B00;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.custom-select-buscar-paella div.custom-select-buscar-paella-item :hover {
+    background-color: #E9CDA5 !important;
+}
+
+.custom-select-buscar-paella div.custom-select-buscar-paella-item p {
+    margin: 0 !important;
+    height: 100%;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+
+/* seccion de las paellas */
+
+.card {
+    padding: 20px 0;
+    box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nombre-paella,
+.ubicacion-paella,
+.fecha-paella,
+.info-cocinero {
+    padding: 0 20px;
+}
+
+.info-cocinero,
+.nombre-paella {
+    display: flex;
+    height: 50px;
+}
+
+.nombre-paella {
+    margin-top: 15px;
+    margin-bottom: 35px;
+    justify-content: flex-start;
+}
+
+.nombre-paella h3 {
+    width: 50%;
+}
+
+.paella-icon-svg {
+    width: 25px;
+}
+
+.img-destacada-paella {
+    width: 100%;
+}
+
+.info-cocinero {
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.info-cocinero p {
+    width: 50%;
+}
+
+.caja-estrellas i {
+    color: yellow;
+    font-size: 20px;
+    margin: 3px;
+}
+
+.btn-paella {
+    padding: 10px 30px;
+    border-radius: 40px;
+    font-size: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-paella-aceptar {
+    background: #d3b791;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #d3b791;
+}
