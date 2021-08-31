@@ -1,6 +1,6 @@
 import { PaellaDestacadaInterface } from "../Interfaces/paella-destacada.interface";
 import { environment } from "src/environments/environment";
-const url=environment.apiUrl;
+const url = environment.apiUrl;
 export class PaellaDestacada implements PaellaDestacadaInterface {
     id_paella: number;
     tipo_paella_nombre: number;
@@ -8,6 +8,8 @@ export class PaellaDestacada implements PaellaDestacadaInterface {
     usuario_nombre: string;
     provincia_nombre: string;
     paella_fecha_coccion: string;
+    valoracion: number;
+    numero_votos: number;
 
     constructor(paellaDestacada: any) {
         this.id_paella = paellaDestacada.id_paella;
@@ -16,6 +18,8 @@ export class PaellaDestacada implements PaellaDestacadaInterface {
         this.usuario_nombre = paellaDestacada.usuario_nombre;
         this.provincia_nombre = paellaDestacada.provincia_nombre;
         this.paella_fecha_coccion = paellaDestacada.paella_fecha_coccion;
+        this.valoracion = paellaDestacada.valoracion;
+        this.numero_votos = +paellaDestacada.numero_votos;
 
     }
 }

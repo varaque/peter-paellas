@@ -144,7 +144,7 @@
 
           <div class="nombre-paella">
             <img src="../../../assets/images/avatarSimbolo.png" class="" alt="">
-            <h3 class="card-title">{{paella.tipo_paella_nombre}}</h3>
+            <h3>{{paella.tipo_paella_nombre}}</h3>
           </div>
 
           <img [src]="paella.paella_foto_url" class="img-destacada-paella" alt="{{paella.paella_foto_url}}">
@@ -152,21 +152,29 @@
           <div class="info-cocinero">
             <p class="card-text"> {{paella.usuario_nombre}} </p>
             <div class="caja-estrellas">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
+              <input id="radio1" type="radio" name="estrellas" value="5">
+              <label (click)="valorarPaella(paella,5)" [style.color]="paella.valoracion>=5? 'orange':grey" for="radio1">&#9733;</label>
+              <input id="radio2" type="radio" name="estrellas" value="4">
+              <label (click)="valorarPaella(paella,4)" [style.color]="paella.valoracion>=4? 'orange':grey" for="radio2">&#9733;</label>
+              <input id="radio3" type="radio" name="estrellas" value="3">
+              <label (click)="valorarPaella(paella,3)" [style.color]="paella.valoracion>=3? 'orange':grey" for="radio3">&#9733;</label>
+              <input id="radio4" type="radio" name="estrellas" value="2">
+              <label (click)="valorarPaella(paella,2)" [style.color]="paella.valoracion>=2? 'orange':grey" for="radio4">&#9733;</label>
+              <input id="radio5" type="radio" name="estrellas" value="1">
+              <label (click)="valorarPaella(paella,1)" [style.color]="paella.valoracion>=1? 'orange':grey"
+                for="radio5">&#9733;</label>
             </div>
+            <span>{{'('+paella.numero_votos+')'}}</span>
           </div>
 
-          <p class="card-text ubicacion-paella text-center mt-4">
-            <img class="paella-icon-svg" src="../../../assets/images/gps.svg" alt=""> Burjassot, València
+          <p class="card-text text-left mt-4 pl-4 mb-0 text-color-3">
+            <i class="fa fa-map-marker-alt text-color-2"></i>
+            Burjassot, València
           </p>
 
-          <p class="card-text fecha-paella text-center">
-            <img class="paella-icon-svg" src="../../../assets/images/calendar.svg" alt="">
-            {{paella.paella_fecha_coccion|date:'fullDate'}}
+          <p class="card-text text-left mb-4 pl-4 text-color-3">
+            <i class="fa fa-calendar text-color-2"></i>
+            {{paella.paella_fecha_coccion|date:'fullDate'|titlecase}}
           </p>
 
           <button class="btn-paella btn-paella-aceptar">Reservar</button>

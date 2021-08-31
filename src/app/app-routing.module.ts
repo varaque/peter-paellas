@@ -21,6 +21,7 @@ import { CambiarPasswordComponent } from './Componentes/cambiar-password/cambiar
 import { LaunchComponent } from './Componentes/launch/launch.component';
 import { PerfilCocineroComponent } from './Componentes/perfil-cocinero/perfil-cocinero.component';
 import { BuscadorPaellasComponent } from './Componentes/buscador-paellas/buscador-paellas.component';
+import { ReservarPaellaComponent } from './Componentes/reservar-paella/reservar-paella.component';
 
 
 const appRoutes: Routes = [
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
 
   { path: 'paella/:id', component: PaellaComponent },
   { path: 'paella-reservada', component: PaellaReservadaComponent },
+  { path: 'reservar-paella', component: ReservarPaellaComponent },
 
   { path: 'cambiar-password', component: CambiarPasswordComponent },
   { path: 'recuperar-password', component: ForgotpassComponent },

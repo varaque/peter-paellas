@@ -10,6 +10,7 @@ import { PaellaDestacada } from 'src/app/models/paella-destacada.model';
 import { PaellasService } from 'src/app/services/paellas.service';
 import { ProvinciasService } from 'src/app/services/provincias.service';
 import { TipoPaellaService } from 'src/app/services/tipo-paella.service';
+import { ValoracionService } from 'src/app/services/valoracion.service';
 
 @Component({
   selector: 'app-main-body',
@@ -39,6 +40,7 @@ export class MainBodyComponent implements OnInit {
     private paellaService: PaellasService,
     private provinciaService: ProvinciasService,
     private tipoPaellaService: TipoPaellaService,
+    private valoracionService: ValoracionService,
     private renderer: Renderer2) {
 
   }
@@ -100,6 +102,17 @@ export class MainBodyComponent implements OnInit {
       this.provinciaSelectOpened = this.provinciaSelectOpened ? false : true;
       this.tipoPaellaselectOpened = false;
     }
+  }
+
+  async valorarPaella(paella: PaellaDestacada, valoracion: number) {
+    paella.valoracion = valoracion;
+    paella.numero_votos++;
+    await this.valoracionService.insertar({
+      id_valoracion: 6,
+      valoracion: valoracion,
+      id_usuario: 6,
+      id_paella: paella.id_paella,
+    }).toPromise();
   }
 
 }

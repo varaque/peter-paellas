@@ -1,0 +1,224 @@
+.container-fluid {
+    background-color: #f7eddf;
+    padding: 100px 0;
+}
+
+form {
+    background-color: #fff;
+    padding: 40px 0 0 0;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 2px 2px 10px #666;
+}
+
+input {
+    height: 50px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding-left: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    border: 3px solid #d9c2a3;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    color: peru;
+    background-color: peru;
+}
+
+
+/* info de la paella */
+
+.col-md-6.d-flex {
+    height: 80px;
+}
+
+.info-item-reserva {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+
+/* caja-raciones-ver-hacer-paella */
+
+.caja-raciones-ver-hacer-paella .btn-dropdown {
+    width: 100%;
+    border: 3px solid #d9c2a3;
+    height: 50px;
+}
+
+.caja-raciones-ver-hacer-paella ul {
+    padding: 0;
+    list-style: none !important;
+    position: absolute;
+    width: calc(100% - 15px);
+    z-index: 1000;
+}
+
+.caja-raciones-ver-hacer-paella ul li {
+    background-color: #E9CDA5;
+    cursor: pointer;
+}
+
+.caja-raciones-ver-hacer-paella ul li:hover {
+    background-color: #804B00 !important;
+}
+
+.caja-raciones-ver-hacer-paella ul li button {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.caja-raciones-ver-hacer-paella label {
+    text-align: left;
+    font-size: 13px;
+}
+
+#quiero-ver-hacer-paella {
+    width: 50px;
+    margin-left: 5px;
+}
+
+
+/* caja de prefactura */
+
+.caja-prefactura .col-md-6 {
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja-prefactura p {
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.caja-prefactura .prefactura-concepto {
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 2px solid #d9c2a3;
+    border-right: 1px solid #d9c2a3;
+}
+
+.caja-prefactura .prefactura-total {
+    border-top: 0;
+    border-left: 1px solid #d9c2a3;
+    border-bottom: 2px solid #d9c2a3;
+    border-right: 0;
+}
+
+
+/* caja de botones de pago */
+
+.caja-botones-pago .col-md-6 {
+    padding: 0;
+}
+
+.caja-botones-pago button {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    padding: 5px 30px;
+}
+
+.btn-pago-1 {
+    border-radius: 8px 0 0 8px;
+    border-top: 2px solid #d9c2a3;
+    border-right: 0;
+    border-bottom: 2px solid #d9c2a3;
+    border-left: 2px solid #d9c2a3;
+}
+
+.btn-pago-2 {
+    border-radius: 0 8px 8px 0;
+    border-top: 2px solid #d9c2a3;
+    border-left: 2px solid #d9c2a3;
+    border-bottom: 2px solid #d9c2a3;
+    border-right: 2px solid #d9c2a3;
+}
+
+
+/* caja de botones */
+
+.caja-botones {
+    display: flex;
+    justify-content: center;
+    justify-content: end;
+    margin-bottom: 50px;
+}
+
+.caja-botones button {
+    padding: 8px 35px;
+    border-radius: 40px;
+    font-size: 20px;
+    border: none;
+}
+
+.caja-botones .btn-cancelar {
+    background-color: transparent;
+    border: none;
+    color: peru;
+}
+
+.caja-botones .btn-reservar {
+    background-color: peru;
+    border: none;
+    color: #fff;
+}
+
+@media only screen and (max-width:576px) {
+    .container-fluid {
+        padding: 100px 20px;
+    }
+    .caja-imagen-destacada-paella {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .caja-imagen-destacada-paella h3 {
+        text-align: center !important;
+    }
+    .formulario-reservar-paella {
+        padding: 10px;
+    }
+    .titulo-fomulario h3 {
+        text-align: center !important;
+    }
+    label[for="quiero-ver-hacer-paella"] {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width:577px) and (max-width:768px) {
+    .container-fluid {
+        padding: 100px 20px;
+    }
+    .titulo-fomulario h3 {
+        text-align: center !important;
+    }
+    .formulario-reservar-paella {
+        padding: 10px;
+    }
+    label[for="quiero-ver-hacer-paella"] {
+        font-size: 25px;
+    }
+    #quiero-ver-hacer-paella {
+        width: 40px;
+    }
+}
+
+@media only screen and (min-width:769px) {
+    .container-fluid {
+        padding: 100px 20px;
+    }
+}

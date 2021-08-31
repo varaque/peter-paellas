@@ -8,6 +8,7 @@ import { TipoPaella } from 'src/app/models/tipos-paellas.model';
 import { PaellasService } from 'src/app/services/paellas.service';
 import { ProvinciasService } from 'src/app/services/provincias.service';
 import { TipoPaellaService } from 'src/app/services/tipo-paella.service';
+import { ValoracionService } from 'src/app/services/valoracion.service';
 
 @Component({
   selector: 'app-buscador-paellas',
@@ -30,7 +31,8 @@ export class BuscadorPaellasComponent implements OnInit {
   constructor(
     private tiposPaellaService: TipoPaellaService,
     private provinciaService: ProvinciasService,
-    private paellaService: PaellasService) { }
+    private paellaService: PaellasService,
+    private valoracionService: ValoracionService) { }
 
   async ngOnInit() {
     this.tiposPaellas = await this.tiposPaellaService.listar().toPromise();
@@ -73,9 +75,18 @@ export class BuscadorPaellasComponent implements OnInit {
     this.toggleCalendar()
   }
 
-  buscar() {
-    this.paellaService.buscar(this.filter).subscribe(res => {
-      ///this.paellas = res.respuesta;
-    })
+  async buscar() {
+    this.listaPaellas = await this.paellaService.buscar(this.filter).toPromise()
+  }
+
+  async valorarPaella(paella: PaellaDestacada, valoracion: number) {
+    paella.valoracion = valoracion;
+    paella.numero_votos += 1;
+    await this.valoracionService.insertar({
+      id_valoracion: 6,
+      valoracion: valoracion,
+      id_usuario: 6,
+      id_paella: paella.id_paella,
+    }).toPromise();
   }
 }
