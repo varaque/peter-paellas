@@ -45,7 +45,7 @@ const appRoutes: Routes = [
 
   { path: 'paella/:id', component: PaellaComponent },
   { path: 'paella-reservada', component: PaellaReservadaComponent },
-  { path: 'reservar-paella', component: ReservarPaellaComponent },
+  { path: 'reservar-paella/:id', component: ReservarPaellaComponent },
 
   { path: 'recuperar-password', component: ForgotpassComponent },
 

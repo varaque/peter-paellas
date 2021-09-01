@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
@@ -10,49 +11,17 @@ export class ReservarPaellaComponent implements OnInit {
 
   @ViewChild('paypal', { static: true }) paypalElement: ElementRef;
 
-
   title = 'angular-paypal-payment';
 
   iframe: boolean = false;
   cajaRacionesAbierta: boolean = false;
 
-  constructor() { }
 
-
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    /* paypal.Buttons({
-      createOrder: (data, actions) => {
-        if (this.reserva.personas <= this.selectedPaella.plazas_libres) {
-          return actions.order.create({
-            purchase_units: [
-              {
-                description: this.selectedPaella.nombre,
-                amount: {
-                  currency_code: 'EUR',
-                  value: this.selectedPaella.precio * this.reserva.personas,
-                }
-
-              }
-            ]
-          })
-        }
-        else { alert('¡Lo sentimos, no hay tantas plazas libres!') }
-      },
-      onApprove: async (data, actions) => {
-        const order = await actions.order.capture();
-        this.saveReserva();
-        console.log(order);
-
-      },
-      onError: err => {
-        console.log(err);
-      }
-    })
-      .render(this.paypalElement.nativeElement); */
+    this.route.snapshot.params.id;
   }
-
-
 
   saveReserva() {
 
@@ -110,7 +79,6 @@ export class ReservarPaellaComponent implements OnInit {
     } */
 
   }
-
 
   checkReserva() {
     /* //esta funcion es por si quieres ver la reserva sin guardarla nada mas, por si quieres testear algo... si no la puedes borrar
