@@ -1,8 +1,8 @@
-import { stringify } from '@angular/compiler/src/util';
+
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, tap, throwIfEmpty } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 import { Usuario } from '../models/usuario.model';
 
@@ -14,10 +14,12 @@ import { ApiService } from './api/api.service';
 export class UsuarioService {
 
   modeloUsuario: Usuario;
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router) {
+    this.modeloUsuario = localStorage.getItem('usuario') ? new Usuario(JSON.parse(localStorage.getItem('usuario'))) : new Usuario;
+  }
 
   insertar(usuario: Usuario) {
-    return this.apiService.conectar({ modelo: 'usuarios', accion: 'Registrar', argumentos: usuario });
+    return this.apiService.conectar({ modelo: 'usuarios', accion: 'RegistrarUsuario', argumentos: usuario });
   }
 
   obtener(): Observable<Usuario> {
@@ -33,7 +35,15 @@ export class UsuarioService {
   }
 
   actualizar(usuario: any) {
-    return this.apiService.conectar({ modelo: 'usuarios', accion: 'ActualizarInfoUsuario', argumentos: usuario });
+    return this.apiService.conectar({ modelo: 'usuarios', accion: 'ActualizarInfoUsuario', argumentos: usuario }).pipe(
+      map(res => res.respuesta),
+      tap(res => {
+        if (res.status) {
+          this.modeloUsuario = new Usuario(res.usuario);
+          localStorage.setItem('usuario', JSON.stringify(res.usuario));
+        }
+      })
+    );
   }
 
   logIn(credenciales: any) {
@@ -68,6 +78,15 @@ export class UsuarioService {
           localStorage.setItem('usuario', JSON.stringify(this.modeloUsuario))
         })
       );
+  }
+  
+  cambiarPassword(args: any) {
+    args = { ...args, id_usuario: this.modeloUsuario.id_usuario }
+    return this.apiService.conectar({
+      modelo: 'usuarios',
+      accion: 'cambiarPassword',
+      argumentos: args
+    });
   }
 
 }

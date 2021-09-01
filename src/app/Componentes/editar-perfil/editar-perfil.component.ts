@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs/operators';
 
 import { Provincia } from 'src/app/models/provincia.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { ProvinciasService } from 'src/app/services/provincias.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -73,11 +73,14 @@ export class EditarPerfilComponent implements OnInit {
       console.warn("error")
       return
     }
-    this.usuariosService.actualizar(this.form.value).toPromise();
+    this.usuariosService.actualizar(this.form.value).pipe(
+      tap(res => {
+        (res.status) ? Swal.fire('Correcto', res.msg, 'success') : Swal.fire('Error', res.msg, 'error')
+      })
+    ).toPromise();
   }
 
   cambiarFotoPerfil(event: any, cajaFotoPerfil: HTMLElement) {
-    console.log(this.usuariosService.usuario)
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -85,7 +88,11 @@ export class EditarPerfilComponent implements OnInit {
       var img = reader.result;
       cajaFotoPerfil.style.backgroundImage = `url(${img})`;
       cajaFotoPerfil.style.backgroundSize = 'cover';
-      this.usuariosService.cambiarFotoPerfil({ id_usuario: this.usuario.id_usuario, foto: img }).toPromise();
+      this.usuariosService.cambiarFotoPerfil({ id_usuario: this.usuario.id_usuario, foto: img }).pipe(
+        tap(res => {
+          res.respuesta.status ? Swal.fire('Correcto', 'Imagen Actualizada', 'success') : Swal.fire('Error', res.respuesta.msg, 'error');
+        })
+      ).toPromise();
     };
   }
 

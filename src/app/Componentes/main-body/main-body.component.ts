@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ElementRef, ViewChild } from '@angular/core';
 import { Renderer2 } from '@angular/core';
+
 import * as moment from 'moment-timezone';
+import Swal from 'sweetalert2';
 
 import { Provincia } from 'src/app/models/provincia.model';
 import { TipoPaella } from 'src/app/models/tipos-paellas.model';
@@ -107,12 +109,14 @@ export class MainBodyComponent implements OnInit {
   async valorarPaella(paella: PaellaDestacada, valoracion: number) {
     paella.valoracion = valoracion;
     paella.numero_votos++;
+    Swal.fire('Gracias', 'Tu voto ha sido guardado', 'success');
     await this.valoracionService.insertar({
       id_valoracion: 6,
       valoracion: valoracion,
       id_usuario: 6,
       id_paella: paella.id_paella,
     }).toPromise();
+
   }
 
 }

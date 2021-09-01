@@ -17,7 +17,7 @@ export class RutaAnteriorService {
         this.rutaActual = event.url;
       });
   }
-  public obtenerUrlAnterior() {
+  public obtenerUrlAnterior(): string {
     return this.rutaAnterior;
   }
 }

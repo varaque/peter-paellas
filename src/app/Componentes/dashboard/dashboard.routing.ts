@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "src/app/guards/auth.guard";
+import { ActivarCuentaComponent } from "../activar-cuenta/activar-cuenta.component";
+import { CambiarPasswordComponent } from "../cambiar-password/cambiar-password.component";
 import { EditarPerfilComponent } from "../editar-perfil/editar-perfil.component";
 import { PanelUsuarioComponent } from "../panel-usuario/panel-usuario.component";
 import { PublicaPaellaComponent } from "../publica-paella/publica-paella.component";
@@ -15,6 +17,8 @@ const routes: Routes = [
             { path: 'panel-usuario', component: PanelUsuarioComponent },
             { path: 'editar-perfil', component: EditarPerfilComponent },
             { path: 'publicar-paella', component: PublicaPaellaComponent },
+            { path: 'activar-cuenta', component: ActivarCuentaComponent },
+            { path: 'cambiar-password', component: CambiarPasswordComponent },
         ]
     }
 ]

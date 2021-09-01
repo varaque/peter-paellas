@@ -95,25 +95,22 @@ input {
     width: 100%;
     max-height: 200px;
 }
+
+
 /* info cocinero */
 
 .info-cocinero {
-    margin-top: 20px;
-    justify-content: space-between;
-    align-items: center;
+    margin-top: 30px;
 }
 
-.info-cocinero p {
-    width: 50%;
-}
-.info-cocinero span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
 
 /* caja de estrellas */
+
+.contenedor-valoraciones {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
 
 .caja-estrellas {
     direction: rtl;
@@ -131,6 +128,7 @@ input {
 .caja-estrellas label:hover,
 .caja-estrellas label:hover~label {
     color: orange;
+    cursor: pointer;
 }
 
 .caja-estrellas input[type="radio"]:checked~label {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import * as moment from 'moment';
+import Swal from 'sweetalert2';
 
 import { PaellaDestacada } from 'src/app/models/paella-destacada.model';
 import { Provincia } from 'src/app/models/provincia.model';
@@ -82,6 +84,7 @@ export class BuscadorPaellasComponent implements OnInit {
   async valorarPaella(paella: PaellaDestacada, valoracion: number) {
     paella.valoracion = valoracion;
     paella.numero_votos += 1;
+    Swal.fire('Gracias', 'Tu voto ha sido guardado', 'success');
     await this.valoracionService.insertar({
       id_valoracion: 6,
       valoracion: valoracion,

@@ -80,11 +80,9 @@ import { AvisoLegalComponent } from './Componentes/aviso-legal/aviso-legal.compo
 import { CookiesComponent } from './Componentes/cookies/cookies.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
 import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambiadas/credenciales-cambiadas.component';
 import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CambiarPasswordComponent } from './Componentes/cambiar-password/cambiar-password.component';
 import { LaunchComponent } from './Componentes/launch/launch.component';
 import { DashboardModule } from './Componentes/dashboard/dashboard.module';
 import { PerfilCocineroComponent } from './Componentes/perfil-cocinero/perfil-cocinero.component';
@@ -109,15 +107,13 @@ import { ReservarPaellaComponent } from './Componentes/reservar-paella/reservar-
     AvisoLegalComponent,
     CookiesComponent,
     FilterPipe,
-    ActivarCuentaComponent,
     CredencialesCambiadasComponent,
     PaellaReservadaComponent,
-    CambiarPasswordComponent,
     LaunchComponent,
     PerfilCocineroComponent,
     BuscadorPaellasComponent,
     ReservarPaellaComponent,
-    
+
   ],
   imports: [
     ScrollingModule,
@@ -129,21 +125,21 @@ import { ReservarPaellaComponent } from './Componentes/reservar-paella/reservar-
     DragDropModule,
     OverlayModule,
     PortalModule,
-    
+
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    
+
     FormsModule,
     RouterModule,
     BrowserAnimationsModule,
     DashboardModule,
-  
+
     NgbModule,
-    
+
     //hasta el salto de linea es todo para el datepicker
     MatTreeModule,
     MatAutocompleteModule,
@@ -187,7 +183,7 @@ import { ReservarPaellaComponent } from './Componentes/reservar-paella/reservar-
     MatSelectModule,
     MatMomentDateModule,
     MatDatepickerModule,
-    MatCheckboxModule,    
+    MatCheckboxModule,
     NgxMatMomentModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,

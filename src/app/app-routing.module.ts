@@ -14,10 +14,8 @@ import { RegisterComponent } from './login/register/register.component';
 import { ForgotpassComponent } from './login/forgotpass/forgotpass.component';
 import { AvisoLegalComponent } from './Componentes/aviso-legal/aviso-legal.component';
 import { CookiesComponent } from './Componentes/cookies/cookies.component';
-import { ActivarCuentaComponent } from './Componentes/activar-cuenta/activar-cuenta.component';
 import { CredencialesCambiadasComponent } from './Componentes/credenciales-cambiadas/credenciales-cambiadas.component';
 import { PaellaReservadaComponent } from './Componentes/paella-reservada/paella-reservada.component';
-import { CambiarPasswordComponent } from './Componentes/cambiar-password/cambiar-password.component';
 import { LaunchComponent } from './Componentes/launch/launch.component';
 import { PerfilCocineroComponent } from './Componentes/perfil-cocinero/perfil-cocinero.component';
 import { BuscadorPaellasComponent } from './Componentes/buscador-paellas/buscador-paellas.component';
@@ -27,7 +25,6 @@ import { ReservarPaellaComponent } from './Componentes/reservar-paella/reservar-
 const appRoutes: Routes = [
   { path: '', component: MainBodyComponent },
 
-  { path: 'activar-cuenta', component: ActivarCuentaComponent },
   { path: 'credenciales-cambiadas', component: CredencialesCambiadasComponent },
 
   { path: 'faq', component: FaqComponent },
@@ -50,7 +47,6 @@ const appRoutes: Routes = [
   { path: 'paella-reservada', component: PaellaReservadaComponent },
   { path: 'reservar-paella', component: ReservarPaellaComponent },
 
-  { path: 'cambiar-password', component: CambiarPasswordComponent },
   { path: 'recuperar-password', component: ForgotpassComponent },
 
 ];

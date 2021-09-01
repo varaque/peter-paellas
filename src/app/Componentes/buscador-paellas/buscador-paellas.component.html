@@ -51,25 +51,33 @@
                     <img [src]="paella.paella_foto_url" class="img-destacada-paella" alt="{{paella.paella_foto_url}}">
 
                     <div class="info-cocinero">
-                        <p class="card-text"> {{paella.usuario_nombre}} </p>
-                        <div class="caja-estrellas">
-                            <input id="radio1" type="radio" name="estrellas" value="5">
-                            <label (click)="valorarPaella(paella,5)" [style.color]="paella.valoracion>=5? 'orange':grey"
-                                for="radio1">&#9733;</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4">
-                            <label (click)="valorarPaella(paella,4)" [style.color]="paella.valoracion>=4? 'orange':grey"
-                                for="radio2">&#9733;</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3">
-                            <label (click)="valorarPaella(paella,3)" [style.color]="paella.valoracion>=3? 'orange':grey"
-                                for="radio3">&#9733;</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2">
-                            <label (click)="valorarPaella(paella,2)" [style.color]="paella.valoracion>=2? 'orange':grey"
-                                for="radio4">&#9733;</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1">
-                            <label (click)="valorarPaella(paella,1)" [style.color]="paella.valoracion>=1? 'orange':grey"
-                                for="radio5">&#9733;</label>
+                        <div class="w-100 d-flex justify-content-between align-items-center">
+                            <div>
+                                <p class="card-text"> {{paella.usuario_nombre}} </p>
+                            </div>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <div class="caja-estrellas">
+                                    <input id="radio1" type="radio" name="estrellas" value="5">
+                                    <label (click)="valorarPaella(paella,5)"
+                                        [style.color]="paella.valoracion>=5? 'orange':grey" for="radio1">&#9733;</label>
+                                    <input id="radio2" type="radio" name="estrellas" value="4">
+                                    <label (click)="valorarPaella(paella,4)"
+                                        [style.color]="paella.valoracion>=4? 'orange':grey" for="radio2">&#9733;</label>
+                                    <input id="radio3" type="radio" name="estrellas" value="3">
+                                    <label (click)="valorarPaella(paella,3)"
+                                        [style.color]="paella.valoracion>=3? 'orange':grey" for="radio3">&#9733;</label>
+                                    <input id="radio4" type="radio" name="estrellas" value="2">
+                                    <label (click)="valorarPaella(paella,2)"
+                                        [style.color]="paella.valoracion>=2? 'orange':grey" for="radio4">&#9733;</label>
+                                    <input id="radio5" type="radio" name="estrellas" value="1">
+                                    <label (click)="valorarPaella(paella,1)"
+                                        [style.color]="paella.valoracion>=1? 'orange':grey" for="radio5">&#9733;</label>
+                                </div>
+                                <div>
+                                    <p class="mt-auto mb-auto">{{'('+paella.numero_votos+')'}}</p>
+                                </div>
+                            </div>
                         </div>
-                        <span>{{'('+paella.numero_votos+')'}}</span>
                     </div>
 
                     <p class="card-text text-left mt-4 pl-4 mb-0 text-color-3">
