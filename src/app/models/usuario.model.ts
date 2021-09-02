@@ -49,4 +49,12 @@ export class Usuario implements UsuarioInterface {
     get rutaFotoPerfil() {
         return this.usuario_foto == null ? 'url(../../../assets/images/img-cocinero.jpg)' : `url(${environment.apiUrl}${this.usuario_foto})`;
     }
+
+    get srcImg() {
+        return this.usuario_foto == null ? 'assets/images/img-cocinero.jpg' : `${environment.apiUrl}${this.usuario_foto}`;
+    }
+
+    get ubicacionCompleta() {
+        return this.provincia_nombre && this.poblacion ? `${this.provincia_nombre}, ${this.poblacion}` : 'Ubicación no disponible'
+    }
 }

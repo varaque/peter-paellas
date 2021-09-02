@@ -5,21 +5,39 @@
                 <div class="row">
 
                     <div class="col-md-3 ml-4">
-                        <img [src]="cocinero?.rutaFotoPerfil" width="100%" height="225" class="mt-4 mb-4">
+                        <img [src]="cocinero?.srcImg" width="100%" height="225" class="mt-4 mb-4">
                     </div>
 
                     <div class="col-md-6 mt-4 ml-4">
                         <h2 class="text-color-1 font-weight-bold">¡HOLA! SOY {{cocinero?.usuario_nombre|uppercase}}
                         </h2>
-                        <div class="mb-4 caja-estrellas">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div class="info-cocinero">
+
+                            <div class="d-flex justify-content-end align-items-center">
+                                <div class="caja-estrellas">
+                                    <input id="radio1" type="radio" name="estrellas" value="5">
+                                    <label [style.color]="cocinero?.valoracion>=5? 'orange':grey"
+                                        for="radio1">&#9733;</label>
+                                    <input id="radio2" type="radio" name="estrellas" value="4">
+                                    <label [style.color]="cocinero?.valoracion>=4? 'orange':grey"
+                                        for="radio2">&#9733;</label>
+                                    <input id="radio3" type="radio" name="estrellas" value="3">
+                                    <label [style.color]="cocinero?.valoracion>=3? 'orange':grey"
+                                        for="radio3">&#9733;</label>
+                                    <input id="radio4" type="radio" name="estrellas" value="2">
+                                    <label [style.color]="cocinero?.valoracion>=2? 'orange':grey"
+                                        for="radio4">&#9733;</label>
+                                    <input id="radio5" type="radio" name="estrellas" value="1">
+                                    <label [style.color]="cocinero?.valoracion>=1? 'orange':grey"
+                                        for="radio5">&#9733;</label>
+                                </div>
+                                <div>
+                                    <p class="mt-auto mb-auto">{{'('+cocinero?.numero_votos+')'}}</p>
+                                </div>
+                            </div>
                         </div>
                         <p> <img src="/assets/images/location.png">
-                            {{cocinero?.poblacion}}, {{cocinero?.provincia_nombre}} </p>
+                            {{cocinero?.ubicacionCompleta}} </p>
                         <p> <img src="/assets/images/restaurant.png"> 10 Paellas Publicadas </p>
 
                     </div>
@@ -37,7 +55,34 @@
 
             <div class="col-12">
                 <h5 class="text-uppercase text-color-2 font-weight-bold">paellas publicadas en este momento</h5>
-                <p>En este momento Juan no tiene ninguna paella publicada</p>
+                <p *ngIf="!cocinero?.paellas_disponibles">En este momento Juan no tiene ninguna paella publicada</p>
+                <div class="row">
+                    <div class="col-6 col-lg-4 mt-3" *ngFor="let paella of cocinero?.paellas_disponibles">
+                        <div class="card">
+                            <div class="nombre-paella">
+                                <img src="../../../assets/images/avatarSimbolo.png" class="" alt="">
+                                <h3>{{paella.tipo_paella_nombre}}</h3>
+                            </div>
+
+                            <img [src]="paella.paella_foto_url" class="img-destacada-paella"
+                                alt="{{paella.paella_foto_url}}">
+
+                            <p class="card-text text-left mt-4 pl-4 mb-0 text-color-3">
+                                <i class="fa fa-map-marker-alt text-color-2"></i>
+                                Burjassot, València
+                            </p>
+
+                            <p class="card-text text-left mb-4 pl-4 text-color-3">
+                                <i class="fa fa-calendar text-color-2"></i>
+                                {{paella.paella_fecha_coccion|date:'fullDate'|titlecase}}
+                            </p>
+
+                            <a routerLink="../reservar-paella/{{paella.id_paella}}"
+                                class="btn-paella btn-paella-aceptar">Reservar</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
             <div class="col-12">

@@ -1,3 +1,4 @@
+import { environment } from "src/environments/environment";
 import { InfoPaellaReservaInterface } from "../Interfaces/info-paella-reserva.interface";
 
 export class InfoPaellaReserva implements InfoPaellaReservaInterface {
@@ -10,6 +11,7 @@ export class InfoPaellaReserva implements InfoPaellaReservaInterface {
     paella_fecha_coccion: string;
     tipo_paella_nombre: string;
     provincia_nombre: string;
+    paella_foto_url: string;
 
     constructor(info: any) {
         if (info) {
@@ -22,6 +24,7 @@ export class InfoPaellaReserva implements InfoPaellaReservaInterface {
             this.paella_fecha_coccion = info.paella_fecha_coccion;
             this.tipo_paella_nombre = info.tipo_paella_nombre;
             this.provincia_nombre = info.provincia_nombre;
+            this.paella_foto_url = `${environment.apiUrl}${info.paella_foto_url}`;
         } else {
             this.usuario_nombre = null;
             this.paella_raciones = null;
@@ -32,6 +35,7 @@ export class InfoPaellaReserva implements InfoPaellaReservaInterface {
             this.paella_fecha_coccion = null;
             this.tipo_paella_nombre = null;
             this.provincia_nombre = null;
+            this.paella_foto_url = null;
         }
     }
 }

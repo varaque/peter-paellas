@@ -8,4 +8,5 @@ export interface InfoPaellaReservaInterface {
     paella_fecha_coccion: string;
     tipo_paella_nombre: string;
     provincia_nombre: string;
+    paella_foto_url:string;
 }

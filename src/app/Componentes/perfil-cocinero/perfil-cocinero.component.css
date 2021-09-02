@@ -9,6 +9,7 @@
     box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
+
 /* Sección de la info del cocinero */
 
 
@@ -39,4 +40,104 @@
 .card .card-body .inf-usr-valoracion .inf-data-usr .data-usr-name {
     margin: 0;
     text-transform: uppercase;
+}
+
+
+/* botones */
+
+.btn-paella {
+    padding: 10px 30px;
+    border-radius: 40px;
+    font-size: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-paella-aceptar {
+    background: #FFEED5;
+    color: #804B00;
+    border: none;
+}
+
+
+/* seccion de las paellas */
+
+.card {
+    padding: 20px 0;
+    box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nombre-paella,
+.info-cocinero {
+    padding: 0 20px;
+}
+
+.info-cocinero,
+.nombre-paella {
+    display: flex;
+    height: 50px;
+}
+
+.nombre-paella {
+    margin-top: 15px;
+    margin-bottom: 35px;
+    justify-content: flex-start;
+}
+
+.nombre-paella h3 {
+    width: 50%;
+}
+
+.paella-icon-svg {
+    width: 25px;
+}
+
+.img-destacada-paella {
+    width: 100%;
+    max-height: 200px;
+}
+
+
+/* info cocinero */
+
+.info-cocinero {
+    margin-top: 30px;
+}
+
+
+/* caja de estrellas */
+
+.contenedor-valoraciones {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.caja-estrellas {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.caja-estrellas input[type="radio"] {
+    display: none;
+}
+
+.caja-estrellas label {
+    color: grey;
+}
+
+
+.caja-estrellas input[type="radio"]:checked~label {
+    color: orange;
+}
+
+@media only screen and (min-width:1201px) {
+    .nombre-paella {
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nombre-paella h3 {
+        width: 75%;
+    }
 }

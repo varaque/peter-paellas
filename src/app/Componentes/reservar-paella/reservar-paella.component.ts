@@ -40,7 +40,6 @@ export class ReservarPaellaComponent implements OnInit {
 
   async ngOnInit() {
     this.paella = await this.paellaService.obtenerDatosPaellaReserva(this.route.snapshot.params.id).toPromise()
-    console.log(this.paella)
   }
 
   reservarPaella() {
