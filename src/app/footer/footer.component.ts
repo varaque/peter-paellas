@@ -1,55 +1,44 @@
-import { Component, OnInit } from '@angular/core'; 
-import { Suscripcion } from '../Interfaces/suscripcion';  
-import { SuscripcionService } from 'src/app/services/suscripcion.service'; 
-import { Router } from '@angular/router'; 
-@Component({ 
-  selector: 'app-footer', 
-  templateUrl: './footer.component.html', 
-  styleUrls: ['./footer.component.css'] 
-}) 
-export class FooterComponent implements OnInit { 
- 
-  suscripcion: Suscripcion = { 
- 
-    email: null, 
- 
- 
-  } 
- 
- acepto; 
- 
-  constructor(private suscripcionService: SuscripcionService,private router:Router) { } 
- 
-  ngOnInit(): void { 
-  } 
- 
-  saveSuscripcion() {  
- 
-    if (this.acepto==true){ 
-    /* Con validator esto no haría falta realmente, pero esto es mas simple, va y ya está hecho */ 
-    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.suscripcion.email)) //chequeamos que el mail sea de verdad y esté gucci 
-    { 
-      this.suscripcionService.save(this.suscripcion).subscribe((data) => { 
-        alert('¡Te has suscrito correctamente!');  
-        console.log(data);  
-        this.router.navigate(['/']) 
- 
-      }, (error) => { 
-        console.log("error en footer.ts suscripcion"); 
-      }) 
-    } 
- 
-    else { 
-      alert('¡Este email no es valido!'); 
-    } 
- 
-  } 
-   
-  else{ 
-    alert('Debes aceptar recibir notificaciones ademas de los terminos y condiciones') 
-  } 
- 
-} 
- 
-} 
- 
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { SuscripcionService } from 'src/app/services/suscripcion.service';
+import Swal from 'sweetalert2';
+import { SuscripcionNewsletter } from '../interfaces/suscripcion';
+
+@Component({
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
+})
+export class FooterComponent {
+
+  form: FormGroup;
+  formSubmitted: boolean = false;
+
+  constructor(private suscripcionService: SuscripcionService, private router: Router,
+    private fb: FormBuilder) {
+    this.form = this.fb.group({
+      newsletter_email: ['', [Validators.required, Validators.email]],
+      aceptarNotificaciones: [false]
+    })
+  }
+
+  saveSuscripcion() {
+    this.formSubmitted = true;
+    console.log(this.form.value)
+    if (this.form.invalid) {
+      return;
+    }
+    if (!this.form.get('aceptarNotificaciones').value) {
+      Swal.fire('Info', 'Debe aceptar antes las los terminos','info');
+      return
+    }
+    this.suscripcionService.newslater(this.form.value).subscribe(res => {
+      console.log(res);
+      res.respuesta.status ? Swal.fire('Info', res.respuesta.msg, 'success') : Swal.fire('Info', res.respuesta.msg, 'warning')
+    });
+
+  }
+
+}

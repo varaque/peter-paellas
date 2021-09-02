@@ -1,23 +1,19 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
-import {Suscripcion} from '../interfaces/suscripcion';
+
+import { ApiService } from './api/api.service';
+import { SuscripcionNewsletter } from '../interfaces/suscripcion';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SuscripcionService {
+  constructor(private apiService: ApiService) { }
 
-  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
-  //API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
-  constructor(private httpClient:HttpClient) { }
-
-  save(suscripcion:Suscripcion){
-    const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.post(this.API_ENDPOINT + 'suscripcions', suscripcion, {headers:headers});
+  newslater(suscripcion: SuscripcionNewsletter) {
+    return this.apiService.conectar({
+      modelo: 'subscripciones_newsletter',
+      accion: 'registrarNewsletter',
+      argumentos: suscripcion
+    });
   }
-
-  get(){
-    return this.httpClient.get(this.API_ENDPOINT + 'suscripcions');
-  }
-
 }

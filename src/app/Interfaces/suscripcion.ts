@@ -1,8 +1,6 @@
-export interface Suscripcion{
+export interface SuscripcionNewsletter {
 
-    id?: number;
-    email: string;
-    created_at?: string;
-    updated_at?: string;
+    id_subscripcion_newsletter: number;
+    newsletter_email: string;
 
 }
