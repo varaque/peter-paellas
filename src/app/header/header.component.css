@@ -1,194 +1,65 @@
-nav {
-    padding: 25px 150px;
-    border-bottom: 2px solid #d3d3d3;
+.menu-header {
+    width: 100%;
+    height: 80px;
+    background: #E9CDA5;
+    position: absolute;
+    top: 0;
+    z-index: 900;
 }
 
-#navbarSupportedContent ul li {
-    display: ruby;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 20px;
+.menu-header a {
+    margin-left: 5%;
 }
 
-#navbarSupportedContent ul li a {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 18px;
-    letter-spacing: 2px;
+.menu-header i {
+    right: 35px;
 }
 
-.nav-link.cursor-pointer {
-    cursor: pointer;
+
+/* menu central */
+
+.menu-central {
+    position: fixed;
+    right: -100%;
 }
 
-form.form-inline a {
-    text-decoration: none;
-    padding: 10px 50px;
-    font-size: 20px;
-    border-radius: 40px;
-    cursor: pointer;
-}
-
-form.form-inline a:nth-child(1) {
-    background-color: #f7eddf;
-    border: 2px solid #f7eddf;
-    color: #8b5a17;
-    margin-right: 30px;
-}
-
-form.form-inline a:nth-child(2) {
-    border: 2px solid #8b5a17;
-    color: #8b5a17
-}
-
-form.form-inline a:nth-child(1):hover {
-    border: 2px solid #8b5a17;
-}
-
-form.form-inline a:nth-child(1):hover,
-form.form-inline a:nth-child(2):hover {
-    font-weight: bold;
-}
-
-.btn-paella {
-    padding: 20px 30px;
-    border-radius: 40px;
+.expanded {
+    background: #E9CDA5;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 35px;
+    left: 0px !important;
 }
 
-.btn-paella-aceptar {
-    background: #d3b791;
-    color: #8b5a17;
-    font-weight: bold;
-}
-
-.caja-foto-perfil {
-    height: 50px;
-    width: 50px;
-    background: url('../../assets/images/img-cocinero.jpg');
-    border-radius: 100%;
-    background-position: center;
-    background-attachment: unset;
-    background-clip: padding-box;
-    background-repeat: repeat;
-    background-size: cover;
-}
-
-.caja-header-perfil {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.caja-header-perfil button {
-    border: none;
-    font-size: 18px;
-    color: #8b5a17;
-    font-weight: bold;
-    width: 100%;
-    margin-right: 25px;
-    background: transparent;
-}
-
-.caja-header-perfil a {
-    margin-right: 5%;
-}
-
-.menu-dropdown-header {
+.close-menu-button {
+    font-size: 35px;
     position: absolute;
-    z-index: 1000;
-    background-color: #d3d3d3;
-    width: 300px;
-    right: 22%;
-    top: 80%;
+    top: 20px;
+    right: 35px;
 }
 
-.menu-dropdown-header ul {
+.menu-central i {
+    color: #804B00;
+}
+
+.menu-central ul {
+    list-style: none;
     padding: 0;
-    margin: 0;
-    display: grid;
 }
 
-.menu-dropdown-header li {
-    display: flex !important;
-    padding: 10px 20px !important;
-    height: 60px;
-    color: #8b5a17;
-    font-size: 22px;
-    cursor: pointer;
+.menu-central ul li {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.menu-dropdown-header li:hover {
-    background-color: #d3b791;
-}
-
-@media only screen and (max-width: 576px) {
-    nav {
-        padding: 0;
-    }
-    .navbar {
-        justify-content: space-around;
-    }
-    img {
-        width: 25%;
-    }
-}
-
-@media only screen and (min-width: 577px) and (max-width: 991px) {
-    nav {
-        width: 100%;
-        padding: 1% 5%;
-    }
-    nav ul,
-    nav ul li {
-        display: block !important;
-    }
-    nav ul li {
-        width: 50%;
-        float: left;
-    }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
-    img {
-        width: 70px;
-    }
-    nav {
-        padding: 0 5px;
-    }
-    nav ul li {
-        padding: 0 !important;
-    }
-    .caja-header-perfil a {
-        margin: 0 !important;
-    }
-    .menu-dropdown-header {
-        left: 60vw;
-        top: 90%;
-    }
-    .menu-dropdown-header ul li {
-        padding: 0 15px !important;
-    }
-}
-
-@media only screen and (min-width: 1201px) and (max-width: 1500px) {
-    img {
-        width: 70px;
-    }
-    nav {
-        padding: 1% 5%;
-    }
-    nav ul li {
-        padding: 0 5px !important;
-    }
-    .menu-dropdown-header {
-        left: 61vw;
-        top: 90%;
-    }
-    .menu-dropdown-header ul li {
-        padding: 0 15px !important;
-    }
+.menu-central ul li a {
+    color: #804B00;
+    text-transform: uppercase;
+    font-size: 25px;
+    text-decoration: none;
 }
