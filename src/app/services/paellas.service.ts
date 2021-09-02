@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+import { InfoPaellaReserva } from '../models/info-paella-reserva.model';
 import { PaellaDestacada } from '../models/paella-destacada.model';
 
 import { Paella } from '../models/paella.model';
@@ -53,9 +54,27 @@ export class PaellasService {
     return this.api.conectar(
       { modelo: 'paellas', accion: 'Obtener', argumentos: id }
     ).pipe(
-      map(next => {
-        return new Paella(next);
-      })
+      map(next => new Paella(next.respuesta))
     );
   }
+  obtenerDatosPaellaReserva(id: number): Observable<InfoPaellaReserva> {
+    return this.api.conectar({
+      modelo: 'paellas',
+      accion: 'DatosPaellaReserva',
+      argumentos: id
+    }).pipe(
+      map(res => new InfoPaellaReserva(res.respuesta))
+    )
+  }
+
+  reservarPaella(args: any) {
+    return this.api.conectar({
+      modelo: 'reservas',
+      accion: 'ReservarPaella',
+      argumentos: args
+    }).pipe(
+      map(res => res.respuesta)
+    )
+  }
+
 }

@@ -8,97 +8,116 @@
                     <img src="../../../assets/images/paella.jpg" class="img-fluid" alt="">
                     <div class="d-flex mt-3 caja-imagen-destacada-paella">
                         <div class="col-sm-7 col-md-7">
-                            <h3 class="text-left">PAELLA VALENCIANA</h3>
+                            <h3 class="text-left">{{paella.tipo_paella_nombre}}</h3>
                         </div>
                         <div class="col-sm-5">
-                            <h3><i class="fa fa-calendar"></i> 14/03/2021</h3>
+                            <h3><i class="fa fa-calendar"></i> {{paella.paella_fecha_coccion}}</h3>
                         </div>
                     </div>
                     <hr>
                 </div>
 
                 <div class="col-md-5">
-                    <p class="info-item-reserva"> <i class="fa fa-hat-chef"></i> Juan Garcia Cano</p>
+                    <p class="info-item-reserva"> <i class="fa fa-hat-chef"></i> {{paella.usuario_nombre}}</p>
                 </div>
                 <div class="col-md-5">
-                    <p class="info-item-reserva"> <i class="fa fa-euro-sign"></i> 5€/ ración</p>
+                    <p class="info-item-reserva"> <i class="fa fa-euro-sign"></i> {{paella.paella_precio}} €/ ración</p>
                 </div>
                 <div class="col-md-5">
-                    <p class="info-item-reserva"> <i class="fa fa-utensils"></i> ¡Quedan 3 raciones!</p>
+                    <p class="info-item-reserva">
+                        <i class="fa fa-utensils"></i>
+                        ¡Quedan {{paella.paella_raciones}} raciones!
+                    </p>
                 </div>
                 <div class="col-md-5">
-                    <p class="info-item-reserva"> <i class="fa fa-check"></i> Ver como se prepara la paella</p>
+                    <p class="info-item-reserva">
+                        <i [class]="paella.paella_ver ? 'fa fa-check':'fa fa-times'"></i>
+                        Ver como se prepara la paella
+                    </p>
                 </div>
                 <div class="col-md-5">
-                    <p class="info-item-reserva"> <i class="fa fa-map-marker-alt"></i> Quid ex ea voluptate ponit</p>
+                    <p class="info-item-reserva"> <i class="fa fa-map-marker-alt"></i> {{paella.provincia_nombre}}</p>
                 </div>
                 <div class="col-md-5">
-                    <p class="info-item-reserva"> <i class="fa fa-times"></i> Mascotas</p>
+                    <p class="info-item-reserva">
+                        <i [class]="paella.paella_mascotas ? 'fa fa-check':'fa fa-times'"></i>
+                        Mascotas
+                    </p>
                 </div>
 
                 <div class="col-md-10">
-                    <p>Primum igitur, quid malum, sensu iudicari, sed et dolorem eum fugiat,
-                        quo enim maxime consuevit iactare vestra se texit, ne ferae quidem
-                        exercitus quid ex ea commodi consequatur? quis nostrum
-                        exercitationem ullam corporis suscipit laboriosam, nisi ut aut odit aut </p>
+                    <p>{{paella.paella_descripcion}}</p>
                 </div>
             </div>
         </div>
 
         <!-- caja del formulario -->
         <div class="col-lg-6 px-lg-5">
-            <form class="formulario-reservar-paella">
+            <form class="formulario-reservar-paella" [formGroup]="form" (submit)="reservarPaella()">
                 <div class="form-row d-flex justify-content-center">
                     <div class="form-group col-md-8 titulo-fomulario">
                         <h3 class="text-left">¡RESERVA TU PAELLA! </h3>
                     </div>
                     <div class="form-group col-md-8">
-                        <input type="text" placeholder="Nombre Completo*">
+                        <input formControlName="usuario_nombre" type="text" placeholder="Nombre Completo*">
+                        <p class="text-danger" *ngIf="formSumbited&&form.get('usuario_nombre').invalid">El nombre es
+                            obligatorio</p>
                     </div>
 
                     <div class="form-group col-md-8">
-                        <input type="text" placeholder="Teléfono">
+                        <input formControlName="usuario_telefono" type="text" placeholder="Teléfono">
+                        <p class="text-danger" *ngIf="formSumbited&&form.get('usuario_telefono').invalid">El teléfono es
+                            obligatorio</p>
                     </div>
 
                     <div class="form-group col-md-8">
-                        <input type="email" placeholder="Email">
+                        <input formControlName="usuario_email" type="email" placeholder="Email">
+                        <p class="text-danger" *ngIf="formSumbited&&form.get('usuario_email').invalid">El email es
+                            obligatorio</p>
                     </div>
 
                     <div class="form-group col-md-8 caja-raciones-ver-hacer-paella">
                         <div class="d-flex justify-content-center">
                             <div class="col-md-6 pl-0">
-                                <button (click)="toggleCajaRaciones()" class="btn-dropdown">
+                                <button #botonRacionesSelect type="button" (click)="toggleCajaRaciones()"
+                                    class="btn-dropdown">
                                     Nº Raciones
                                     <i class="fa fa-caret-down"></i>
                                 </button>
 
                                 <ul *ngIf="cajaRacionesAbierta">
-                                    <li><button>1 Racion</button></li>
-                                    <li><button>1 Racion</button></li>
-                                    <li><button>1 Racion</button></li>
-                                    <li><button>1 Racion</button></li>
-                                    <li><button>1 Racion</button></li>
+                                    <li><button (click)="selectRaciones(1,'1 Ración',botonRacionesSelect)"
+                                            type="button">1 Ración</button></li>
+                                    <li><button (click)="selectRaciones(2,'2 Raciones',botonRacionesSelect)"
+                                            type="button">2 Raciones</button></li>
+                                    <li><button (click)="selectRaciones(3,'3 Raciones',botonRacionesSelect)"
+                                            type="button">3 Raciones</button></li>
+                                    <li><button (click)="selectRaciones(4,'4 Raciones',botonRacionesSelect)"
+                                            type="button">4 Raciones</button></li>
+                                    <li><button (click)="selectRaciones(5,'5 Raciones',botonRacionesSelect)"
+                                            type="button">5 Raciones</button></li>
                                 </ul>
                             </div>
+
                             <div class="col-md-6 d-flex justify-content-end align-items-start pr-0">
                                 <label for="quiero-ver-hacer-paella">QUIERO VER CÓMO SE HACE LA PAELLA</label>
-                                <input type="checkbox" id="quiero-ver-hacer-paella">
+                                <input formControlName="ver_hacer_paella" type="checkbox" id="quiero-ver-hacer-paella">
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group col-md-8">
-                        <textarea name="" id="" rows="5"
+                        <textarea name="" id="" rows="5" formControlName="paella_descripcion"
                             placeholder="Información adicional: hora de llegada, alergias, mascotas etc"></textarea>
                     </div>
 
                     <div class="form-group col-md-8 caja-prefactura">
                         <div class="d-flex justify-content-center">
                             <div class=" col-md-6 prefactura-concepto">
-                                <p>5€ x 3 Raciones 15€</p>
+                                <p>{{paella.paella_precio}}€ x {{form.get('reserva_raciones').value}} Raciones</p>
                             </div>
                             <div class="col-md-6 prefactura-total">
-                                <p>TOTAL 15€</p>
+                                <p>TOTAL {{paella.paella_precio*form.get('reserva_raciones').value}} €</p>
                             </div>
                         </div>
                     </div>
@@ -117,7 +136,7 @@
 
                     <div class="form-group col-md-8 caja-botones">
                         <button class="btn-cancelar">Cancelar</button>
-                        <button class="btn-reservar">Reservar</button>
+                        <button type="submit" class="btn-reservar">Reservar</button>
                     </div>
 
                 </div>
