@@ -1,131 +1,126 @@
-<div class="container-fluid p-0">
-  <div id="fondo">
-    <div class="roboto">
+<div class="container-fluid search-box pt-5">
+  <div class="row d-flex justify-content-center align-items-center">
+
+    <div class="col-12 col-md-6 col-lg-5 col-xl-4 header-info">
       <div class="row d-flex justify-content-center align-items-center">
-
-        <div class="col-md-6 col-lg-5 col-xl-4 header-info">
-          <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-4 col-md-7">
-              <img src="../../../assets/images/logo-blanco.png" class="paellaMain p-0">
-            </div>
-
-            <div class="col-6 col-md-11 mt-3">
-              <h3 class="letra-blanca text-left">
-                <strong>Sunt autem vel eum iure reprehenderit, qui dolorem eum iure.</strong>
-              </h3>
-            </div>
-            <div class="col-10 col-md-11 mt-2">
-              <p class="text-white text-left">Quae fuerit causa, nollem me ab eo ortum, tam egregios viros censes aut
-                rerum necessitatibus saepe eveniet, ut ad eam non ero tibique, si
-              </p>
-            </div>
-          </div>
+        <div class="col-4 col-md-7">
+          <img src="../../../assets/images/logo-blanco.png" class="img-fluid">
         </div>
 
-        <div class="col-md-6 col-lg-5 col-xl-4 caja-buscador-paellas">
+        <div class="col-6 col-md-11 mt-3">
+          <h3 class="letra-blanca text-left">
+            <strong>Sunt autem vel eum iure reprehenderit, qui dolorem eum iure.</strong>
+          </h3>
+        </div>
+        <div class="col-10 col-md-11 mt-2">
+          <p class="text-white text-left">Quae fuerit causa, nollem me ab eo ortum, tam egregios viros censes aut
+            rerum necessitatibus saepe eveniet, ut ad eam non ero tibique, si
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-5 col-xl-4 caja-buscador-paellas">
+      <div class="row">
+        <!-- select de los tipos de paellas -->
+        <div class="col-12">
           <div class="row">
-            <!-- select de los tipos de paellas -->
-            <div class="col-12">
-              <div class="row">
-                <div class="col-12" (click)="toggleSelect(1)">
-                  <select [(ngModel)]="filter.tipoPaella" class="custom-select-arrow">
-                    <option *ngFor="let tipo of tipoPaellas" [ngValue]="tipo.id_tipo_paella">
-                      {{tipo.tipo_paella_nombre}}
-                      <input type="checkbox">
-                    </option>
-                  </select>
-                  <div class="overSelect1">
-                    <div>
-                      <span class="custom-item-select" *ngIf="filter.tipoPaella.length==0">
-                        SELECCIONE UN TIPO DE PAELLA
-                      </span>
-                      <span class="custom-item-select" *ngFor="let paellasSeleccionadas of filter.tipoPaella">
-                        {{paellasSeleccionadas.tipo_paella_nombre|uppercase}} &nbsp;
-                      </span>
-                    </div>
-                  </div>
-                  <span class="custom-span-info">Elije tu paella</span>
-                </div>
-
-                <div class="col-12 custom-select-opened" *ngIf="tipoPaellaselectOpened">
-                  <div class="checkboxes">
-                    <label *ngFor="let tipo of tipoPaellas" for="{{tipo.id_tipo_paella}}">
-                      {{tipo.tipo_paella_nombre|uppercase}}
-                      <input type="checkbox" (click)="seleccionarTipoPaella(tipo)"
-                        [checked]="filter.tipoPaella.indexOf(tipo)!=-1" id="{{tipo.id_tipo_paella}}" />
-                    </label>
-                  </div>
+            <div class="col-12" (click)="toggleSelect(1)">
+              <select [(ngModel)]="filter.tipoPaella" class="custom-select-arrow">
+                <option *ngFor="let tipo of tipoPaellas" [ngValue]="tipo.id_tipo_paella">
+                  {{tipo.tipo_paella_nombre}}
+                  <input type="checkbox">
+                </option>
+              </select>
+              <div class="overSelect1">
+                <div>
+                  <span class="custom-item-select" *ngIf="filter.tipoPaella.length==0">
+                    SELECCIONE UN TIPO DE PAELLA
+                  </span>
+                  <span class="custom-item-select" *ngFor="let paellasSeleccionadas of filter.tipoPaella">
+                    {{paellasSeleccionadas.tipo_paella_nombre|uppercase}} &nbsp;
+                  </span>
                 </div>
               </div>
+              <span class="custom-span-info">Elije tu paella</span>
             </div>
 
-            <!-- select de las provincias -->
-            <div class="col-12">
-              <div class="row">
-                <div class="col-12" (click)="toggleSelect(2)">
-                  <div class="custom-select-gps">
-                    <select [(ngModel)]="filter.ubicacion" class="custom-select-arrow">
-                      <option [selected]>Busca tu provincia</option>
-                      <option *ngFor="let provincia of provincias" [ngValue]="provincia.id_provincia">
-                        {{provincia.provincia_nombre|uppercase}}
-                      </option>
-                    </select>
-                    <div class="overSelect2">
-                      <div>
-                        <span class="custom-item-select" *ngIf="filter.ubicacion.length==0">
-                          SELECCIONE UNA PROVINCIA
-                        </span>
-                        <span class="custom-item-select" *ngFor="let ubicacion of filter.ubicacion">
-                          {{ubicacion.provincia_nombre|uppercase}} &nbsp;
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 custom-select-opened" *ngIf="provinciaSelectOpened">
-                  <div class="checkboxes">
-                    <label *ngFor="let provincia of provincias" for="{{provincia.id_provincia}}">
-                      {{provincia.provincia_nombre|uppercase}}
-                      <input type="checkbox" [checked]="filter.ubicacion.indexOf(provincia)!=-1"
-                        (click)="seleccionarpProvincia(provincia)" id="{{provincia.id_provincia}}" />
-                    </label>
-                  </div>
-                </div>
+            <div class="col-12 custom-select-opened" *ngIf="tipoPaellaselectOpened">
+              <div class="checkboxes">
+                <label *ngFor="let tipo of tipoPaellas" for="{{tipo.id_tipo_paella}}">
+                  {{tipo.tipo_paella_nombre|uppercase}}
+                  <input type="checkbox" (click)="seleccionarTipoPaella(tipo)"
+                    [checked]="filter.tipoPaella.indexOf(tipo)!=-1" id="{{tipo.id_tipo_paella}}" />
+                </label>
               </div>
             </div>
-
-            <!-- input de las fechas -->
-            <div class="col-12">
-              <input #fechaRef class="custom-select-calendar" value="Seleccione una fecha" type="button"
-                (click)="toggleCalendar()">
-
-              <div class="custom-date-picker" *ngIf="calendarOpened">
-                <div class="col-4 p-0 custom-date-picker-info">
-                  <div>
-                    <p>SELECCIONA UNA FECHA</p>
-                    <ul>
-                      <li>{{diaSemana|titlecase|slice:0:3}},</li>
-                      <li>{{mesNombre|titlecase|slice:0:3}}</li>
-                      <li>{{diaNum}}</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-10 col-sm-10 col-md-9 col-lg-10 col-xl-12 p-0 custom-date-picker-calendar">
-                  <mat-calendar (selectedChange)="seleccionarFecha($event)"></mat-calendar>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12">
-            <button type="button" (click)="buscar()" class="button-paella button-paella-outline"> Buscar </button>
           </div>
         </div>
+
+        <!-- select de las provincias -->
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12" (click)="toggleSelect(2)">
+              <div class="custom-select-gps">
+                <select [(ngModel)]="filter.ubicacion" class="custom-select-arrow">
+                  <option [selected]>Busca tu provincia</option>
+                  <option *ngFor="let provincia of provincias" [ngValue]="provincia.id_provincia">
+                    {{provincia.provincia_nombre|uppercase}}
+                  </option>
+                </select>
+                <div class="overSelect2">
+                  <div>
+                    <span class="custom-item-select" *ngIf="filter.ubicacion.length==0">
+                      SELECCIONE UNA PROVINCIA
+                    </span>
+                    <span class="custom-item-select" *ngFor="let ubicacion of filter.ubicacion">
+                      {{ubicacion.provincia_nombre|uppercase}} &nbsp;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 custom-select-opened" *ngIf="provinciaSelectOpened">
+              <div class="checkboxes">
+                <label *ngFor="let provincia of provincias" for="{{provincia.id_provincia}}">
+                  {{provincia.provincia_nombre|uppercase}}
+                  <input type="checkbox" [checked]="filter.ubicacion.indexOf(provincia)!=-1"
+                    (click)="seleccionarpProvincia(provincia)" id="{{provincia.id_provincia}}" />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- input de las fechas -->
+        <div class="col-12">
+          <input #fechaRef class="custom-select-calendar" value="Seleccione una fecha" type="button"
+            (click)="toggleCalendar()">
+
+          <div class="custom-date-picker" *ngIf="calendarOpened">
+            <div class="col-4 p-0 custom-date-picker-info">
+              <div>
+                <p>SELECCIONA UNA FECHA</p>
+                <ul>
+                  <li>{{diaSemana|titlecase|slice:0:3}},</li>
+                  <li>{{mesNombre|titlecase|slice:0:3}}</li>
+                  <li>{{diaNum}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-10 col-sm-10 col-md-9 col-lg-10 col-xl-12 p-0 custom-date-picker-calendar">
+              <mat-calendar (selectedChange)="seleccionarFecha($event)"></mat-calendar>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button type="button" (click)="buscar()" class="button-paella button-paella-outline"> Buscar </button>
       </div>
     </div>
   </div>
 </div>
-
 
 
 <div class="bg-paellas py-5">
