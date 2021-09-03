@@ -1,7 +1,7 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PaellasService } from 'src/app/services/paellas.service';
 
-import { ActivationEnd, ActivationStart, ChildActivationEnd, ChildActivationStart, NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Municipio } from 'src/app/Interfaces/municipio';
@@ -9,8 +9,6 @@ import { ProvinciasService } from 'src/app/services/provincias.service';
 import { Provincia } from 'src/app/models/provincia.model';
 import { TipoPaella } from 'src/app/models/tipos-paellas.model';
 import { TipoPaellaService } from 'src/app/services/tipo-paella.service';
-import { filter, tap } from 'rxjs/operators';
-import { NavigationEvent } from '@ng-bootstrap/ng-bootstrap/datepicker/datepicker-view-model';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
