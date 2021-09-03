@@ -1,11 +1,14 @@
 <div class="container-fluid">
 	<div class="row d-flex align-items-center justify-content-center mt-5 mb-5">
-		<div class="col-md-4">
-			<form>
+		<div class="col-sm-8 col-md-7">
+			<form (submit)="recordarPassword()" [formGroup]="form">
 				<h3 class="text-center mb-4"> ¿OLVIDASTE TU<br> CONTRASEÑA? </h3>
 				<div class="form-group">
 					<p class="text-left">Dinos cual es tu correo electrónico de acceso y te enviaremos un enlace</p>
-					<input type="email" class="mb-5" placeholder="E-mail">
+					<input type="email" class="mb-5" formControlName="usuario_email" placeholder="E-mail">
+					<p class="text-danger" *ngIf="formSubmitted&&form.get('usuario_email').invalid">
+						Este campo es obligatorio
+					</p>
 				</div>
 				<button type="submit"> Enviar </button>
 			</form>

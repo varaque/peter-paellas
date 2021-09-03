@@ -79,7 +79,7 @@ export class UsuarioService {
         })
       );
   }
-  
+
   cambiarPassword(args: any) {
     args = { ...args, id_usuario: this.modeloUsuario.id_usuario }
     return this.apiService.conectar({
@@ -87,6 +87,16 @@ export class UsuarioService {
       accion: 'cambiarPassword',
       argumentos: args
     });
+  }
+
+  passwordOlvidado(email): Observable<boolean> {
+    return this.apiService.conectar({
+      modelo: 'usuarios',
+      accion: 'passwordOlvidado',
+      argumentos: email
+    }).pipe(
+      map(res => res.respuesta)
+    )
   }
 
 }
