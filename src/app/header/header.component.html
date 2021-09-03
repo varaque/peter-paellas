@@ -1,22 +1,59 @@
-<nav class="main-menu">
+<nav class="main-menu d-none d-md-block">
+  <div class="row h-100 d-flex justify-content-end align-items-center m-0">
+    <div class="col-2 d-flex justify-content-end align-items-center">
+      <img src="../../assets/images/logo-negro.png" height="50" alt="">
+    </div>
 
+    <div class="col-6 col-xl-5 d-flex justify-content-start align-items-center">
+      <ul>
+        <li><a routerLink="/buscar-paellas">buscar</a></li>
+        <li><a class="cursor-pointer" (click)="launchAction()">publicar paella</a></li>
+        <li><a routerLink="/cocineros">cocineros</a></li>
+        <li><a routerLink="/contacto">contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="col-4 col-xl-5 d-flex justify-content-center align-items-center">
+      <div class="nav-item-loged d-flex justify-content-center align-items-center"
+        *ngIf="headerService.mostrarSeccionUsuario">
+        <a routerLink="/" class="btn-paella bg-paella-2 btn-paella-border-2 text-color-1 d-none d-xl-block">Reservas</a>
+        <button (click)="toggleDropdownMenu()" class="btn-paella-link mr-2">
+          Mi cuenta <i [ngClass]="menuDropdownDesplegado ? 'fa fa-chevron-up':'fa fa-chevron-down'"></i>
+        </button>
+        <div *ngIf="menuDropdownDesplegado" class="menu-dropdown-header">
+          <ul>
+            <li (click)="redirect('/dashboard/panel-usuario')">Panel personal</li>
+            <li (click)="redirect('/dashboard/panel-usuario')">Opiniones</li>
+            <li (click)="redirect('/dashboard/panel-usuario')" class="d-xl-none">Reservas</li>
+            <li (click)="redirect('/preguntas-frecuentes')">Ayuda</li>
+            <li (click)="logout()">Cerrar cesión</li>
+          </ul>
+        </div>
+        <div [style.background-image]="usuarioService.usuario.rutaFotoPerfil" class="caja-foto-perfil"></div>
+      </div>
+      <div class="nav-item-non-loged" *ngIf="!headerService.mostrarSeccionUsuario">
+        <a class="btn-paella bg-paella-2 btn-paella-border-2 text-color-1 mr-2" routerLink="/iniciar-sesion">Acceder</a>
+        <a class="btn-paella bg-white btn-paella-border-1 text-color-1" routerLink="/alta-usuario">Registro</a>
+      </div>
+    </div>
+  </div>
 </nav>
 
-<nav class="menu-header d-sm-none">
+<nav class="menu-header d-md-none">
   <div class="h-100 d-flex justify-content-between align-items-center">
     <a routerLink="/">
       <img src="../../assets/images/logo-negro.png" height="50" alt="">
     </a>
-    <i class="fas fa-bars fa-2x text-color-1 mr-4" (click)="toggleDropdownMenu()"></i>
+    <i class="fas fa-bars fa-2x text-color-1 mr-4" (click)="toggleMenuMobile()"></i>
   </div>
 </nav>
 
-<nav class="menu-central" [class.expanded]="menuDropdownDesplegado">
-  <i class="fa fa-times close-menu-button" (click)="toggleDropdownMenu()"></i>
+<nav class="menu-central" [class.expanded]="menuMobileExpanded">
+  <i class="fa fa-times close-menu-button" (click)="toggleMenuMobile()"></i>
   <div class="container d-flex justify-content-center">
     <ul>
       <li><a routerLink="/">Panel Personal</a></li>
-      <li><a routerLink="/">Buscar Paellas</a></li>
+      <li><a routerLink="/buscar-paellas">Buscar Paellas</a></li>
       <li><a routerLink="/">Cocineros</a></li>
       <li><a routerLink="/">Contacto</a></li>
       <li><a routerLink="/">Registrarme</a></li>

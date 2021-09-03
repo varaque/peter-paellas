@@ -27,15 +27,15 @@ const appRoutes: Routes = [
 
   { path: 'credenciales-cambiadas', component: CredencialesCambiadasComponent },
 
-  { path: 'faq', component: FaqComponent },
+  { path: 'preguntas-frecuentes', component: FaqComponent },
   { path: 'aviso-legal', component: AvisoLegalComponent },
   { path: 'cookies', component: CookiesComponent },
   { path: 'como-funciona', component: ComoFuncionaComponent },
   { path: 'contacto', component: ContactoComponent },
 
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'launch', component: LaunchComponent },
+  { path: 'iniciar-sesion', component: LoginComponent },
+  { path: 'alta-usuario', component: RegisterComponent },
+  { path: 'primer-paso', component: LaunchComponent },
 
   { path: 'cocineros', component: CocinerosComponent },
   { path: 'perfil-cocinero/:id', component: PerfilCocineroComponent },

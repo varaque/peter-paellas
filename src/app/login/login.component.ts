@@ -35,7 +35,7 @@ export class LoginComponent {
       if (res.respuesta.status) {
         this.headerService.mostrarSeccionUsuario = true;
         this.usuarioService.guardarCredenciales(res);
-        this.rutaAnteriorService.obtenerUrlAnterior() == '/launch' ? this.router.navigateByUrl('/dashboard/publicar-paella') : this.router.navigateByUrl('/dashboard');
+        this.rutaAnteriorService.obtenerUrlAnterior() == '/primer-paso' ? this.router.navigateByUrl('/dashboard/publicar-paella') : this.router.navigateByUrl('/dashboard');
       } else {
         console.log(res.respuesta.msg)
       }

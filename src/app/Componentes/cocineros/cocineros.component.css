@@ -55,8 +55,22 @@
     border-radius: 100%;
 }
 
-.caja-estrellas i {
-    margin-right: 5px;
-    font-size: 20px;
-    color: yellow;
+
+/* caja de estrellas */
+
+.caja-estrellas {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.caja-estrellas input[type="radio"] {
+    display: none;
+}
+
+.caja-estrellas label {
+    color: grey;
+}
+
+.caja-estrellas input[type="radio"]:checked~label {
+    color: orange;
 }

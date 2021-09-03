@@ -1,4 +1,4 @@
-<div class="container-fluid search-box pt-5">
+<div class="container-fluid search-box py-5">
   <div class="row d-flex justify-content-center align-items-center">
 
     <div class="col-12 col-md-6 col-lg-5 col-xl-4 header-info">
@@ -8,7 +8,7 @@
         </div>
 
         <div class="col-6 col-md-11 mt-3">
-          <h3 class="letra-blanca text-left">
+          <h3 class="text-left">
             <strong>Sunt autem vel eum iure reprehenderit, qui dolorem eum iure.</strong>
           </h3>
         </div>
@@ -23,7 +23,7 @@
     <div class="col-12 col-md-6 col-lg-5 col-xl-4 caja-buscador-paellas">
       <div class="row">
         <!-- select de los tipos de paellas -->
-        <div class="col-12">
+        <div class="col-12 col-md-11 col-lg-12">
           <div class="row">
             <div class="col-12" (click)="toggleSelect(1)">
               <select [(ngModel)]="filter.tipoPaella" class="custom-select-arrow">
@@ -58,7 +58,7 @@
         </div>
 
         <!-- select de las provincias -->
-        <div class="col-12">
+        <div class="col-12 col-md-11 col-lg-12">
           <div class="row">
             <div class="col-12" (click)="toggleSelect(2)">
               <div class="custom-select-gps">
@@ -93,7 +93,7 @@
         </div>
 
         <!-- input de las fechas -->
-        <div class="col-12">
+        <div class="col-12 col-md-11 col-lg-12">
           <input #fechaRef class="custom-select-calendar" value="Seleccione una fecha" type="button"
             (click)="toggleCalendar()">
 
@@ -115,7 +115,7 @@
         </div>
       </div>
 
-      <div class="col-12">
+      <div class="col-12 col-md-11 col-lg-12">
         <button type="button" (click)="buscar()" class="button-paella button-paella-outline"> Buscar </button>
       </div>
     </div>
@@ -134,7 +134,7 @@
     <h3 class="text-center mt-3" *ngIf="paellas.length==0"><b>NO SE HAN ENCONTRADO PAELLAS</b></h3>
 
     <div class="row mt-5">
-      <div class="col-6 col-lg-4 mt-3" *ngFor="let paella of paellas">
+      <div class="col-12 col-md-6 col-lg-4 mt-3" *ngFor="let paella of paellas">
         <div class="card">
 
           <div class="nombre-paella">

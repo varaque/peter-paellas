@@ -39,10 +39,9 @@
         <h3 class="text-center text-uppercase text-wigth-bold">10 paellas disponibles</h3>
         <h3 class="text-center mt-3" *ngIf="listaPaellas.length==0"><b>NO SE HAN ENCONTRADO PAELLAS</b></h3>
 
-        <div class="row">
-            <div class="col-6 col-lg-4 mt-3" *ngFor="let paella of listaPaellas">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-6 col-lg-4 mt-3" *ngFor="let paella of listaPaellas">
                 <div class="card">
-
                     <div class="nombre-paella">
                         <img src="../../../assets/images/avatarSimbolo.png" class="" alt="">
                         <h3>{{paella.tipo_paella_nombre}}</h3>

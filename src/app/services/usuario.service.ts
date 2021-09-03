@@ -53,7 +53,7 @@ export class UsuarioService {
   logout() {
     localStorage.removeItem('usuario');
     localStorage.removeItem('token');
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/iniciar-sesion');
   }
 
   guardarCredenciales(credenciales: any) {

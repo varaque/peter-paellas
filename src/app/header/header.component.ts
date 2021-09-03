@@ -13,12 +13,16 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class HeaderComponent implements OnInit {
   menuDropdownDesplegado: boolean = false;
+  menuMobileExpanded: boolean = false;
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
     public headerService: HeaderService) {
   }
   ngOnInit(): void {
+  }
+  toggleMenuMobile() {
+    this.menuMobileExpanded = this.menuMobileExpanded ? false : true;
   }
 
   toggleDropdownMenu() {
@@ -27,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
   redirect(ruta: string) {
     this.toggleDropdownMenu();
-    this.router.navigateByUrl(`/${ruta}`);
+    this.router.navigateByUrl(`${ruta}`);
   }
 
   logout() {
@@ -41,7 +45,7 @@ export class HeaderComponent implements OnInit {
       if (res) {
         this.router.navigateByUrl('/dashboard/publicar-paella')
       } else {
-        this.router.navigateByUrl('/launch');
+        this.router.navigateByUrl('/primer-paso');
       }
     });
   }

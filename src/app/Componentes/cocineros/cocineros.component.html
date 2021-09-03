@@ -14,22 +14,31 @@
             <div class="nombre-cocinero">
               <h3 class="card-title text-center">{{cocinero.usuario_nombre}}</h3>
             </div>
-            <img [src]="cocinero.usuario_foto" class="img-cocinero" alt="">
+            <a routerLink="/perfil-cocinero/{{cocinero.id_usuario}}">
+              <img [src]="cocinero.srcImg" class="img-cocinero" alt="">
+            </a>
             <p class="card-text mt-3 text-cantidad-paellas">
               <img class="paella-icon" src="../../../assets/images/paella.svg" alt=""> {{cocinero.cantidad_paellas}}
               Paellas publicadas
             </p>
             <p class="card-text ubicacion">
               <img class="paella-icon" src="../../../assets/images/location.png" alt="">
-              {{cocinero.direccion}}
+              {{cocinero.ubicacionCompleta}}
             </p>
-            <div class="caja-estrellas">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="caja-estrellas">
+                <label [style.color]="cocinero?.valoracion>=5? 'orange':'grey'" for="radio1">&#9733;</label>
+                <label [style.color]="cocinero?.valoracion>=4? 'orange':'grey'" for="radio2">&#9733;</label>
+                <label [style.color]="cocinero?.valoracion>=3? 'orange':'grey'" for="radio3">&#9733;</label>
+                <label [style.color]="cocinero?.valoracion>=2? 'orange':'grey'" for="radio4">&#9733;</label>
+                <label [style.color]="cocinero?.valoracion>=1? 'orange':'grey'" for="radio5">&#9733;</label>
+              </div>
+              <div>
+                <p class="mt-auto mb-auto">{{'('+cocinero?.numero_votos+')'}}</p>
+              </div>
             </div>
+
             <a routerLink="/perfil-cocinero/{{cocinero.id_usuario}}">Perfil</a>
           </div>
         </div>

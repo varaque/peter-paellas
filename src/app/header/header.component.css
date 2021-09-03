@@ -1,8 +1,80 @@
+.main-menu {
+    width: 100%;
+    background: #fff;
+    height: 80px;
+}
+
+.main-menu ul {
+    display: block ruby;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-menu ul li {
+    padding: 0 8px;
+}
+
+.main-menu ul li a {
+    text-transform: uppercase;
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+}
+
+.caja-foto-perfil {
+    height: 50px;
+    width: 50px;
+    background: url('../../assets/images/img-cocinero.jpg');
+    border-radius: 100%;
+    background-position: center;
+    background-attachment: unset;
+    background-clip: padding-box;
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.menu-dropdown-header {
+    font-size: 35px;
+    position: absolute;
+    z-index: 1000;
+    background-color: #FFEED5;
+    width: 300px;
+    right: 25%;
+    top: 100%;
+}
+
+.menu-dropdown-header ul {
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+}
+
+.menu-dropdown-header li {
+    display: flex !important;
+    padding: 10px 20px !important;
+    height: 60px;
+    color: #8b5a17;
+    font-size: 22px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.menu-dropdown-header li:hover {
+    background-color: #d3b791;
+}
+
+
+/* menu mobile */
+
 .menu-header {
+    position: fixed;
     width: 100%;
     height: 80px;
     background: #E9CDA5;
-    position: absolute;
     top: 0;
     z-index: 900;
 }
@@ -62,4 +134,13 @@
     text-transform: uppercase;
     font-size: 25px;
     text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .main-menu .btn-paella {
+        padding: 5px 15px;
+    }
+    .main-menu ul li a {
+        font-size: 15px;
+    }
 }

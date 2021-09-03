@@ -25,38 +25,38 @@
         <div class="form-group col-md-6">
           <p class="text-danger" *ngIf="form.get('usuario_nombre').invalid && formSubmitted">El nombre es requerido</p>
           <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" formControlName="usuario_nombre">
+          <input type="text" id="nombre" class="form-control" formControlName="usuario_nombre">
         </div>
 
         <div class="form-group col-md-6">
           <label for="apellidos">Apellidos</label>
-          <input type="text" id="apellidos" formControlName="apellidos">
+          <input type="text" id="apellidos" class="form-control" formControlName="apellidos">
         </div>
 
         <div class="form-group col-md-6">
           <p class="text-danger" *ngIf="form.get('usuario_email').invalid && formSubmitted">El email es requerido</p>
           <label for="email">Email</label>
-          <input type="text" id="email" formControlName="usuario_email">
+          <input type="text" id="email" class="form-control" formControlName="usuario_email">
         </div>
 
         <div class="form-group col-md-6">
           <p class="text-danger" *ngIf="form.get('usuario_telefono').invalid && formSubmitted">El teléfono es requerido
           </p>
           <label for="telefono">Teléfono</label>
-          <input type="text" id="telefono" formControlName="usuario_telefono">
+          <input type="text" id="telefono" class="form-control" formControlName="usuario_telefono">
         </div>
 
         <div class="form-group col-md-6">
           <p class="text-danger" *ngIf="form.get('codigo_postal').invalid && formSubmitted">El código postal es
             requerido</p>
           <label for="codigo-postal">Cód. Postal</label>
-          <input type="text" id="codigo-codigo" formControlName="codigo_postal">
+          <input type="text" id="codigo-codigo" class="form-control" formControlName="codigo_postal">
         </div>
 
         <div class="form-group col-md-6">
           <p class="text-danger" *ngIf="form.get('id_provincia').invalid && formSubmitted">La provincia es requerida</p>
           <label for="Provincia">Provincia</label>
-          <select id="Provincia" formControlName="id_provincia">
+          <select id="Provincia" class="form-control" formControlName="id_provincia">
             <option [value]="provincia.id_provincia" *ngFor="let provincia of provincias">
               {{provincia.provincia_nombre}}
             </option>
@@ -66,13 +66,13 @@
         <div class="form-group col-md-6">
           <p class="text-danger" *ngIf="form.get('calle').invalid && formSubmitted">La calle es requerida</p>
           <label for="calle">Calle</label>
-          <input type="text" id="calle" formControlName="calle">
+          <input type="text" id="calle" class="form-control" formControlName="calle">
         </div>
 
         <div class="form-group col-md-6">
           <p class="text-danger" *ngIf="form.get('poblacion').invalid && formSubmitted">La población es requerida</p>
           <label for="poblacion">Población</label>
-          <input type="text" id="poblacion" formControlName="poblacion">
+          <input type="text" id="poblacion" class="form-control" formControlName="poblacion">
         </div>
 
         <div class="form-group col-md-6 caja-password">
@@ -85,7 +85,8 @@
 
         <div class="form-group col-md-12 mt-4 mt-4">
           <label for="descricion">Breve descripción</label>
-          <textarea id="descricion" formControlName="usuario_descripcion" cols="30" rows="5"></textarea>
+          <textarea id="descricion" class="form-control" formControlName="usuario_descripcion" cols="30"
+            rows="5"></textarea>
         </div>
 
         <div class="form-group col-md-12 mt-5 d-flex flex-column justify-contente-center align-items-center">
