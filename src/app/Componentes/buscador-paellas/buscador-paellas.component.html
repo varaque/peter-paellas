@@ -1,7 +1,12 @@
 <div class="container-fluid seccion-buscador-paellas py-5">
     <div class="row d-flex justify-content-center">
         <div class="custom-input-search-paella col-8 col-md-3 py-2">
-            <input type="button" #tipoPaella value="Tipo de paella" (click)="toggleSelect(1)">
+            <button type="button" (click)="toggleSelect(1)">
+                <span #tipoPaella>
+                    Tipo de paella
+                </span>
+                <i [class]="tipoPaellaselectOpened?'fa fa-angle-up':'fa fa-angle-down'"></i>
+            </button>
             <div class="custom-select-buscar-paella" *ngIf="tipoPaellaselectOpened">
                 <div class="custom-select-buscar-paella-item" (click)="seleccionarTipoPaella(tipo,tipoPaella)"
                     *ngFor="let tipo of tiposPaellas">
@@ -11,7 +16,13 @@
         </div>
 
         <div class="custom-input-search-paella col-8 col-md-3 py-2">
-            <input type="button" #provinciaHTML value="Seleccione la provincia" (click)="toggleSelect(2)">
+            <button type="button" (click)="toggleSelect(2)">
+                <span #provinciaHTML>
+                    Seleccione la provincia
+                </span>
+                <i [class]="provinciaSelectOpened?'fa fa-angle-up':'fa fa-angle-down'"></i>
+            </button>
+
             <div class="custom-select-buscar-paella" *ngIf="provinciaSelectOpened">
                 <div class="custom-select-buscar-paella-item" (click)="seleccionarProvincia(provincia,provinciaHTML)"
                     *ngFor="let provincia of provincias">
@@ -21,8 +32,12 @@
         </div>
 
         <div class="custom-input-search-paella col-8 col-md-3 py-2">
-            <input #fecha class="custom-select-calendar" value="Seleccione una fecha" type="button"
-                (click)="toggleCalendar()">
+            <button class="custom-select-calendar" type="button" (click)="toggleCalendar()">
+                <span #fecha>
+                    Seleccione una fecha
+                </span>
+                <i [class]="calendarOpened?'fa fa-angle-up':'fa fa-angle-down'"></i>
+            </button>
             <div class="caja-mat-calendar" *ngIf="calendarOpened">
                 <mat-calendar (selectedChange)="seleccionarFecha($event,fecha)"></mat-calendar>
             </div>
@@ -31,12 +46,13 @@
         <button (click)="buscar()" class="btn-lupa text-color-1 d-none d-md-block">
             <i class="fa fa-search"></i>
         </button>
+        <button class="btn-paella bg-paella-2 text-color-1" (click)="buscar()">Buscar</button>
     </div>
 </div>
 
 <div class="container-fluid py-4">
     <div class="container">
-        <h3 class="text-center text-uppercase text-wigth-bold">10 paellas disponibles</h3>
+        <h3 class="text-center text-uppercase text-wigth-bold">{{listaPaellas.length}} paellas disponibles</h3>
         <h3 class="text-center mt-3" *ngIf="listaPaellas.length==0"><b>NO SE HAN ENCONTRADO PAELLAS</b></h3>
 
         <div class="row justify-content-center">
@@ -47,7 +63,7 @@
                         <h3>{{paella.tipo_paella_nombre}}</h3>
                     </div>
 
-                    <img [src]="paella.paella_foto_url" class="img-destacada-paella" alt="{{paella.paella_foto_url}}">
+                    <img [src]="paella.imagenSrc" class="img-destacada-paella" alt="{{paella.imagenSrc}}">
 
                     <div class="info-cocinero">
                         <div class="w-100 d-flex justify-content-between align-items-center">

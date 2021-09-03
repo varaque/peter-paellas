@@ -15,6 +15,18 @@ input {
     height: 100%;
 }
 
+.custom-input-search-paella button {
+    background: #FFEED5;
+    color: #804B00;
+    height: 50px;
+    width: 100%;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
 .btn-lupa {
     border: none;
     border-radius: 100%;

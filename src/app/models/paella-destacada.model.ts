@@ -1,6 +1,6 @@
 import { PaellaDestacadaInterface } from "../Interfaces/paella-destacada.interface";
 import { environment } from "src/environments/environment";
-const url = environment.apiUrl;
+
 export class PaellaDestacada implements PaellaDestacadaInterface {
     id_paella: number;
     tipo_paella_nombre: number;
@@ -14,12 +14,15 @@ export class PaellaDestacada implements PaellaDestacadaInterface {
     constructor(paellaDestacada: any) {
         this.id_paella = paellaDestacada.id_paella;
         this.tipo_paella_nombre = paellaDestacada.tipo_paella_nombre;
-        this.paella_foto_url = `${url}/${paellaDestacada.paella_foto_url}` || '../../../assets/images/paella.jpg';
+        this.paella_foto_url = paellaDestacada.paella_foto_url;
         this.usuario_nombre = paellaDestacada.usuario_nombre;
         this.provincia_nombre = paellaDestacada.provincia_nombre;
         this.paella_fecha_coccion = paellaDestacada.paella_fecha_coccion;
         this.valoracion = paellaDestacada.valoracion;
         this.numero_votos = +paellaDestacada.numero_votos;
 
+    }
+    get imagenSrc() {
+        return this.paella_foto_url ? `${environment.apiUrl}${this.paella_foto_url}` : 'assets/images/paella.jpg'
     }
 }

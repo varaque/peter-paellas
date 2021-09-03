@@ -61,19 +61,19 @@ export class BuscadorPaellasComponent implements OnInit {
 
   seleccionarTipoPaella(tipo: any, boton: HTMLElement) {
     this.filter.tipoPaella = tipo;
-    boton.setAttribute('value', tipo.tipo_paella_nombre);
+    boton.innerHTML = tipo.tipo_paella_nombre;
     this.tipoPaellaselectOpened = false;
   }
 
   seleccionarProvincia(provincia: any, boton: HTMLElement) {
     this.filter.ubicacion = provincia;
-    boton.setAttribute('value', provincia.provincia_nombre);
+    boton.innerHTML = provincia.provincia_nombre;
     this.provinciaSelectOpened = false;
   }
 
   seleccionarFecha(e, boton: HTMLElement) {
     this.filter.fecha = moment(e).format('DD/MM/YYYY');
-    boton.setAttribute('value', this.filter.fecha);
+    boton.innerHTML = this.filter.fecha;
     this.toggleCalendar()
   }
 
