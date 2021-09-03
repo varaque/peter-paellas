@@ -37,6 +37,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.headerService.mostrarSeccionUsuario = false;
     this.toggleDropdownMenu();
+    this.toggleMenuMobile()
     this.usuarioService.logout();
   }
 
@@ -45,7 +46,7 @@ export class HeaderComponent implements OnInit {
       if (res) {
         this.router.navigateByUrl('/dashboard/publicar-paella')
       } else {
-        this.router.navigateByUrl('/primer-paso');
+        this.router.navigateByUrl('/primeros-pasos');
       }
     });
   }

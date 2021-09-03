@@ -24,7 +24,7 @@
         </button>
         <div *ngIf="menuDropdownDesplegado" class="menu-dropdown-header">
           <ul>
-            <li (click)="redirect('/dashboard/panel-usuario')">Panel personal</li>
+            <li (click)="redirect('/dashboard')">Panel personal</li>
             <li (click)="redirect('/dashboard/panel-usuario')">Opiniones</li>
             <li (click)="redirect('/dashboard/panel-usuario')" class="d-xl-none">Reservas</li>
             <li (click)="redirect('/preguntas-frecuentes')">Ayuda</li>
@@ -54,12 +54,24 @@
   <i class="fa fa-times close-menu-button" (click)="toggleMenuMobile()"></i>
   <div class="container d-flex justify-content-center">
     <ul>
-      <li><a routerLink="/">Panel Personal</a></li>
-      <li><a routerLink="/buscar-paellas">Buscar Paellas</a></li>
-      <li><a routerLink="/">Cocineros</a></li>
-      <li><a routerLink="/">Contacto</a></li>
-      <li><a routerLink="/">Registrarme</a></li>
-      <li><a routerLink="/">Iniciar Sesion</a></li>
+      <li *ngIf="headerService.mostrarSeccionUsuario">
+        <a (click)="toggleMenuMobile()" routerLink="/dashboard">
+          Panel Personal
+        </a>
+      </li>
+      <li><a (click)="toggleMenuMobile()" class="cursor-pointer" (click)="launchAction()">publicar paella</a></li>
+      <li><a (click)="toggleMenuMobile()" routerLink="/buscar-paellas">Buscar Paellas</a></li>
+      <li><a (click)="toggleMenuMobile()" routerLink="/cocineros">Cocineros</a></li>
+      <li><a (click)="toggleMenuMobile()" routerLink="/contacto">Contacto</a></li>
+      <li *ngIf="headerService.mostrarSeccionUsuario">
+        <a (click)="logout()" class="cursor-pointer"> Cerrar sesión</a>
+      </li>
+      <li *ngIf="!headerService.mostrarSeccionUsuario">
+        <a (click)="toggleMenuMobile()" routerLink="/alta-usuario">Registrarme</a>
+      </li>
+      <li *ngIf="!headerService.mostrarSeccionUsuario">
+        <a (click)="toggleMenuMobile()" routerLink="/iniciar-sesion">Iniciar Sesion</a>
+      </li>
     </ul>
   </div>
 </nav>

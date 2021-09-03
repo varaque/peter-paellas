@@ -1,6 +1,6 @@
-<div class="container-fluid seccion-buscador-paellas">
-    <div class="row py-5 d-flex justify-content-center">
-        <div class="custom-input-search-paella col-3">
+<div class="container-fluid seccion-buscador-paellas py-5">
+    <div class="row d-flex justify-content-center">
+        <div class="custom-input-search-paella col-8 col-md-3 py-2">
             <input type="button" #tipoPaella value="Tipo de paella" (click)="toggleSelect(1)">
             <div class="custom-select-buscar-paella" *ngIf="tipoPaellaselectOpened">
                 <div class="custom-select-buscar-paella-item" (click)="seleccionarTipoPaella(tipo,tipoPaella)"
@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div class="custom-input-search-paella col-3">
+        <div class="custom-input-search-paella col-8 col-md-3 py-2">
             <input type="button" #provinciaHTML value="Seleccione la provincia" (click)="toggleSelect(2)">
             <div class="custom-select-buscar-paella" *ngIf="provinciaSelectOpened">
                 <div class="custom-select-buscar-paella-item" (click)="seleccionarProvincia(provincia,provinciaHTML)"
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="custom-input-search-paella col-3">
+        <div class="custom-input-search-paella col-8 col-md-3 py-2">
             <input #fecha class="custom-select-calendar" value="Seleccione una fecha" type="button"
                 (click)="toggleCalendar()">
             <div class="caja-mat-calendar" *ngIf="calendarOpened">
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <button (click)="buscar()" class="btn-lupa text-color-1">
+        <button (click)="buscar()" class="btn-lupa text-color-1 d-none d-md-block">
             <i class="fa fa-search"></i>
         </button>
     </div>

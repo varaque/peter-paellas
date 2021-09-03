@@ -1,6 +1,5 @@
 .container-fluid {
     background-color: #f7eddf;
-    padding: 5% 0;
 }
 
 .container {
@@ -8,7 +7,6 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2);
-    padding: 5% 15%;
 }
 
 .caja-foto-perfil {

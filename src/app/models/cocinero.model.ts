@@ -22,7 +22,7 @@ export class Cocinero implements CocineroInterface {
         this.usuario_foto = datos.cocinero.usuario_foto;
         this.cantidad_paellas = datos.cocinero.cantidad_paellas;
         this.direccion = (datos.cocinero.provincia_nombre || 'Valencia') + ", " + (datos.cocinero.pais || 'Espana');
-        this.usuario_descripcion = datos.cocinero.usuario_descripcion;
+        this.usuario_descripcion = datos.cocinero.usuario_descripcion || 'Este usuario no tiene descripción disponible';
         this.paellas_disponibles = datos.paellas_disponibles ? datos.paellas_disponibles.map((paella: any) => new PaellaDestacada(paella)) : [];
         this.valoracion = datos.cocinero.valoracion;
         this.numero_votos = datos.cocinero.numero_votos;

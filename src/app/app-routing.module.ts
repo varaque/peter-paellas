@@ -35,7 +35,7 @@ const appRoutes: Routes = [
 
   { path: 'iniciar-sesion', component: LoginComponent },
   { path: 'alta-usuario', component: RegisterComponent },
-  { path: 'primer-paso', component: LaunchComponent },
+  { path: 'primeros-pasos', component: LaunchComponent },
 
   { path: 'cocineros', component: CocinerosComponent },
   { path: 'perfil-cocinero/:id', component: PerfilCocineroComponent },

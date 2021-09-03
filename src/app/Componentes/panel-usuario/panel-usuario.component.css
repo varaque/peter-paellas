@@ -1,6 +1,5 @@
 .container-fluid {
     background-color: #f7eddf;
-    padding: 5% 0;
 }
 
 .container {
@@ -8,7 +7,6 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2);
-    padding: 5% 15%;
 }
 
 .caja-foto-perfil {
@@ -81,10 +79,6 @@ input {
     font-size: 18px;
 }
 
-label {
-    margin-right: 20px;
-}
-
 input {
     height: 35px;
     border: none;
@@ -105,28 +99,6 @@ textarea {
     border: none;
 }
 
-.btn-paella {
-    padding: 10px 30px;
-    border-radius: 40px;
-    font-size: 20px;
-    margin: 2px;
-}
-
-.btn-paella-aceptar {
-    background: #d3b791;
-    color: #fff;
-    font-weight: bold;
-    border: 2px solid #d3b791;
-}
-
-.btn-paella-cancelar {
-    color: #8b5a17;
-    border: none;
-}
-
-.btn-paella-cancelar:hover {
-    padding: 8px 28px;
-    background: #d3b791;
-    color: #fff;
-    border: 2px solid #d3b791;
+#password{
+    text-align: center;
 }

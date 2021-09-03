@@ -3,9 +3,11 @@
     background-size: cover;
     background-position: center;
 }
-.search-box h3{
+
+.search-box h3 {
     color: #fff;
 }
+
 
 /* custom select */
 
@@ -323,9 +325,6 @@
 }
 
 @media only screen and (max-width:576px) {
-    .header-info {
-        margin-top: 50px;
-    }
     .letra-blanca {
         font-size: 25px;
     }
@@ -353,17 +352,9 @@
         margin-top: 0 !important;
         margin-bottom: 10px !important;
     }
-    .btn-paella.btn-paella-aceptar {
-        height: 50px;
-        width: 90%;
-        padding: 0;
-    }
 }
 
 @media only screen and (min-width:577px) and (max-width:768px) {
-    .header-info {
-        margin-top: 50px;
-    }
     .letra-blanca {
         font-size: 25px;
     }
@@ -390,18 +381,10 @@
         padding: 0 !important;
         margin-top: 0 !important;
         margin-bottom: 10px !important;
-    }
-    .btn-paella.btn-paella-aceptar {
-        height: 50px;
-        width: 90%;
-        padding: 0;
     }
 }
 
 @media only screen and (min-width:768px) and (max-width:992px) {
-    .header-info {
-        margin-top: 50px;
-    }
     .letra-blanca {
         font-size: 25px;
     }
@@ -424,28 +407,12 @@
     .card .nombre-paella img {
         width: 45px;
     }
-    /* .info-cocinero div {
-        width: 80%;
-    } */
     .ubicacion-paella {
         padding: 0 !important;
         margin-top: 0 !important;
         margin-bottom: 10px !important;
     }
-    .btn-paella.btn-paella-aceptar {
-        height: 50px;
-        width: 90%;
-        padding: 0;
-    }
     .caja-buscador-paellas {
         padding: 10px 0;
-    }
-}
-
-@media only screen and (min-width:992px) and (max-width:1200px) {
-    .btn-paella.btn-paella-aceptar {
-        height: 50px;
-        width: 80%;
-        padding: 0;
     }
 }

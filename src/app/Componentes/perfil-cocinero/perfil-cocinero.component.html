@@ -1,19 +1,18 @@
-<div class="container-fluid bg-paella-1">
-    <div class="container bg-white">
+<div class="container-fluid bg-paella-2 py-5">
+    <div class="container bg-white pb-4">
         <div class="row">
             <div class="col-12">
                 <div class="row">
-
                     <div class="col-md-3 ml-4">
                         <img [src]="cocinero?.srcImg" width="225" height="225" class="mt-4 mb-4 rounded-circle">
                     </div>
 
                     <div class="col-md-6 mt-4 ml-4">
-                        <h2 class="text-color-1 font-weight-bold">¡HOLA! SOY {{cocinero?.usuario_nombre|uppercase}}
+                        <h2 class="text-color-1 font-weight-bold text-center">
+                            ¡HOLA! SOY {{cocinero?.usuario_nombre|uppercase}}
                         </h2>
-                        <div class="info-cocinero">
-
-                            <div class="d-flex justify-content-end align-items-center">
+                        <div class="info-cocinero d-flex justify-content-center">
+                            <div class="d-flex justify-content-center align-items-center">
                                 <div class="caja-estrellas">
                                     <label [style.color]="cocinero?.valoracion>=5? 'orange':'grey'"
                                         for="radio1">&#9733;</label>
@@ -31,29 +30,34 @@
                                 </div>
                             </div>
                         </div>
-                        <p> <img src="/assets/images/location.png">
-                            {{cocinero?.ubicacionCompleta}} </p>
-                        <p> <img src="/assets/images/restaurant.png"> {{cocinero?.cantidad_paellas}} Paellas Publicadas
+                        <p class="text-center text-md-left">
+                            <img src="/assets/images/location.png">
+                            {{cocinero?.ubicacionCompleta}}
+                        </p>
+                        <p class="text-center text-md-left">
+                            <img src="/assets/images/restaurant.png">
+                            {{cocinero?.cantidad_paellas}} Paellas Publicadas
                         </p>
 
                     </div>
                 </div>
-
-
             </div>
 
             <div class="col-12">
-                <h5 class="text-uppercase text-color-2 font-weight-bold">Sobre mi</h5>
-                <p>
+                <h5 class="text-uppercase text-color-2 font-weight-bold text-center text-lg-left">
+                    Sobre mi
+                </h5>
+
+                <p class="text-center text-lg-left">
                     {{cocinero?.usuario_descripcion}}
                 </p>
             </div>
 
             <div class="col-12">
-                <h5 class="text-uppercase text-color-2 font-weight-bold">paellas publicadas en este momento</h5>
+                <h5 class="text-uppercase text-color-2 font-weight-bold text-center">paellas publicadas en este momento</h5>
                 <p *ngIf="!cocinero?.paellas_disponibles">En este momento Juan no tiene ninguna paella publicada</p>
                 <div class="row">
-                    <div class="col-6 col-lg-4 mt-3" *ngFor="let paella of cocinero?.paellas_disponibles">
+                    <div class="col-12 col-lg-4 col-xl-3 mt-3" *ngFor="let paella of cocinero?.paellas_disponibles">
                         <div class="card">
                             <div class="nombre-paella">
                                 <img src="../../../assets/images/avatarSimbolo.png" class="" alt="">
@@ -84,7 +88,7 @@
             <div class="col-12">
                 <h5 class="text-uppercase text-color-2 font-weight-bold">3 reseñas</h5>
                 <div class="row">
-                    <div class="col-6 col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="card border-radius-paella-10 bg-paella-2 border-0">
                             <div class="card-body">
                                 <div class="inf-usr-valoracion">

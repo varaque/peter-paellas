@@ -19,7 +19,9 @@ export class PaellasService {
   }
 
   crear(paella: any): Observable<any> {
-    return this.api.conectar({ modelo: 'paellas', accion: 'Registrar', argumentos: paella });
+    return this.api.conectar({ modelo: 'paellas', accion: 'PublicarPaella', argumentos: paella }).pipe(
+      map(res => res.respuesta)
+    );
   }
 
   eliminar(id: number): Observable<any> {

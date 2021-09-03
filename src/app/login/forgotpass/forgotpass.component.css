@@ -1,17 +1,15 @@
 .container-fluid {
     background-image: url();
     background: linear-gradient(to right, rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)), url("../../../assets/images/1551251263737.jpg");
-    padding: 90px;
     text-align: center;
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
 }
 
-form{
+form {
     border-radius: 10px 10px 0 0;
     background-color: #f7eddf;
-    padding: 75px 100px;
 }
 
 input {

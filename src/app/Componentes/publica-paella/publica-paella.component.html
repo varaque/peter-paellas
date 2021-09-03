@@ -1,13 +1,13 @@
-<div class="container-fluid p-0">
-  <div id="fondo">
+<div class="container-fluid py-5">
+  <div id="container bg-white">
     <div class="row">
       <div class="col-12 col-lg-5 col-xl-6 caja-fotos">
         <form>
           <div class="form-row">
 
-            <div class="form-group col-12">
+            <div class="form-group col-md-12 d-none d-md-block">
               <div class="main-image-box" #imagenPaellaDestacada>
-                <label for="mainImage">
+                <label class="m-0 p-0" for="mainImage">
                   <i class="fa fa-plus-circle fa-2x text-white"></i>
                   Añade una imagen <br> desde tu galería
                 </label>
@@ -16,29 +16,38 @@
               </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-6 col-md-4 mt-1 d-md-none">
               <div class="images-miniatures" #imagenMiniatura1>
-                <label for="img1">
+                <label class="m-0 p-0" for="img1">
                   <i class="fa fa-plus-circle fa-2x text-white"></i>
                 </label>
                 <input (change)="agregarImagen($event,imagenMiniatura1,1)" type="file" id="img1">
               </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-6 col-md-4 mt-1">
               <div class="images-miniatures" #imagenMiniatura2>
-                <label for="img2">
+                <label class="m-0 p-0" for="img2">
                   <i class="fa fa-plus-circle fa-2x text-white"></i>
                 </label>
                 <input (change)="agregarImagen($event,imagenMiniatura2,2)" type="file" id="img2">
               </div>
             </div>
-            <div class="col-4">
+
+            <div class="col-6 col-md-4 mt-1">
               <div class="images-miniatures" #imagenMiniatura3>
-                <label for="img3">
+                <label class="m-0 p-0" for="img3">
                   <i class="fa fa-plus-circle fa-2x text-white"></i>
                 </label>
                 <input (change)="agregarImagen($event,imagenMiniatura3,3)" type="file" id="img3">
+              </div>
+            </div>
+            <div class="col-6 col-md-4 mt-1">
+              <div class="images-miniatures" #imagenMiniatura4>
+                <label class="m-0 p-0" for="img4">
+                  <i class="fa fa-plus-circle fa-2x text-white"></i>
+                </label>
+                <input (change)="agregarImagen($event,imagenMiniatura4,4)" type="file" id="img4">
               </div>
             </div>
           </div>
@@ -145,8 +154,8 @@
             </div>
 
             <div class="form-group col-8 caja-botones">
-              <a routerLink="/"> Cancelar</a>
-              <button type="submit">Publicar</button>
+              <a routerLink="/dashboard" class="btn-paella px-4 "> Cancelar</a>
+              <button type="submit" class="btn-paella px-4 bg-paella-2 text-color-1">Publicar</button>
             </div>
           </div>
         </form>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PaellasService } from 'src/app/services/paellas.service';
 
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import { Municipio } from 'src/app/Interfaces/municipio';
 import { ProvinciasService } from 'src/app/services/provincias.service';
@@ -10,6 +10,8 @@ import { Provincia } from 'src/app/models/provincia.model';
 import { TipoPaella } from 'src/app/models/tipos-paellas.model';
 import { TipoPaellaService } from 'src/app/services/tipo-paella.service';
 import { BehaviorSubject } from 'rxjs';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-publica-paella',
@@ -28,24 +30,27 @@ export class PublicaPaellaComponent implements OnInit {
   previousUrl$ = new BehaviorSubject<string>(null);
   currentUrl$ = new BehaviorSubject<string>(null);
 
-  myForm = new FormGroup({
-    paella_descripcion: new FormControl(''),
-    paella_precio: new FormControl(5, [Validators.required]),
-    paella_fecha_coccion: new FormControl((new Date), [Validators.required]),
-    paella_raciones: new FormControl(1, [Validators.required]),
-    paella_ver: new FormControl('-1', [Validators.required]),
-    paella_mascotas: new FormControl('-1', [Validators.required]),
-    id_cocinero: new FormControl(localStorage.getItem('id_usuario') || -1),
-    id_provincia: new FormControl(1, [Validators.required]),
-    id_tipo_paella: new FormControl(1, [Validators.required]),
-    paella_foto: new FormControl([]),
-  });
+  myForm: FormGroup;
 
 
   constructor(private paellaService: PaellasService,
-    private router: Router,
     private provinciaService: ProvinciasService,
-    private tipoPaellaService: TipoPaellaService) { }
+    private tipoPaellaService: TipoPaellaService,
+    private fb: FormBuilder,
+    private usuarioService: UsuarioService) {
+    this.myForm = this.fb.group({
+      paella_descripcion: new FormControl(''),
+      paella_precio: new FormControl(5, [Validators.required]),
+      paella_fecha_coccion: new FormControl((new Date), [Validators.required]),
+      paella_raciones: new FormControl(1, [Validators.required]),
+      paella_ver: new FormControl('-1', [Validators.required]),
+      paella_mascotas: new FormControl('-1', [Validators.required]),
+      id_cocinero: new FormControl(this.usuarioService.usuario.id_usuario),
+      id_provincia: new FormControl(1, [Validators.required]),
+      id_tipo_paella: new FormControl(1, [Validators.required]),
+      paella_foto: new FormControl([]),
+    });
+  }
 
   async ngOnInit() {
     this.provincias = await this.provinciaService.listar().toPromise();
@@ -69,8 +74,13 @@ export class PublicaPaellaComponent implements OnInit {
 
     this.myForm.get('paella_foto').setValue(this.images);
 
-    console.log(this.myForm.value);
-    this.paellaService.crear(this.myForm.value).toPromise();
+    this.paellaService.crear(this.myForm.value).subscribe(res => {
+      if (res.status) {
+        Swal.fire('Muy bien', res.msg, 'success');
+      } else {
+        Swal.fire('Error', res.msg, 'error');
+      }
+    });
   }
 
 

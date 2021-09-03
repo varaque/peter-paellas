@@ -18,7 +18,6 @@ export class PerfilCocineroComponent implements OnInit {
 
   async ngOnInit() {
     this.cocinero = await this.cocineroService.obtener(this.route.snapshot.params.id).toPromise();
-    console.log(this.cocinero)
   }
 
 }

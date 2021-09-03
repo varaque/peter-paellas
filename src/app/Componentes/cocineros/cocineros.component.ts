@@ -16,7 +16,6 @@ export class CocinerosComponent implements OnInit {
 
   async ngOnInit() {
     this.cocineros = await this.cocineroService.listar().toPromise();
-    console.log(this.cocineros)
   }
 
 }

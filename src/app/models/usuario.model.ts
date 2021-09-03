@@ -29,7 +29,7 @@ export class Usuario implements UsuarioInterface {
             this.provincia_nombre = usuario.provincia_nombre;
             this.id_direccion = +usuario.id_direccion;
             this.poblacion = usuario.poblacion;
-            this.usuario_descripcion = usuario.usuario_descripcion || '';
+            this.usuario_descripcion = usuario.usuario_descripcion || 'Este usuario no tiene descripción disponible';
         } else {
             this.id_usuario = null;
             this.usuario_nombre = null;
