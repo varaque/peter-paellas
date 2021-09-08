@@ -59,6 +59,7 @@ export class PaellasService {
       map(next => new Paella(next.respuesta))
     );
   }
+
   obtenerDatosPaellaReserva(id: number): Observable<InfoPaellaReserva> {
     return this.api.conectar({
       modelo: 'paellas',
@@ -69,14 +70,21 @@ export class PaellasService {
     )
   }
 
-  reservarPaella(args: any) {
+  cancelarPaella(id_paella: number): Observable<any> {
     return this.api.conectar({
-      modelo: 'reservas',
-      accion: 'ReservarPaella',
-      argumentos: args
+      modelo: 'paellas',
+      accion: 'CancelarPaella',
+      argumentos: id_paella
     }).pipe(
       map(res => res.respuesta)
     )
+  }
+  
+  listarPaellasCocinero() {
+    return this.api.conectar({
+      modelo: 'paellas',
+      accion: 'obtenerPaellasCocinero'
+    })
   }
 
 }

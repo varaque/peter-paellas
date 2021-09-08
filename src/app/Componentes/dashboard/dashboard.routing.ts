@@ -7,6 +7,7 @@ import { EditarPerfilComponent } from "../editar-perfil/editar-perfil.component"
 import { PanelUsuarioComponent } from "../panel-usuario/panel-usuario.component";
 import { PublicaPaellaComponent } from "../publica-paella/publica-paella.component";
 import { DashboardComponent } from "./dashboard.component";
+import { MisReservasComponent } from "./mis-reservas/mis-reservas.component";
 
 const routes: Routes = [
     {
@@ -19,6 +20,7 @@ const routes: Routes = [
             { path: 'publicar-paella', component: PublicaPaellaComponent },
             { path: 'activar-cuenta', component: ActivarCuentaComponent },
             { path: 'cambiar-password', component: CambiarPasswordComponent },
+            { path: 'mis-reservas', component: MisReservasComponent },
         ]
     }
 ]

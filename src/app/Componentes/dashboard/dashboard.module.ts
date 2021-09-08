@@ -16,6 +16,7 @@ import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component'
 import { PublicaPaellaComponent } from '../publica-paella/publica-paella.component';
 import { ActivarCuentaComponent } from '../activar-cuenta/activar-cuenta.component';
 import { CambiarPasswordComponent } from '../cambiar-password/cambiar-password.component';
+import { MisReservasComponent } from './mis-reservas/mis-reservas.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CambiarPasswordComponent } from '../cambiar-password/cambiar-password.c
     EditarPerfilComponent,
     PublicaPaellaComponent,
     ActivarCuentaComponent,
-    CambiarPasswordComponent
+    CambiarPasswordComponent,
+    MisReservasComponent
   ],
   imports: [
     CommonModule,

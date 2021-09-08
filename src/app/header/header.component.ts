@@ -36,8 +36,8 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.headerService.mostrarSeccionUsuario = false;
-    this.toggleDropdownMenu();
-    this.toggleMenuMobile()
+    this.menuDropdownDesplegado = false;
+    this.menuMobileExpanded = false;
     this.usuarioService.logout();
   }
 

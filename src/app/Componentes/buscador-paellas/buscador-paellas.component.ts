@@ -60,8 +60,12 @@ export class BuscadorPaellasComponent implements OnInit {
   }
 
   seleccionarTipoPaella(tipo: any, boton: HTMLElement) {
+    if(tipo==0){
+      boton.innerHTML = 'Todas';
+    }else{
+      boton.innerHTML = tipo.tipo_paella_nombre;
+    }
     this.filter.tipoPaella = tipo;
-    boton.innerHTML = tipo.tipo_paella_nombre;
     this.tipoPaellaselectOpened = false;
   }
 

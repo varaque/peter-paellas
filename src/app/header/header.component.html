@@ -18,7 +18,7 @@
     <div class="col-4 col-xl-5 d-flex justify-content-center align-items-center">
       <div class="nav-item-loged d-flex justify-content-center align-items-center"
         *ngIf="headerService.mostrarSeccionUsuario">
-        <a routerLink="/" class="btn-paella bg-paella-2 btn-paella-border-2 text-color-1 d-none d-xl-block">Reservas</a>
+        <a routerLink="/dashboard/mis-reservas" class="btn-paella bg-paella-2 btn-paella-border-2 text-color-1 d-none d-xl-block">Reservas</a>
         <button (click)="toggleDropdownMenu()" class="btn-paella-link mr-2">
           Mi cuenta <i [ngClass]="menuDropdownDesplegado ? 'fa fa-chevron-up':'fa fa-chevron-down'"></i>
         </button>

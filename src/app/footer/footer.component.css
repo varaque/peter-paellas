@@ -70,7 +70,7 @@
     color: #222222;
     display: inline;
     height: 50px;
-    width: 60%;
+    width: 100%;
 }
 
 .col-3-footer i {
@@ -94,13 +94,12 @@ label[for="exampleCheck1"] {
     .col-3-footer {
         margin-top: 50px;
     }
-    .col-3-footer input[type="email"] {
-        padding-left: 10px;
-        width: 75%;
-    }
     .caja-redes {
         justify-content: space-around !important;
         margin-top: 40px;
+    }
+    .btn-enviar-newsletter {
+        margin-top: 15px;
     }
 }
 
@@ -119,10 +118,6 @@ label[for="exampleCheck1"] {
     }
     .col-3-footer {
         margin-top: 50px;
-    }
-    .col-3-footer input[type="email"] {
-        padding-left: 10px;
-        width: 75%;
     }
     .caja-redes {
         justify-content: space-around !important;

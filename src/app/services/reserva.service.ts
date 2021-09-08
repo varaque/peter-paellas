@@ -1,23 +1,44 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
-import {Reserva} from '../interfaces/reserva';
+import { ApiService } from './api/api.service';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Reserva } from '../models/reserva.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservaService {
-  API_ENDPOINT = 'https://peterpaellas.com/lvel/public/api/';
-  //API_ENDPOINT = 'http://localhost:8000/api/';      //pruebas
 
 
-  constructor(private httpClient:HttpClient) { }
-  
-  save(reserva:Reserva){
-    const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.post(this.API_ENDPOINT + 'reservas', reserva, {headers:headers});
+  constructor(private apiService: ApiService) { }
+
+  reservarPaella(args: any) {
+    return this.apiService.conectar({
+      modelo: 'reservas',
+      accion: 'ReservarPaella',
+      argumentos: args
+    }).pipe(
+      map(res => res.respuesta)
+    )
   }
 
-  get(){
-    return this.httpClient.get(this.API_ENDPOINT + 'reservas');
+  listarReservas(): Observable<Reserva[]> {
+    return this.apiService.conectar({
+      modelo: 'reservas',
+      accion: 'ObtenerReservas'
+    }).pipe(
+      map(res => res.respuesta.reservas.map(paella => new Reserva(paella)))
+    )
   }
+
+  cancelarReserva(id_reserva: number) {
+    return this.apiService.conectar({
+      modelo: 'paellas',
+      accion: 'CancelarReserva',
+      argumentos: id_reserva
+    }).pipe(
+      map(res => res.respuesta)
+    )
+  }
+
 }

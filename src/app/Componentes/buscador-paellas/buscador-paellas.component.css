@@ -147,21 +147,6 @@ input {
     color: orange;
 }
 
-.btn-paella {
-    padding: 10px 30px;
-    border-radius: 40px;
-    font-size: 20px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.btn-paella-aceptar {
-    background: #FFEED5;
-    color: #804B00;
-    border: none;
-}
-
 @media only screen and (min-width:1201px) {
     .nombre-paella {
         align-items: center;

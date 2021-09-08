@@ -1,6 +1,7 @@
     #cajara-exterior-login {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/1551251263737.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/fondo1.jpg');
         background-size: cover;
+        background-position: center;
     }
     
     #caja-login {

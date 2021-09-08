@@ -1,10 +1,11 @@
 .container-fluid {
     background-image: url();
-    background: linear-gradient(to right, rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)), url("../../../assets/images/1551251263737.jpg");
+    background: linear-gradient(to right, rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)), url("/assets/images/fondo1.jpg");
     text-align: center;
     background-size: cover;
     background-repeat: no-repeat;
-    position: relative;
+    background-position: center;
+    height: 75vh;
 }
 
 form {

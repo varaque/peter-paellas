@@ -1,5 +1,5 @@
 <div class="container-fluid seccion-buscador-paellas py-5">
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center align-items-center">
         <div class="custom-input-search-paella col-8 col-md-3 py-2">
             <button type="button" (click)="toggleSelect(1)">
                 <span #tipoPaella>
@@ -8,6 +8,9 @@
                 <i [class]="tipoPaellaselectOpened?'fa fa-angle-up':'fa fa-angle-down'"></i>
             </button>
             <div class="custom-select-buscar-paella" *ngIf="tipoPaellaselectOpened">
+                <div class="custom-select-buscar-paella-item" (click)="seleccionarTipoPaella(0,tipoPaella)">
+                    <p>Todas</p>
+                </div>
                 <div class="custom-select-buscar-paella-item" (click)="seleccionarTipoPaella(tipo,tipoPaella)"
                     *ngFor="let tipo of tiposPaellas">
                     <p>{{tipo.tipo_paella_nombre}} </p>
@@ -46,7 +49,7 @@
         <button (click)="buscar()" class="btn-lupa text-color-1 d-none d-md-block">
             <i class="fa fa-search"></i>
         </button>
-        <button class="btn-paella bg-paella-2 text-color-1" (click)="buscar()">Buscar</button>
+        <button class="btn-paella bg-paella-2 text-color-1 d-md-none" (click)="buscar()">Buscar</button>
     </div>
 </div>
 
