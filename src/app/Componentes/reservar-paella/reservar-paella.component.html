@@ -129,11 +129,12 @@
                         <h5 class="text-left">MÉTODO DE PAGO</h5>
                         <div class="d-flex justify-content-center">
                             <div class="col-md-6">
-                                <button type="button" class="btn-pago-1">PayPal</button>
+                                <button type="button" class="btn-pago-1" data-toggle="modal" data-target="#exampleModalCenter">Stripe</button>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" (click)="paypal.click()" class="btn-pago-2">Tarjeta de crédito o
-                                    débito</button>
+                                <button type="button" (click)="paypal.click()" class="btn-pago-2">
+                                    Tarjeta de crédito o débito
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -148,4 +149,12 @@
         </div>
     </div>
 </div>
-<app-stripe></app-stripe>
+
+<div #myModal class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <app-stripe (response)="stripeResponse($event,myModal)"></app-stripe>
+        </div>
+    </div>
+</div>

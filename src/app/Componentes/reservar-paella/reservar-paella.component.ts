@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Event } from '@angular/router';
 import Swal from 'sweetalert2';
 
 import * as moment from 'moment';
@@ -76,6 +76,12 @@ export class ReservarPaellaComponent implements OnInit {
     this.form.get('reserva_raciones').setValue(cantidad);
     botonHtml.innerHTML = cantidadStringSeleccionada;
     this.cajaRacionesAbierta = false;
+  }
+
+  stripeResponse(e: Event, modal: HTMLElement) {
+    if (e) {
+      modal.click();
+    }
   }
 
 }
