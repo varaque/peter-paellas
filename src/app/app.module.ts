@@ -88,6 +88,7 @@ import { DashboardModule } from './Componentes/dashboard/dashboard.module';
 import { PerfilCocineroComponent } from './Componentes/perfil-cocinero/perfil-cocinero.component';
 import { BuscadorPaellasComponent } from './Componentes/buscador-paellas/buscador-paellas.component';
 import { ReservarPaellaComponent } from './Componentes/reservar-paella/reservar-paella.component';
+import { StripeComponent } from './Componentes/stripe/stripe.component';
 
 
 @NgModule({
@@ -113,6 +114,7 @@ import { ReservarPaellaComponent } from './Componentes/reservar-paella/reservar-
     PerfilCocineroComponent,
     BuscadorPaellasComponent,
     ReservarPaellaComponent,
+    StripeComponent,
 
   ],
   imports: [

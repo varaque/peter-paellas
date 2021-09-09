@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   isMockEnabled: true, // You have to switch this, when your real back-end is done
-  apiUrl: 'http://api.peterpaellas.local/'
+  apiUrl: 'http://api.peterpaellas.local/',
+  p_key: 'pk_test_51JXkpYCdYN67MyosqJ1U9CJWo3liwFw5syPO8p1dCtmc3cuJKnf1mTNKrgwUkMXJkE7X1jInFshkybeHMinxE0zt00Jg2m58jJ'
 };
 
 /*

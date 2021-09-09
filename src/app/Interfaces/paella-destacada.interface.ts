@@ -6,7 +6,8 @@ export interface PaellaDestacadaInterface {
     paella_foto_url: string;
     usuario_nombre: string;
     provincia_nombre: string;
-    paella_fecha_coccion:string;
-    valoracion:number;
-    numero_votos:number;
+    paella_fecha_coccion: string;
+    valoracion: number;
+    numero_votos: number;
+    id_cocinero: number
 }

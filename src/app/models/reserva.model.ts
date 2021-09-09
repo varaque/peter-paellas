@@ -13,6 +13,7 @@ export class Reserva implements ReservaInterface {
     paella_fecha_coccion: string;
     valoracion: number;
     numero_votos: number;
+    reserva_status: number;
 
     constructor(reserva: any) {
         if (reserva) {
@@ -25,6 +26,7 @@ export class Reserva implements ReservaInterface {
             this.paella_fecha_coccion = reserva.paella_fecha_coccion;
             this.valoracion = reserva.valoracion;
             this.numero_votos = reserva.numero_votos;
+            this.reserva_status = reserva.reserva_status;
         } else {
             Object.keys(this).forEach(key => this[key] = undefined);
         }

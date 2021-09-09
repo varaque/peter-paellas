@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from './api/api.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+
+import { environment } from 'src/environments/environment';
+
+import { ApiService } from './api/api.service';
 import { Reserva } from '../models/reserva.model';
 
 @Injectable({
@@ -31,11 +34,11 @@ export class ReservaService {
     )
   }
 
-  cancelarReserva(id_reserva: number) {
+  cancelarReserva(id_reserva_paella: number) {
     return this.apiService.conectar({
-      modelo: 'paellas',
+      modelo: 'reservas',
       accion: 'CancelarReserva',
-      argumentos: id_reserva
+      argumentos: id_reserva_paella
     }).pipe(
       map(res => res.respuesta)
     )

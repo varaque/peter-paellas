@@ -10,6 +10,7 @@ export class PaellaDestacada implements PaellaDestacadaInterface {
     paella_fecha_coccion: string;
     valoracion: number;
     numero_votos: number;
+    id_cocinero: number;
 
     constructor(paellaDestacada: any) {
         this.id_paella = paellaDestacada.id_paella;
@@ -20,6 +21,7 @@ export class PaellaDestacada implements PaellaDestacadaInterface {
         this.paella_fecha_coccion = paellaDestacada.paella_fecha_coccion;
         this.valoracion = paellaDestacada.valoracion;
         this.numero_votos = +paellaDestacada.numero_votos;
+        this.id_cocinero = +paellaDestacada.id_cocinero;
 
     }
     get imagenSrc() {

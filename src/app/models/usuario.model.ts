@@ -15,6 +15,7 @@ export class Usuario implements UsuarioInterface {
     id_direccion: number;
     poblacion: string;
     usuario_descripcion: string;
+    usuario_rol: number;
 
     constructor(usuario?: any) {
         if (usuario) {
@@ -30,19 +31,9 @@ export class Usuario implements UsuarioInterface {
             this.id_direccion = +usuario.id_direccion;
             this.poblacion = usuario.poblacion;
             this.usuario_descripcion = usuario.usuario_descripcion || 'Este usuario no tiene descripción disponible';
+            this.usuario_rol = usuario.usuario_rol;
         } else {
-            this.id_usuario = null;
-            this.usuario_nombre = null;
-            this.usuario_email = null;
-            this.usuario_telefono = null;
-            this.usuario_foto = null;
-            this.calle = null;
-            this.id_provincia = null;
-            this.codigo_postal = null;
-            this.provincia_nombre = null;
-            this.id_direccion = null;
-            this.poblacion = null;
-            this.usuario_descripcion = null;
+            Object.keys(this).forEach(key => { this[key] = null });
         }
     }
 

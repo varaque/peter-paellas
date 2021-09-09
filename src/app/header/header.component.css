@@ -1,3 +1,7 @@
+.active {
+    border-bottom: 5px solid #E9CDA5;
+}
+
 .main-menu {
     width: 100%;
     background: #fff;
@@ -15,6 +19,7 @@
 
 .main-menu ul li {
     padding: 0 8px;
+    display: inline;
 }
 
 .main-menu ul li a {

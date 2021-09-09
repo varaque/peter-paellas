@@ -15,4 +15,5 @@ export interface UsuarioInterface {
     id_direccion: number;
     poblacion: string;
     usuario_descripcion: string;
+    usuario_rol: number
 }

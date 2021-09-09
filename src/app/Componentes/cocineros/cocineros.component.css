@@ -42,7 +42,6 @@
     justify-content: center;
     align-items: center;
     background-color: #ffefd5;
-    background: linear-gradient(to bottom, rgb( 255 255 255 / 10%), #ffefd5);
 }
 
 .container {

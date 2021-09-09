@@ -8,10 +8,10 @@
 
     <div class="col-6 col-xl-5 d-flex justify-content-start align-items-center">
       <ul>
-        <li><a routerLink="/buscar-paellas">buscar</a></li>
-        <li><a class="cursor-pointer" (click)="launchAction()">publicar paella</a></li>
-        <li><a routerLink="/cocineros">cocineros</a></li>
-        <li><a routerLink="/contacto">contacto</a></li>
+        <li><a routerLink="/buscar-paellas" routerLinkActive="active">buscar</a></li>
+        <li><a class="cursor-pointer" (click)="launchAction()" routerLink="/dashboard/publicar-paella" routerLinkActive="active">publicar paella</a></li>
+        <li><a routerLink="/cocineros" routerLinkActive="active">cocineros</a></li>
+        <li><a routerLink="/contacto" routerLinkActive="active">contacto</a></li>
       </ul>
     </div>
 
@@ -26,7 +26,7 @@
           <ul>
             <li (click)="redirect('/dashboard')">Panel personal</li>
             <li (click)="redirect('/dashboard/panel-usuario')">Opiniones</li>
-            <li (click)="redirect('/dashboard/panel-usuario')" class="d-xl-none">Reservas</li>
+            <li (click)="redirect('/dashboard/mis-reservas')" class="d-xl-none">Reservas</li>
             <li (click)="redirect('/preguntas-frecuentes')">Ayuda</li>
             <li (click)="logout()">Cerrar cesión</li>
           </ul>

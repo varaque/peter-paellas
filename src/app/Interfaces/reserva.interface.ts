@@ -8,4 +8,5 @@ export interface ReservaInterface {
     paella_fecha_coccion: string;
     valoracion: number;
     numero_votos: number;
+    reserva_status: number;
 }

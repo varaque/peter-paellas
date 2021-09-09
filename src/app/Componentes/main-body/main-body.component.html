@@ -21,9 +21,9 @@
     </div>
 
     <div class="col-12 col-md-6 col-lg-5 col-xl-4 caja-buscador-paellas">
-      <div class="row">
+      <div class="row d-flex justify-content-center">
         <!-- select de los tipos de paellas -->
-        <div class="col-12 col-md-11 col-lg-12">
+        <div class="col-12 col-md-11 col-lg-8">
           <div class="row">
             <div class="col-12" (click)="toggleSelect(1)">
               <select [(ngModel)]="filter.tipoPaella" class="custom-select-arrow">
@@ -58,7 +58,7 @@
         </div>
 
         <!-- select de las provincias -->
-        <div class="col-12 col-md-11 col-lg-12">
+        <div class="col-12 col-md-11 col-lg-8">
           <div class="row">
             <div class="col-12" (click)="toggleSelect(2)">
               <div class="custom-select-gps">
@@ -93,12 +93,12 @@
         </div>
 
         <!-- input de las fechas -->
-        <div class="col-12 col-md-11 col-lg-12">
+        <div class="col-12 col-md-11 col-lg-8">
           <input #fechaRef class="custom-select-calendar" value="Seleccione una fecha" type="button"
             (click)="toggleCalendar()">
 
           <div class="custom-date-picker" *ngIf="calendarOpened">
-            <div class="col-4 p-0 custom-date-picker-info">
+            <div class="col-4 col-xl-3 p-0 custom-date-picker-info">
               <div>
                 <p>SELECCIONA UNA FECHA</p>
                 <ul>
@@ -108,7 +108,7 @@
                 </ul>
               </div>
             </div>
-            <div class="col-10 col-sm-10 col-md-9 col-lg-10 col-xl-12 p-0 custom-date-picker-calendar">
+            <div class="col-10 col-sm-10 col-md-9 col-lg-10 col-xl-11 p-0 custom-date-picker-calendar">
               <mat-calendar (selectedChange)="seleccionarFecha($event)"></mat-calendar>
             </div>
           </div>
@@ -147,25 +147,20 @@
           <div class="info-cocinero">
             <div class="w-100 d-flex justify-content-between align-items-center">
               <div>
-                <p class="card-text"> {{paella.usuario_nombre}} </p>
+                <a class="card-text" routerLink="perfil-cocinero/{{paella.id_cocinero}}"> {{paella.usuario_nombre}} </a>
               </div>
               <div class="d-flex justify-content-end align-items-center">
                 <div class="caja-estrellas">
                   <input id="radio1" type="radio" name="estrellas" value="5">
-                  <label (click)="valorarPaella(paella,5)" [style.color]="paella.valoracion>=5? 'orange':grey"
-                    for="radio1">&#9733;</label>
+                  <label [style.color]="paella.valoracion>=5? 'orange':grey" for="radio1">&#9733;</label>
                   <input id="radio2" type="radio" name="estrellas" value="4">
-                  <label (click)="valorarPaella(paella,4)" [style.color]="paella.valoracion>=4? 'orange':grey"
-                    for="radio2">&#9733;</label>
+                  <label [style.color]="paella.valoracion>=4? 'orange':grey" for="radio2">&#9733;</label>
                   <input id="radio3" type="radio" name="estrellas" value="3">
-                  <label (click)="valorarPaella(paella,3)" [style.color]="paella.valoracion>=3? 'orange':grey"
-                    for="radio3">&#9733;</label>
+                  <label [style.color]="paella.valoracion>=3? 'orange':grey" for="radio3">&#9733;</label>
                   <input id="radio4" type="radio" name="estrellas" value="2">
-                  <label (click)="valorarPaella(paella,2)" [style.color]="paella.valoracion>=2? 'orange':grey"
-                    for="radio4">&#9733;</label>
+                  <label [style.color]="paella.valoracion>=2? 'orange':grey" for="radio4">&#9733;</label>
                   <input id="radio5" type="radio" name="estrellas" value="1">
-                  <label (click)="valorarPaella(paella,1)" [style.color]="paella.valoracion>=1? 'orange':grey"
-                    for="radio5">&#9733;</label>
+                  <label [style.color]="paella.valoracion>=1? 'orange':grey" for="radio5">&#9733;</label>
                 </div>
                 <div>
                   <p class="mt-auto mb-auto">{{'('+paella.numero_votos+')'}}</p>

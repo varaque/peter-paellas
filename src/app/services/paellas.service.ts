@@ -70,16 +70,7 @@ export class PaellasService {
     )
   }
 
-  cancelarPaella(id_paella: number): Observable<any> {
-    return this.api.conectar({
-      modelo: 'paellas',
-      accion: 'CancelarPaella',
-      argumentos: id_paella
-    }).pipe(
-      map(res => res.respuesta)
-    )
-  }
-  
+
   listarPaellasCocinero() {
     return this.api.conectar({
       modelo: 'paellas',

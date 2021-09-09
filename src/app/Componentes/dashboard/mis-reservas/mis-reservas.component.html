@@ -50,10 +50,10 @@
 
                     <p class="card-text text-left mb-4 pl-4 text-color-3">
                         <i class="fa fa-calendar text-color-2"></i>
-                        {{paella.paella_fecha_coccion|date:'fullDate'|titlecase}}
+                        {{paella.paella_fecha_coccion | date:'fullDate'|titlecase}}
                     </p>
 
-                    <button (click)="cancelarPaella(paella.id_paella)"
+                    <button (click)="cancelarPaella(paella)"
                         class="btn-paella btn-paella-border-2 text-color-1 bg-paella-2 mx-5">
                         Cancelar Paella
                     </button>
