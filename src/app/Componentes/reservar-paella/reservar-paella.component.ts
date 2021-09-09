@@ -9,14 +9,12 @@ import { PaellasService } from 'src/app/services/paellas.service';
 import { InfoPaellaReserva } from 'src/app/models/info-paella-reserva.model';
 import { ReservaService } from 'src/app/services/reserva.service';
 
-declare var paypal;
 @Component({
   selector: 'app-reservar-paella',
   templateUrl: './reservar-paella.component.html',
   styleUrls: ['./reservar-paella.component.css']
 })
 export class ReservarPaellaComponent implements OnInit {
-  @ViewChild('paypal') paypalElement: ElementRef;
 
   iframe: boolean = false;
   cajaRacionesAbierta: boolean = false;
@@ -29,7 +27,7 @@ export class ReservarPaellaComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private paellaService: PaellasService,
-    private reservaService:ReservaService) {
+    private reservaService: ReservaService) {
     this.form = this.fb.group({
       usuario_nombre: ['Willian', [Validators.required]],
       usuario_telefono: ['123456789', [Validators.required]],
@@ -44,7 +42,6 @@ export class ReservarPaellaComponent implements OnInit {
 
   async ngOnInit() {
     this.paella = await this.paellaService.obtenerDatosPaellaReserva(this.route.snapshot.params.id).toPromise();
-    this.paypal();
   }
 
   reservarPaella() {
@@ -79,35 +76,6 @@ export class ReservarPaellaComponent implements OnInit {
     this.form.get('reserva_raciones').setValue(cantidad);
     botonHtml.innerHTML = cantidadStringSeleccionada;
     this.cajaRacionesAbierta = false;
-  }
-
-  paypal() {
-    paypal.Buttons({
-      createOrder: (data, actions) => {
-        return actions.order.create({
-          purchase_units: [
-            {
-              description: this.paella.tipo_paella_nombre,
-              amount: {
-                currency_code: 'EUR',
-                value: this.paella.paella_precio * this.form.get('reserva_raciones').value,
-              }
-
-            }
-          ]
-        })
-      },
-      onApprove: async (data, actions) => {
-        const order = await actions.order.capture();
-        //this.saveReserva();
-        console.log(order);
-
-      },
-      onError: err => {
-        console.log(err);
-      }
-    })
-      .render(this.paypalElement.nativeElement);
   }
 
 }
