@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-import { environment } from 'src/environments/environment';
-
 import { ApiService } from './api/api.service';
 import { Reserva } from '../models/reserva.model';
 

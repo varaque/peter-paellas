@@ -44,7 +44,7 @@ export class ReservarPaellaComponent implements OnInit {
     this.paella = await this.paellaService.obtenerDatosPaellaReserva(this.route.snapshot.params.id).toPromise();
   }
 
-  reservarPaella() {
+  reservarPaella(buttonModal:HTMLElement) {
     this.formSumbited = true;
     if (this.form.invalid) {
       return;
@@ -55,11 +55,7 @@ export class ReservarPaellaComponent implements OnInit {
       return;
     }
 
-    this.reservaService.reservarPaella(this.form.value).subscribe(res => {
-      this.formSumbited = true;
-      //this.form.reset();
-      res.status ? Swal.fire('Muy bien', res.msg, 'success') : Swal.fire('Error', 'Ha ocurrido un error', 'error');
-    });
+    buttonModal.click()
   }
 
   toggleCajaRaciones() {
@@ -78,9 +74,14 @@ export class ReservarPaellaComponent implements OnInit {
     this.cajaRacionesAbierta = false;
   }
 
-  stripeResponse(e: Event, modal: HTMLElement) {
-    if (e) {
+  stripeResponse(responseStripe: Event, modal: HTMLElement) {
+    if (responseStripe) {
       modal.click();
+      this.reservaService.reservarPaella(this.form.value).subscribe(res => {
+        this.formSumbited = true;
+        //this.form.reset();
+        res.status ? Swal.fire('Muy bien', res.msg, 'success') : Swal.fire('Error', 'Ha ocurrido un error', 'error');
+      });
     }
   }
 

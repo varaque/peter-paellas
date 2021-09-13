@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import Swal from 'sweetalert2';
 
 import { StripeService } from 'src/app/services/stripe.service';
 
@@ -85,7 +84,6 @@ export class StripeComponent implements OnInit {
          "https://dashboard.stripe.com/test/payments/" + paymentIntentId
        ); */
     document.querySelector("button").disabled = true;
-    Swal.fire('Muy bien', 'Tu reserva ha sido guardada satisfactoriamente', 'success');
     this.valorSalida.emit(true);
   }
 

@@ -56,7 +56,7 @@
 
         <!-- caja del formulario -->
         <div class="col-lg-6 px-lg-5">
-            <form class="formulario-reservar-paella" [formGroup]="form" (submit)="reservarPaella()">
+            <form class="formulario-reservar-paella" [formGroup]="form" (submit)="reservarPaella(buttonModal)">
                 <div class="form-row d-flex justify-content-center">
                     <div class="form-group col-md-8 titulo-fomulario">
                         <h3 class="text-left">¡RESERVA TU PAELLA! </h3>
@@ -129,19 +129,15 @@
                         <h5 class="text-left">MÉTODO DE PAGO</h5>
                         <div class="d-flex justify-content-center">
                             <div class="col-md-6">
-                                <button type="button" class="btn-pago-1" data-toggle="modal" data-target="#exampleModalCenter">Stripe</button>
+                                <button type="submit" class="btn-pago-1">Stripe</button>
+                                <button #buttonModal data-toggle="modal" data-target="#exampleModalCenter" style="display: none;"></button>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" (click)="paypal.click()" class="btn-pago-2">
+                                <button type="button" class="btn-pago-2">
                                     Tarjeta de crédito o débito
                                 </button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-group col-md-8 caja-botones">
-                        <button type="button" class="btn-cancelar">Cancelar</button>
-                        <button type="submit" class="btn-reservar">Reservar</button>
                     </div>
 
                 </div>

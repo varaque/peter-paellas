@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ApiService } from './api/api.service';
 
+declare var Stripe;
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,7 @@ export class StripeService {
       accion: 'PaymentIntent',
       argumentos: ''
     }).pipe(
-      map(res => JSON.parse(res.respuesta))
+      map(res => res.respuesta)
     )
   }
 }
